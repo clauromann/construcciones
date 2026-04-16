@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    // LaTeX — esencial
+    "james-yu.latex-workshop",
+
+    // Corrector ortográfico en español
+    "valentjn.vscode-ltex",
+
+    // Git
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+
+    // Utilidades generales
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker-spanish"
+  ]
+}

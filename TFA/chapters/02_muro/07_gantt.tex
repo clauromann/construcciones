@@ -1,0 +1,84 @@
+% ============================================================
+%  SECCIÓN — DIAGRAMA DE GANTT (MURO)
+% ============================================================
+\section{Programación de obras — Diagrama de Gantt}
+\label{sec:muro_gantt}
+
+\subsection{Actividades y duraciones}
+
+% TODO: Calcular las duraciones de cada actividad usando los rendimientos dados:
+%   - Encofrado:  40 m²/día   → dias = m² encofrado / 40
+%   - Ferrallado: 1000 kg/día → dias = kg acero / 1000
+%   - Hormigonado (bomba): 10 m³/h → calcular horas y convertir a días
+%   - Curado mínimo: 7 días (criterio normativo)
+%   - Relleno + compactación: 2.50 m³/día por equipo
+
+\begin{table}[H]
+  \centering
+  \caption{Actividades del proceso constructivo y duraciones estimadas}
+  \label{tab:actividades}
+  \begin{tabular}{@{}clcc@{}}
+    \toprule
+    \textbf{ID} & \textbf{Actividad} & \textbf{Duración (semanas)} & \textbf{Predecesoras} \\
+    \midrule
+    A & Replanteo y trabajos previos     & 1  & --- \\
+    B & Excavación general               & 2  & A \\
+    C & Encachado y HM-15 de limpieza    & 1  & B \\
+    D & Ferrallado de zapata             & 1  & C \\
+    E & Encofrado de zapata              & 1  & D \\
+    F & Hormigonado de zapata + curado   & 2  & E \\
+    G & Ferrallado del fuste             & 1  & F \\
+    H & Encofrado del fuste              & 1  & G \\
+    I & Hormigonado del fuste + curado   & 2  & H \\
+    J & Desencofrado                     & 1  & I \\
+    K & Impermeabilización y drenaje     & 1  & J \\
+    L & Relleno y compactación trasdós   & 2  & K \\
+    M & Acabados y remates               & 1  & L \\
+    \midrule
+    \multicolumn{2}{l}{\textbf{PLAZO TOTAL}} & \textbf{17} & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Diagrama de Gantt}
+
+% Escala: 1 columna = 1 semana. Plazo total orientativo: 17 semanas (~4 meses).
+% TODO: Ajustar semanas de inicio/fin una vez calculadas las duraciones reales.
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{ganttchart}[
+    hgrid,
+    vgrid={*{1}{dotted}},
+    x unit=0.7cm,
+    y unit title=0.6cm,
+    y unit chart=0.55cm,
+    title/.style={draw=none, fill=NavyBlue!80, text=white},
+    title label font=\bfseries\footnotesize,
+    bar/.style={fill=NavyBlue!50, rounded corners=2pt},
+    bar label font=\footnotesize,
+    bar label node/.append style={align=left},
+    milestone/.style={fill=red!80},
+    today rule/.style={draw=red, ultra thick}
+  ]{1}{17}
+  \gantttitle{Programación de obras (semanas)}{17} \\
+  \gantttitlelist{1,...,17}{1} \\
+  \ganttbar{A - Replanteo}{1}{1} \\
+  \ganttbar{B - Excavación}{2}{3} \\
+  \ganttbar{C - H. limpieza}{4}{4} \\
+  \ganttbar{D - Ferrallado zapata}{5}{5} \\
+  \ganttbar{E - Encofrado zapata}{6}{6} \\
+  \ganttbar{F - Horm. zapata + curado}{7}{8} \\
+  \ganttbar{G - Ferrallado fuste}{9}{9} \\
+  \ganttbar{H - Encofrado fuste}{10}{10} \\
+  \ganttbar{I - Horm. fuste + curado}{11}{12} \\
+  \ganttbar{J - Desencofrado}{13}{13} \\
+  \ganttbar{K - Impermeab. + drenaje}{14}{14} \\
+  \ganttbar{L - Relleno trasdós}{15}{16} \\
+  \ganttbar{M - Acabados}{17}{17}
+\end{ganttchart}
+}
+\caption{Diagrama de Gantt del proceso constructivo del muro (borrador — duraciones orientativas)}
+\label{fig:gantt_muro}
+\end{figure}

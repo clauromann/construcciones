@@ -1,0 +1,105 @@
+% ============================================================
+%  CAPÍTULO 1 — INTRODUCCIÓN Y CONTEXTO
+% ============================================================
+\chapter{Introducción y contexto}
+
+\section{Descripción del encargo}
+
+El presente informe ha sido elaborado por el Departamento de Ingeniería de una empresa
+especializada en construcción y mantenimiento de plantas industriales, en el marco de un
+contrato de mantenimiento y explotación de una Estación Depuradora de Aguas Residuales
+(EDAR) de titularidad pública.
+
+El contrato establece la necesidad de estudiar y valorar determinadas mejoras de
+infraestructura que contribuyan a una mejor operatividad y mantenimiento de las
+instalaciones. Conforme a las instrucciones del Director General, el presente documento se
+centra exclusivamente en la parte de \textbf{Obra Civil}, abarcando los dos apartados
+indicados en el \textit{Anexo I} del contrato:
+
+\begin{enumerate}
+  \item \textbf{Muro de contención / pantalla}: contención del desnivel necesario para la
+        implantación de una planta fotovoltaica, con una longitud en planta de 150~ml y un
+        desnivel de \alturaDesnivelMuro~m.
+  \item \textbf{Arqueta de fangos mezcla}: nuevo depósito de almacenamiento de fangos de
+        dimensiones $\largoArqueta$~m~$\times$~$\anchoArqueta$~m~$\times$~$\alturaArqueta$~m
+        (largo~$\times$~ancho~$\times$~alto).
+\end{enumerate}
+
+\section{Datos de partida}
+
+\subsection{Parámetros del grupo}
+
+Los parámetros $X$ e $Y$ se han obtenido a partir de la media de los DNIs de los seis
+integrantes del grupo (tabla~\ref{tab:dnis}):
+
+\begin{table}[H]
+  \centering
+  \caption{DNIs del grupo y cálculo de la media}
+  \label{tab:dnis}
+  \begin{tabular}{@{}cc@{}}
+    \toprule
+    \textbf{Alumno} & \textbf{DNI (número)} \\
+    \midrule
+    1 & 30\,248\,832 \\
+    2 & 49\,505\,322 \\
+    3 & 77\,936\,142 \\
+    4 & 01\,647\,207 \\
+    5 & 49\,275\,542 \\
+    6 & 53\,965\,819 \\
+    \midrule
+    \textbf{Suma} & 262\,578\,864 \\
+    \textbf{Media} & 43\,763\,144 \\
+    \midrule
+    $X$ & \paramX \\
+    $Y$ & \paramY \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Condicionantes especiales}
+
+\begin{notabox}[Condicionantes medioambientales y geotécnicos]
+  \begin{itemize}
+    \item La zona de ejecución está \textbf{especialmente protegida medioambientalmente},
+          por lo que se deben adoptar medidas específicas contra posibles filtraciones de
+          carácter químico o bacteriano al terreno.
+    \item Los análisis del estudio geotécnico indican una \textbf{concentración de
+          sulfatos} de $3\,500$~mg~SO$_4^{2-}$/kg de suelo seco, lo que condiciona la
+          elección del tipo de cemento y clase de exposición del hormigón.
+  \end{itemize}
+\end{notabox}
+
+\subsection{Columna estratigráfica — Sondeo 1}
+
+La tabla~\ref{tab:sondeo1} recoge los parámetros geotécnicos de los estratos identificados
+en el Sondeo~1 (Reactor Biológico), que servirá de referencia para todos los cálculos
+geotécnicos de este informe.
+
+\begin{table}[H]
+  \centering
+  \caption{Columna estratigráfica Sondeo 1}
+  \label{tab:sondeo1}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}lcccccccc@{}}
+    \toprule
+    \textbf{Estrato} & \textbf{Cota (m)} &
+    $\gamma$ \textbf{(Tn/m³)} & $\phi'$ \textbf{(°)} &
+    $N_{\text{SPT}}$ & $C'$ \textbf{(kg/cm²)} &
+    $C_u$ \textbf{(kg/cm²)} & $E$ \textbf{(MPa)} & $\nu$ \\
+    \midrule
+    Arena limosa gris-verdosa, poco densa
+      & 0{,}00 a $-$2{,}50 & 1{,}82 & 29 & 9  & 0    & 0    & 6{,}894  & 0{,}25 \\
+    \quad (saturada)
+      & $-$2{,}50 a $-$3{,}50 & 1{,}98 & 29 & 9  & 0    & 0    & 6{,}894  & 0{,}25 \\
+    Arcillas versicolores + intercalac. arena, consistencia media
+      & $-$3{,}50 a $-$8{,}00 & 1{,}78 & 25{,}2 & 8  & 0{,}47 & 1{,}00 & 12{,}000 & 0{,}30 \\
+    Arcillas margosas, consistencia firme
+      & $-$8{,}00 a $-$25{,}00 & 1{,}92 & 26 & 33 & 0{,}78 & 1{,}52 & 25{,}278 & 0{,}25 \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\begin{notabox}[Nivel freático]
+  El nivel freático (N.F.) se sitúa a $-$2{,}50~m de profundidad, en el contacto con
+  la capa de arena limosa saturada.
+\end{notabox}

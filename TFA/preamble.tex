@@ -1,0 +1,148 @@
+% ============================================================
+%  PREAMBLE — Informe de Obra Civil · EDAR
+%  Asignatura: Construcción e Instalaciones Industriales
+%  Máster en Ingeniería Industrial
+% ============================================================
+
+% --- Codificación y idioma ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+
+% --- Geometría de página ---
+\usepackage[
+  a4paper,
+  top=2.5cm, bottom=2.5cm,
+  left=3cm,  right=2.5cm,
+  headheight=15pt
+]{geometry}
+
+% --- Fuente ---
+\usepackage{lmodern}
+
+% --- Matemáticas ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bm}           % bold math
+
+% --- Unidades SI ---
+\usepackage{siunitx}
+\sisetup{
+  per-mode              = symbol,
+  group-separator       = {.},
+  output-decimal-marker = {,}
+}
+
+% --- Gráficos y figuras ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
+
+% --- TikZ (dibujos técnicos y diagramas) ---
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{
+  patterns, arrows.meta, calc, decorations.pathmorphing,
+  decorations.markings, shapes.geometric, positioning, fit,
+  backgrounds, shadows
+}
+
+% --- Diagrama de Gantt ---
+\usepackage{pgfgantt}
+
+% --- Tablas ---
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+
+% --- Listas ---
+\usepackage{enumitem}
+
+% --- Encabezados y pies de página ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Informe de Obra Civil — EDAR}}
+\fancyhead[R]{\small\textit{Máster en Ingeniería Industrial}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Índice con hiperlinks ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=NavyBlue,
+  citecolor=NavyBlue,
+  urlcolor=NavyBlue,
+  pdftitle={Informe de Obra Civil — EDAR},
+  pdfauthor={Grupo Obra Civil}
+]{hyperref}
+\usepackage{cleveref}
+
+% --- Cajas de notas / advertencias ---
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\newtcolorbox{notabox}[1][Nota]{
+  title=#1, colback=blue!5!white, colframe=NavyBlue,
+  fonttitle=\bfseries, breakable
+}
+\newtcolorbox{supuestobox}[1][Supuesto adoptado]{
+  title=#1, colback=orange!5!white, colframe=BurntOrange,
+  fonttitle=\bfseries, breakable
+}
+\newtcolorbox{resultadobox}[1][Resultado]{
+  title=#1, colback=green!5!white, colframe=OliveGreen,
+  fonttitle=\bfseries, breakable
+}
+
+% --- Bibliografía ---
+\usepackage{csquotes}   % requerido por biblatex con babel
+\usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
+\addbibresource{referencias.bib}
+
+% --- Código fuente (por si se incluyen scripts de cálculo) ---
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single,
+  language=Python
+}
+
+% ============================================================
+%  PARÁMETROS DEL GRUPO (actualizar con los DNIs reales)
+% ============================================================
+% Media de los DNIs del grupo → X = primera cifra, Y = segunda cifra
+% DNIs del grupo (6 alumnos):
+%   30248832 / 49505322 / 77936142 / 01647207 / 49275542 / 53965819
+% Suma = 262.578.864  →  Media = 43.763.144  →  X = 4, Y = 3
+\newcommand{\paramX}{4}
+\newcommand{\paramY}{3}
+
+% Dimensiones derivadas de X e Y
+\newcommand{\alturaDesnivelMuro}{7{,}3}   % (X+3,Y) = 7,3 m de desnivel
+\newcommand{\largoArqueta}{4}             % largo arqueta [m]
+\newcommand{\anchoArqueta}{3}             % ancho arqueta [m]
+\newcommand{\alturaArqueta}{3{,}5}        % (X+Y)/2 = 3,5 m
+
+% ============================================================
+%  COMANDOS ÚTILES
+% ============================================================
+\newcommand{\kNm}{\si{\kilo\newton\per\metre}}
+\newcommand{\kNmm}{\si{\kilo\newton\per\metre\squared}}
+\newcommand{\kNcm}{\si{\kilo\newton\per\centi\metre\squared}}
+\newcommand{\Tnm}{\si{\tonne\per\metre\cubed}}
+\newcommand{\MPa}{\si{\mega\pascal}}
+
+% Ecuación numerada con descripción
+\newcommand{\eqtext}[1]{\quad \text{(#1)}}
+
+% Resaltar valor final de un cálculo
+\newcommand{\resultado}[1]{\boxed{#1}}

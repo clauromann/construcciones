@@ -1,0 +1,63 @@
+% ============================================================
+%  INFORME DE OBRA CIVIL — EDAR
+%  Construcción e Instalaciones Industriales
+%  Máster en Ingeniería Industrial · Curso 2025-2026
+%
+%  Compilar con:  pdflatex → biber → pdflatex → pdflatex
+%  O con:         latexmk -pdf main.tex
+% ============================================================
+\documentclass[12pt, a4paper, twoside]{report}
+
+\input{preamble}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% --- Portada ---
+\input{chapters/00_portada}
+
+% --- Índice ---
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+% --- Capítulo 1: Introducción y contexto ---
+\input{chapters/01_introduccion}
+
+% ============================================================
+% PARTE I — MURO DE CONTENCIÓN / PANTALLA
+% ============================================================
+\input{chapters/02_muro/00_intro_muro}
+\input{chapters/02_muro/01_descripcion_opciones}
+\input{chapters/02_muro/02_calculos_geotecnicos}
+\input{chapters/02_muro/03_predimensionamiento}
+\input{chapters/02_muro/04_calculos_estructurales}
+\input{chapters/02_muro/05_proceso_constructivo}
+\input{chapters/02_muro/06_presupuesto}
+\input{chapters/02_muro/07_gantt}
+
+% ============================================================
+% PARTE II — ARQUETA DE FANGOS
+% ============================================================
+\input{chapters/03_arqueta/00_intro_arqueta}
+\input{chapters/03_arqueta/01_calculos_geotecnicos}
+\input{chapters/03_arqueta/02_cimentacion}
+
+% --- Bibliografía ---
+% \nocite{*} incluye todas las referencias aunque aún no haya \cite{} en el texto.
+% Quitar cuando el documento tenga citas reales.
+\newpage
+\nocite{*}
+\printbibliography[heading=bibintoc, title={Referencias}]
+
+% ============================================================
+% ANEXOS
+% ============================================================
+\appendix
+\input{anexos/A_sondeo}
+\input{anexos/B_calculos_manuales}
+
+% ============================================================
+\end{document}

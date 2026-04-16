@@ -1,0 +1,96 @@
+% ============================================================
+%  SECCIÓN — PREDIMENSIONAMIENTO (MURO)
+% ============================================================
+\section{Predimensionamiento de la estructura}
+\label{sec:muro_predim}
+
+\subsection{Criterios de predimensionamiento}
+
+% TODO: Indicar la normativa aplicable (Código Estructural 2021, DBSE-C).
+% TODO: Definir la clase de exposición del hormigón.
+%       Con 3500 mg SO4²⁻/kg → clase de exposición QA (agresividad química moderada).
+%       → Hormigón con cemento resistente a sulfatos (SR), mínimo HA-30.
+
+\begin{notabox}[Clase de exposición — sulfatos]
+  La concentración de sulfatos en el suelo es de $3\,500$~mg~SO$_4^{2-}$/kg, lo que
+  corresponde a una \textbf{clase de exposición QA} (agresividad química moderada).
+  Se adoptará:
+  \begin{itemize}
+    \item Hormigón: HA-30 con cemento SR (resistente a sulfatos).
+    \item Recubrimiento mínimo: $r_{\min} = 35$~mm (clase de exposición IIb+QA).
+    \item Recubrimiento nominal: $r_{\text{nom}} = r_{\min} + \Delta r = 35 + 10 = 45$~mm.
+  \end{itemize}
+\end{notabox}
+
+\subsection{Geometría del muro}
+
+% TODO: Proponer dimensiones con reglas empíricas y verificar.
+% Reglas orientativas para muro en ménsula con H = 7.3 m:
+%   - Canto del fuste en coronación: H/12 ≈ 0.60 m
+%   - Canto del fuste en la base:    H/10 ≈ 0.75 m
+%   - Longitud de la zapata:         0.5·H a 0.7·H ≈ 3.6–5.1 m
+%   - Canto de la zapata:            H/10 a H/8 ≈ 0.75–0.90 m
+
+\subsubsection{Plano de dimensiones acotado}
+
+% TODO: Insertar figura TikZ (o PDF importado) con el plano de dimensiones del muro.
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{planos/muro_dimensiones.pdf}
+%   \caption{Plano de dimensiones acotado del muro de contención}
+%   \label{fig:muro_dimensiones}
+% \end{figure}
+
+\subsubsection{Plano de armado completo}
+
+% TODO: Insertar figura con la disposición de armaduras (cara trasdós, cara intradós,
+%       armadura de reparto, arranques de la zapata…).
+
+\subsubsection{Detalles constructivos}
+
+% TODO: Incluir detalles de: junta de dilatación cada 15-20 m, drenaje del trasdós
+%       (tubo dren Ø100 + geotextil + grava), protección del hormigón frente a sulfatos.
+
+\subsection{Materiales adoptados}
+
+\begin{table}[H]
+  \centering
+  \caption{Materiales estructurales del muro}
+  \label{tab:materiales_muro}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Material} & \textbf{Tipo} & \textbf{Característica} \\
+    \midrule
+    Hormigón fuste y zapata & HA-30/B/20/IIb+QA & $f_{ck} = 30$~MPa \\
+    Hormigón de limpieza    & HM-15             & $f_{ck} = 15$~MPa \\
+    Acero pasivo            & B\,500\,SD         & $f_{yk} = 500$~MPa \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Despiece de acero — resumen de kg}
+
+% TODO: Calcular el volumen de cada barra (φ y longitud), sumar por elementos
+%       (fuste, zapata, armadura de distribución) y obtener el peso total.
+%
+% Densidad del acero: 7850 kg/m³
+
+\begin{table}[H]
+  \centering
+  \caption{Resumen de acero por elementos (a completar)}
+  \label{tab:acero_muro}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Elemento} & \textbf{Tipo barra} & \textbf{N.º barras} &
+    \textbf{Long. (m)} & \textbf{Peso (kg)} \\
+    \midrule
+    Fuste — trasdós   & & & & \\
+    Fuste — intradós  & & & & \\
+    Zapata — inferior & & & & \\
+    Zapata — superior & & & & \\
+    Arm. distribución & & & & \\
+    \midrule
+    \textbf{TOTAL}    & & & & \\
+    \bottomrule
+  \end{tabular}
+\end{table}

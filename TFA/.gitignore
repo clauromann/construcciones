@@ -1,0 +1,39 @@
+# ============================================================
+#  .gitignore — Proyecto LaTeX Construcciones
+# ============================================================
+
+# Archivos auxiliares de LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.lot
+*.lof
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.snm
+*.nav
+*.vrb
+*.xdv
+
+# Archivos de compilación intermedios
+build/
+_build/
+
+# PDF generado (opcional: comentar si se quiere versionar el PDF)
+# main.pdf
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# VS Code
+.vscode/settings.json
+
+# Carpeta de apuntes (no se versiona)
+Apuntes/
