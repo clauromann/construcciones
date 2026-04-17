@@ -4,44 +4,476 @@
 \section{Informe de cálculos geotécnicos}
 \label{sec:muro_geotecnia}
 
-\subsection{Empujes del terreno}
+% -----------------------------------------------------------
+\subsection{Tensiones verticales efectivas por estrato}
+% -----------------------------------------------------------
 
-\subsubsection{Empuje activo de Rankine}
+El perfil estratigráfico del Sondeo~1 presenta cuatro horizontes diferenciados.
+El nivel freático (N.F.) se localiza a $-2{,}50$~m de profundidad. Para la
+obtención de las tensiones verticales efectivas $\sigma'_v$ se aplica el
+\textbf{principio de Terzaghi}:
 
-% TODO: Calcular K_a para cada estrato.
-% Ka = tan²(45 - φ/2)
-% Para arena limosa (φ = 29°):
-%   Ka = tan²(45 - 29/2) = tan²(30.5°) ≈ 0.347
+\begin{equation}
+  \sigma'_v = \sigma_v - u
+  \label{eq:terzaghi}
+\end{equation}
 
-\subsubsection{Empuje pasivo de Rankine}
+donde $u = \gamma_w \cdot h_w$ es la presión intersticial, con
+$\gamma_w = 1{,}00$~Tn/m³ y $h_w$ la altura de agua sobre el punto considerado.
+Por encima del N.F.\ la presión intersticial es nula ($u=0$), por lo que
+$\sigma'_v = \sigma_v = \gamma \cdot z$.
 
-% TODO: Calcular K_p para el empotramiento (si procede).
+\begin{supuestobox}[Densidades adoptadas]
+  \begin{itemize}
+    \item Estrato~1 no saturado ($0 \to -2{,}50$~m):
+          $\gamma_{\text{ap}} = 1{,}82$~Tn/m³
+    \item Estrato~1 saturado ($-2{,}50 \to -3{,}50$~m):
+          $\gamma_{\text{sat}} = 1{,}98$~Tn/m³~$\Rightarrow$~%
+          $\gamma_{\text{sum}} = \gamma_{\text{sat}} - \gamma_w
+           = 1{,}98 - 1{,}00 = 0{,}98$~Tn/m³
+    \item Estrato~2 ($-3{,}50 \to -8{,}00$~m):
+          $\gamma_{\text{sat}} = 1{,}78$~Tn/m³~$\Rightarrow$~%
+          $\gamma_{\text{sum}} = 0{,}78$~Tn/m³
+    \item Estrato~3 ($-8{,}00 \to -25{,}00$~m):
+          $\gamma_{\text{sat}} = 1{,}92$~Tn/m³~$\Rightarrow$~%
+          $\gamma_{\text{sum}} = 0{,}92$~Tn/m³
+  \end{itemize}
+\end{supuestobox}
 
-\subsubsection{Diagrama de empujes}
+\subsubsection{Cálculo punto a punto}
 
-% TODO: Incluir figura TikZ o imagen del diagrama de presiones.
+\paragraph{Cota 0,00~m (superficie):}
+\begin{equation*}
+  \sigma_v = 0{,}00~\text{Tn/m}^2 \qquad u = 0{,}00~\text{Tn/m}^2
+  \qquad \resultado{\sigma'_v = 0{,}00~\text{Tn/m}^2}
+\end{equation*}
 
-\subsection{Capacidad portante — comprobación de hundimiento}
+\paragraph{Cota $-2{,}50$~m (techo N.F., base estrato~1a):}
+\begin{align*}
+  \sigma_v   &= \gamma_{\text{ap}} \cdot h_1
+               = 1{,}82 \times 2{,}50 = 4{,}55~\text{Tn/m}^2 \\
+  u          &= 0{,}00~\text{Tn/m}^2 \\
+  \resultado{\sigma'_v} &= 4{,}55~\text{Tn/m}^2
+\end{align*}
 
-% TODO: Aplicar la fórmula de Brinch-Hansen o Meyerhof para la cimentación elegida.
-% q_ult = c·Nc·sc·ic + q·Nq·sq·iq + 0.5·γ·B·Nγ·sγ·iγ
+\paragraph{Cota $-3{,}50$~m (base estrato~1b / techo estrato~2):}
+\begin{align*}
+  \sigma_v   &= 4{,}55 + \gamma_{\text{sat},1b} \cdot h_{1b}
+               = 4{,}55 + 1{,}98 \times 1{,}00 = 6{,}53~\text{Tn/m}^2 \\
+  u          &= \gamma_w \cdot 1{,}00 = 1{,}00~\text{Tn/m}^2 \\
+  \resultado{\sigma'_v} &= 6{,}53 - 1{,}00 = 5{,}53~\text{Tn/m}^2
+\end{align*}
 
-\subsection{Tensiones admisibles}
+\paragraph{Cota $-8{,}00$~m (base estrato~2 / techo estrato~3):}
+\begin{align*}
+  \sigma_v   &= 6{,}53 + \gamma_{\text{sat},2} \cdot h_2
+               = 6{,}53 + 1{,}78 \times 4{,}50 = 6{,}53 + 8{,}01 = 14{,}54~\text{Tn/m}^2 \\
+  u          &= \gamma_w \cdot 5{,}50 = 5{,}50~\text{Tn/m}^2 \\
+  \resultado{\sigma'_v} &= 14{,}54 - 5{,}50 = 9{,}04~\text{Tn/m}^2
+\end{align*}
 
-% TODO: Calcular la tensión admisible (qadm = qult / FS) con FS ≥ 3.
+\paragraph{Verificación por densidad sumergida (coherencia):}
+\[
+  \sigma'_v(-8{,}00) = \sigma'_v(-3{,}50)
+    + \gamma_{\text{sum},1b} \cdot 1{,}00
+    + \gamma_{\text{sum},2} \cdot 4{,}50
+  = 4{,}55 + 0{,}98 + 3{,}51 = 9{,}04~\text{Tn/m}^2 \quad\checkmark
+\]
 
-\subsection{Asientos}
+\begin{table}[H]
+  \centering
+  \caption{Resumen de tensiones verticales efectivas — Sondeo~1}
+  \label{tab:tensiones_sondeo}
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    \textbf{Cota (m)} & \textbf{Estrato}
+    & $\sigma_v$ \textbf{(Tn/m²)}
+    & $u$ \textbf{(Tn/m²)}
+    & $\sigma'_v$ \textbf{(Tn/m²)} \\
+    \midrule
+    0{,}00           & —           &  0{,}00 & 0{,}00 & 0{,}00 \\
+    $-$2{,}50        & Arena 1a    &  4{,}55 & 0{,}00 & 4{,}55 \\
+    $-$3{,}50        & Arena 1b    &  6{,}53 & 1{,}00 & 5{,}53 \\
+    $-$8{,}00        & Arcilla 2   & 14{,}54 & 5{,}50 & 9{,}04 \\
+    $-$25{,}00       & Arcilla 3   & 47{,}30 &22{,}50 &24{,}80 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\subsubsection{Asiento inmediato (elástico)}
+% -----------------------------------------------------------
+\subsection{Empujes activo y pasivo de Rankine}
+\label{subsec:empujes_rankine}
+% -----------------------------------------------------------
 
-% TODO: Método de la teoría de la elasticidad (Steinbrenner).
-% s_i = q · B · (1 - ν²) / E · Iw
+Para un muro de contención con relleno horizontal y trasdós vertical se
+aplica la \textbf{teoría de Rankine}. Los coeficientes de empuje activo
+$K_a$ y pasivo $K_p$ en condiciones drenadas valen:
 
-\subsubsection{Asiento de consolidación (arcillas)}
+\begin{equation}
+  K_a = \tan^2\!\left(45^\circ - \frac{\phi'}{2}\right)
+  \label{eq:ka}
+\end{equation}
+\begin{equation}
+  K_p = \tan^2\!\left(45^\circ + \frac{\phi'}{2}\right)
+  \label{eq:kp}
+\end{equation}
 
-% TODO: s_c = Cc / (1+e0) · H · log[(σ'v0 + Δσv) / σ'v0]
+La presión horizontal efectiva de empuje activo en un punto es:
 
-\subsection{Tipo de cimentación}
+\begin{equation}
+  \sigma'_{h,a} = K_a \cdot \sigma'_v - 2\,c'\sqrt{K_a}
+  \label{eq:sigma_ha}
+\end{equation}
 
-% TODO: Justificar si la cimentación es superficial (zapata corrida) o profunda (pilotes).
-%       Comparar con criterio de asientos admisibles.
+donde se separa siempre la presión efectiva de la presión intersticial, que
+actúa por igual en todas las direcciones ($K_w = 1$).
+
+\subsubsection{Coeficientes de empuje por estrato}
+
+\paragraph{Estrato~1 (arena limosa, $\phi' = 29°$, $c'=0$):}
+\begin{align*}
+  K_{a,1} &= \tan^2\!\left(45 - \tfrac{29}{2}\right)
+            = \tan^2(30{,}5°) = (0{,}589)^2 = \resultado{0{,}347} \\
+  K_{p,1} &= \tan^2\!\left(45 + \tfrac{29}{2}\right)
+            = \tan^2(59{,}5°) = (1{,}699)^2 = \resultado{2{,}886}
+\end{align*}
+
+\paragraph{Estrato~2 (arcillas versicolores, $\phi' = 25{,}2°$,
+  $c' = 0{,}47$~kg/cm² $= 4{,}70$~Tn/m²):}
+\begin{align*}
+  K_{a,2} &= \tan^2(45 - 12{,}6°) = \tan^2(32{,}4°) = \resultado{0{,}402} \\
+  K_{p,2} &= \tan^2(45 + 12{,}6°) = \tan^2(57{,}6°) = \resultado{2{,}490}
+\end{align*}
+
+\subsubsection{Diagrama de presiones — empuje activo}
+\label{subsubsec:diagrama_activo}
+
+Se incluye la sobrecarga de tráfico $q = 1$~Tn/m² como carga equivalente de
+tierras. La presión horizontal activa total en cada cota se obtiene como:
+\[
+  \sigma_{h,a}^{\text{total}} = K_a\,\sigma'_v + u
+\]
+
+\begin{notabox}[Presiones de empuje activo en cotas clave]
+\begin{description}
+  \item[En superficie (cota 0,00~m):] sobrecarga $q = 1$~Tn/m²
+    \[
+      \sigma'_{h,a}(0) = K_{a,1}\cdot q = 0{,}347 \times 1{,}00
+        = 0{,}347~\text{Tn/m}^2
+    \]
+  \item[Cota $-2{,}50$~m (techo N.F.):] $\sigma'_v = 4{,}55$~Tn/m²; $u=0$
+    \[
+      \sigma'_{h,a}(-2{,}50)
+        = 0{,}347 \times (1{,}00 + 4{,}55)
+        = 0{,}347 \times 5{,}55 = 1{,}93~\text{Tn/m}^2
+    \]
+  \item[Cota $-3{,}50$~m (base arena saturada):] $\sigma'_v = 5{,}53$~Tn/m²;
+    $u = 1{,}00$~Tn/m²
+    \begin{align*}
+      \sigma'_{h,a}(-3{,}50) &= 0{,}347 \times (1{,}00 + 5{,}53)
+        = 0{,}347 \times 6{,}53 = 2{,}26~\text{Tn/m}^2 \\
+      \sigma^{\text{total}}_{h,a}(-3{,}50) &= 2{,}26 + 1{,}00 = 3{,}26~\text{Tn/m}^2
+    \end{align*}
+  \item[Cota $-7{,}30$~m (base del muro):] $h_w = 4{,}80$~m;
+    $\sigma'_v = 5{,}53 + 0{,}78\times3{,}80 = 5{,}53+2{,}96=8{,}49$~Tn/m²
+    \begin{align*}
+      \sigma'_{h,a}(-7{,}30)
+        &= K_{a,2}\,\sigma'_v - 2\,c'\sqrt{K_{a,2}} \\
+        &= 0{,}402 \times (1{,}00 + 8{,}49) - 2 \times 4{,}70 \times \sqrt{0{,}402} \\
+        &= 0{,}402 \times 9{,}49 - 2 \times 4{,}70 \times 0{,}634 \\
+        &= 3{,}81 - 5{,}96 = -2{,}15~\text{Tn/m}^2
+    \end{align*}
+    El valor negativo indica que la cohesión suprime el empuje activo en esta
+    zona; se adopta $\sigma'_{h,a} = 0$ (el terreno no tracciona sobre el muro).
+    La presión total incluyendo agua: $\sigma^{\text{total}}_{h,a}(-7{,}30)
+    = 0 + 4{,}80 = 4{,}80$~Tn/m².
+\end{description}
+\end{notabox}
+
+\subsubsection{Resultante del empuje activo total}
+
+Se descompone el diagrama en tramos rectangulares y triangulares. La
+resultante del empuje activo \textbf{por metro lineal de muro} (longitud
+de referencia 1~ml) se obtiene integrando el diagrama de presiones. Los
+tramos principales son:
+
+\begin{table}[H]
+  \centering
+  \caption{Integración del diagrama de empuje activo (por ml de muro)}
+  \label{tab:empuje_activo}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Tramo} & \textbf{Forma} & $h$ \textbf{(m)}
+    & \textbf{Presión media (Tn/m²)} & $E_a$ \textbf{(Tn/ml)} \\
+    \midrule
+    Sobrecarga $0{,}00 \to -7{,}30$ & Rect. & 7{,}30 & 0{,}347 & 2{,}53 \\
+    Tierra seca $0{,}00 \to -2{,}50$ & Triang. & 2{,}50 & 0{,}347$\times$2{,}28/2 & 0{,}99 \\
+    Tierra sat. $-2{,}50 \to -3{,}50$ & Triang. & 1{,}00 & $(1{,}93+2{,}26)/2$ & 2{,}10 \\
+    Agua $-2{,}50 \to -7{,}30$ & Triang. & 4{,}80 & $4{,}80/2$ & 11{,}52 \\
+    Arcilla (ef.) $-3{,}50 \to -7{,}30$ & Rect.+Triang. & 3{,}80 & $\approx 1{,}13$ & 4{,}29 \\
+    \midrule
+    \textbf{TOTAL} & & & & $\mathbf{21{,}43}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{resultadobox}[Empuje activo total]
+  \[
+    E_a \approx 21{,}4~\text{Tn/ml}
+  \]
+  Actúa a una altura aproximada de $H_e \approx H/3 \approx 2{,}43$~m
+  sobre la base del muro (dominado por el diagrama triangular de agua).
+\end{resultadobox}
+
+\subsubsection{Coeficiente de empuje pasivo}
+
+El empuje pasivo se moviliza en la parte delantera (intradós) del muro,
+donde el terreno de relleno llega hasta la cota de coronación de la
+zapata. Adoptando $D_f = 1{,}0$~m (profundidad mínima de cimentación):
+\begin{align*}
+  \sigma'_{h,p}(D_f) &= K_{p,1} \cdot \gamma_{\text{ap}} \cdot D_f
+    = 2{,}886 \times 1{,}82 \times 1{,}00 = 5{,}25~\text{Tn/m}^2 \\
+  E_p &= \tfrac{1}{2}\,K_{p,1}\,\gamma\,D_f^2
+       = \tfrac{1}{2} \times 2{,}886 \times 1{,}82 \times 1{,}00^2
+       = 2{,}63~\text{Tn/ml}
+\end{align*}
+
+% -----------------------------------------------------------
+\subsection{Capacidad portante de la cimentación}
+\label{subsec:cap_portante_muro}
+% -----------------------------------------------------------
+
+Se estudia la cimentación del muro sobre el \textbf{estrato~2} (arcillas
+versicolores con consistencia media), que es el horizonte de apoyo a la
+cota proyectada de la zapata ($D_f \approx 1{,}0$~m bajo rasante del intradós,
+cota $-1{,}0$~m respecto a la base del terreno de relleno, es decir
+aproximadamente cota $-1{,}0$~m absoluta).
+
+\subsubsection{Situación a largo plazo — condiciones drenadas}
+
+Se aplica la fórmula de \textbf{Brinch-Hansen} para cimentación superficial
+(zapata corrida, $L \to \infty$):
+
+\begin{equation}
+  q_{h} = c'_k\,N_c\,d_c\,s_c\,i_c\,t_c
+          + q_{0k}\,N_q\,d_q\,s_q\,i_q\,t_q
+          + \tfrac{1}{2}\,B^*\,\gamma_k\,N_\gamma\,d_\gamma\,s_\gamma\,i_\gamma\,t_\gamma
+  \label{eq:brinch_hansen}
+\end{equation}
+
+Para una \textbf{zapata corrida} ($B/L \to 0$): $s_c = s_q = s_\gamma = 1$.
+Carga centrada y vertical: $i_c = i_q = i_\gamma = 1$.
+Sin talud adyacente: $t_c = t_q = t_\gamma = 1$.
+
+\paragraph{Parámetros del estrato~2 ($\phi'=25{,}2°$, $c'=4{,}70$~Tn/m²):}
+
+\begin{align*}
+  N_q &= \frac{1+\sin\phi'}{1-\sin\phi'}\,e^{\pi\tan\phi'}
+       = \frac{1+0{,}425}{1-0{,}425}\,e^{\pi \times 0{,}469}
+       = 2{,}478 \times e^{1{,}474} = 2{,}478 \times 4{,}368
+       = \mathbf{10{,}82} \\[4pt]
+  N_c &= (N_q - 1)\,\cot\phi'
+       = (10{,}82 - 1) \times \frac{1}{\tan(25{,}2°)}
+       = 9{,}82 \times 2{,}129 = \mathbf{20{,}91} \\[4pt]
+  N_\gamma &= 1{,}5\,(N_q - 1)\,\tan\phi'
+            = 1{,}5 \times 9{,}82 \times 0{,}469 = \mathbf{6{,}91}
+\end{align*}
+
+\paragraph{Factor de profundidad (Brinch-Hansen):}
+
+Con $D_f / B$; adoptando $B = 2{,}60$~m (zapata corrida del muro,
+predimensionada como $\approx 0{,}36\,H = 0{,}36 \times 7{,}3$):
+\[
+  d_c = 1 + 0{,}35\,\frac{D_f}{B}
+      = 1 + 0{,}35 \times \frac{1{,}0}{2{,}6} = 1 + 0{,}135 = 1{,}135
+  \qquad
+  d_q = d_c \qquad d_\gamma = 1
+\]
+
+\paragraph{Carga $q_{0k}$ a nivel de cimentación:}
+
+El muro cimienta a $D_f = 1{,}0$~m en el lado del intradós:
+\[
+  q_{0k} = \gamma_{\text{ap}} \cdot D_f = 1{,}82 \times 1{,}0 = 1{,}82~\text{Tn/m}^2
+\]
+
+\paragraph{Peso específico del terreno bajo la zapata ($\gamma_k$):}
+
+El N.F. se sitúa a $-2{,}50$~m, con la base de zapata a $-1{,}0$~m.
+Como el N.F. está \textbf{por debajo} de la base de la zapata pero a una
+distancia $d = 1{,}5$~m $< B = 2{,}6$~m (Caso~II, apuntes Sec.~136),
+se usa el peso específico intermedio ponderado:
+\[
+  \gamma_k = \frac{d}{B}\,(\gamma_{\text{ap}} - \gamma_{\text{sum}})
+             + \gamma_{\text{sum}}
+           = \frac{1{,}5}{2{,}6}\,(1{,}82 - 0{,}98) + 0{,}98
+           = 0{,}577 \times 0{,}84 + 0{,}98 = 0{,}485 + 0{,}98
+           = 1{,}465~\text{Tn/m}^3
+\]
+
+\paragraph{Capacidad de carga última:}
+
+\begin{align*}
+  q_h &= c'\,N_c\,d_c + q_{0k}\,N_q\,d_q
+         + \tfrac{1}{2}\,B\,\gamma_k\,N_\gamma \\
+      &= 4{,}70 \times 20{,}91 \times 1{,}135
+         + 1{,}82 \times 10{,}82 \times 1{,}135
+         + \tfrac{1}{2} \times 2{,}60 \times 1{,}465 \times 6{,}91 \\
+      &= 111{,}57 + 22{,}36 + 13{,}16 \\
+      &= \resultado{147{,}1~\text{Tn/m}^2}
+\end{align*}
+
+\subsubsection{Factor de seguridad y tensión admisible}
+
+La carga transmitida por el muro al terreno se estima a partir del peso
+propio del fuste y la zapata, más la carga de tierras sobre el talón.
+Con las dimensiones predimensionadas ($B=2{,}60$~m, $H_z = 0{,}80$~m,
+$H_{\text{fuste}}=6{,}50$~m, $e_{\text{fuste,base}}=0{,}75$~m):
+
+\begin{align*}
+  P_{\text{fuste}}  &\approx \gamma_{\text{HA}} \cdot
+    \tfrac{0{,}60+0{,}75}{2}\cdot 6{,}50 = 2{,}50 \times 0{,}675 \times 6{,}50
+    = 10{,}97~\text{Tn/ml}\\
+  P_{\text{zapata}} &\approx 2{,}50 \times 2{,}60 \times 0{,}80 = 5{,}20~\text{Tn/ml}\\
+  P_{\text{tierras}} &\approx \gamma_{\text{ap}} \times 1{,}60 \times 6{,}50
+    = 1{,}82 \times 1{,}60 \times 6{,}50 = 18{,}93~\text{Tn/ml}\\
+  P_{\text{total}}  &= 10{,}97 + 5{,}20 + 18{,}93 = 35{,}10~\text{Tn/ml}
+\end{align*}
+
+Tensión media aplicada:
+\[
+  q = \frac{P_{\text{total}}}{B} = \frac{35{,}10}{2{,}60} = 13{,}5~\text{Tn/m}^2
+\]
+
+Factor de seguridad al hundimiento:
+\begin{equation}
+  F_s = \frac{q_h}{q} = \frac{147{,}1}{13{,}5} = \resultado{10{,}9 > 3 \quad \checkmark}
+\end{equation}
+
+Tensión admisible:
+\[
+  q_{\text{adm}} = \frac{q_h}{3} = \frac{147{,}1}{3} = 49{,}0~\text{Tn/m}^2
+  \gg q = 13{,}5~\text{Tn/m}^2 \quad \checkmark
+\]
+
+\begin{resultadobox}[Capacidad portante — Muro]
+  La capacidad portante del estrato~2 es ampliamente suficiente.
+  $F_s = 10{,}9 \gg 3$. La tensión media transmitida queda muy por debajo
+  de la tensión admisible.
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Cálculo de asientos}
+\label{subsec:asientos_muro}
+% -----------------------------------------------------------
+
+\subsubsection{Asiento inmediato — método de Steinbrenner}
+
+El asiento elástico en el centro de la zapata corrida se calcula mediante
+la fórmula de Steinbrenner (fig.~3.5.6 del ROM):
+
+\begin{equation}
+  S(z) = \frac{p \cdot B}{2E}\,(A\,\phi_1 - B_s\,\phi_2)
+  \label{eq:steinbrenner}
+\end{equation}
+
+con:
+\begin{align*}
+  A   &= 1 - \nu^2 \qquad B_s = 1 - \nu - 2\nu^2 \\
+  \phi_1 &= \frac{1}{\pi}\!\left[\ln\!\frac{t+n}{t-n}
+            + n\ln\!\frac{t+1}{t-1}\right] \qquad
+  \phi_2  = \frac{m}{\pi}\,\arctan\!\frac{n}{t\,m} \\
+  m   &= \frac{z}{B} \qquad n = \frac{L}{B} \qquad
+  t   = \sqrt{1+n^2+m^2}
+\end{align*}
+
+Para una zapata corrida se trabaja por unidad de longitud ($n = L/B \to \infty$;
+en la práctica se toma $n=10$).
+
+\paragraph{Parámetros del estrato~2:}
+$E_2 = 12{,}000$~MPa $= 1\,200$~Tn/m², $\nu_2 = 0{,}30$, $B=2{,}60$~m,
+$p = q = 13{,}5$~Tn/m².
+
+\paragraph{Asiento en superficie ($z=0$, $\phi_2=0$):}
+Con $m=0$, $n=10$, $t=(1+100)^{1/2}=10{,}05$:
+\begin{align*}
+  \phi_1 &= \frac{1}{\pi}\!\left[\ln\!\frac{10{,}05+10}{10{,}05-10}
+            + 10\ln\!\frac{11{,}05}{9{,}05}\right]
+          = \frac{1}{\pi}\left[\ln(200) + 10\ln(1{,}221)\right]
+          = \frac{1}{\pi}\left[5{,}298 + 1{,}994\right] = 2{,}322 \\
+  A      &= 1 - 0{,}30^2 = 0{,}910 \\
+  S_0    &= \frac{13{,}5 \times 2{,}60}{2 \times 1200}\,(0{,}910 \times 2{,}322)
+          = \frac{35{,}10}{2400}\times 2{,}113
+          = 0{,}01463 \times 2{,}113 = 0{,}031~\text{m} = 3{,}1~\text{cm}
+\end{align*}
+
+\paragraph{Profundidad de influencia:} La carga se transmite a $\approx 30°$.
+La anchura equivalente a la profundidad de influencia efectiva es:
+$z_{\inf} \approx B + z\tan30° \to$ criterio $\Delta\sigma'_v/\sigma'_v \leq 0{,}10$--$0{,}20$.
+Con $B=2{,}60$~m la influencia es significativa hasta $\sim 3B \approx 8$~m,
+alcanzando parcialmente el estrato~3.
+
+\subsubsection{Asiento de consolidación en el estrato~2}
+
+Para arcillas con carga drenada a largo plazo se emplea:
+\begin{equation}
+  s_c = \frac{C_c}{1+e_0}\,H\,\log\!\frac{\sigma'_{v0}+\Delta\sigma'_v}{\sigma'_{v0}}
+  \label{eq:consolidacion}
+\end{equation}
+
+En ausencia del índice de compresión $C_c$ y del índice de huecos $e_0$ en
+el sondeo, se estima mediante el módulo edométrico $E_{ed}$:
+\[
+  E_{ed} \approx E\,\frac{1-\nu}{(1+\nu)(1-2\nu)}
+         = 12\,000 \times \frac{0{,}70}{1{,}30 \times 0{,}40} = 16\,154~\text{Tn/m}^2
+\]
+\[
+  s_c = \frac{\Delta\sigma'_v}{E_{ed}}\,H_2
+      = \frac{13{,}5}{16\,154} \times 4{,}50 = 0{,}0038~\text{m} = 0{,}38~\text{cm}
+\]
+
+\subsubsection{Asiento total estimado}
+
+\begin{equation}
+  s_{\text{total}} = s_i + s_c = 3{,}1 + 0{,}4 \approx \resultado{3{,}5~\text{cm}}
+\end{equation}
+
+\begin{resultadobox}[Asiento total — Muro]
+  El asiento total estimado es de $\approx 3{,}5$~cm, inferior al
+  límite admisible para muros de contención de hormigón armado
+  ($s_{\text{adm}} \approx 2{,}5$--$5$~cm). El asiento diferencial a lo
+  largo de los 150~ml será mínimo dado que el perfil estratigráfico es
+  uniforme.
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Decisión: tipo de cimentación del muro}
+\label{subsec:decision_cimentacion_muro}
+% -----------------------------------------------------------
+
+Del análisis anterior se extraen las siguientes conclusiones:
+
+\begin{enumerate}
+  \item \textbf{Capacidad portante}: el estrato~2 (arcillas versicolores)
+        presenta una $q_h = 147{,}1$~Tn/m² con un factor de seguridad
+        $F_s = 10{,}9 \gg 3$. No se detecta riesgo de hundimiento.
+  \item \textbf{Asientos}: el asiento total estimado es de
+        $\approx 3{,}5$~cm, aceptable para este tipo de estructura.
+  \item \textbf{Nivel freático}: el N.F. a $-2{,}50$~m no afecta a la
+        zapata si se cimenta a $D_f = 1{,}0$~m, aunque se requiere
+        impermeabilización y drenaje del trasdós.
+\end{enumerate}
+
+\begin{supuestobox}[Cimentación adoptada — Muro]
+  Se adopta \textbf{cimentación superficial mediante zapata corrida} de
+  hormigón armado HA-30/SR, con las siguientes dimensiones de
+  predimensionamiento:
+  \begin{itemize}
+    \item Ancho de zapata: $B = 2{,}60$~m ($\approx 0{,}36\,H$)
+    \item Canto de zapata: $h_z = 0{,}80$~m ($\approx H/9$)
+    \item Profundidad de empotramiento: $D_f = 1{,}00$~m
+  \end{itemize}
+  \textbf{No se requiere cimentación profunda} dado que el terreno de
+  apoyo cumple sobradamente los criterios geotécnicos de capacidad
+  portante y asientos.
+\end{supuestobox}

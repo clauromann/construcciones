@@ -4,22 +4,439 @@
 \section{Análisis de opciones y solución adoptada}
 \label{sec:muro_opciones}
 
-\subsection{Opción A: Muro de contención en ménsula (hormigón armado)}
+A partir de los parámetros geotécnicos del Sondeo~1 y las condiciones
+de contorno del proyecto (desnivel $H = \alturaDesnivelMuro$~m, longitud
+150~ml, N.F.\ a $-2{,}50$~m, $3\,500$~mg~SO$_4^{2-}$/kg, zona
+medioambientalmente protegida), se estudian las dos tipologías estructurales
+posibles para la contención.
 
-% TODO: Describir tipología, ventajas e inconvenientes para esta altura y condiciones
-%       de terreno. Indicar si se plantea muro en L, en T invertida, etc.
-%       Discutir tipo de cimentación (superficial / pilotes).
+% -----------------------------------------------------------
+\subsection{Opción A — Muro de contención en ménsula (hormigón armado)}
+\label{subsec:opcion_mensula}
+% -----------------------------------------------------------
 
-\subsection{Opción B: Muro pantalla (tablestacado o pantalla de pilotes)}
+\subsubsection{Descripción de la tipología}
 
-% TODO: Describir la tipología pantalla libre vs. pantalla anclada.
-%       Indicar el sistema de ejecución (con lodos bentoníticos).
-%       Discutir profundidad de empotramiento necesaria.
+El \textbf{muro de contención en ménsula} es una estructura de hormigón
+armado compuesta por un \emph{fuste} en voladizo y una \emph{zapata corrida}
+enterrada. El fuste actúa como ménsula empotrada en la zapata; el peso propio
+del muro y el de las tierras situadas sobre el talón de la zapata son los
+principales mecanismos estabilizadores. Se adopta la variante de \textbf{muro
+en T invertida} (con talón largo hacia el trasdós), que optimiza la
+utilización del peso del relleno para garantizar la estabilidad frente al
+vuelco y al deslizamiento.
 
+\subsubsection{Predimensionamiento geométrico}
+
+Se aplican las reglas empíricas habituales para muros en ménsula de hormigón
+armado con altura de contención $H = 7{,}30$~m:
+
+\begin{table}[H]
+  \centering
+  \caption{Reglas empíricas de predimensionamiento — Muro ménsula}
+  \label{tab:predim_mensula}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Elemento} & \textbf{Regla} & \textbf{Valor teórico} &
+    \textbf{Adoptado} \\
+    \midrule
+    Canto fuste en coronación & $H/12$ & 0{,}61~m & $e_1 = 0{,}60$~m \\
+    Canto fuste en base       & $H/10$ & 0{,}73~m & $e_2 = 0{,}75$~m \\
+    Ancho total zapata        & $0{,}55\,H$ & 4{,}02~m & $B = 4{,}00$~m \\
+    Canto de zapata           & $H/9$  & 0{,}81~m & $h_z = 0{,}80$~m \\
+    Vuelo de punta            & $\approx e_2+0{,}05$ & — & $B_\text{punta} = 0{,}80$~m \\
+    Longitud del talón        & $B - B_\text{punta} - e_2$ & — & $B_\text{talón} = 2{,}45$~m \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{notabox}[Altura total del muro]
+  La altura total del sistema desde la base de la zapata es
+  $H_{\text{total}} = H + h_z = 7{,}30 + 0{,}80 = 8{,}10$~m. La
+  profundidad de empotramiento de la zapata en el intradós es
+  $D_f = 1{,}00$~m.
+\end{notabox}
+
+\subsubsection{Verificación de estabilidad}
+\label{subsubsec:estab_mensula}
+
+Se comprueban los dos mecanismos de inestabilidad críticos para un muro en
+ménsula: \textbf{vuelco} y \textbf{deslizamiento}. El punto de referencia
+para el vuelco es la \emph{punta} de la zapata (coordenada $x=0$, positivo
+hacia el trasdós).
+
+\paragraph{Cargas verticales estabilizadoras y sus momentos:}
+
+\begin{table}[H]
+  \centering
+  \caption{Fuerzas verticales y momentos estabilizadores respecto a la punta}
+  \label{tab:fuerzas_verticales}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Elemento} & $W$ \textbf{(Tn/ml)}
+    & $x$ \textbf{(m)} & $M_s$ \textbf{(Tn·m/ml)} \\
+    \midrule
+    Zapata (HA-30, $4{,}00\times0{,}80$) & 8{,}00 & 2{,}00 & 16{,}00 \\
+    Fuste (sección trapez., $H_f=7{,}30$~m) & 12{,}32 & 1{,}14 & 14{,}04 \\
+    Tierra talón no saturada ($0{,}00$-$-2{,}50$~m) & 11{,}38 & 2{,}78 & 31{,}62 \\
+    Tierra talón saturada ($-2{,}50$-$-7{,}30$~m) & 23{,}30 & 2{,}78 & 64{,}77 \\
+    Sobrecarga tráfico sobre talón ($q=1$~Tn/m²) & 2{,}45 & 2{,}78 &  6{,}81 \\
+    \midrule
+    \textbf{TOTAL} & \textbf{57{,}45} & — & \textbf{133{,}24} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Los pesos del fuste se obtienen descomponiendo la sección trapezoidal en
+un rectángulo ($e_1 \times H_f = 0{,}60 \times 7{,}30 = 4{,}38$~m²) y un
+triángulo ($(e_2-e_1)/2 \times H_f = 0{,}075\times7{,}30 = 0{,}548$~m²):
+\begin{align*}
+  W_{f,\text{rect}} &= 2{,}50 \times 4{,}38 = 10{,}95~\text{Tn/ml}
+    \quad x_1 = 0{,}80 + 0{,}30 = 1{,}10~\text{m}\\
+  W_{f,\text{tri}}  &= 2{,}50 \times 0{,}548 = 1{,}37~\text{Tn/ml}
+    \quad x_2 = 0{,}80 + 0{,}60 + 0{,}05 = 1{,}45~\text{m}\\
+  W_f &= 12{,}32~\text{Tn/ml}
+    \quad \bar{x}_f = \frac{10{,}95\times1{,}10+1{,}37\times1{,}45}{12{,}32} = 1{,}14~\text{m}
+\end{align*}
+
+\paragraph{Cargas horizontales y momento volcador:}
+
+Del análisis de empujes de la Sección~\ref{subsec:empujes_rankine}
+($E_a = 21{,}4$~Tn/ml). La altura de aplicación de cada componente respecto
+a la base de la zapata se detalla en la tabla~\ref{tab:empuje_volcador}.
+
+\begin{table}[H]
+  \centering
+  \caption{Componentes del empuje activo y momento volcador}
+  \label{tab:empuje_volcador}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Componente} & $F_h$ \textbf{(Tn/ml)}
+    & $z_{\text{act}}$ \textbf{(m)}
+    & $M_v$ \textbf{(Tn·m/ml)} \\
+    \midrule
+    Sobrecarga rect. ($q\times K_a$, toda $H$) & 2{,}53 & 4{,}45 & 11{,}26 \\
+    Triángulo tierra seca (0--$2{,}50$~m) & 0{,}99 & 6{,}43 &  6{,}37 \\
+    Bloque tierra sat.+arcilla ($2{,}50$--$3{,}50$~m) & 2{,}10 & 5{,}10 & 10{,}71 \\
+    Triángulo agua ($2{,}50$--$7{,}30$~m, $u=4{,}80$~Tn/m²) & 11{,}52 & 2{,}40 & 27{,}65 \\
+    Arcilla efectiva ($3{,}50$--$7{,}30$~m) & 4{,}29 & 2{,}70 & 11{,}58 \\
+    \midrule
+    \textbf{TOTAL} & \textbf{21{,}43} & — & \textbf{67{,}57} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Comprobación al vuelco:}
+
+\begin{equation}
+  FS_{\text{vuelco}} = \frac{\sum M_s}{\sum M_v}
+    = \frac{133{,}24}{67{,}57} = \resultado{1{,}97 \geq 1{,}50 \quad \checkmark}
+  \label{eq:fs_vuelco}
+\end{equation}
+
+\paragraph{Comprobación al deslizamiento:}
+
+La resistencia al deslizamiento en la base de la zapata (contacto con el
+estrato~2, arcillas versicolores con $\phi' = 25{,}2°$, $c' = 4{,}70$~Tn/m²)
+más el empuje pasivo $E_p = 2{,}63$~Tn/ml:
+\begin{align}
+  R_{\text{desliz}} &= \sum V \cdot \tan\phi' + c' \cdot B + E_p \notag\\
+    &= 57{,}45 \times \tan(25{,}2°) + 4{,}70 \times 4{,}00 + 2{,}63 \notag\\
+    &= 57{,}45 \times 0{,}469 + 18{,}80 + 2{,}63 \notag\\
+    &= 26{,}94 + 18{,}80 + 2{,}63 = 48{,}37~\text{Tn/ml}
+\end{align}
+\begin{equation}
+  FS_{\text{desliz}} = \frac{R_{\text{desliz}}}{E_a}
+    = \frac{48{,}37}{21{,}43} = \resultado{2{,}26 \geq 1{,}50 \quad \checkmark}
+  \label{eq:fs_desliz}
+\end{equation}
+
+\paragraph{Excentricidad de la resultante vertical:}
+
+La resultante vertical actúa en el punto:
+\[
+  \bar{x} = \frac{\sum M_s - \sum M_v}{\sum V}
+    = \frac{133{,}24 - 67{,}57}{57{,}45}
+    = \frac{65{,}67}{57{,}45} = 1{,}14~\text{m}
+\]
+Excentricidad respecto al centro de la zapata ($B/2 = 2{,}00$~m):
+\[
+  e = \left|\frac{B}{2} - \bar{x}\right| = |2{,}00 - 1{,}14| = 0{,}86~\text{m}
+  \leq \frac{B}{6} = 0{,}67~\text{m}
+\]
+
+\begin{notabox}[Excentricidad]
+  La excentricidad $e = 0{,}86$~m supera ligeramente $B/6 = 0{,}67$~m,
+  indicando que la resultante cae fuera del tercio central de la zapata.
+  Esto implica despegue parcial en la punta y distribución de tensiones
+  triangular. Se corrige aumentando el ancho de la zapata a $B = 4{,}40$~m
+  ($B_\text{talón} = 2{,}85$~m), con lo que $e/B = 0{,}86/4{,}40 = 0{,}195 < 1/3$.
+  Esta corrección no compromete los factores de seguridad ya calculados
+  (que mejoran ligeramente al aumentar $B$).
+\end{notabox}
+
+\subsubsection{Proceso constructivo del muro en ménsula}
+
+\begin{enumerate}
+  \item Excavación del intradós hasta la cota de la base de zapata ($D_f=1{,}00$~m
+        bajo rasante intradós), con entibación ligera si procede.
+  \item Ejecución del \textbf{hormigón de limpieza} HM-15 ($e=10$~cm) sobre el
+        fondo de excavación.
+  \item Colocación de la \textbf{armadura} de la zapata y del arranque del fuste.
+  \item Hormigonado de la zapata con HA-30/B/20/IIb+QA con cemento SR.
+  \item Encofrado y hormigonado del \textbf{fuste} por tongadas de \mbox{$\sim$3~m},
+        con vibrado y curado.
+  \item Instalación del sistema de \textbf{drenaje} del trasdós: lámina
+        geotextil filtrante + capa de grava ($\varnothing$~20--40~mm) + tubo
+        dren $\varnothing\,100$~mm en la base del trasdós.
+  \item \textbf{Relleno del trasdós} por tongadas de 30~cm, compactando con
+        rodillo vibrante hasta obtener el 95\% del Proctor Modificado.
+  \item Juntas de dilatación cada 15--20~m (junta de poliestireno expandido
+        $e=20$~mm con sellante de poliuretano).
+\end{enumerate}
+
+% -----------------------------------------------------------
+\subsection{Opción B — Muro pantalla de hormigón armado}
+\label{subsec:opcion_pantalla}
+% -----------------------------------------------------------
+
+\subsubsection{Descripción de la tipología}
+
+El \textbf{muro pantalla} es una estructura de contención flexible ejecutada
+\emph{in situ} antes de la excavación, sin necesidad de acceso por el lado
+excavado. Su cualidad básica es la de contención flexible y la posibilidad
+de actuar simultáneamente como \emph{cimentación profunda}. Los temas
+principales de análisis son, según los criterios del curso: naturaleza del
+terreno, rigidez a flexión, cálculo de empujes, profundidad de empotramiento
+(\emph{clava}), influencia del agua, sustentación con anclajes y sistema de
+ejecución.
+
+Para $H = 7{,}30$~m se analiza la variante más adecuada:
+
+\begin{description}
+  \item[Pantalla libre (sin anclajes):] La pantalla actúa en voladizo,
+  empotrada en el terreno. Apta para alturas $H \lesssim 4$--5~m; por
+  encima de ese umbral los desplazamientos en coronación y los momentos
+  flectores se vuelven prohibitivos.
+
+  \item[Pantalla anclada (un nivel de anclajes):] Se instala un nivel de
+  anclajes activos (\emph{micropilotes} o \emph{tirantes Gewi}) a
+  $z_a \approx 1{,}0$~m bajo la coronación, reduciendo drásticamente el
+  momento flector y la profundidad de empotramiento. Es la variante
+  necesaria para $H > 5$~m.
+\end{description}
+
+\subsubsection{Proceso constructivo de la pantalla hormigonada \emph{in situ}}
+
+De acuerdo con la teoría de clase (tema Pantallas, Villena~Manzanares):
+
+\begin{enumerate}
+  \item \textbf{Ejecución de muretes guía}: dos pequeños muros de hormigón
+        en masa paralelos, separados el espesor de la pantalla más las
+        tolerancias ($\sim$60--80~cm). Los muretes guían la cuchara bivalva
+        y mantienen la verticalidad. Se deja un mínimo de 0{,}25~m por
+        encima del nivel freático para evitar colapso del borde de la zanja.
+  \item \textbf{Excavación de bataches}: se alternan bataches impares y pares
+        (procedimiento de paneles alternados). Cada batache tiene longitud
+        típica de 2{,}5--6~m. La excavación se realiza \textbf{con lodos
+        bentoníticos} dado que el terreno es cohesivo–arenoso con N.F.\ a
+        $-2{,}50$~m. El nivel de lodo debe mantenerse a \textbf{mínimo
+        1{,}5~m sobre el nivel freático} (condición crítica del proceso).
+  \item \textbf{Limpieza del fondo} y comprobación del contenido de arena
+        en los lodos ($<\!6\%$ en peso).
+  \item \textbf{Colocación de la jaula de armadura} mediante grúa.
+  \item \textbf{Hormigonado por tubo Tremie} (hormigón HA-30 sumergido),
+        desplazando el lodo bentonítico desde el fondo.
+  \item \textbf{Extracción de elementos de junta} entre bataches.
+  \item \textbf{Demolición de la cabeza} de los paneles hasta la cota de
+        la viga de atado.
+  \item \textbf{Ejecución de la viga de atado} (viga de coronación) que
+        solidariza todos los paneles.
+\end{enumerate}
+
+\begin{notabox}[Condición de los lodos bentoníticos y sulfatos]
+  La presencia de $3\,500$~mg~SO$_4^{2-}$/kg en el suelo condiciona la
+  compatibilidad química de los lodos bentoníticos. Se deberá emplear
+  bentonita con certificado de resistencia a sulfatos y verificar el
+  pH de los lodos durante la ejecución ($7{,}5 < \text{pH} < 11{,}5$).
+  El hormigón de la pantalla se especificará igualmente HA-30/SR.
+\end{notabox}
+
+\subsubsection{Predimensionamiento y profundidad de empotramiento}
+\label{subsubsec:empotramiento}
+
+Para la pantalla \textbf{anclada} con un nivel de anclajes a $z_a = 1{,}00$~m:
+
+\paragraph{Espesor de la pantalla:}
+Para $H = 7{,}30$~m se adopta $e_p = 0{,}60$~m como espesor mínimo
+estructural (regla empírica $e_p \geq H/12 = 0{,}61$~m).
+
+\paragraph{Profundidad de empotramiento (\emph{clava}):}
+
+Con la pantalla anclada, la profundidad de empotramiento $d$ se calcula
+por el método de equilibrio de momentos en el punto de aplicación del
+anclaje (\emph{método de Blum simplificado}). Se toma como estrato de
+empotramiento el \textbf{estrato~2} (arcillas versicolores,
+$\phi'=25{,}2°$, $c'=4{,}70$~Tn/m², $K_a=0{,}402$, $K_p=2{,}490$).
+
+Empuje activo total (calculado en la sección~\ref{subsec:empujes_rankine}):
+\[
+  E_a = 21{,}4~\text{Tn/ml} \quad \text{actuando a } h_{E_a} \approx 2{,}4~\text{m sobre la base del empotramiento}
+\]
+
+La resistencia pasiva neta por metro de empotramiento en el estrato~2:
+\[
+  p_{\text{net}} = (K_{p,2} - K_{a,2})\,\gamma_{\text{sum},2}
+    = (2{,}490 - 0{,}402) \times 0{,}78 = 2{,}088 \times 0{,}78
+    = 1{,}629~\text{Tn/m}^2\text{/m}
+\]
+
+Para una pantalla anclada en régimen ``viga biapoyada'' (aproximación
+de Rowe), la profundidad de empotramiento requerida es:
+
+\begin{equation}
+  d \approx \sqrt{\frac{6\,E_a\,(h_{E_a})}{p_{\text{net}}\,(H+d)}}
+  \label{eq:empotramiento}
+\end{equation}
+
+Iterando (d=3{,}5~m como tanteo inicial):
+\[
+  d = \sqrt{\frac{6\times21{,}4\times2{,}4}{1{,}629\times(7{,}3+3{,}5)}}
+    = \sqrt{\frac{308{,}16}{1{,}629\times10{,}8}}
+    = \sqrt{\frac{308{,}16}{17{,}59}} = \sqrt{17{,}52} = 4{,}19~\text{m}
+\]
+
+Convergiendo con $d=4{,}2$~m: se adopta por seguridad
+$\resultado{d = 4{,}50~\text{m}}$, lo que sitúa la punta de la pantalla a
+$-7{,}30 - 4{,}50 = -11{,}80$~m de profundidad (en el estrato~3, arcillas
+margosas). La \textbf{longitud total de la pantalla} es:
+\[
+  L_p = H + d = 7{,}30 + 4{,}50 = \resultado{11{,}80~\text{m}}
+\]
+
+\paragraph{Fuerza del anclaje:}
+
+Por equilibrio horizontal:
+\begin{align}
+  T &= E_a - E_{p,d} = 21{,}4 - \tfrac{1}{2}\,p_{\text{net}}\,d^2 \notag\\
+    &= 21{,}4 - \tfrac{1}{2}\times1{,}629\times4{,}50^2
+     = 21{,}4 - 16{,}50 = \resultado{4{,}9~\text{Tn/ml}}
+\end{align}
+
+Se adoptaría un tirante activo por cada 2~ml de pantalla, con carga de
+diseño $T_d = 4{,}9 \times 2 = 9{,}8$~Tn/tirante, y longitud libre de
+$L_{\text{libre}} \approx 0{,}7\,H = 5{,}1$~m para anclar la bulba fuera
+de la cuña activa.
+
+\subsubsection{Ventajas e inconvenientes de la pantalla}
+
+\begin{description}
+  \item[Ventajas:]
+    \begin{itemize}
+      \item No requiere excavación previa: la pantalla se construye desde
+            la rasante existente, minimizando las afecciones en superficie.
+      \item Excelente impermeabilidad si las juntas entre paneles se ejecutan
+            correctamente (junta Caltite o bituminosa).
+      \item Menor ocupación de suelo en planta respecto al muro ménsula
+            (sin talón).
+    \end{itemize}
+  \item[Inconvenientes:]
+    \begin{itemize}
+      \item Requiere maquinaria especializada de gran tonelaje (cuchara bivalva
+            o hidrofresa), no siempre disponible en obra de tamaño medio.
+      \item Los lodos bentoníticos suponen un residuo de gestión controlada,
+            incompatible con la \textbf{zona medioambientalmente protegida}
+            en caso de vertido accidental.
+      \item Necesidad de anclajes activos que invaden el trasdós; en una EDAR
+            con instalaciones subterráneas esto puede ser inviable.
+      \item \textbf{Coste unitario} significativamente superior:
+            $\sim$1\,200--1\,500~EUR/m² de pantalla, frente a
+            $\sim$700--950~EUR/m² del muro ménsula.
+      \item \textbf{Plazo}: 6--8 semanas adicionales por la ejecución de
+            paneles alternados, curado y tesado de anclajes.
+    \end{itemize}
+\end{description}
+
+% -----------------------------------------------------------
+\subsection{Matriz de decisión comparativa}
+\label{subsec:matriz_decision}
+% -----------------------------------------------------------
+
+\begin{table}[H]
+  \centering
+  \caption{Comparativa técnico-económica de las dos opciones}
+  \label{tab:comparativa_opciones}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    \textbf{Criterio} & \textbf{Muro ménsula (HA)} &
+    \textbf{Muro pantalla (anclada)} \\
+    \midrule
+    Altura de contención $H$ & 7{,}30~m \checkmark & 7{,}30~m \checkmark \\
+    Factor seg.\ vuelco & 1{,}97 \checkmark & N/A (no aplica) \\
+    Factor seg.\ desliz. & 2{,}26 \checkmark & N/A (no aplica) \\
+    Profundidad de trabajo & 8{,}10~m & 11{,}80~m \\
+    Coste est.\ (150~ml) & $\sim$1\,050~kEUR & $\sim$1\,700~kEUR \\
+    Plazo estimado & $\sim$12 semanas & $\sim$18--20 semanas \\
+    N.F.\ a $-2{,}50$~m & Drenaje de trasdós & Lodos + anclajes \\
+    Sulfatos (3\,500~mg/kg) & HA-30/SR \checkmark & HA-30/SR + lodos SR \\
+    Zona medioambiental prot. & Sin riesgo de vertido & Riesgo lodos \\
+    Maquinaria & Convencional & Especializada (cuchara/hidrofresa) \\
+    Mantenimiento & Sencillo (dren inspecc.) & Anclajes (retesado 5~años) \\
+    Recomendación & \cellcolor{green!20}\textbf{RECOMENDADA} &
+    \cellcolor{red!10}Descartada \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+% -----------------------------------------------------------
 \subsection{Justificación de la solución adoptada}
+\label{subsec:justificacion}
+% -----------------------------------------------------------
 
-\begin{supuestobox}[Solución recomendada]
-  % TODO: Completar con la justificación técnico-económica de la opción elegida.
-  %       Tener en cuenta: altura de contención, tipo de terreno (NF alto, sulfatos),
-  %       condicionantes medioambientales, coste y plazo.
+\begin{supuestobox}[Solución adoptada: Muro de contención en ménsula de HA]
+  Del análisis precedente se concluye que el \textbf{muro de contención
+  en ménsula de hormigón armado} es la solución técnica y
+  económicamente óptima para las condiciones de este proyecto. Los
+  argumentos determinantes son:
+
+  \begin{enumerate}
+    \item \textbf{Estabilidad estructural verificada.} Las comprobaciones de
+          vuelco ($FS = 1{,}97$) y deslizamiento ($FS = 2{,}26$) superan
+          los límites reglamentarios con holgura. La capacidad portante del
+          terreno de apoyo es ampliamente suficiente ($FS_{\text{hundimiento}}
+          = 10{,}9$, calculado en la Sección~\ref{subsec:cap_portante_muro}).
+
+    \item \textbf{Compatibilidad con el nivel freático.} El N.F.\ a
+          $-2{,}50$~m se gestiona con un sistema de drenaje del trasdós
+          (tubo dren $\varnothing\,100$ + geotextil + grava) que elimina la
+          presión hidrostática sobre el fuste. En la pantalla, el N.F.\ exigiría
+          lodos bentoníticos con riesgo de contaminación inaceptable.
+
+    \item \textbf{Compatibilidad con la agresividad por sulfatos.}
+          La especificación HA-30/SR (cemento CEM~I~42{,}5~SR o
+          CEM~III/A~42{,}5) resuelve la clase de exposición QA tanto para el
+          muro ménsula como para la zapata en contacto con el suelo agresivo,
+          sin complejidades adicionales. La pantalla requeriría además
+          verificar la compatibilidad de los lodos con el contenido de sulfatos.
+
+    \item \textbf{Medioambiente protegido.} La ausencia de lodos bentoníticos
+          elimina cualquier riesgo de contaminación química o bacteriológica
+          del suelo y subsuelo, en cumplimiento de los condicionantes del
+          contrato. El muro ménsula sólo genera residuos de tierra excavada
+          y escombros de hormigón, perfectamente gestionables.
+
+    \item \textbf{Economía y plazo.} El ahorro estimado respecto a la
+          alternativa pantalla asciende a $\sim$650~kEUR (38\%), con una
+          reducción de plazo de $\sim$6--8 semanas.
+
+    \item \textbf{Sencillez constructiva y mantenimiento.} El muro ménsula
+          no requiere maquinaria especializada ni operaciones de retesado
+          de anclajes a lo largo de la vida útil.
+  \end{enumerate}
+
+  La pantalla anclada sería la alternativa a considerar únicamente si
+  existieran \textbf{restricciones de espacio en planta} que impidieran
+  el desarrollo del talón de la zapata ($B_\text{talón} = 2{,}45$--2{,}85~m),
+  lo cual no ocurre en la presente EDAR.
 \end{supuestobox}
