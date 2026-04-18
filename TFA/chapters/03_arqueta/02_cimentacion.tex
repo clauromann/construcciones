@@ -4,41 +4,255 @@
 \section{Plano de cimentación y perfil del terreno}
 \label{sec:arqueta_cimentacion}
 
-\subsection{Plano acotado de dimensiones de la arqueta}
+% -----------------------------------------------------------
+\subsection{Plano acotado --- sección transversal}
+\label{subsec:arqueta_seccion}
+% -----------------------------------------------------------
 
-% TODO: Insertar figura TikZ con la planta y sección transversal de la arqueta,
-%       indicando dimensiones exteriores e interiores (espesor de paredes y losa).
-%       Incluir el perfil estratigráfico del Sondeo 1 junto a la sección.
+La figura~\ref{fig:arqueta_seccion} muestra la sección transversal de la
+arqueta de fangos mezcla con todas las dimensiones adoptadas y el perfil
+estratigráfico del Sondeo~1 a la cota de implantación.
 
-% Ejemplo de figura a incluir:
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.85\textwidth]{planos/arqueta_cimentacion.pdf}
-%   \caption{Plano acotado de la arqueta con perfil estratigráfico (Sondeo 1)}
-%   \label{fig:arqueta_plano}
-% \end{figure}
+\begin{figure}[H]
+\centering
+\resizebox{0.92\textwidth}{!}{%
+\begin{tikzpicture}[
+  >=Stealth,
+  dim/.style    = {<->, thin, NavyBlue},
+  dlbl/.style   = {font=\scriptsize, midway, fill=white, inner sep=1pt},
+  soil1a/.style = {fill=Goldenrod!20},
+  soil1b/.style = {fill=Goldenrod!45},
+  soil2/.style  = {fill=BurntOrange!18},
+  concrete/.style = {fill=gray!22},
+]
 
-\subsection{Detalle de cota de cimentación}
+%% ---- RIGHT STRATIGRAPHY ----
+\fill[soil1a] ( 1.9, 0.0) rectangle ( 4.2,-2.5);
+\fill[soil1b] ( 1.9,-2.5) rectangle ( 4.2,-3.5);
+\fill[soil2]  ( 1.9,-3.5) rectangle ( 4.2,-4.2);
+\draw[thin, gray!60] ( 1.9,-2.5) -- ( 4.2,-2.5);
+\draw[thin, gray!60] ( 1.9,-3.5) -- ( 4.2,-3.5);
+\draw[thick] ( 1.9, 0.0) -- ( 4.2, 0.0);
+\fill[pattern=north east lines, pattern color=gray!40]
+  ( 1.9, 0.0) rectangle ( 4.2, 0.25);
 
-% TODO: Indicar la cota de cimentación adoptada y justificarla en función de:
-%   - Estrato portante (resistencia y asientos)
-%   - Nivel freático (necesidad de drenaje o impermeabilización)
-%   - Condicionante medioambiental (zona protegida → minimizar excavación
-%     e impermeabilizar completamente la losa y paredes en contacto con el terreno)
+%% ---- LEFT SOIL (thin strip for context) ----
+\fill[soil1a] (-3.8, 0.0) rectangle (-1.9,-2.5);
+\fill[soil1b] (-3.8,-2.5) rectangle (-1.9,-3.5);
+\fill[soil2]  (-3.8,-3.5) rectangle (-1.9,-4.2);
+\draw[thin, gray!60] (-3.8,-2.5) -- (-1.9,-2.5);
+\draw[thin, gray!60] (-3.8,-3.5) -- (-1.9,-3.5);
+\draw[thick] (-3.8, 0.0) -- (-1.9, 0.0);
+\fill[pattern=north east lines, pattern color=gray!40]
+  (-3.8, 0.0) rectangle (-1.9, 0.25);
 
-\subsection{Medidas frente a la agresividad química}
+%% ---- RASANTE (dashed across arqueta gap) ----
+\draw[gray!40, dashed] (-1.9, 0.0) -- ( 1.9, 0.0);
 
-\begin{notabox}[Protección frente a sulfatos y filtración]
-  Dado el contenido de sulfatos del suelo ($3\,500$~mg~SO$_4^{2-}$/kg) y el
-  carácter medioambientalmente protegido de la zona, se adoptarán las siguientes
-  medidas:
+%% ---- ARQUETA CONCRETE ----
+\fill[concrete] (-1.9,-1.8) rectangle ( 1.9, 2.0);
+% Interior void (open top)
+\fill[white]    (-1.5,-1.5) rectangle ( 1.5, 2.05);
+
+%% Outlines
+\draw[thick] (-1.9,-1.8) -- (-1.9, 2.0);   % left outer
+\draw[thick] (-1.5,-1.5) -- (-1.5, 2.0);   % left inner
+\draw[thick] ( 1.9,-1.8) -- ( 1.9, 2.0);   % right outer
+\draw[thick] ( 1.5,-1.5) -- ( 1.5, 2.0);   % right inner
+\draw[thick] (-1.9,-1.8) -- ( 1.9,-1.8);   % bottom losa
+\draw[thick] (-1.9,-1.5) -- (-1.5,-1.5);   % top losa left
+\draw[thick] ( 1.5,-1.5) -- ( 1.9,-1.5);   % top losa right
+\draw[thick] (-1.9, 2.0) -- (-1.5, 2.0);   % top edge left
+\draw[thick] ( 1.5, 2.0) -- ( 1.9, 2.0);   % top edge right
+
+%% ---- NIVEL FREATICO ----
+\draw[NavyBlue!80, semithick, dashed] (-3.8,-2.5) -- ( 4.2,-2.5);
+\node[NavyBlue!80, right, font=\scriptsize\bfseries]
+  at (4.2,-2.5) {N.F.\ $= -2{,}50$~m};
+
+%% ---- DIMENSION LINES ----
+
+%% D1: Interior width B_int = 3.00 m
+\draw[dim] (-1.5,-0.80) -- (1.5,-0.80)
+  node[dlbl, above] {$B_{\mathrm{int}} = 3{,}00$~m};
+\draw[thin,gray!50] (-1.5,-0.60) -- (-1.5,-0.90);
+\draw[thin,gray!50] ( 1.5,-0.60) -- ( 1.5,-0.90);
+
+%% D2: Exterior width B_ext = 3.60 m
+\draw[dim] (-1.9,-2.25) -- (1.9,-2.25)
+  node[dlbl, above] {$B_{\mathrm{ext}} = 3{,}60$~m};
+\draw[thin,gray!50] (-1.9,-2.00) -- (-1.9,-2.35);
+\draw[thin,gray!50] ( 1.9,-2.00) -- ( 1.9,-2.35);
+
+%% D3+D4: Wall thickness = 0.30 m (both sides at top)
+\draw[dim] (-1.9, 2.35) -- (-1.5, 2.35)
+  node[dlbl, above] {$e_w\!=\!0{,}30$};
+\draw[dim] ( 1.5, 2.35) -- ( 1.9, 2.35)
+  node[dlbl, above] {$e_w\!=\!0{,}30$};
+
+%% D5: Interior height H_int = 3.50 m (right side)
+\draw[dim] (2.15,-1.5) -- (2.15, 2.0)
+  node[dlbl, right=2pt] {$H_{\mathrm{int}} = 3{,}50$~m};
+\draw[thin,gray!50] (1.95,-1.5) -- (2.30,-1.5);
+\draw[thin,gray!50] (1.95, 2.0) -- (2.30, 2.0);
+
+%% D6: Losa thickness e_L = 0.30 m (right side)
+\draw[dim] (2.15,-1.8) -- (2.15,-1.5)
+  node[dlbl, right=2pt] {$e_L\!=\!0{,}30$};
+\draw[thin,gray!50] (1.95,-1.8) -- (2.30,-1.8);
+
+%% D7: Df = 1.50 m (left side, from rasante to top of losa)
+\draw[dim] (-2.50, 0.0) -- (-2.50,-1.5)
+  node[dlbl, left=2pt] {$D_f = 1{,}50$~m};
+\draw[thin,gray!50] (-2.65, 0.0) -- (-2.35, 0.0);
+\draw[thin,gray!50] (-2.65,-1.5) -- (-2.35,-1.5);
+
+%% D8: Excavation depth = 1.80 m (left side, from rasante to bottom of losa)
+\draw[dim] (-3.15, 0.0) -- (-3.15,-1.8)
+  node[dlbl, left=2pt] {$1{,}80$~m};
+\draw[thin,gray!50] (-3.30, 0.0) -- (-3.00, 0.0);
+\draw[thin,gray!50] (-3.30,-1.8) -- (-3.00,-1.8);
+
+%% D9: Height above grade = 2.00 m (left side)
+\draw[dim] (-2.10, 0.0) -- (-2.10, 2.0)
+  node[dlbl, left=2pt] {$2{,}00$~m};
+
+%% ---- STRATIGRAPHY LABELS ----
+\node[font=\scriptsize, align=left, text width=1.8cm]
+  at (3.05,-0.80) {\textbf{E-1a}\\ Arena limosa\\ no saturada\\ $\phi'=29°$};
+\node[font=\scriptsize, align=left, text width=1.8cm]
+  at (3.05,-3.00) {\textbf{E-1b}\\ Arena limosa\\ saturada};
+\node[font=\scriptsize, align=left, text width=1.8cm]
+  at (3.05,-3.85) {\textbf{E-2}\\ Arcillas\\ versicolores};
+
+%% ---- INTERIOR LABEL ----
+\node[gray!80, font=\footnotesize, align=center] at (0.0, 0.7)
+  {$L \times B \times H = 4{,}00 \times 3{,}00 \times 3{,}50$~m};
+\node[gray!80, font=\scriptsize] at (0.0, 0.2)
+  {HA-30/B/20/IIb+QA --- cem.\ SR};
+
+%% ---- ELEVATION REFERENCE LABELS ----
+\node[gray!70, font=\tiny, left] at (-3.8, 0.0)  {$\pm 0{,}00$};
+\node[gray!70, font=\tiny, left] at (-3.8,-1.5)  {$-1{,}50$~m};
+\node[gray!70, font=\tiny, left] at (-3.8,-1.8)  {$-1{,}80$~m};
+\node[gray!70, font=\tiny, left] at (-3.8,-2.5)  {$-2{,}50$~m};
+
+\end{tikzpicture}%
+}
+\caption{Sección transversal de la arqueta de fangos mezcla con perfil
+         estratigráfico del Sondeo~1. Dimensiones en metros.
+         Cota de cimentación: $-1{,}80$~m; N.F.: $-2{,}50$~m.}
+\label{fig:arqueta_seccion}
+\end{figure}
+
+% -----------------------------------------------------------
+\subsection{Justificación de la cota de cimentación}
+\label{subsec:cota_cim}
+% -----------------------------------------------------------
+
+La cota de apoyo de la losa de cimentación ($-1{,}80$~m) se justifica en
+función de los tres condicionantes siguientes:
+
+\subsubsection*{(a) Estrato portante}
+
+De los cálculos geotécnicos (sección~\ref{subsec:cap_portante_arqueta}) se
+obtiene que el estrato~1a (arena limosa, $D_f = 1{,}50$~m) ofrece una
+capacidad portante de $q_h = 91{,}05$~Tn/m², con un factor de seguridad
+$F_s = 14{,}8 \gg 3$.
+La profundización hasta el estrato~2 (arcillas, $D_f \approx 3{,}50$~m)
+no aporta ninguna ventaja estructural y requeriría atravesar el nivel
+freático, con el consiguiente coste de agotamiento y entibación.
+
+\subsubsection*{(b) Nivel freático}
+
+El N.F. se localiza a $-2{,}50$~m, por debajo del fondo de excavación
+($-1{,}80$~m). Esto permite ejecutar la cimentación en \textbf{seco},
+sin necesidad de agotamiento permanente.
+La situación más desfavorable de flotación (N.F.\ en rasante) queda
+cubierta con $F_{s,\mathrm{flot}} = 1{,}87 > 1{,}05$ (sección~\ref{subsec:flotacion}).
+
+\subsubsection*{(c) Condicionante medioambiental}
+
+Al estar en zona medioambientalmente protegida se minimiza el volumen de
+excavación (la base de la losa queda a tan sólo $1{,}80$~m de profundidad).
+La protección del terreno frente a filtraciones de fango se garantiza mediante
+el sistema de impermeabilización descrito en la
+sección~\ref{subsec:impermeabilizacion_arqueta}.
+
+\begin{supuestobox}[Cota de cimentación adoptada --- Arqueta]
   \begin{itemize}
-    \item Hormigón HA-30 con \textbf{cemento SR} (CEM I 42,5 SR o CEM III/A 42,5).
-    \item \textbf{Impermeabilización} exterior de la losa y paredes enterradas
-          mediante lámina de polietileno de alta densidad (HDPE, $e \geq 2$~mm)
-          o revestimiento epoxi.
-    \item \textbf{Geotextil} de protección sobre la lámina impermeabilizante.
-    \item Sistema de \textbf{drenaje perimetral} para evitar la acumulación de agua
-          con alto contenido en sulfatos en contacto con el hormigón.
+    \item Cota de apoyo de la losa: $-1{,}80$~m (base del hormigón)
+    \item Cota del trasdós superior de la losa: $-1{,}50$~m
+          ($D_f = 1{,}50$~m para Brinch-Hansen)
+    \item Exceso sobre N.F.: $\Delta h = 2{,}50 - 1{,}80 = \mathbf{0{,}70}$~m
+          (cimentación en seco) ✓
+    \item Capa de HM-15 de limpieza: $e = 10$~cm (cota fondo exc. $= -1{,}90$~m)
   \end{itemize}
+\end{supuestobox}
+
+% -----------------------------------------------------------
+\subsection{Medidas frente a la agresividad química}
+\label{subsec:impermeabilizacion_arqueta}
+% -----------------------------------------------------------
+
+\begin{notabox}[Protección frente a sulfatos y filtración de fangos]
+  Dado el contenido de sulfatos del suelo ($3\,500$~mg~SO$_4^{2-}$/kg) y
+  el carácter medioambientalmente protegido de la zona, se adoptarán las
+  siguientes medidas de protección:
+  \begin{enumerate}
+    \item \textbf{Hormigón con cemento resistente a sulfatos.}
+          HA-30/B/20/IIb+QA con \textbf{cemento SR} (CEM~I~42,5~SR o
+          CEM~III/A~42,5), recubrimiento nominal de 45~mm.
+    \item \textbf{Impermeabilización exterior de losa y paredes enterradas}
+          mediante lámina de polietileno de alta densidad (HDPE,
+          $e \geq 2$~mm), fijada mecánicamente en la coronación con
+          taco metálico y sellada con adhesivo de contacto.
+    \item \textbf{Lámina drenante nodular} (tipo DELTA-MS o similar)
+          superpuesta a la HDPE para conducir el agua infiltrada hacia
+          el tubo perimetral de drenaje.
+    \item \textbf{Geotextil de protección} (no tejido, $150$~g/m²)
+          sobre la lámina drenante para evitar la colmatación de los
+          nódulos con finos del suelo.
+    \item \textbf{Tubo dren perimetral} Ø~100~mm ranurado, rodeado de
+          grava lavada $\phi$~20/40~mm filtrada con geotextil, en la
+          base del trasdós de las paredes enterradas.
+  \end{enumerate}
+  El sistema garantiza la \textbf{doble barrera} (impermeabilización + drenaje)
+  exigida por la clase de exposición QA y la normativa medioambiental de
+  la zona protegida.
 \end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Resumen de la solución de cimentación}
+\label{subsec:resumen_cim_arqueta}
+% -----------------------------------------------------------
+
+\begin{table}[H]
+  \centering
+  \caption{Resumen de la cimentación adoptada para la arqueta de fangos mezcla}
+  \label{tab:resumen_cim_arqueta}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Parámetro} & \textbf{Valor} & \textbf{Verificación} \\
+    \midrule
+    Tipo de cimentación   & Losa de H.A.\ corrida & --- \\
+    Dimensiones losa      & $4{,}60 \times 3{,}60$~m & Dimensiones exteriores \\
+    Espesor losa          & $e = 0{,}30$~m & Igual que paredes \\
+    Cota de apoyo         & $-1{,}80$~m & Excav.\ en seco \\
+    Profundidad $D_f$     & $1{,}50$~m & Trasdós sup.\ losa \\
+    Estrato de apoyo      & E-1a (arena limosa) & $\phi'=29°$, $c'=0$ \\
+    \midrule
+    Carga de servicio $q$ & $6{,}16$~Tn/m² & \\
+    Cap.\ portante $q_h$  & $91{,}05$~Tn/m² & \\
+    $F_s$ hundimiento     & $14{,}8 \geq 3{,}0$ & \textbf{OK} ✓ \\
+    \midrule
+    Asiento estimado      & $s \approx 7{,}7$~cm & Monitorizar \\
+    $F_s$ flotación       & $1{,}87 \geq 1{,}05$ & \textbf{OK} ✓ \\
+    \midrule
+    Hormigón              & HA-30/B/20/IIb+QA & Cem.\ SR \\
+    Acero                 & B~500~SD & --- \\
+    Recubrimiento nominal & 45~mm & Exp.\ QA \\
+    Impermeabilización    & HDPE $e \geq 2$~mm & + drenante + dren Ø100 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

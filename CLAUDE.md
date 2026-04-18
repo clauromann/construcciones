@@ -106,18 +106,49 @@ Geometría adoptada: e1=0,60 m (coronación), e2=0,75 m (base), B=4,40 m, hz=0,8
   - `TFA/chapters/02_muro/01_descripcion_opciones.tex` — 100% completo
 - [x] Portada, Introducción, datos del sondeo (`01_introduccion.tex`)
 - [x] Intro muro (`00_intro_muro.tex`), intro arqueta (`00_intro_arqueta.tex`)
-- [x] Predimensionamiento materiales y clase exposición (`03_predimensionamiento.tex` — parcial)
+- [x] **Predimensionamiento completo** — `03_predimensionamiento.tex` — 100%
+  - Geometría definitiva (e1=0,60; e2=0,75; hz=0,80; B=4,40; Btalón=2,85; Bpunta=0,80)
+  - Plano TikZ acotado con NF, empujes y dimensiones
+  - Tabla de acero actualizada con valores definitivos del cálculo estructural
+- [x] **Cálculos estructurales ELU** — `04_calculos_estructurales.tex` — 100%
+  - Diagrama de presiones fuste (6 bloques): Fk=12,94 Tn/ml; Mk=32,07 Tn·m/ml
+  - Momento ELU fuste: Md=44,17 Tn·m/ml → φ16 c/12,5 cm (As=16,08 cm²/m)
+  - Cortante: Vd=173 kN/m < Vu2=255 kN/m → sin estribos ✅
+  - Presiones contacto zapata: qmax=23,62 Tn/m²; qmin=1,52 Tn/m²; e=0,645 m < B/6 ✅
+  - Talón (cara sup.): Md=53,73 Tn·m/ml → φ20 c/17 cm (As=18,49 cm²/m)
+  - Puntera (cara inf.): rige mínimo → φ16 c/13 cm (As=15,47 cm²/m)
+  - Total acero: 288,3 kg/ml → **43.245 kg para los 150 ml** (≈43,2 Tm)
 - [x] Detalle impermeabilización arqueta (`02_cimentacion.tex` — parcial)
+- [x] **Bug fix compilación** — `04_calculos_estructurales.tex` línea 64: `$>$` y `~` en título notabox causaban error pgfkeys; corregido a `{>}` y espacio simple
+- [x] **Proceso constructivo** — `05_proceso_constructivo.tex` — 100%
+  - 15 pasos detallados (replanteo → acabados), con 2 notabox
+  - Tablas de cuadrillas y maquinaria completas
+  - Volúmenes calculados: HM-15=66 m³, HA-30=1.187 m³ (zapata+fuste), encofrado=1.950 m²
+- [x] **Presupuesto** — `06_presupuesto.tex` — 100%
+  - Mediciones calculadas de geometría (exc=1596 m³, HA-30=1187 m³, enc fuste=1950 m², enc zap=240 m², imp=975 m², rell=2779 m³)
+  - PEM = 371.094 € · PEC (con IVA) = 534.338 € · Coste unitario ≈ 2.474 €/ml
+- [x] **Gantt** — `07_gantt.tex` — 100%
+  - Duraciones calculadas con rendimientos reales: plazo total = 29 semanas (≈7 meses)
+  - Gantt de 30 columnas con solapamiento G/H (encofrado trepante fuste)
+
+- [x] **Cimentación arqueta** — `03_arqueta/02_cimentacion.tex` — 100%
+  - Sección transversal TikZ acotada (dimensiones, estratigrafía, N.F.)
+  - Justificación cota −1,80 m (seco, Fs_flot=1,87, portante ok)
+  - Tabla resumen cimentación + sistema impermeabilización HDPE + drenante
+
+- [x] **Anexo A — Sondeo** — `anexos/A_sondeo.tex` — 100%
+  - Columna estratigráfica TikZ (4 estratos + NF + profundidades + parámetros)
+  - Leyenda tabular con cotas, γ, φ', c', E, ν
+- [x] **Anexo B — Cálculos manuales** — `anexos/B_calculos_manuales.tex` — 100%
+  - Predimensionamiento muro (reglas proporcionalidad)
+  - Ka/Kp Rankine, diagrama de empujes, bloques 1-6
+  - FS vuelco (1,97 ✅), FS deslizamiento (2,26 ✅)
+  - Tanteo armadura fuste (As≈17,6 cm²/m vs. 16,08 cm²/m del cálculo detallado)
+  - Arqueta: cargas, flotación (Fs=1,87 ✅), capacidad portante Terzaghi (Fs≈13,7 ✅)
+  - Comparativa asientos Timoshenko vs. Steinbrenner
 
 ### Pendiente ⬜
-- [ ] **`02_muro/03_predimensionamiento.tex`** — Completar geometría definitiva + plano TikZ
-- [ ] **`02_muro/04_calculos_estructurales.tex`** — ELU fuste (flexión + cortante) y zapata (punzonamiento, flexión)
-- [ ] **`02_muro/05_proceso_constructivo.tex`** — Descripción + medios humanos/maquinaria
-- [ ] **`02_muro/06_presupuesto.tex`** — Mediciones y precios unitarios
-- [ ] **`02_muro/07_gantt.tex`** — Diagrama Gantt con pgfgantt
-- [ ] **`03_arqueta/02_cimentacion.tex`** — Completar plano acotado TikZ + cota cimentación
-- [ ] **`anexos/A_sondeo.tex`** — Insertar figura escaneada/TikZ del sondeo
-- [ ] **`anexos/B_calculos_manuales.tex`** — Desarrollar tanteos manuales
+- (ningún elemento pendiente — TFA completo)
 
 ---
 
@@ -208,4 +239,4 @@ git push
 ```
 
 ---
-*Última actualización: 2026-04-17 — Fases 1 y 2 completas (geotecnia + comparativa estructural)*
+*Última actualización: 2026-04-18 — TFA COMPLETO: cimentación arqueta (TikZ) + Anexo A (sondeo TikZ) + Anexo B (tanteos manuales) + README actualizado*

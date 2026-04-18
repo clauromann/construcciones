@@ -4,46 +4,78 @@
 \section{Programación de obras — Diagrama de Gantt}
 \label{sec:muro_gantt}
 
-\subsection{Actividades y duraciones}
+% -----------------------------------------------------------
+\subsection{Cálculo de duraciones}
+\label{subsec:duraciones}
+% -----------------------------------------------------------
 
-% TODO: Calcular las duraciones de cada actividad usando los rendimientos dados:
-%   - Encofrado:  40 m²/día   → dias = m² encofrado / 40
-%   - Ferrallado: 1000 kg/día → dias = kg acero / 1000
-%   - Hormigonado (bomba): 10 m³/h → calcular horas y convertir a días
-%   - Curado mínimo: 7 días (criterio normativo)
-%   - Relleno + compactación: 2.50 m³/día por equipo
+Las duraciones se obtienen dividiendo la medición de cada actividad entre
+el rendimiento de la cuadrilla correspondiente (tabla~\ref{tab:cuadrillas}),
+redondeando al número entero de semanas por exceso:
 
 \begin{table}[H]
   \centering
-  \caption{Actividades del proceso constructivo y duraciones estimadas}
+  \caption{Cálculo de duraciones por actividad}
   \label{tab:actividades}
-  \begin{tabular}{@{}clcc@{}}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}clccccc@{}}
     \toprule
-    \textbf{ID} & \textbf{Actividad} & \textbf{Duración (semanas)} & \textbf{Predecesoras} \\
+    \textbf{ID} & \textbf{Actividad}
+    & \textbf{Medición} & \textbf{Rendimiento}
+    & \textbf{Días} & \textbf{Semanas} & \textbf{Predecesoras} \\
     \midrule
-    A & Replanteo y trabajos previos     & 1  & --- \\
-    B & Excavación general               & 2  & A \\
-    C & Encachado y HM-15 de limpieza    & 1  & B \\
-    D & Ferrallado de zapata             & 1  & C \\
-    E & Encofrado de zapata              & 1  & D \\
-    F & Hormigonado de zapata + curado   & 2  & E \\
-    G & Ferrallado del fuste             & 1  & F \\
-    H & Encofrado del fuste              & 1  & G \\
-    I & Hormigonado del fuste + curado   & 2  & H \\
-    J & Desencofrado                     & 1  & I \\
-    K & Impermeabilización y drenaje     & 1  & J \\
-    L & Relleno y compactación trasdós   & 2  & K \\
-    M & Acabados y remates               & 1  & L \\
+    A & Replanteo y trabajos previos
+      & ---              & ---                  &  5  & 1 & --- \\
+    B & Excavación general
+      & 1\,596~m³        & 300~m³/día           &  6  & 2 & A \\
+    C & HM-15 de limpieza
+      & 66~m³            & 30~m³/día            &  3  & 1 & B \\
+    D & Ferrallado de zapata
+      & 18\,435~kg       & 1\,000~kg/día        & 19  & 4 & C \\
+    E & Encofrado de zapata
+      & 240~m²           & 40~m²/día            &  6  & 2 & D \\
+    F & Hormigonado + curado zapata
+      & 528~m³           & 240~m³/día + 7~d cur.&  9  & 2 & E \\
+    G & Ferrallado del fuste
+      & 24\,810~kg       & 1\,000~kg/día        & 25  & 5 & F \\
+    H & Encofrado del fuste (trepante)
+      & 1\,950~m²        & 40~m²/día            & 49  & 5 & G+2 sem \\
+    I & Hormigonado + curado fuste
+      & 659~m³           & 30~m³/h + curado     & 10  & 2 & H \\
+    J & Desencofrado total
+      & ---              & ---                  &  5  & 1 & I \\
+    K & Impermeabilización y drenaje
+      & 975~m²           & 200~m²/día           &  5  & 2 & J \\
+    L & Relleno y compactación trasdós
+      & 2\,779~m³        & 150~m³/día           & 19  & 4 & K \\
+    M & Acabados y remates
+      & ---              & ---                  &  5  & 1 & L \\
     \midrule
-    \multicolumn{2}{l}{\textbf{PLAZO TOTAL}} & \textbf{17} & \\
+    \multicolumn{5}{l}{\textbf{PLAZO TOTAL (ruta crítica: A-B-C-D-E-F-G-H-I-J-K-L-M)}}
+      & \textbf{29} & \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
-\subsection{Diagrama de Gantt}
+\begin{notabox}[Encofrado del fuste --- trepante vs.\ plazo]
+  El encofrado metálico del fuste abarca $1\,950$~m² para 13~tongadas de
+  50~cm en 150~ml.
+  Con el rendimiento de 40~m²/día se obtienen 49~días teóricos, pero en la
+  práctica se trabaja en \textbf{10~secciones de 15~m en paralelo} con
+  2~juegos de paneles por sección.
+  Esto reduce la ruta crítica a $\approx 5$ semanas netas, coincidiendo
+  con el hormigonado del fuste que tiene el mismo tiempo de ciclo
+  (rellenar, vibrar, curar, descofrar, trepar).
+\end{notabox}
 
-% Escala: 1 columna = 1 semana. Plazo total orientativo: 17 semanas (~4 meses).
-% TODO: Ajustar semanas de inicio/fin una vez calculadas las duraciones reales.
+% -----------------------------------------------------------
+\subsection{Diagrama de Gantt}
+\label{subsec:gantt}
+% -----------------------------------------------------------
+
+La figura~\ref{fig:gantt_muro} representa la programación sobre un horizonte
+de \textbf{32~semanas} ($\approx 8$ meses), con inicio en semana~1 y
+finalización en semana~32.
 
 \begin{figure}[H]
 \centering
@@ -51,34 +83,32 @@
 \begin{ganttchart}[
     hgrid,
     vgrid={*{1}{dotted}},
-    x unit=0.7cm,
+    x unit=0.55cm,
     y unit title=0.6cm,
     y unit chart=0.55cm,
-    title/.style={draw=none, fill=NavyBlue!80, text=white},
     title label font=\bfseries\footnotesize,
-    bar/.style={fill=NavyBlue!50, rounded corners=2pt},
     bar label font=\footnotesize,
-    bar label node/.append style={align=left},
-    milestone/.style={fill=red!80},
-    today rule/.style={draw=red, ultra thick}
-  ]{1}{17}
-  \gantttitle{Programación de obras (semanas)}{17} \\
-  \gantttitlelist{1,...,17}{1} \\
-  \ganttbar{A - Replanteo}{1}{1} \\
-  \ganttbar{B - Excavación}{2}{3} \\
-  \ganttbar{C - H. limpieza}{4}{4} \\
-  \ganttbar{D - Ferrallado zapata}{5}{5} \\
-  \ganttbar{E - Encofrado zapata}{6}{6} \\
-  \ganttbar{F - Horm. zapata + curado}{7}{8} \\
-  \ganttbar{G - Ferrallado fuste}{9}{9} \\
-  \ganttbar{H - Encofrado fuste}{10}{10} \\
-  \ganttbar{I - Horm. fuste + curado}{11}{12} \\
-  \ganttbar{J - Desencofrado}{13}{13} \\
-  \ganttbar{K - Impermeab. + drenaje}{14}{14} \\
-  \ganttbar{L - Relleno trasdós}{15}{16} \\
-  \ganttbar{M - Acabados}{17}{17}
+    bar/.style={fill=NavyBlue!50, rounded corners=2pt},
+    bar label node/.append style={text width=3.8cm}
+  ]{1}{30}
+  \gantttitle{Programación de obras --- muro de contención (semanas)}{30} \\
+  \gantttitlelist{1,...,30}{1} \\
+  \ganttbar{A -- Replanteo}{1}{1} \\
+  \ganttbar{B -- Excavación}{2}{3} \\
+  \ganttbar{C -- HM-15 limpieza}{4}{4} \\
+  \ganttbar{D -- Ferrallado zapata}{5}{8} \\
+  \ganttbar{E -- Encofrado zapata}{9}{10} \\
+  \ganttbar{F -- Horm.\ zapata + curado}{11}{12} \\
+  \ganttbar{G -- Ferrallado fuste}{13}{17} \\
+  \ganttbar{H -- Encofrado fuste}{15}{19} \\
+  \ganttbar{I -- Horm.\ fuste + curado}{20}{21} \\
+  \ganttbar{J -- Desencofrado}{22}{22} \\
+  \ganttbar{K -- Impermeab.\ + drenaje}{23}{24} \\
+  \ganttbar{L -- Relleno trasdós}{25}{28} \\
+  \ganttbar{M -- Acabados}{29}{29}
 \end{ganttchart}
 }
-\caption{Diagrama de Gantt del proceso constructivo del muro (borrador — duraciones orientativas)}
+\caption{Diagrama de Gantt del proceso constructivo del muro de contención
+         ($L = 150$~ml, plazo total: 29~semanas $\approx 7$ meses)}
 \label{fig:gantt_muro}
 \end{figure}

@@ -1,96 +1,398 @@
 % ============================================================
-%  SECCIÓN — PREDIMENSIONAMIENTO (MURO)
+%  SECCIÓN — PREDIMENSIONAMIENTO DEL MURO EN MÉNSULA
 % ============================================================
 \section{Predimensionamiento de la estructura}
 \label{sec:muro_predim}
 
-\subsection{Criterios de predimensionamiento}
+% -----------------------------------------------------------
+\subsection{Normativa y criterios aplicables}
+% -----------------------------------------------------------
 
-% TODO: Indicar la normativa aplicable (Código Estructural 2021, DBSE-C).
-% TODO: Definir la clase de exposición del hormigón.
-%       Con 3500 mg SO4²⁻/kg → clase de exposición QA (agresividad química moderada).
-%       → Hormigón con cemento resistente a sulfatos (SR), mínimo HA-30.
+El predimensionamiento se realiza conforme a:
+
+\begin{itemize}
+  \item \textbf{Código Estructural} (Real Decreto 470/2021): dimensionamiento
+        de estructuras de hormigón armado y definición de clases de exposición.
+  \item \textbf{CTE DB-SE-C} (Seguridad Estructural — Cimientos): condiciones
+        geotécnicas de la cimentación.
+  \item \textbf{Eurocódigo 7 (UNE-EN 1997-1)}: diseño geotécnico.
+\end{itemize}
+
+Se adopta un muro de contención \textbf{en ménsula con zapata corrida} —
+solución justificada en el apartado~\ref{sec:muro_opciones} — con los
+parámetros del terreno del Sondeo~1 y la geometría que se determina a
+continuación.
+
+% -----------------------------------------------------------
+\subsection{Clase de exposición y materiales}
+% -----------------------------------------------------------
+
+La presencia de sulfatos en el suelo ($3\,500$~mg~SO$_4^{2-}$/kg) y el
+carácter medioambientalmente protegido de la zona condicionan directamente
+la elección del hormigón.
 
 \begin{notabox}[Clase de exposición — sulfatos]
-  La concentración de sulfatos en el suelo es de $3\,500$~mg~SO$_4^{2-}$/kg, lo que
-  corresponde a una \textbf{clase de exposición QA} (agresividad química moderada).
+  Según la Tabla~6.2 del Código Estructural, una concentración de
+  $3\,500$~mg~SO$_4^{2-}$/kg corresponde a la clase química
+  \textbf{Qa} (media agresividad). Combinada con la exposición a
+  humedad y ciclos de hielo-deshielo en elementos enterrados, la clase
+  de exposición resultante es \textbf{IIb+Qa}.
+
   Se adoptará:
   \begin{itemize}
-    \item Hormigón: HA-30 con cemento SR (resistente a sulfatos).
-    \item Recubrimiento mínimo: $r_{\min} = 35$~mm (clase de exposición IIb+QA).
-    \item Recubrimiento nominal: $r_{\text{nom}} = r_{\min} + \Delta r = 35 + 10 = 45$~mm.
+    \item Hormigón: \textbf{HA-30/B/20/IIb+Qa}, con cemento
+          \textbf{SR} (CEM~I~42{,}5~SR o CEM~III/A~42{,}5),
+          resistente a sulfatos.
+    \item Recubrimiento mínimo nominal (Tabla~37.2.4 CE):
+          $r_{\min} = 35$~mm para clase IIb+Qa.
+    \item Tolerancia de ejecución: $\Delta r = 10$~mm.
+    \item \textbf{Recubrimiento nominal adoptado:}
+          $r_{\text{nom}} = 35 + 10 = \resultado{45~\text{mm}}$.
+    \item Hormigón de limpieza: \textbf{HM-15}, $e = 10$~cm,
+          sin función estructural.
+    \item Acero pasivo: \textbf{B~500~SD} ($f_{yk} = 500$~MPa).
   \end{itemize}
 \end{notabox}
 
-\subsection{Geometría del muro}
-
-% TODO: Proponer dimensiones con reglas empíricas y verificar.
-% Reglas orientativas para muro en ménsula con H = 7.3 m:
-%   - Canto del fuste en coronación: H/12 ≈ 0.60 m
-%   - Canto del fuste en la base:    H/10 ≈ 0.75 m
-%   - Longitud de la zapata:         0.5·H a 0.7·H ≈ 3.6–5.1 m
-%   - Canto de la zapata:            H/10 a H/8 ≈ 0.75–0.90 m
-
-\subsubsection{Plano de dimensiones acotado}
-
-% TODO: Insertar figura TikZ (o PDF importado) con el plano de dimensiones del muro.
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.9\textwidth]{planos/muro_dimensiones.pdf}
-%   \caption{Plano de dimensiones acotado del muro de contención}
-%   \label{fig:muro_dimensiones}
-% \end{figure}
-
-\subsubsection{Plano de armado completo}
-
-% TODO: Insertar figura con la disposición de armaduras (cara trasdós, cara intradós,
-%       armadura de reparto, arranques de la zapata…).
-
-\subsubsection{Detalles constructivos}
-
-% TODO: Incluir detalles de: junta de dilatación cada 15-20 m, drenaje del trasdós
-%       (tubo dren Ø100 + geotextil + grava), protección del hormigón frente a sulfatos.
-
-\subsection{Materiales adoptados}
-
 \begin{table}[H]
   \centering
-  \caption{Materiales estructurales del muro}
+  \caption{Materiales estructurales adoptados}
   \label{tab:materiales_muro}
-  \begin{tabular}{@{}lll@{}}
+  \begin{tabular}{@{}llll@{}}
     \toprule
-    \textbf{Material} & \textbf{Tipo} & \textbf{Característica} \\
+    \textbf{Elemento} & \textbf{Hormigón} & \textbf{Cemento}
+    & \textbf{Recub. nominal} \\
     \midrule
-    Hormigón fuste y zapata & HA-30/B/20/IIb+QA & $f_{ck} = 30$~MPa \\
-    Hormigón de limpieza    & HM-15             & $f_{ck} = 15$~MPa \\
-    Acero pasivo            & B\,500\,SD         & $f_{yk} = 500$~MPa \\
+    Fuste + zapata      & HA-30/B/20/IIb+Qa & SR (CEM I 42{,}5 SR) & 45~mm \\
+    Hormigón de limpieza & HM-15             & —                     & —     \\
+    Acero pasivo         & B~500~SD          & —                     & —     \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\subsection{Despiece de acero — resumen de kg}
+% -----------------------------------------------------------
+\subsection{Reglas empíricas de predimensionamiento}
+\label{subsec:reglas_empiricas}
+% -----------------------------------------------------------
 
-% TODO: Calcular el volumen de cada barra (φ y longitud), sumar por elementos
-%       (fuste, zapata, armadura de distribución) y obtener el peso total.
-%
-% Densidad del acero: 7850 kg/m³
+Para un muro de contención en ménsula de altura total $H = \alturaDesnivelMuro$~m
+se aplican las reglas empíricas habituales para obtener una primera estimación
+de las dimensiones:
+
+\subsubsection{Espesor del fuste}
+
+La sección del fuste varía linealmente desde la coronación hasta la base:
+
+\begin{align}
+  e_1 &= \frac{H}{12} = \frac{7{,}3}{12} = 0{,}61~\text{m}
+        \quad\longrightarrow\quad \textit{adoptar } \resultado{e_1 = 0{,}60~\text{m}}
+        \label{eq:e1} \\[4pt]
+  e_2 &= \frac{H}{10} = \frac{7{,}3}{10} = 0{,}73~\text{m}
+        \quad\longrightarrow\quad \textit{adoptar } \resultado{e_2 = 0{,}75~\text{m}}
+        \label{eq:e2}
+\end{align}
+
+El trasdós (cara en contacto con el terreno) se proyecta \textbf{vertical}.
+El intradós presenta la variación de espesor indicada.
+
+\subsubsection{Dimensiones de la zapata}
+
+\paragraph{Canto de la zapata:}
+\begin{equation}
+  h_z = \frac{H}{10} \approx 0{,}73~\text{m}
+  \quad\longrightarrow\quad \resultado{h_z = 0{,}80~\text{m}}
+  \label{eq:hz}
+\end{equation}
+
+\paragraph{Ancho total de la zapata:}
+La primera estimación por regla empírica es:
+\begin{equation}
+  B_{\text{estimado}} = (0{,}50 \div 0{,}70)\cdot H
+    = (0{,}50 \div 0{,}70) \times 7{,}3 = 3{,}65 \div 5{,}11~\text{m}
+  \label{eq:B_est}
+\end{equation}
+
+Se adopta inicialmente $B = 4{,}00$~m, pero tras la \textbf{comprobación de
+estabilidad} (apartado~\ref{subsec:estabilidad}) se ajusta a
+$\resultado{B = 4{,}40~\text{m}}$ para satisfacer el coeficiente de seguridad
+al vuelco.
+
+\begin{supuestobox}[Distribución puntera / talón]
+  En un muro en ménsula, el \textbf{talón} (vuelo hacia el lado del terreno
+  retenido) proporciona la carga vertical que equilibra el momento volcador.
+  El \textbf{puntera} (vuelo libre hacia el exterior) limita las tensiones
+  sobre el terreno de cimentación.
+
+  Se adopta:
+  \begin{itemize}
+    \item Puntera: $B_{\text{punta}} = 0{,}80$~m
+          (longitud mínima estructuralmente necesaria).
+    \item Talón: $B_{\text{talón}} = B - e_2 - B_{\text{punta}}
+          = 4{,}40 - 0{,}75 - 0{,}80 = \resultado{2{,}85~\text{m}}$.
+  \end{itemize}
+\end{supuestobox}
+
+\subsubsection{Altura libre del fuste}
+
+La altura del fuste medida sobre la cara superior de la zapata es:
+\begin{equation}
+  H_f = H - h_z = 7{,}30 - 0{,}80 = \resultado{6{,}50~\text{m}}
+  \label{eq:Hf}
+\end{equation}
+
+% -----------------------------------------------------------
+\subsection{Geometría adoptada — resumen}
+\label{subsec:geom_adoptada}
+% -----------------------------------------------------------
 
 \begin{table}[H]
   \centering
-  \caption{Resumen de acero por elementos (a completar)}
-  \label{tab:acero_muro}
+  \caption{Geometría definitiva del muro en ménsula}
+  \label{tab:geom_muro}
+  \begin{tabular}{@{}llcl@{}}
+    \toprule
+    \textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor} & \textbf{Criterio} \\
+    \midrule
+    Altura total retenida  & $H$               & 7{,}30~m & Enunciado \\
+    Altura libre del fuste & $H_f$             & 6{,}50~m & $H - h_z$ \\
+    Espesor en coronación  & $e_1$             & 0{,}60~m & $H/12$ \\
+    Espesor en la base     & $e_2$             & 0{,}75~m & $H/10$ \\
+    Canto de la zapata     & $h_z$             & 0{,}80~m & $H/10$ \\
+    Ancho total zapata     & $B$               & 4{,}40~m & Estabilidad \\
+    Puntera                & $B_{\text{punta}}$ & 0{,}80~m & Estructural \\
+    Talón                  & $B_{\text{talón}}$ & 2{,}85~m & $B-e_2-B_p$ \\
+    Empotramiento          & $D_f$             & 1{,}00~m & Geotecnia \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% -----------------------------------------------------------
+\subsection{Plano de dimensiones acotado}
+\label{subsec:plano_dim}
+% -----------------------------------------------------------
+
+La figura~\ref{fig:muro_seccion} muestra la sección transversal del muro con
+todas las dimensiones acotadas, el perfil del terreno y el nivel freático.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.75, >=Stealth,
+    dim/.style={<->, thin, gray!70},
+    cotatxt/.style={font=\footnotesize, fill=white, inner sep=1pt}]
+
+  % ---- Hormigón de limpieza ----
+  \fill[gray!15] (0,-0.10) rectangle (4.40, 0);
+  \draw[dashed, gray] (0,-0.10) rectangle (4.40, 0);
+  \node[font=\tiny, gray] at (2.20,-0.05) {HM-15 ($e=10$~cm)};
+
+  % ---- Zapata ----
+  \fill[gray!35] (0,0) rectangle (4.40, 0.80);
+  \draw[thick] (0,0) rectangle (4.40, 0.80);
+
+  % ---- Fuste ----
+  % Trasdós vertical en x=2.85; intradós va de x=3.60 (base) a x=3.45 (top)
+  \fill[gray!35]
+    (2.85, 0.80) -- (3.60, 0.80) -- (3.45, 7.30) -- (2.85, 7.30) -- cycle;
+  \draw[thick]
+    (2.85, 0.80) -- (3.60, 0.80) -- (3.45, 7.30) -- (2.85, 7.30) -- cycle;
+
+  % ---- Terreno retenido (izquierda / trasdós) ----
+  \fill[brown!25, opacity=0.6]
+    (-0.80, 0.80) -- (2.85, 0.80) -- (2.85, 7.30) -- (-0.80, 7.30) -- cycle;
+  % Relleno bajo talón
+  \fill[brown!25, opacity=0.4] (-0.80, 0) rectangle (2.85, 0.80);
+  % Borde terreno retenido
+  \draw[thick, brown!60] (-0.80, 7.30) -- (2.85, 7.30);
+
+  % ---- Terreno libre (derecha / intradós) ----
+  % Suelo desde y=-0.10 hasta y=1.0 en el lado libre
+  \fill[brown!25, opacity=0.4]
+    (3.60, 0) -- (4.40, 0) -- (4.40, 1.00) -- (5.20, 1.00)
+    -- (5.20, -0.10) -- (3.60, -0.10) -- cycle;
+  \draw[thick, brown!60] (3.45, 1.00) -- (5.20, 1.00);
+  \node[font=\tiny, brown!80, right] at (5.20, 1.00) {Cota terreno libre};
+
+  % ---- Nivel freático ----
+  % NF a -2.50m desde trasdós superficie → y = 7.30 - 2.50 = 4.80
+  \draw[blue!60, thick, dashed]
+    (-0.80, 4.80) -- (2.85, 4.80);
+  \node[font=\footnotesize, blue!70, left] at (-0.80, 4.80)
+    {N.F. $(-2{,}50$~m$)$};
+  % Símbolo nivel freático
+  \foreach \x in {-0.50, -0.20, 0.10}
+    \draw[blue!60] (\x, 4.80) -- (\x+0.15, 4.65);
+
+  % ============================================================
+  % COTAS VERTICALES (izquierda)
+  % ============================================================
+
+  % Cota H total
+  \draw[dim] (-1.30, 0) -- (-1.30, 7.30);
+  \node[cotatxt, rotate=90] at (-1.55, 3.65) {$H = 7{,}30$~m};
+
+  % Cota hz
+  \draw[dim] (-0.50, 0) -- (-0.50, 0.80);
+  \node[cotatxt, left] at (-0.50, 0.40) {$h_z=0{,}80$};
+
+  % Cota Hf
+  \draw[dim] (-0.50, 0.80) -- (-0.50, 7.30);
+  \node[cotatxt, left] at (-0.50, 4.05) {$H_f=6{,}50$~m};
+
+  % ============================================================
+  % COTAS HORIZONTALES (abajo)
+  % ============================================================
+
+  % Cota B total
+  \draw[dim] (0, -0.70) -- (4.40, -0.70);
+  \node[cotatxt] at (2.20, -0.70) {$B = 4{,}40$~m};
+
+  % Cota Btalón
+  \draw[dim] (0, -0.38) -- (2.85, -0.38);
+  \node[cotatxt] at (1.42, -0.38) {$B_{\text{tal}}=2{,}85$};
+
+  % Cota e2
+  \draw[dim] (2.85, -0.38) -- (3.60, -0.38);
+  \node[cotatxt] at (3.22, -0.38) {$e_2$};
+  \node[font=\tiny] at (3.22, -0.55) {$0{,}75$};
+
+  % Cota Bpunta
+  \draw[dim] (3.60, -0.38) -- (4.40, -0.38);
+  \node[cotatxt] at (4.00, -0.38) {$B_p$};
+  \node[font=\tiny] at (4.00, -0.55) {$0{,}80$};
+
+  % ============================================================
+  % COTAS FUSTE (arriba)
+  % ============================================================
+
+  % Cota e1 (coronación) — acotada arriba del fuste
+  \draw[dim] (2.85, 7.60) -- (3.45, 7.60);
+  \node[cotatxt] at (3.15, 7.60) {$e_1 = 0{,}60$~m};
+
+  % ============================================================
+  % EMPOTRAMIENTO Df (derecha)
+  % ============================================================
+  \draw[dim] (5.00, 0) -- (5.00, 1.00);
+  \node[cotatxt, right] at (5.00, 0.50) {$D_f=1{,}00$~m};
+
+  % ============================================================
+  % ETIQUETAS
+  % ============================================================
+  \node[font=\small\bfseries, rotate=90] at (2.20, 0.40) {ZAPATA};
+  \node[font=\small\bfseries, rotate=90] at (3.15, 3.65) {FUSTE};
+  \node[font=\small, brown!80, rotate=90] at (-0.35, 4.00) {Terreno retenido};
+
+  % Flecha empuje activo
+  \foreach \y in {1.5, 2.5, 3.5, 5.0, 6.5}
+    \draw[->, blue!50, thick] (1.50, \y) -- (2.75, \y);
+  \node[font=\footnotesize, blue!60] at (1.00, 4.00) {$E_a$};
+
+\end{tikzpicture}
+\caption{Sección transversal tipo del muro en ménsula (sin escala exacta)}
+\label{fig:muro_seccion}
+\end{figure}
+
+% -----------------------------------------------------------
+\subsection{Verificación de estabilidad global}
+\label{subsec:estabilidad}
+% -----------------------------------------------------------
+
+Con la geometría adoptada se verifican los tres modos de fallo, con los
+resultados obtenidos en el apartado~\ref{sec:muro_geotecnia}:
+
+\begin{table}[H]
+  \centering
+  \caption{Verificación de estabilidad — muro en ménsula}
+  \label{tab:estabilidad_muro}
   \begin{tabular}{@{}lcccc@{}}
     \toprule
-    \textbf{Elemento} & \textbf{Tipo barra} & \textbf{N.º barras} &
-    \textbf{Long. (m)} & \textbf{Peso (kg)} \\
+    \textbf{Comprobación} & \textbf{FS calculado}
+    & \textbf{FS mínimo} & \textbf{Estado} \\
     \midrule
-    Fuste — trasdós   & & & & \\
-    Fuste — intradós  & & & & \\
-    Zapata — inferior & & & & \\
-    Zapata — superior & & & & \\
-    Arm. distribución & & & & \\
+    Vuelco       & 1{,}97 & $\geq 1{,}50$ & \textbf{OK} \\
+    Deslizamiento & 2{,}26 & $\geq 1{,}50$ & \textbf{OK} \\
+    Hundimiento  & 10{,}9 & $\geq 3{,}00$ & \textbf{OK} \\
+    Excentricidad & $e < B/6$ & $e < B/6 = 0{,}73$~m & \textbf{OK} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{resultadobox}[Geometría definitiva verificada]
+  El muro en ménsula con $B = 4{,}40$~m, $h_z = 0{,}80$~m,
+  $e_1 = 0{,}60$~m y $e_2 = 0{,}75$~m cumple todos los requisitos de
+  estabilidad geotécnica. La cimentación es \textbf{superficial} (zapata
+  corrida) con $D_f = 1{,}00$~m de empotramiento.
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Detalles constructivos}
+\label{subsec:detalles_constructivos}
+% -----------------------------------------------------------
+
+\subsubsection{Drenaje del trasdós}
+
+La presencia del nivel freático a $-2{,}50$~m hace imprescindible un sistema
+de drenaje en el trasdós del muro para evitar sobrepresiones hidrostáticas no
+previstas en el diseño. Se dispondrá:
+
+\begin{enumerate}
+  \item \textbf{Tubo drenante} Ø~100~mm perforado, envuelto en geotextil no
+        tejido (150~g/m²), colocado en la base del trasdós sobre la zapata.
+  \item \textbf{Capa drenante} de grava limpia (árido 20/40~mm), $e \geq 0{,}30$~m,
+        entre el trasdós del hormigón y el terreno retenido.
+  \item \textbf{Geotextil} de separación entre la grava y el relleno, para
+        evitar la colmatación.
+  \item \textbf{Lámina impermeabilizante} (HDPE, $e \geq 1{,}5$~mm) sobre el
+        trasdós del fuste, adherida con imprimación bituminosa.
+\end{enumerate}
+
+\subsubsection{Juntas de dilatación}
+
+Dado que la longitud del muro es $L = 150$~ml, se dispondrán \textbf{juntas
+de dilatación} cada $15$~m, selladas con perfil de caucho EPDM y
+mastique de poliuretano elástico. Esto supone \textbf{10~tramos} de~15~m.
+
+En cada junta se interrumpirá la armadura longitudinal de distribución y se
+colocará un perfil de chapa galvanizada de transmisión de cortante.
+
+\subsubsection{Hormigón de limpieza}
+
+Antes del ferrallado de la zapata se extenderá una capa de
+\textbf{HM-15 de 10~cm de espesor} como superficie de trabajo limpia y
+nivelada. El HM-15 no se incluye en los cálculos estructurales.
+
+\subsubsection{Ejecución por tongadas}
+
+El hormigonado del fuste se realizará por \textbf{tongadas de 50~cm de
+altura máxima}, mediante encofrado metálico a dos caras, con vibrado
+interno de cada tongada antes de verter la siguiente.
+
+% -----------------------------------------------------------
+\subsection{Despiece de acero — resumen de kg}
+\label{subsec:despiece_acero}
+% -----------------------------------------------------------
+
+El despiece detallado se desarrolla en el apartado~\ref{sec:muro_estructural}.
+Se recoge aquí el resumen para facilitar la consulta y presupuesto.
+
+\begin{table}[H]
+  \centering
+  \caption{Resumen de acero por ml de muro — valores del cálculo estructural}
+  \label{tab:acero_muro}
+  \begin{tabular}{@{}llcccc@{}}
+    \toprule
+    \textbf{Elemento} & \textbf{Armadura}
+    & \textbf{Esp. (cm)} & $A_s$ \textbf{(cm²/m)}
+    & \textbf{Long. (m)} & \textbf{kg/ml} \\
     \midrule
-    \textbf{TOTAL}    & & & & \\
+    Fuste — trasdós (principal)   & $\phi 16$ & 12{,}5 & 16{,}08 & 7{,}50 & 95{,}2 \\
+    Fuste — intradós (montaje)    & $\phi 12$ & 20{,}0 &  5{,}65 & 7{,}50 & 31{,}7 \\
+    Fuste — distribución horiz.   & $\phi 10$ & 10{,}0 &  7{,}85 & 1{,}00 & 38{,}5 \\
+    Zapata — sup.\ talón          & $\phi 20$ & 17{,}0 & 18{,}49 & 3{,}85 & 55{,}9 \\
+    Zapata — inf.\ solera         & $\phi 16$ & 13{,}0 & 15{,}47 & 4{,}60 & 55{,}7 \\
+    Zapata — distribución transv. & $\phi 12$ & 20{,}0 &  5{,}65 & 1{,}00 & 11{,}3 \\
+    \midrule
+    \textbf{TOTAL por ml de muro} & & & & & \textbf{288{,}3~kg/ml} \\
+    \textbf{TOTAL muro 150~ml}    & & & & & \textbf{43\,245~kg} \\
     \bottomrule
   \end{tabular}
 \end{table}

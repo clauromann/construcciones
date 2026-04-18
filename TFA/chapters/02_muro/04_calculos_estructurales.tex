@@ -1,57 +1,648 @@
 % ============================================================
-%  SECCIÓN — CÁLCULOS ESTRUCTURALES (MURO)
+%  SECCIÓN — CÁLCULOS ESTRUCTURALES (MURO EN MÉNSULA)
+%  Armado del fuste y de la zapata — ELU Código Estructural 2021
 % ============================================================
-\section{Informe de cálculos estructurales}
+\section{Cálculos estructurales del muro en ménsula}
 \label{sec:muro_estructural}
 
-\subsection{Normativa aplicable}
+% -----------------------------------------------------------
+\subsection{Normativa y coeficientes de cálculo}
+% -----------------------------------------------------------
 
-\begin{itemize}
-  \item \textbf{Código Estructural (Real Decreto 470/2021)}: dimensionamiento
-        de estructuras de hormigón armado.
-  \item \textbf{CTE-DBSE-C}: acciones geotécnicas y cimentaciones.
-  \item \textbf{Eurocódigo 7 (UNE-EN 1997)}: diseño geotécnico.
-\end{itemize}
+El dimensionamiento estructural se realiza según el
+\textbf{Código Estructural} (Real Decreto 470/2021), que sustituye a
+la EHE-08. Los coeficientes adoptados son:
 
-\subsection{Acciones consideradas}
+\begin{table}[H]
+  \centering
+  \caption{Coeficientes parciales de seguridad — ELU (CE 2021, Tabla 12.1)}
+  \label{tab:coeficientes_elu}
+  \begin{tabular}{@{}llcc@{}}
+    \toprule
+    \textbf{Tipo de acción} & \textbf{Naturaleza} & $\gamma_{G}$
+    & $\gamma_{Q}$ \\
+    \midrule
+    Empuje de tierras + agua & Permanente desfavorable & 1{,}35 & — \\
+    Sobrecarga de tráfico $q$ & Variable desfavorable & — & 1{,}50 \\
+    Peso propio HA & Permanente desfavorable & 1{,}35 & — \\
+    Reacción del terreno (favorable) & Permanente favorable & 1{,}00 & — \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-% TODO: Definir todas las acciones: peso propio, empuje activo del terreno,
-%       sobrecarga de uso (q = 1 Tn/m² de tráfico), presión hidrostática (si procede).
+\begin{table}[H]
+  \centering
+  \caption{Propiedades de cálculo de los materiales}
+  \label{tab:mat_calculo}
+  \begin{tabular}{@{}llcc@{}}
+    \toprule
+    \textbf{Material} & \textbf{Parámetro} & \textbf{Característico}
+    & \textbf{Cálculo} \\
+    \midrule
+    HA-30 & $f_{ck}$              & 30~MPa      & — \\
+          & $f_{cd} = f_{ck}/\gamma_c$ & —       & 20~MPa \\
+          & $f_{ctm} = 0{,}30\,f_{ck}^{2/3}$ & — & 2{,}90~MPa \\
+    B~500~SD & $f_{yk}$           & 500~MPa     & — \\
+             & $f_{yd} = f_{yk}/\gamma_s$ & — & 434{,}8~MPa \\
+    \midrule
+    \multicolumn{4}{l}{$\gamma_c = 1{,}50$; \quad $\gamma_s = 1{,}15$;
+      \quad Recubrimiento nominal: $r_{\mathrm{nom}} = 45$~mm} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\subsection{Combinaciones de carga (ELU)}
+% -----------------------------------------------------------
+\subsection{Diagrama de presiones sobre el fuste}
+\label{subsec:diagrama_fuste}
+% -----------------------------------------------------------
 
-% TODO: Aplicar las combinaciones de la EHE-08 / Código Estructural.
-% Ed = γG · Gk + γQ · Qk
+El fuste actúa como \textbf{ménsula vertical} empotrada en la zapata,
+con altura libre $H_f = 6{,}50$~m. Las presiones horizontales que actúan
+sobre él son las mismas determinadas en el
+apartado~\ref{subsec:empujes_rankine}, limitadas a la altura del fuste.
 
-\subsection{Comprobación del fuste}
+\begin{notabox}[Hipótesis de presiones en la zona de arcillas versicolores]
+  En el estrato de arcillas versicolores ($z > 3{,}50$~m), la cohesión
+  $c' = 4{,}70$~Tn/m² produce empuje efectivo negativo:
+  \[
+    \sigma'_{h,a} = K_{a,2}\,\sigma'_v - 2\,c'\sqrt{K_{a,2}}
+    = 0{,}402\,({\sigma'_v}+q) - 2{\times}4{,}70{\times}0{,}634 < 0
+  \]
+  Se adopta $\sigma'_{h,a} = 0$. En esta zona solo actúa la
+  \textbf{presión hidrostática} $u = \gamma_w(z - 2{,}50)$.
+\end{notabox}
 
-\subsubsection{Momento de diseño en la base del fuste}
+Los bloques de presión que actúan sobre el fuste se descomponen para
+facilitar la integración:
 
-% TODO: Calcular el diagrama de momentos para el empuje triangular + sobrecarga.
-% M_d = ...
+\begin{table}[H]
+  \centering
+  \caption{Bloques de presión horizontal sobre el fuste ($H_f = 6{,}50$~m)}
+  \label{tab:bloques_fuste}
+  \begin{tabular}{@{}clcccc@{}}
+    \toprule
+    \textbf{N.º} & \textbf{Descripción} & \textbf{Rango $z$ (m)}
+    & \textbf{Forma} & $F_{k}$ \textbf{(Tn/ml)}
+    & $h_e$\,\textbf{desde base (m)} \\
+    \midrule
+    1 & Sobrecarga $q$ — zona seca     & 0{,}00--2{,}50 & Rect. & 0{,}868 & 5{,}25 \\
+    2 & Tierra seca — triangular       & 0{,}00--2{,}50 & Triang. & 1{,}974 & 4{,}83 \\
+    3 & Arena sat.\ + $q$ — rect.     & 2{,}50--3{,}50 & Rect. & 1{,}926 & 3{,}50 \\
+    4 & Arena sat.\ — triangular      & 2{,}50--3{,}50 & Triang. & 0{,}670 & 3{,}33 \\
+    5 & Agua — rectangular (desde NF) & 3{,}50--6{,}50 & Rect. & 3{,}000 & 1{,}50 \\
+    6 & Agua — triangular             & 3{,}50--6{,}50 & Triang. & 4{,}500 & 1{,}00 \\
+    \midrule
+    \multicolumn{4}{l}{\textbf{TOTAL}} &
+    $\mathbf{F_k = 12{,}94}$ & $h_e = 2{,}48$~m \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\subsubsection{Armadura necesaria}
+\begin{supuestobox}[Detalle de los bloques — fórmulas]
+  \begin{description}
+    \item[Bloque 1 (rect. sobrecarga, $z=0$ a $2{,}50$~m):]
+      $F = K_{a,1}\,q\,H_{\mathrm{seco}} = 0{,}347 \times 1{,}00 \times 2{,}50
+       = 0{,}868$~Tn/ml.
+    \item[Bloque 2 (triáng. tierra seca, $z=0$ a $2{,}50$~m):]
+      $F = \tfrac{1}{2}\,K_{a,1}\,\gamma_1\,H_{\mathrm{seco}}^2
+       = \tfrac{1}{2} \times 0{,}347 \times 1{,}82 \times 2{,}50^2
+       = 1{,}974$~Tn/ml.
+    \item[Bloque 3 (rect. arena sat.\ $z=2{,}50$ a $3{,}50$~m):]
+      base $= \sigma_h(z{=}2{,}50) = K_{a,1}(\sigma'_{v,\mathrm{NF}}+q)
+       = 0{,}347 \times 5{,}55 = 1{,}926$~Tn/m².
+      $F = 1{,}926 \times 1{,}00 = 1{,}926$~Tn/ml.
+    \item[Bloque 4 (triáng. arena sat., $z=2{,}50$ a $3{,}50$~m):]
+      incremento $= K_{a,1}\,\gamma'_1 = 0{,}347 \times 0{,}98 = 0{,}340$~Tn/m³.
+      $F = \tfrac{1}{2} \times 0{,}340 \times 1{,}00^2 = 0{,}170$ ...\ en realidad
+      $\Delta\sigma_h = 0{,}340$~Tn/m²; $F = \tfrac{1}{2} \times 0{,}340 \times 1{,}00
+       + 1{,}00\,\Delta u_{1\,\mathrm{m}} = 0{,}670$~Tn/ml
+      (incluye el aumento de agua de $0{,}340 + 1{,}000 = 1{,}340$~Tn/m²
+       en ese metro).
+    \item[Bloques 5 y 6 (agua, $z=3{,}50$ a $6{,}50$~m):]
+      $u(z{=}3{,}50)=1{,}00$~Tn/m², $u(z{=}6{,}50)=4{,}00$~Tn/m².
+      Rect.: $1{,}00 \times 3{,}00 = 3{,}00$~Tn/ml.
+      Triáng.: $\tfrac{1}{2} \times 3{,}00 \times 3{,}00 = 4{,}50$~Tn/ml.
+  \end{description}
+\end{supuestobox}
 
-% TODO: Aplicar la fórmula de la sección rectangular:
-% As = Md / (0.9 · d · fyd)
+Los momentos característicos de cada bloque respecto a la
+\textbf{base del fuste} ($z = H_f = 6{,}50$~m) son:
 
-\subsection{Comprobación de la zapata}
+\begin{align}
+  M_{k,\,\mathrm{total}} &= \sum_i F_{k,i} \cdot h_{e,i} \notag \\
+  &= 0{,}868{\times}5{,}25 + 1{,}974{\times}4{,}83
+   + 1{,}926{\times}3{,}50 + 0{,}670{\times}3{,}33
+   + 3{,}000{\times}1{,}50 + 4{,}500{\times}1{,}00 \notag \\
+  &= 4{,}557 + 9{,}540 + 6{,}741 + 2{,}231 + 4{,}500 + 4{,}500
+   = \resultado{32{,}07~\text{Tn·m/ml}}
+  \label{eq:Mk_fuste}
+\end{align}
 
-\subsubsection{Vuelo de talón y puntera}
+Altura de la resultante sobre la base del fuste:
+\[
+  h_e = \frac{M_{k,\,\mathrm{total}}}{F_{k,\,\mathrm{total}}}
+      = \frac{32{,}07}{12{,}94} = 2{,}48~\text{m}
+\]
 
-% TODO: Calcular momentos en sección de empotramiento talón y puntera.
+% -----------------------------------------------------------
+\subsection{Combinación de carga ELU — fuste}
+\label{subsec:elu_fuste}
+% -----------------------------------------------------------
 
-\subsubsection{Armadura inferior y superior}
+Se separan las acciones \textbf{permanentes} (tierra + agua) de las
+\textbf{variables} (sobrecarga de tráfico), para aplicar los
+coeficientes correspondientes:
 
-% TODO: As inferior (vuelo talón), As superior (vuelo puntera).
+\[
+  M_{k,G} = M_k - M_{k,q}
+\]
 
-\subsection{Comprobación a cortante}
+donde la contribución de la sobrecarga $q$ al momento es:
+\[
+  M_{k,q} = F_{k,q} \cdot h_{e,q}
+  = \underbrace{(0{,}868 + 0{,}347)}_{\text{bloques 1}+\text{3}}
+    \times h_{e,q}
+\]
 
-% TODO: Verificar Vd < Vu1 (agotamiento por compresión oblicua)
-%       y   Vd < Vu2 (agotamiento por tracción en el alma).
+Con $F_{k,q} = 0{,}868 + 0{,}347 = 1{,}215$~Tn/ml y
+momento $M_{k,q} = 4{,}557 + 1{,}215 = 5{,}77$~Tn·m/ml:
 
-\subsection{Comprobación a vuelco y deslizamiento (ELS geotécnico)}
+\begin{align}
+  M_{k,G}   &= 32{,}07 - 5{,}77 = 26{,}30~\text{Tn·m/ml} \notag \\
+  M_d &= \gamma_G\,M_{k,G} + \gamma_Q\,M_{k,q}
+       = 1{,}35 \times 26{,}30 + 1{,}50 \times 5{,}77
+       = 35{,}51 + 8{,}66
+       = \resultado{44{,}17~\text{Tn·m/ml}} \label{eq:Md_fuste}
+\end{align}
 
-% TODO:
-% Coeficiente de seguridad al vuelco:  Mv / Mv_activo ≥ 1.5 – 2.0
-% Coeficiente de seguridad al desliz.: Hresistente / Hactuante ≥ 1.5
+\begin{align}
+  F_{k,G}   &= 12{,}94 - 1{,}215 = 11{,}73~\text{Tn/ml} \notag \\
+  V_d &= 1{,}35 \times 11{,}73 + 1{,}50 \times 1{,}215
+       = 15{,}84 + 1{,}82
+       = \resultado{17{,}66~\text{Tn/ml}} \label{eq:Vd_fuste}
+\end{align}
+
+% -----------------------------------------------------------
+\subsection{Armado del fuste}
+\label{subsec:armado_fuste}
+% -----------------------------------------------------------
+
+\subsubsection{Altura útil en la sección de empotramiento}
+
+La sección más solicitada es la \textbf{base del fuste}
+($e_2 = 0{,}75$~m). Con $\phi_{\text{main}} = 16$~mm:
+
+\begin{equation}
+  d = e_2 - r_{\mathrm{nom}} - \phi_{\mathrm{main}}/2
+    = 750 - 45 - 8 = \resultado{697~\text{mm} \approx 700~\text{mm}}
+  \label{eq:d_fuste}
+\end{equation}
+
+\subsubsection{Armadura principal — trasdós del fuste}
+
+La tensión actuante en el trasdós (cara en contacto con el terreno) es
+de tracción. Se aplica el método de la sección rectangular en ELU:
+
+\paragraph{Adimensional de flexión:}
+\begin{equation}
+  \mu = \frac{M_d}{b\,d^2\,f_{cd}}
+      = \frac{44{,}17 \times 9\,806{,}65~\text{N·m/m}}
+             {1\,000 \times 700^2 \times 20~\text{N/mm}^2}
+      = \frac{4{,}33 \times 10^8}{9{,}80 \times 10^9}
+      = 0{,}0442
+  \label{eq:mu_fuste}
+\end{equation}
+
+Como $\mu = 0{,}044 \ll \mu_{\mathrm{bal}} \approx 0{,}375$, la sección
+necesita \textbf{armadura simple} (no se requiere compresión).
+
+\paragraph{Cuantía mecánica de acero:}
+\begin{equation}
+  \omega = 1 - \sqrt{1 - 2\mu} = 1 - \sqrt{1 - 0{,}0884} = 1 - 0{,}955 = 0{,}0452
+  \label{eq:omega_fuste}
+\end{equation}
+
+\paragraph{Área de acero necesaria:}
+\begin{equation}
+  A_{s,\mathrm{req}} = \omega \cdot \frac{b\,d\,f_{cd}}{f_{yd}}
+  = 0{,}0452 \times \frac{1\,000 \times 700 \times 20}{434{,}8}
+  = \resultado{1\,455~\text{mm}^2/\text{m} = 14{,}6~\text{cm}^2/\text{m}}
+  \label{eq:As_fuste}
+\end{equation}
+
+\paragraph{Comprobación de armadura mínima (CE 2021, Art.\ 42.3.5):}
+\begin{equation}
+  A_{s,\min} = \max\!\left(0{,}26\,\frac{f_{ctm}}{f_{yk}},\;0{,}0013\right)
+               \cdot b \cdot d
+  = \max\!\left(0{,}26\times\frac{2{,}90}{500},\;0{,}0013\right)
+    \times 1\,000 \times 700
+  = 0{,}0015 \times 700\,000
+  = 1\,050~\text{mm}^2/\text{m}
+\end{equation}
+
+$A_{s,\mathrm{req}} = 1\,455 > A_{s,\min} = 1\,050~\text{mm}^2/\text{m}$ \checkmark
+
+\paragraph{Armadura adoptada — trasdós (cara tierra):}
+\begin{resultadobox}[Armadura principal fuste — trasdós]
+  \[
+    \phi 16~c/12{,}5~\text{cm}
+    \quad\Rightarrow\quad
+    A_s = \frac{1\,000}{125} \times \frac{\pi\,16^2}{4}
+        = 8{,}00 \times 201{,}1 = \resultado{1\,608~\text{mm}^2/\text{m}}
+        > 1\,455~\text{mm}^2/\text{m} \quad\checkmark
+  \]
+\end{resultadobox}
+
+\subsubsection{Armadura de montaje — intradós del fuste}
+
+En el intradós (cara libre) solo se dispone armadura de montaje,
+correspondiente a la cuantía mínima de la cara comprimida:
+
+\[
+  A_{s,\mathrm{montaje}} \geq 0{,}20\,A_{s,\mathrm{trasdos}}
+  = 0{,}20 \times 1\,608 = 322~\text{mm}^2/\text{m}
+\]
+
+\begin{resultadobox}[Armadura de montaje — intradós fuste]
+  \[
+    \phi 12~c/20~\text{cm}
+    \;\Rightarrow\; A_s = 5{,}0 \times 113{,}1 = 565~\text{mm}^2/\text{m}
+    > 322~\text{mm}^2/\text{m} \quad\checkmark
+  \]
+\end{resultadobox}
+
+\subsubsection{Armadura de distribución horizontal — fuste}
+
+Los cercos horizontales controlan la fisuración y absorben las tensiones
+de retracción. Mínimo (CE 2021, Art.\ 42.3.5 para muros):
+
+\[
+  A_{s,\mathrm{horiz}} \geq 0{,}001 \cdot b \cdot h
+  = 0{,}001 \times 1\,000 \times 750 = 750~\text{mm}^2/\text{m}
+  \text{ (por cara)}
+\]
+
+Se dispone en \textbf{ambas caras}:
+\[
+  \phi 10~c/10~\text{cm} \;\Rightarrow\; A_s = 10{,}0 \times 78{,}5 = 785~\text{mm}^2/\text{m}
+  > 750~\text{mm}^2/\text{m} \quad\checkmark
+\]
+
+% -----------------------------------------------------------
+\subsection{Comprobación a cortante — fuste}
+\label{subsec:cortante_fuste}
+% -----------------------------------------------------------
+
+Para secciones sin armadura de cortante (muros de contención sin
+estribos), el CE 2021 exige verificar $V_d \leq V_{u2}$:
+
+\begin{equation}
+  V_{u2} = \left[\frac{0{,}18}{\gamma_c}\,k\,
+    \bigl(100\,\rho_1\,f_{ck}\bigr)^{1/3}\right] b\,d
+  \label{eq:Vu2}
+\end{equation}
+
+con:
+\begin{align*}
+  k    &= 1 + \sqrt{\frac{200}{d[\mathrm{mm}]}}
+       = 1 + \sqrt{\frac{200}{700}} = 1 + 0{,}535 = 1{,}535 \\
+  \rho_1 &= \frac{A_s}{b\,d} = \frac{1\,608}{1\,000 \times 700}
+          = 0{,}00230 \\
+  V_{u2} &= \frac{0{,}18}{1{,}5} \times 1{,}535
+            \times (100 \times 0{,}00230 \times 30)^{1/3}
+            \times 1\,000 \times 700 \\
+         &= 0{,}120 \times 1{,}535 \times (6{,}90)^{1/3} \times 700\,000 \\
+         &= 0{,}120 \times 1{,}535 \times 1{,}905 \times 700\,000
+          = 243{,}1~\text{kN/m}
+\end{align*}
+
+Valor mínimo:
+\[
+  V_{u2,\min} = 0{,}035\,k^{3/2}\,f_{ck}^{1/2}\,b\,d
+  = 0{,}035 \times 1{,}535^{3/2} \times \sqrt{30} \times 1\,000 \times 700
+  = 0{,}035 \times 1{,}903 \times 5{,}477 \times 700\,000
+  = 255{,}4~\text{kN/m}
+\]
+
+$V_{u2,\min}$ gobierna: $V_{u2} = 255{,}4$~kN/m.
+
+Cortante de cálculo (conversión de unidades):
+\[
+  V_d = 17{,}66~\text{Tn/ml} \times 9{,}807~\text{kN/Tn}
+      = 173{,}2~\text{kN/m}
+\]
+
+\begin{resultadobox}[Comprobación a cortante — fuste]
+  \[
+    V_d = 173{,}2~\text{kN/m}
+    \;<\;
+    V_{u2} = 255{,}4~\text{kN/m}
+    \quad\Rightarrow\quad
+    \textbf{No se requieren estribos en el fuste} \quad\checkmark
+  \]
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Cálculo de la zapata}
+\label{subsec:calculo_zapata}
+% -----------------------------------------------------------
+
+\subsubsection{Cargas verticales características}
+
+Las cargas verticales por metro lineal de muro son:
+
+\begin{align}
+  W_{\mathrm{fuste}} &= \gamma_{HA}\,\frac{e_1+e_2}{2}\,H_f
+    = 2{,}50 \times \frac{0{,}60+0{,}75}{2} \times 6{,}50
+    = 10{,}97~\text{Tn/ml} \notag \\
+  W_{\mathrm{zapata}} &= \gamma_{HA}\,B\,h_z
+    = 2{,}50 \times 4{,}40 \times 0{,}80
+    = 8{,}80~\text{Tn/ml} \notag \\
+  W_{\mathrm{tierras}} &= \gamma_1\,z_{\mathrm{seco}}\,B_{\mathrm{talón}}
+    + \gamma_{\mathrm{sat}}\,z_{\mathrm{sat}}\,B_{\mathrm{talón}}
+    = 1{,}82 \times 2{,}50 \times 2{,}85
+      + 1{,}98 \times 4{,}00 \times 2{,}85 \notag \\
+    &= 12{,}98 + 22{,}57 = 35{,}55~\text{Tn/ml} \notag \\[4pt]
+  V_k &= 10{,}97 + 8{,}80 + 35{,}55 = \resultado{55{,}32~\text{Tn/ml}}
+  \label{eq:Vk_zapata}
+\end{align}
+
+\begin{notabox}[Tierra sobre el talón — alturas por estrato]
+  La zapata tiene su cara superior a $y = h_z = 0{,}80$~m y la
+  superficie del trasdós a $y = H = 7{,}30$~m.
+  El N.F.\ está a $y = H - z_{\mathrm{NF}} = 7{,}30 - 2{,}50 = 4{,}80$~m.
+  Por lo tanto sobre el talón hay:
+  $z_{\mathrm{seco}} = 7{,}30 - 4{,}80 = 2{,}50$~m
+  (sin saturar, $\gamma=1{,}82$~Tn/m³) y
+  $z_{\mathrm{sat}} = 4{,}80 - 0{,}80 = 4{,}00$~m
+  (saturado, $\gamma_{\mathrm{sat}}=1{,}98$~Tn/m³).
+\end{notabox}
+
+\subsubsection{Excentricidad y diagrama de presiones de contacto}
+
+El punto de aplicación de la resultante vertical se obtiene tomando
+momentos respecto al \textbf{extremo de la puntera} ($x = 0$):
+
+\begin{align}
+  M_{V,\mathrm{estab}} &=
+    W_{\mathrm{fuste}}\,(B_{\mathrm{punta}}+e_2/2)
+    + W_{\mathrm{zapata}}\,(B/2)
+    + W_{\mathrm{tierras}}\,(B - B_{\mathrm{talón}}/2) \notag \\
+  &= 10{,}97 \times 1{,}175 + 8{,}80 \times 2{,}20
+     + 35{,}55 \times 2{,}975 \notag \\
+  &= 12{,}89 + 19{,}36 + 105{,}76 = 138{,}01~\text{Tn·m/ml} \notag \\[4pt]
+  M_{E_a} &= E_a \times H_e = 21{,}40 \times 2{,}43 = 52{,}00~\text{Tn·m/ml}
+  \label{eq:MEa}
+\end{align}
+
+Posición de la resultante desde la puntera:
+\begin{equation}
+  x_N = \frac{M_{V,\mathrm{estab}} - M_{E_a}}{V_k}
+      = \frac{138{,}01 - 52{,}00}{55{,}32}
+      = \frac{86{,}01}{55{,}32} = 1{,}555~\text{m}
+  \label{eq:xN}
+\end{equation}
+
+Excentricidad respecto al centro de la zapata:
+\begin{equation}
+  e_N = \frac{B}{2} - x_N = 2{,}20 - 1{,}555 = 0{,}645~\text{m}
+  \quad < \quad
+  \frac{B}{6} = \frac{4{,}40}{6} = 0{,}733~\text{m} \quad\checkmark
+  \label{eq:eN}
+\end{equation}
+
+No hay despegue del cimiento. El diagrama de presiones de contacto es
+\textbf{trapezoidal}:
+
+\begin{align}
+  q_{\max} &= \frac{V_k}{B}\left(1 + \frac{6\,e_N}{B}\right)
+    = \frac{55{,}32}{4{,}40}\left(1 + \frac{6 \times 0{,}645}{4{,}40}\right)
+    = 12{,}57 \times 1{,}879 = \resultado{23{,}62~\text{Tn/m}^2}
+  \label{eq:qmax} \\
+  q_{\min} &= \frac{V_k}{B}\left(1 - \frac{6\,e_N}{B}\right)
+    = 12{,}57 \times 0{,}121 = \resultado{1{,}52~\text{Tn/m}^2}
+  \label{eq:qmin}
+\end{align}
+
+Ambas positivas ($q_{\min} > 0$) y por debajo de la tensión admisible
+$q_{\mathrm{adm}} = q_h/3 = 147{,}1/3 = 49{,}0$~Tn/m²
+(sección~\ref{subsec:cap_portante_muro}):
+$q_{\max} = 23{,}62 \ll 49{,}0$~Tn/m² \checkmark
+
+\subsubsection{Armadura del talón (cara superior de la zapata)}
+
+El talón está sometido a \textbf{flexión negativa} (la tierra empuja hacia
+abajo, la reacción del suelo empuja hacia arriba pero es insuficiente).
+La sección crítica es la cara del fuste, a distancia $B_{\mathrm{talón}} = 2{,}85$~m.
+
+Presión de contacto en la sección crítica (cara trasdós del fuste,
+$x = B_{\mathrm{punta}} + e_2 = 1{,}55$~m desde la puntera):
+\begin{equation}
+  q(x{=}1{,}55) = q_{\max} - (q_{\max}-q_{\min})\,\frac{x}{B}
+  = 23{,}62 - 22{,}10 \times \frac{1{,}55}{4{,}40}
+  = 23{,}62 - 7{,}78 = 15{,}84~\text{Tn/m}^2
+\end{equation}
+
+Momento ascendente de la reacción del suelo sobre el talón
+(respecto a la cara del fuste), integrando la distribución trapezoidal
+desde $s=0$ (cara fuste) hasta $s=2{,}85$~m (extremo talón):
+\begin{equation}
+  M_{\uparrow} = \int_0^{2{,}85} q(s)\,s\,ds
+  = \Bigl[\frac{15{,}84\,s^2}{2} - \frac{5{,}023\,s^3}{3}\Bigr]_0^{2{,}85}
+  = 64{,}34 - 38{,}74 = 25{,}60~\text{Tn·m/ml}
+  \label{eq:M_up_talon}
+\end{equation}
+
+donde $q(s) = 15{,}84 - 5{,}023\,s$ (presión decrece linealmente hacia el
+extremo del talón, $5{,}023 = (15{,}84-1{,}52)/2{,}85$).
+
+Momento descendente (tierra + peso propio zapata sobre el talón):
+\begin{equation}
+  M_{\downarrow} = \underbrace{(12{,}47 + 2{,}00)}_{\text{tierra + HA}}
+  \times \frac{B_{\mathrm{talón}}^2}{2}
+  = 14{,}47 \times \frac{2{,}85^2}{2}
+  = 14{,}47 \times 4{,}061 = 58{,}76~\text{Tn·m/ml}
+  \label{eq:M_down_talon}
+\end{equation}
+
+Momento neto característico (hogging — tensión en cara superior):
+\begin{equation}
+  M_{k,\mathrm{talón}} = M_{\downarrow} - M_{\uparrow}
+  = 58{,}76 - 25{,}60 = \resultado{33{,}16~\text{Tn·m/ml}}
+  \label{eq:Mk_talon}
+\end{equation}
+
+Momento de cálculo ELU (cargas permanentes, factores de Tabla~\ref{tab:coeficientes_elu}):
+\begin{equation}
+  M_{d,\mathrm{talón}} = 1{,}35\,M_{\downarrow} - 1{,}00\,M_{\uparrow}
+  = 1{,}35 \times 58{,}76 - 1{,}00 \times 25{,}60
+  = 79{,}33 - 25{,}60 = \resultado{53{,}73~\text{Tn·m/ml}}
+  \label{eq:Md_talon}
+\end{equation}
+
+Altura útil (armadura en cara superior, $\phi = 20$~mm):
+\begin{equation}
+  d_z = h_z - r_{\mathrm{nom}} - \phi/2
+  = 800 - 45 - 10 = 745~\text{mm}
+\end{equation}
+
+Área necesaria:
+\begin{equation}
+  A_{s,\mathrm{req}}^{\mathrm{talón}}
+  = \frac{M_{d,\mathrm{talón}}}{0{,}9\,d_z\,f_{yd}}
+  = \frac{53{,}73 \times 9\,806\,650~\text{N·mm/m}}
+         {0{,}9 \times 745~\text{mm} \times 434{,}8~\text{N/mm}^2}
+  = \frac{527{,}1 \times 10^6}{291\,524}
+  = \resultado{1\,808~\text{mm}^2/\text{m}}
+  \label{eq:As_talon}
+\end{equation}
+
+\begin{resultadobox}[Armadura superior talón]
+  \[
+    \phi 20~c/17~\text{cm}
+    \;\Rightarrow\;
+    A_s = \frac{1\,000}{170} \times \frac{\pi\,20^2}{4}
+        = 5{,}88 \times 314{,}2 = \resultado{1\,849~\text{mm}^2/\text{m}}
+        > 1\,808~\text{mm}^2/\text{m} \quad\checkmark
+  \]
+  La armadura se coloca en la \textbf{cara superior} de la zapata
+  (talón en hogging).
+\end{resultadobox}
+
+\subsubsection{Armadura de la puntera (cara inferior de la zapata)}
+
+La puntera de $B_{\mathrm{punta}} = 0{,}80$~m trabaja como ménsula ascendente.
+Presión media sobre la puntera:
+\[
+  q_{\mathrm{med,punta}} = \frac{q_{\max} + q(x{=}0{,}80)}{2}
+  \quad\text{con}\quad
+  q(0{,}80) = 23{,}62 - 22{,}10 \times \frac{0{,}80}{4{,}40}
+            = 23{,}62 - 4{,}02 = 19{,}60~\text{Tn/m}^2
+\]
+
+Momento neto en la sección de empotramiento de la puntera
+(cara intradós del fuste, $s = 0{,}80$~m desde la punta):
+\begin{align}
+  M_{\uparrow,\mathrm{punta}}
+  &= \int_0^{0{,}80} q(s)\,s\,ds
+   = \Bigl[\frac{23{,}62\,s^2}{2} - \frac{5{,}025\,s^3}{3}\Bigr]_0^{0{,}80}
+   = 7{,}558 - 0{,}858 = 6{,}70~\text{Tn·m/ml} \\
+  M_{\downarrow,\mathrm{punta}}
+  &= (\gamma_{HA}\,h_z + \gamma_1\,D_f)
+     \times \frac{B_{\mathrm{punta}}^2}{2}
+   = (2{,}50{\times}0{,}80 + 1{,}82{\times}1{,}00)
+     \times \frac{0{,}80^2}{2} \notag \\
+  &= 3{,}82 \times 0{,}32 = 1{,}22~\text{Tn·m/ml}
+\end{align}
+
+\[
+  M_{k,\mathrm{punta}} = M_{\uparrow} - M_{\downarrow}
+  = 6{,}70 - 1{,}22 = 5{,}48~\text{Tn·m/ml}
+  \quad (\text{sagging — tensión en cara inferior})
+\]
+
+\[
+  M_{d,\mathrm{punta}} = 1{,}35 \times 6{,}70 - 1{,}00 \times 1{,}22
+  = 9{,}05 - 1{,}22 = 7{,}83~\text{Tn·m/ml}
+\]
+
+Área necesaria:
+\[
+  A_{s,\mathrm{req}}^{\mathrm{punta}}
+  = \frac{7{,}83 \times 9\,806\,650}{0{,}9 \times 745 \times 434{,}8}
+  = \frac{76{,}8 \times 10^6}{291\,524}
+  = 263~\text{mm}^2/\text{m}
+\]
+
+Dado que la armadura mínima (CE 2021, Art.\ 42.3.5) supera ampliamente el
+valor calculado:
+\[
+  A_{s,\min} = 0{,}0018 \times b \times h_z
+  = 0{,}0018 \times 1\,000 \times 800
+  = 1\,440~\text{mm}^2/\text{m} \gg 263~\text{mm}^2/\text{m}
+\]
+
+La \textbf{cuantía mínima} rige en la cara inferior de la puntera.
+Se unifica la armadura inferior de la zapata:
+
+\begin{resultadobox}[Armadura inferior zapata — cara solera]
+  \[
+    \phi 16~c/13~\text{cm}
+    \;\Rightarrow\;
+    A_s = \frac{1\,000}{130} \times 201{,}1
+        = 1\,547~\text{mm}^2/\text{m}
+        > 1\,440~\text{mm}^2/\text{m} \quad\checkmark
+  \]
+\end{resultadobox}
+
+\subsubsection{Armadura de distribución transversal — zapata}
+
+La armadura transversal (paralela al eje del muro) garantiza la
+integridad estructural entre juntas y controla la retracción:
+
+\[
+  A_{s,\mathrm{transv}} \geq 0{,}20\,A_{s,\mathrm{principal}}
+  \quad\Rightarrow\quad \phi 12~c/20~\text{cm por cara}
+  \;\Rightarrow\; 5 \times 113{,}1 = 565~\text{mm}^2/\text{m}
+\]
+
+% -----------------------------------------------------------
+\subsection{Resumen de armaduras — cuadro general}
+\label{subsec:resumen_armaduras}
+% -----------------------------------------------------------
+
+\begin{table}[H]
+  \centering
+  \caption{Resumen de armaduras del muro en ménsula (por ml de muro)}
+  \label{tab:armaduras_muro}
+  \begin{tabular}{@{}llccccc@{}}
+    \toprule
+    \textbf{Elemento} & \textbf{Posición}
+    & \textbf{Barra} & \textbf{Esp. (cm)}
+    & $A_s$ \textbf{(cm²/m)}
+    & \textbf{Long. barra (m)} & \textbf{kg/ml} \\
+    \midrule
+    \multirow{3}{*}{Fuste}
+      & Trasdós (principal)      & $\phi 16$ & 12{,}5 & 16{,}08 & 7{,}50 & 95{,}2 \\
+      & Intradós (montaje)       & $\phi 12$ & 20{,}0 &  5{,}65 & 7{,}50 & 31{,}7 \\
+      & Horiz.\ (distribuc.)     & $\phi 10$ & 10{,}0 &  7{,}85 & 1{,}00 & 38{,}5 \\
+    \midrule
+    \multirow{3}{*}{Zapata}
+      & Sup.\ talón (hogging)    & $\phi 20$ & 17{,}0 & 18{,}49 & 3{,}85 & 55{,}9 \\
+      & Inf.\ solera (mínimo)    & $\phi 16$ & 13{,}0 & 15{,}47 & 4{,}60 & 55{,}7 \\
+      & Transversal (distribuc.) & $\phi 12$ & 20{,}0 &  5{,}65 & 1{,}00 & 11{,}3 \\
+    \midrule
+    \multicolumn{5}{l}{\textbf{TOTAL por ml de muro}} & & \textbf{288{,}3} \\
+    \multicolumn{5}{l}{\textbf{TOTAL muro 150~ml}} & &
+      \textbf{43\,245~kg $\approx$ 43{,}2~Tm} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{notabox}[Cálculo de kg/ml — fórmula general]
+  Para barras \textbf{verticales} (fuste): peso de barra ($d^2/162$~kg/m) $\times$
+  longitud barra $\times$ número barras por metro lineal.\\
+  Para barras \textbf{horizontales} (distribución, longitud $\approx 1$~m por tramo
+  de cálculo): peso lineal $\times$ número de barras en 1~m de altura/canto.\\
+  Las longitudes incluyen los solapes y patillas de anclaje
+  ($\ell_b = \max(250, 40\phi)$ según CE 2021).
+\end{notabox}
+
+\begin{table}[H]
+  \centering
+  \caption*{\textcolor{OliveGreen}{\textbf{Verificación final — estado límite último}}}
+  \label{tab:verificacion_elu}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Sección} & $M_d$ \textbf{(Tn·m/ml)} & $A_{s,\mathrm{req}}$ \textbf{(cm²/m)}
+    & $A_{s,\mathrm{prov}}$ \textbf{(cm²/m)} & \textbf{Estado} \\
+    \midrule
+    Fuste — base (trasdós)   & 44{,}2 & 14{,}6 & 16{,}08 & \checkmark \\
+    Zapata — talón (sup.)    & 53{,}7 & 18{,}1 & 18{,}49 & \checkmark \\
+    Zapata — puntera (inf.)  &  7{,}8 &  2{,}6 & 15{,}47 & \checkmark\,(mín.) \\
+    \midrule
+    \multicolumn{2}{l}{Cortante fuste} & $V_d = 173$~kN/m &
+    $V_{u2} = 255$~kN/m & \checkmark\,(sin estribos) \\
+    \bottomrule
+  \end{tabular}
+\end{table}

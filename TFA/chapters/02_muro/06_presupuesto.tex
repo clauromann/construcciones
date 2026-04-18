@@ -4,54 +4,116 @@
 \section{Presupuesto de ejecución}
 \label{sec:muro_presupuesto}
 
-Los precios unitarios de referencia empleados son los indicados en el enunciado,
-complementados con precios de bases de precios oficiales (PREOC, BEDEC u otras).
+% -----------------------------------------------------------
+\subsection{Mediciones}
+\label{subsec:mediciones}
+% -----------------------------------------------------------
+
+Las mediciones se obtienen directamente de la geometría adoptada
+(sección~\ref{sec:muro_predim}) y de los cálculos de materiales
+del proceso constructivo (sección~\ref{sec:muro_proceso}):
+
+\begin{align*}
+  V_{\mathrm{exc}}    &= (B + 2 \times 0{,}60) \times (h_z + e_{\mathrm{HM}} + D_f)
+                          \times L
+                       = 5{,}60 \times 1{,}90 \times 150
+                       = \mathbf{1\,596~\text{m}^3} \\
+  V_{\mathrm{HM-15}}  &= B \times e_{\mathrm{HM}} \times L
+                       = 4{,}40 \times 0{,}10 \times 150
+                       = \mathbf{66~\text{m}^3} \\
+  V_{\mathrm{HA-30}}  &= \underbrace{4{,}40 \times 0{,}80}_{V_{\mathrm{zapata}}}
+                         \times 150
+                       + \underbrace{\tfrac{0{,}60+0{,}75}{2} \times 6{,}50}
+                                    _{V_{\mathrm{fuste}}} \times 150
+                       = 528 + 659 = \mathbf{1\,187~\text{m}^3} \\
+  P_{\mathrm{acero}}  &= 288{,}3~\text{kg/ml} \times 150~\text{ml}
+                       = \mathbf{43\,245~\text{kg}} \\
+  S_{\mathrm{enc,fuste}} &= 2 \times 6{,}50 \times 150
+                          = \mathbf{1\,950~\text{m}^2} \\
+  S_{\mathrm{enc,zap}}   &= 2 \times 0{,}80 \times 150
+                          = \mathbf{240~\text{m}^2} \\
+  S_{\mathrm{imp}}    &= 6{,}50 \times 150 = \mathbf{975~\text{m}^2} \\
+  V_{\mathrm{rell}}   &= B_{\mathrm{talón}} \times H_f \times L
+                       = 2{,}85 \times 6{,}50 \times 150
+                       = \mathbf{2\,779~\text{m}^3}
+\end{align*}
+
+% -----------------------------------------------------------
+\subsection{Precios unitarios de referencia}
+\label{subsec:precios_unitarios}
+% -----------------------------------------------------------
 
 \begin{table}[H]
   \centering
-  \caption{Cuadro de precios unitarios de referencia}
+  \caption{Cuadro de precios unitarios de referencia (BEDEC / PREOC 2024)}
   \label{tab:precios}
   \begin{tabular}{@{}lcc@{}}
     \toprule
-    \textbf{Concepto} & \textbf{Precio unitario} & \textbf{Unidad} \\
+    \textbf{Concepto} & \textbf{P.U.} & \textbf{Ud.} \\
     \midrule
-    Suministro hormigón HA-25         & 95{,}00  & €/m³ \\
-    Suministro hormigón HA-30         & 105{,}00 & €/m³ \\
-    Suministro acero corrugado B500SD & 1{,}40   & €/kg \\
-    Encofrado incl. camión grúa       & 65{,}00  & €/m² \\
-    Excavación                        & 3{,}00   & €/m³ \\
-    Terraplenado y compactación       & 2{,}50   & €/m³ \\
+    Excavación a máquina en terreno cohesivo   & 3{,}00   & \euro/m³ \\
+    Hormigón de limpieza HM-15, e=10 cm        & 80{,}00  & \euro/m³ \\
+    Hormigón HA-30 puesto en obra (inc.\ bomba)& 105{,}00 & \euro/m³ \\
+    Acero corrugado B~500~SD (inc.\ ferrallado)& 1{,}40   & \euro/kg \\
+    Encofrado metálico doble cara (inc.\ grúa) & 65{,}00  & \euro/m² \\
+    Impermeabilización HDPE $e \geq 2$~mm      & 18{,}00  & \euro/m² \\
+    Lámina drenante nodular + geotextil        & 8{,}00   & \euro/m² \\
+    Tubo dren flexible Ø~100~mm + grava        & 8{,}00   & \euro/ml \\
+    Relleno y compactación trasdós (zahorra)   & 2{,}50   & \euro/m³ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
+% -----------------------------------------------------------
+\subsection{Cuadro de precios descompuesto}
+\label{subsec:presupuesto}
+% -----------------------------------------------------------
+
 \begin{table}[H]
   \centering
-  \caption{Presupuesto de ejecución del muro (a completar)}
+  \caption{Presupuesto de ejecución del muro de contención ($L = 150$~ml)}
   \label{tab:presupuesto_muro}
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{@{}clcccc@{}}
     \toprule
-    \textbf{Nº} & \textbf{Descripción} & \textbf{Ud.} &
-    \textbf{Medición} & \textbf{P.U. (€)} & \textbf{Total (€)} \\
+    \textbf{N.º} & \textbf{Descripción} & \textbf{Ud.}
+    & \textbf{Medición} & \textbf{P.U. (\euro)} & \textbf{Total (\euro)} \\
     \midrule
-    1 & Excavación en vaciado               & m³ & & 3{,}00   & \\
-    2 & Hormigón de limpieza HM-15          & m³ & & 80{,}00  & \\
-    3 & Hormigón HA-30 (zapata + fuste)     & m³ & & 105{,}00 & \\
-    4 & Acero B500SD en armaduras           & kg & & 1{,}40   & \\
-    5 & Encofrado fuste (doble cara)        & m² & & 65{,}00  & \\
-    6 & Encofrado zapata                    & m² & & 65{,}00  & \\
-    7 & Impermeabilización trasdós          & m² & &          & \\
-    8 & Lámina drenante + geotextil         & m² & &          & \\
-    9 & Tubo dren Ø100 mm                   & ml & &          & \\
-   10 & Terraplenado y compactación trasdós & m³ & & 2{,}50   & \\
+    1 & Excavación a máquina                & m³ & 1\,596  &   3{,}00  &    4\,788 \\
+    2 & Hormigón de limpieza HM-15          & m³ &    66   &  80{,}00  &    5\,280 \\
+    3 & Hormigón HA-30 (zapata + fuste)     & m³ & 1\,187  & 105{,}00  &  124\,635 \\
+    4 & Acero B~500~SD en armaduras         & kg & 43\,245 &   1{,}40  &   60\,543 \\
+    5 & Encofrado fuste (doble cara)        & m² & 1\,950  &  65{,}00  &  126\,750 \\
+    6 & Encofrado zapata (caras laterales)  & m² &   240   &  65{,}00  &   15\,600 \\
+    7 & Impermeabilización HDPE trasdós     & m² &   975   &  18{,}00  &   17\,550 \\
+    8 & Lámina drenante + geotextil         & m² &   975   &   8{,}00  &    7\,800 \\
+    9 & Tubo dren Ø~100~mm                  & ml &   150   &   8{,}00  &    1\,200 \\
+   10 & Relleno y compact.\ trasdós         & m³ & 2\,779  &   2{,}50  &    6\,948 \\
     \midrule
-       & \multicolumn{4}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN MATERIAL (PEM)}} & \\
-       & \multicolumn{4}{r}{Gastos generales (13\,\%)} & \\
-       & \multicolumn{4}{r}{Beneficio industrial (6\,\%)} & \\
-       & \multicolumn{4}{r}{IVA (21\,\%)} & \\
+    \multicolumn{5}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN MATERIAL (PEM)}}
+      & \textbf{371\,094} \\
+    \multicolumn{5}{r}{Gastos generales (13\,\%)}
+      & 48\,242 \\
+    \multicolumn{5}{r}{Beneficio industrial (6\,\%)}
+      & 22\,266 \\
     \midrule
-       & \multicolumn{4}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN POR CONTRATA (PEC)}} & \\
+    \multicolumn{5}{r}{\textbf{Subtotal sin IVA}}
+      & \textbf{441\,602} \\
+    \multicolumn{5}{r}{IVA (21\,\%)}
+      & 92\,736 \\
+    \midrule
+    \multicolumn{5}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN POR CONTRATA (PEC)}}
+      & \textbf{534\,338} \\
     \bottomrule
   \end{tabular}}
 \end{table}
+
+\begin{notabox}[Coste unitario por ml de muro]
+  PEM por metro lineal de muro:
+  $371\,094 \div 150 = \mathbf{2\,474~\text{\euro/ml}}$.
+  La partida más significativa es el \textbf{encofrado del fuste} (34\,\% del PEM),
+  seguida del \textbf{hormigón HA-30} (34\,\%) y el
+  \textbf{acero} (16\,\%).
+  Este desglose es coherente con los ratios habituales para muros de contención de
+  hormigón armado de altura $H > 5$~m.
+\end{notabox}

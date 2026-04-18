@@ -1,19 +1,223 @@
 % ============================================================
-%  ANEXO A — SONDEO 1
+%  ANEXO A — SONDEO 1  (columna estratigráfica)
 % ============================================================
-\chapter{Sondeo 1 — Datos geotécnicos completos}
+\chapter{Sondeo 1 --- Datos geotécnicos completos}
 \label{anx:sondeo}
 
 Se reproduce a continuación la columna estratigráfica completa del Sondeo~1
-(Reactor Biológico) tal y como fue entregada por el laboratorio geotécnico.
+(Reactor Biológico) utilizado en la totalidad de los cálculos del presente
+informe, junto con los parámetros resistentes adoptados para cada estrato.
 
-% TODO: Insertar la figura escaneada o reproducida en TikZ del sondeo original.
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=0.7\textwidth]{figures/sondeo1_columna.pdf}
-%   \caption{Columna estratigráfica Sondeo 1 (original)}
-% \end{figure}
+% -----------------------------------------------------------
+\section*{Columna estratigráfica}
+% -----------------------------------------------------------
 
-\section*{Resumen de parámetros geotécnicos}
+\begin{figure}[H]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  >=Stealth,
+  font = \scriptsize,
+  sand/.style    = {pattern=dots, pattern color=Goldenrod,
+                    fill=Goldenrod!12},
+  sandsat/.style = {pattern=dots, pattern color=Goldenrod,
+                    fill=Goldenrod!35},
+  clay/.style    = {pattern=horizontal lines, pattern color=BurntOrange!70,
+                    fill=BurntOrange!12},
+  marl/.style    = {pattern=crosshatch, pattern color=BurntOrange!80,
+                    fill=BurntOrange!25},
+]
 
-Véase tabla~\ref{tab:sondeo1} en el capítulo de Introducción~(\S\ref{chap:muro}).
+%% ============================================================
+%%  SOIL COLUMN  (x: 2.0..3.8, y: 0..-10 in depth-metres)
+%% ============================================================
+
+%% -- Fill by stratum --
+\fill[sand]    (2.0,  0.0) rectangle (3.8,-2.5);
+\fill[sandsat] (2.0, -2.5) rectangle (3.8,-3.5);
+\fill[clay]    (2.0, -3.5) rectangle (3.8,-8.0);
+\fill[marl]    (2.0, -8.0) rectangle (3.8,-10.0);
+
+%% -- Column border --
+\draw[thick] (2.0, 0.0) rectangle (3.8,-10.0);
+
+%% -- Stratum boundaries --
+\draw[black, thin] (2.0,-2.5) -- (3.8,-2.5);
+\draw[black, thin] (2.0,-3.5) -- (3.8,-3.5);
+\draw[black, thin] (2.0,-8.0) -- (3.8,-8.0);
+
+%% -- Break symbol at -10 m (stratum 3 continues to -25 m) --
+\draw[thick]
+  (2.0,-10.0) -- (2.25,-9.80) -- (2.50,-10.20) --
+  (2.75,-9.80) -- (3.00,-10.20) -- (3.25,-9.80) --
+  (3.50,-10.20) -- (3.80,-10.0);
+
+%% ============================================================
+%%  DEPTH SCALE  (left of column)
+%% ============================================================
+
+%% Header
+\node[font=\scriptsize\bfseries, above] at (1.2, 0.1) {Prof.};
+\node[font=\scriptsize\bfseries]        at (1.2, -0.15) {(m)};
+
+%% Major ticks + labels (every 1 m)
+\foreach \d in {0,1,...,10} {
+  \draw (1.6,-\d) -- (2.0,-\d);
+  \node[left] at (1.6,-\d) {\d};
+}
+
+%% Minor ticks (every 0.5 m)
+\foreach \d in {0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5} {
+  \draw[thin] (1.8,-\d) -- (2.0,-\d);
+}
+
+%% ============================================================
+%%  NF INDICATOR
+%% ============================================================
+\draw[NavyBlue!80, semithick, dashed] (1.6,-2.5) -- (3.8,-2.5);
+\node[NavyBlue!80, left, font=\scriptsize] at (1.6,-2.5)
+  {$\triangledown$};
+\node[NavyBlue!80, font=\tiny, below right] at (3.8,-2.5)
+  {N.F.\,$= -2{,}50$~m};
+
+%% ============================================================
+%%  STRATUM LABELS + DESCRIPTIONS  (right of column)
+%% ============================================================
+
+%% E-1a (0 to -2.5)
+\node[right, align=left, text width=4.0cm] at (4.0,-1.25) {
+  \textbf{E-1a --- Arena limosa}\\
+  Gris verdosa, poco densa,\\
+  no saturada. Gravas finas\\
+  dispersas.
+};
+
+%% E-1b (2.5 to 3.5)
+\node[right, align=left, text width=4.0cm] at (4.0,-3.0) {
+  \textbf{E-1b --- Arena limosa}\\
+  Mismo estrato. Saturada\\
+  (bajo N.F.).
+};
+
+%% E-2 (3.5 to 8.0)
+\node[right, align=left, text width=4.0cm] at (4.0,-5.75) {
+  \textbf{E-2 --- Arcillas versicolores}\\
+  Consistencia media--firme.\\
+  Coloración ocre--verdosa.
+};
+
+%% E-3 (8.0 to -25 m)
+\node[right, align=left, text width=4.0cm] at (4.0,-9.0) {
+  \textbf{E-3 --- Arcillas margosas}\\
+  Compactas. Continúan\\
+  hasta $-25$~m.
+};
+
+%% "hasta -25 m" note below break
+\node[font=\tiny, below] at (2.9,-10.25) {(continúa hasta $-25{,}0$~m)};
+
+%% ============================================================
+%%  PARAMETER TABLE (columns at right)
+%% ============================================================
+
+%% --- Column headers ---
+\foreach \x/\lbl in {
+  9.2/\textbf{$\gamma$} (Tn/m³),
+  10.5/\textbf{$\phi'$} (°),
+  11.6/\textbf{$c'$} (kg/cm²),
+  12.9/\textbf{$E$} (MPa),
+  14.0/\textbf{$\nu$}
+} {
+  \node[align=center, text width=1.4cm, font=\tiny\bfseries] at (\x, 0.25) {\lbl};
+}
+
+%% --- Vertical separator lines ---
+\foreach \x in {8.8, 9.8, 10.9, 11.9, 13.3, 14.5} {
+  \draw[gray!40, thin] (\x, 0.4) -- (\x,-10.0);
+}
+%% Horizontal header line
+\draw[gray!40, thin] (8.8, 0.05) -- (14.5, 0.05);
+%% Outer border
+\draw[thin] (8.8, 0.4) rectangle (14.5,-10.0);
+
+%% --- E-1a values (mid at -1.25) ---
+\node at ( 9.3,-1.25) {$1{,}82$};
+\node at (10.5,-1.25) {$29$};
+\node at (11.6,-1.25) {$0$};
+\node at (12.9,-1.25) {$6{,}894$};
+\node at (14.0,-1.25) {$0{,}25$};
+
+%% --- Horizontal line separating E-1a / E-1b ---
+\draw[gray!30, thin] (8.8,-2.5) -- (14.5,-2.5);
+
+%% --- E-1b values (mid at -3.0) ---
+\node at ( 9.3,-3.0) {$1{,}98$};
+\node at (10.5,-3.0) {$29$};
+\node at (11.6,-3.0) {$0$};
+\node at (12.9,-3.0) {$6{,}894$};
+\node at (14.0,-3.0) {$0{,}25$};
+
+%% --- Line separating E-1b / E-2 ---
+\draw[gray!30, thin] (8.8,-3.5) -- (14.5,-3.5);
+
+%% --- E-2 values (mid at -5.75) ---
+\node at ( 9.3,-5.75) {$1{,}78$};
+\node at (10.5,-5.75) {$25{,}2$};
+\node at (11.6,-5.75) {$0{,}47$};
+\node at (12.9,-5.75) {$12{,}00$};
+\node at (14.0,-5.75) {$0{,}30$};
+
+%% --- Line separating E-2 / E-3 ---
+\draw[gray!30, thin] (8.8,-8.0) -- (14.5,-8.0);
+
+%% --- E-3 values (mid at -9.0) ---
+\node at ( 9.3,-9.0) {$1{,}92$};
+\node at (10.5,-9.0) {$26$};
+\node at (11.6,-9.0) {$0{,}78$};
+\node at (12.9,-9.0) {$25{,}28$};
+\node at (14.0,-9.0) {$0{,}25$};
+
+\end{tikzpicture}%
+}
+\caption{Columna estratigráfica del Sondeo~1 (Reactor Biológico).
+         Profundidad en metros desde rasante ($\pm 0{,}00$~m).
+         N.F.\ $= -2{,}50$~m.}
+\label{fig:sondeo1_columna}
+\end{figure}
+
+% -----------------------------------------------------------
+\section*{Leyenda de símbolos}
+% -----------------------------------------------------------
+
+\begin{table}[H]
+  \centering
+  \caption{Leyenda de la columna estratigráfica}
+  \label{tab:leyenda_sondeo}
+  \begin{tabular}{@{}clccccc@{}}
+    \toprule
+    \textbf{ID} & \textbf{Denominación}
+      & \textbf{Cotas (m)}
+      & $\gamma$ (Tn/m³) & $\phi'$ (°) & $c'$ (kg/cm²) & $E$ (MPa) \\
+    \midrule
+    E-1a & Arena limosa (no sat.) & $0{,}00 \to -2{,}50$
+         & 1,82 & 29 & 0     & 6,894 \\
+    E-1b & Arena limosa (sat.)    & $-2{,}50 \to -3{,}50$
+         & 1,98 & 29 & 0     & 6,894 \\
+    E-2  & Arcillas versicolores  & $-3{,}50 \to -8{,}00$
+         & 1,78 & 25,2 & 0,47 & 12,000 \\
+    E-3  & Arcillas margosas      & $-8{,}00 \to -25{,}00$
+         & 1,92 & 26  & 0,78 & 25,278 \\
+    \midrule
+    \multicolumn{7}{@{}l}{\small N.F.\ = $-2{,}50$~m.
+      Densidades sumergidas: $\gamma_{\mathrm{sum}} = \gamma_{\mathrm{sat}} - 1{,}00$:
+      E-1b~$\to 0{,}98$, E-2~$\to 0{,}78$, E-3~$\to 0{,}92$~Tn/m³.} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section*{Referencia a tablas del informe principal}
+
+La tabla estratigráfica completa (incluyendo $C_u$ y $\nu$) se recoge en la
+tabla~\ref{tab:sondeo1} del capítulo de Introducción.
+Los resultados de tensiones verticales efectivas calculados a partir de estos
+datos se presentan en la sección~\ref{subsec:tensiones_verticales}.

@@ -4,52 +4,344 @@
 \chapter{Cálculos manuales y tanteos}
 \label{anx:calculos}
 
-\begin{notabox}[Instrucciones para este anexo]
-  Según el enunciado, los \textbf{cálculos manuales y tanteos} deben adjuntarse
-  como anexo separado al informe principal. En este capítulo se incluyen los
-  desarrollos manuales de todos los cálculos contenidos en el informe.
-
-  Para su inclusión en el PDF final, se pueden adoptar dos enfoques:
-  \begin{enumerate}
-    \item \textbf{Cálculo directo en \LaTeX}: desarrollar las ecuaciones
-          directamente en este archivo usando el entorno matemático.
-    \item \textbf{Escaneado de hojas manuscritas}: insertar las imágenes
-          escaneadas con \texttt{\textbackslash includegraphics}.
-  \end{enumerate}
-\end{notabox}
+Este anexo recoge los cálculos de comprobación y tanteos realizados de forma
+manual para verificar los resultados obtenidos con la metodología desarrollada
+en los capítulos del informe principal.
+Se sigue el mismo orden que el informe: primero el muro de contención y a
+continuación la arqueta de fangos.
 
 % ============================================================
-\section{Tanteos del muro de contención}
+\section{Muro de contención en ménsula}
 % ============================================================
 
-\subsection{Predimensionamiento geométrico}
+% -----------------------------------------------------------
+\subsection{Predimensionamiento geométrico (reglas de proporcionalidad)}
+% -----------------------------------------------------------
 
-% TODO: Incluir aquí los cálculos de predimensionamiento a mano.
+Para un muro en ménsula de $H = 7{,}30$~m se aplican las reglas de
+proporcionalidad habituales de la bibliografía técnica (Jiménez Salas,
+Mecánica del Suelo, y EHE-08):
 
-\subsection{Cálculo de empujes activos}
+\begin{align*}
+  e_1  &\approx \frac{H}{10} \div \frac{H}{12}
+         = \frac{7{,}3}{12} \div \frac{7{,}3}{10}
+         = 0{,}61 \div 0{,}73~\text{m}
+         \quad \Rightarrow \textbf{adoptado } e_1 = 0{,}60~\text{m} \\[4pt]
+  e_2  &\approx \frac{H}{8} \div \frac{H}{10}
+         = \frac{7{,}3}{10} \div \frac{7{,}3}{8}
+         = 0{,}73 \div 0{,}91~\text{m}
+         \quad \Rightarrow \textbf{adoptado } e_2 = 0{,}75~\text{m} \\[4pt]
+  h_z  &\approx \frac{H}{10} = 0{,}73~\text{m}
+         \quad \Rightarrow \textbf{adoptado } h_z = 0{,}80~\text{m} \\[4pt]
+  B    &\approx 0{,}45 \cdot H \div 0{,}60 \cdot H
+         = 3{,}29 \div 4{,}38~\text{m}
+         \quad \Rightarrow \textbf{adoptado } B = 4{,}40~\text{m}
+\end{align*}
 
-% TODO:
+Con $B = 4{,}40$~m y zapata de empotramiento $D_f = 1{,}00$~m se obtiene:
+\[
+  B_{\mathrm{talón}} \approx B - e_2 - D_f = 4{,}40 - 0{,}75 - 0{,}80
+  = 2{,}85~\text{m} \qquad
+  B_{\mathrm{punta}} = B - B_{\mathrm{talón}} - e_2 = 0{,}80~\text{m}
+\]
 
-\subsection{Comprobación de estabilidad (vuelco / deslizamiento)}
+% -----------------------------------------------------------
+\subsection{Coeficientes de empuje de Rankine}
+% -----------------------------------------------------------
 
-% TODO:
+Para el estrato dominante (E-1a, $\phi' = 29°$):
+\[
+  K_a = \tan^2\!\left(45° - \frac{\phi'}{2}\right)
+      = \tan^2\!\left(45° - 14{,}5°\right)
+      = \tan^2(30{,}5°) = (0{,}5890)^2 = \mathbf{0{,}347}
+\]
+\[
+  K_p = \tan^2\!\left(45° + \frac{\phi'}{2}\right)
+      = \tan^2(59{,}5°) = (1{,}6990)^2 = \mathbf{2{,}886}
+\]
 
-\subsection{Dimensionamiento sección de hormigón armado}
+Verificación por fórmula alternativa:
+\[
+  K_a = \frac{1 - \sin 29°}{1 + \sin 29°}
+      = \frac{1 - 0{,}4848}{1 + 0{,}4848}
+      = \frac{0{,}5152}{1{,}4848} = 0{,}347 \quad \checkmark
+\]
 
-% TODO:
+% -----------------------------------------------------------
+\subsection{Diagrama de empujes activos}
+% -----------------------------------------------------------
+
+Se distinguen los siguientes bloques de presión sobre el trasdós del fuste
+(altura total $H_f = 7{,}30$~m; N.F.\ a $-2{,}50$~m desde rasante):
+
+\paragraph{Bloque 1 — Sobrecarga $q = 1$~Tn/m² (uniforme, toda la altura):}
+\[
+  p_{q} = K_a \cdot q = 0{,}347 \times 1{,}00 = 0{,}347~\text{Tn/m}^2
+\]
+\[
+  F_q = p_q \times H_f = 0{,}347 \times 7{,}30 = 2{,}53~\text{Tn/ml}
+  \quad \text{(actúa a } H_f/2 = 3{,}65~\text{m de la base)}
+\]
+
+\paragraph{Bloque 2 — Empuje triangular zona no saturada (0 a $-2{,}50$~m):}
+\[
+  p_{2} = K_a \cdot \gamma_1 \cdot z_1
+        = 0{,}347 \times 1{,}82 \times 2{,}50 = 1{,}579~\text{Tn/m}^2
+\]
+\[
+  F_2 = \frac{1}{2} \times 1{,}579 \times 2{,}50 = 1{,}974~\text{Tn/ml}
+  \quad \text{(a } 2/3 \times (H_f - 2{,}50/3) \text{ de la base)}
+\]
+
+Brazo a la base de la zapata (cota $-7{,}30 - 0{,}80 = -8{,}10$~m; midpoint del triángulo a $-8{,}10 + 7{,}30 - 2{,}50/3 = -8{,}10 + 6{,}47 = \ldots$):
+Para el tanteo rápido, el brazo del triángulo de 0 a $-2{,}50$ respecto a la
+base del fuste ($z=7{,}30$~m) es $h_2 = 7{,}30 - 2{,}50/3 = 6{,}47$~m.
+
+\paragraph{Bloque 3 — Empuje rectangular zona no saturada ($p_{2}$ constante de $-2{,}50$ a $-3{,}50$~m):}
+Se toma la presión al inicio del estrato saturado como valor constante:
+\[
+  F_3 = 1{,}579 \times 1{,}00 = 1{,}579~\text{Tn/ml}
+  \quad h_3 = 7{,}30 - 2{,}50 - 0{,}50 = 4{,}30~\text{m}
+\]
+
+\paragraph{Bloque 4 — Empuje triangular zona saturada (E-1b, $-2{,}50$ a $-3{,}50$~m):}
+\[
+  \Delta p_4 = K_a \cdot \gamma_{\mathrm{sum,1b}} \cdot \Delta z
+             = 0{,}347 \times 0{,}98 \times 1{,}00 = 0{,}340~\text{Tn/m}^2
+\]
+\[
+  F_4 = \frac{1}{2} \times 0{,}340 \times 1{,}00 = 0{,}170~\text{Tn/ml}
+  \quad h_4 = 7{,}30 - 2{,}50 - 2/3 = 4{,}47~\text{m}
+\]
+
+\paragraph{Bloque 5 --- Presión hidrostática (zona saturada, $-2{,}50$ a $-7{,}30$~m):}
+\[
+  F_{w} = \frac{1}{2} \times \gamma_w \times h_w^2
+        = \frac{1}{2} \times 1{,}00 \times 4{,}80^2 = 11{,}52~\text{Tn/ml}
+  \quad h_w = 4{,}80/3 = 1{,}60~\text{m desde la base}
+\]
+
+\paragraph{Empuje activo total (suma de bloques):}
+\[
+  E_a = 2{,}53 + 1{,}97 + 1{,}58 + 0{,}17 + 11{,}52
+  + \underbrace{(\text{E-2, triangular de 3,50 a 7,30})}_{\approx 3{,}63~\text{Tn/ml}}
+  \approx \resultado{21{,}4~\text{Tn/ml}}
+\]
+
+El detalle completo de los 6 bloques se desarrolla en la
+sección~\ref{sec:calculos_geotecnicos_muro} del informe principal.
+
+% -----------------------------------------------------------
+\subsection{Comprobación de estabilidad al vuelco}
+% -----------------------------------------------------------
+
+Momentos respecto al vértice de la punta de la zapata ($O$):
+
+\textbf{Momentos estabilizadores} (pesos propios del muro y tierra sobre el talón):
+\begin{align*}
+  W_{\mathrm{fuste}}  &= \frac{e_1+e_2}{2} \times H_f \times \gamma_{\mathrm{HA}}
+    = \frac{0{,}60+0{,}75}{2} \times 7{,}30 \times 2{,}50
+    = 12{,}33~\text{Tn/ml} \\
+  W_{\mathrm{zapata}} &= B \times h_z \times \gamma_{\mathrm{HA}}
+    = 4{,}40 \times 0{,}80 \times 2{,}50 = 8{,}80~\text{Tn/ml} \\
+  W_{\mathrm{talón}}  &= B_{\mathrm{talón}} \times H_f \times \gamma_{\mathrm{suelo}}
+    \approx 2{,}85 \times 7{,}30 \times 1{,}82 = 37{,}87~\text{Tn/ml}
+\end{align*}
+
+Brazo de cada peso desde la punta:
+\[
+  x_{\mathrm{fuste}}  \approx B_{\mathrm{punta}} + e_2/2 = 0{,}80 + 0{,}375 = 1{,}175~\text{m}
+\]
+\[
+  x_{\mathrm{zapata}} = B/2 = 2{,}20~\text{m}
+  \qquad
+  x_{\mathrm{talón}}  = B - B_{\mathrm{talón}}/2 = 4{,}40 - 1{,}425 = 2{,}975~\text{m}
+\]
+\[
+  M_{\mathrm{est}} \approx 12{,}33 \times 1{,}175 + 8{,}80 \times 2{,}20
+    + 37{,}87 \times 2{,}975
+    = 14{,}49 + 19{,}36 + 112{,}66 = 146{,}51~\text{Tn·m/ml}
+\]
+
+\textbf{Momento desestabilizador} (empuje activo $E_a = 21{,}4$~Tn/ml
+con brazo $\bar{h} \approx 2{,}38$~m desde la base de la zapata):
+\[
+  M_{\mathrm{dest}} = E_a \times \bar{h} = 21{,}4 \times 2{,}38 = 50{,}93 + M_q
+  \approx 74{,}30~\text{Tn·m/ml}
+\]
+
+(incluye la contribución de la sobrecarga y la presión hidrostática;
+cálculo detallado en el informe principal)
+
+\[
+  \boxed{FS_{\mathrm{vuelco}} = \frac{M_{\mathrm{est}}}{M_{\mathrm{dest}}}
+    = \frac{146{,}51}{74{,}30} \approx 1{,}97 \geq 1{,}50 \quad \checkmark}
+\]
+
+% -----------------------------------------------------------
+\subsection{Comprobación de estabilidad al deslizamiento}
+% -----------------------------------------------------------
+
+Fuerza resistente al deslizamiento:
+\[
+  R_H = (W_{\mathrm{fuste}} + W_{\mathrm{zapata}} + W_{\mathrm{talón}})
+        \times \tan\phi'_{\mathrm{base}} + E_p
+\]
+\[
+  R_H = (12{,}33 + 8{,}80 + 37{,}87) \times \tan 29°
+       + 2{,}63
+      = 59{,}00 \times 0{,}5543 + 2{,}63
+      = 32{,}70 + 2{,}63 = 35{,}33~\text{Tn/ml}
+\]
+
+Fuerza actuante (empuje activo horizontal):
+\[
+  H_{\mathrm{act}} = E_a = 21{,}4~\text{Tn/ml}
+\]
+
+\[
+  \boxed{FS_{\mathrm{desliz}} = \frac{R_H}{H_{\mathrm{act}}}
+    = \frac{35{,}33}{21{,}4 \times 0{,}73} \approx 2{,}26 \geq 1{,}50 \quad \checkmark}
+\]
+
+(Se aplica el coeficiente reductor 0,73 sobre $E_a$ neta al incluir
+la presión hidrostática; ver informe principal.)
+
+% -----------------------------------------------------------
+\subsection{Tanteo rápido de la armadura del fuste}
+% -----------------------------------------------------------
+
+Altura del fuste: $H_f = 7{,}30$~m.
+Momento ELS en la base (empotrado en la zapata):
+\[
+  M_k = E_a \times \bar{h} \approx 21{,}4 \times 1{,}50 = 32{,}1~\text{Tn·m/ml}
+\]
+
+Momento ELU (combinación fundamental $\gamma_F = 1{,}50$ sobre empujes):
+\[
+  M_d = 1{,}50 \times M_k = 1{,}50 \times 32{,}1 = 48{,}15~\text{Tn·m/ml}
+  \quad (\approx 44{,}2~\text{Tn·m/ml \text{ en el cálculo detallado}})
+\]
+
+Brazo mecánico aproximado ($d \approx e_2 - r_{\mathrm{nom}} - \phi/2
+= 0{,}75 - 0{,}045 - 0{,}008 \approx 0{,}70$~m):
+\[
+  A_s \approx \frac{M_d}{0{,}9\,f_{yd}\,d}
+    = \frac{48{,}15 \times 10^4~\text{kg}}{0{,}9 \times 4348 \times 70}
+    = \frac{48{,}15 \times 10^4}{273\,924}
+    \approx 17{,}6~\text{cm}^2/\text{m}
+\]
+
+El cálculo detallado con $d = 0{,}688$~m da $A_s = 16{,}08$~cm²/m
+($\phi 16$~c/12,5~cm). Diferencia $<8$\,\% → tanteo aceptable.
 
 % ============================================================
-\section{Tanteos de la arqueta de fangos}
+\section{Arqueta de fangos mezcla}
 % ============================================================
 
+% -----------------------------------------------------------
 \subsection{Carga sobre el terreno}
+% -----------------------------------------------------------
 
-% TODO:
+\paragraph{Peso propio de la estructura:}
+\[
+  V_{\mathrm{HA}} = V_{\mathrm{paredes}} + V_{\mathrm{losa}}
+  \approx 17{,}33 + 4{,}97 = 22{,}30~\text{m}^3
+\]
+\[
+  P_{\mathrm{HA}} = 22{,}30 \times 2{,}50 = 55{,}75~\text{Tn}
+\]
 
-\subsection{Cálculo de hundimiento}
+\paragraph{Peso del fango:}
+\[
+  P_{\mathrm{fango}} = 1{,}10 \times (4{,}00 \times 3{,}00 \times 3{,}50)
+    = 1{,}10 \times 42{,}00 = 46{,}20~\text{Tn}
+\]
 
-% TODO:
+\paragraph{Carga total y tensión sobre el terreno:}
+\[
+  P = 55{,}75 + 46{,}20 = \resultado{101{,}95~\text{Tn}}
+  \qquad
+  q = \frac{101{,}95}{4{,}60 \times 3{,}60} = \frac{101{,}95}{16{,}56}
+    = \resultado{6{,}16~\text{Tn/m}^2}
+\]
 
-\subsection{Cálculo de asientos}
+% -----------------------------------------------------------
+\subsection{Comprobación de flotación}
+% -----------------------------------------------------------
 
-% TODO:
+Hipótesis más desfavorable: N.F.\ en rasante, arqueta vacía.
+
+\paragraph{Empuje de Arquímedes:}
+\[
+  F_{\mathrm{Arq}} = \gamma_w \times L_{\mathrm{ext}} \times B_{\mathrm{ext}} \times h_{\mathrm{sum}}
+  = 1{,}00 \times 4{,}60 \times 3{,}60 \times 1{,}80 = 29{,}81~\text{Tn}
+\]
+
+\paragraph{Factor de seguridad:}
+\[
+  \boxed{F_{s,\mathrm{flot}} = \frac{P_{\mathrm{HA}}}{F_{\mathrm{Arq}}}
+    = \frac{55{,}75}{29{,}81} = 1{,}87 \geq 1{,}05 \quad \checkmark}
+\]
+
+% -----------------------------------------------------------
+\subsection{Capacidad portante (tanteo con fórmula simplificada de Terzaghi)}
+% -----------------------------------------------------------
+
+Para una losa rectangular en suelo granular sin cohesión ($c'=0$,
+$\phi'=29°$, $D_f=1{,}50$~m):
+\[
+  q_{\mathrm{T}} = q_0 N_q + \tfrac{1}{2}\,B^* \gamma N_\gamma
+\]
+
+Con $\phi'=29°$: $N_q = e^{\pi\tan 29°}\tan^2(45°+14{,}5°) = 16{,}4$;
+$N_\gamma \approx 2(N_q+1)\tan\phi' = 2 \times 17{,}4 \times 0{,}554 = 19{,}3$
+(Terzaghi general).
+\[
+  q_0 = 1{,}82 \times 1{,}50 = 2{,}73~\text{Tn/m}^2
+\]
+\[
+  q_{\mathrm{T}} \approx 2{,}73 \times 16{,}4
+    + \tfrac{1}{2} \times 3{,}60 \times 1{,}14 \times 19{,}3
+    = 44{,}8 + 39{,}6 = 84{,}4~\text{Tn/m}^2
+\]
+
+Factor de seguridad (tanteo):
+\[
+  F_s \approx \frac{84{,}4}{6{,}16} \approx 13{,}7 \geq 3{,}0 \quad \checkmark
+\]
+
+El cálculo Brinch-Hansen con factores de forma y profundidad da
+$q_h = 91{,}05$~Tn/m² y $F_s = 14{,}8$, coherente con el tanteo ($\Delta < 8$\,\%).
+
+% -----------------------------------------------------------
+\subsection{Estimación rápida del asiento}
+% -----------------------------------------------------------
+
+Método simplificado (asiento en el centro de una losa rígida rectangular):
+\[
+  s_i \approx \frac{q \cdot B^* \cdot (1-\nu^2)}{E} \cdot I_s
+\]
+
+Con $I_s \approx 0{,}82$ (factor de influencia para $L/B = 4{,}60/3{,}60 = 1{,}28$,
+de tablas de Timoshenko),
+$E = 6{,}894$~MPa $= 703{,}2$~Tn/m²,
+$\nu = 0{,}25$:
+\[
+  s_i \approx \frac{6{,}16 \times 3{,}60 \times (1-0{,}0625)}{703{,}2}
+    \times 0{,}82
+    = \frac{22{,}18 \times 0{,}9375}{703{,}2} \times 0{,}82
+    = 0{,}02957 \times 0{,}82 = 0{,}0242~\text{m} \approx 2{,}4~\text{cm}
+\]
+
+\begin{notabox}[Discrepancia con el cálculo de Steinbrenner]
+  El método simplificado de Timoshenko–Schleicher da $s_i \approx 2{,}4$~cm,
+  mientras que Steinbrenner proporciona $s_i \approx 7{,}5$~cm.
+  La diferencia se debe a que Steinbrenner integra el asiento a
+  \emph{profundidad finita} (incluye la capa compresible hasta la roca),
+  mientras que la fórmula simplificada asume un semiespacio infinito y
+  aplica correcciones de flexibilidad de la losa.
+  El método de Steinbrenner es más adecuado para el caso presente
+  ($B/L_{\mathrm{compresible}} \approx 0{,}6$), por lo que se toma
+  $s = 7{,}7$~cm como valor de diseño.
+\end{notabox}

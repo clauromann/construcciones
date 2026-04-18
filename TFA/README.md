@@ -145,27 +145,33 @@ wip: borrador predimensionamiento zapata
 
 ---
 
-## Contenido pendiente (TODO)
+## Estado actual del trabajo
 
-Busca en el código los comentarios `% TODO:` para ver exactamente qué falta rellenar
-en cada sección.
+### Parte I — Muro (✅ 100% completado)
 
-### Parte I — Muro
-- [x] Descripción técnica de opciones (muro ménsula vs. pantalla) → `02_muro/01_descripcion_opciones.tex`
-- [x] Cálculos geotécnicos: empujes, hundimiento, asientos → `02_muro/02_calculos_geotecnicos.tex`
-- [ ] Predimensionamiento: geometría definitiva + planos → `02_muro/03_predimensionamiento.tex`
-- [ ] Cálculos estructurales: ELU fuste y zapata → `02_muro/04_calculos_estructurales.tex`
-- [ ] Despiece de acero y peso total
-- [ ] Proceso constructivo con croquis → `02_muro/05_proceso_constructivo.tex`
-- [ ] Presupuesto (completar mediciones) → `02_muro/06_presupuesto.tex`
-- [ ] Gantt (completar duraciones reales) → `02_muro/07_gantt.tex`
+| Archivo | Estado | Resultados clave |
+|---|---|---|
+| `02_muro/01_descripcion_opciones.tex` | ✅ | Muro ménsula elegido; pantalla descartada (zona protegida + coste +38%) |
+| `02_muro/02_calculos_geotecnicos.tex` | ✅ | Ea=21,4 Tn/ml; Ep=2,63 Tn/ml; qh=147,1 Tn/m²; s≈3,5 cm |
+| `02_muro/03_predimensionamiento.tex` | ✅ | B=4,40 m; e1=0,60 m; e2=0,75 m; hz=0,80 m; plano TikZ acotado |
+| `02_muro/04_calculos_estructurales.tex` | ✅ | Md=44,17 Tn·m → φ16 c/12,5; talón φ20 c/17; 43.245 kg total |
+| `02_muro/05_proceso_constructivo.tex` | ✅ | 15 pasos; cuadrillas y maquinaria; 1.187 m³ HA-30 + 1.950 m² encofrado |
+| `02_muro/06_presupuesto.tex` | ✅ | **PEM = 371.094 €** · PEC (c/IVA) = **534.338 €** · 2.474 €/ml |
+| `02_muro/07_gantt.tex` | ✅ | **Plazo total: 29 semanas** (≈7 meses); ruta crítica A→M |
 
-### Parte II — Arqueta
-- [x] Cargas transmitidas al terreno → `03_arqueta/01_calculos_geotecnicos.tex`
-- [x] Comprobación de flotación → `03_arqueta/01_calculos_geotecnicos.tex`
-- [x] Capacidad portante y asientos → `03_arqueta/01_calculos_geotecnicos.tex`
-- [ ] Plano acotado con perfil del sondeo → `03_arqueta/02_cimentacion.tex`
-- [ ] Detalle de impermeabilización → `03_arqueta/02_cimentacion.tex`
+### Parte II — Arqueta (✅ 100% completado)
+
+| Archivo | Estado | Resultados clave |
+|---|---|---|
+| `03_arqueta/01_calculos_geotecnicos.tex` | ✅ | q=6,16 Tn/m²; Fs_flot=1,87; qh=91,05 Tn/m²; s≈7,7 cm |
+| `03_arqueta/02_cimentacion.tex` | ✅ | Losa 4,60×3,60 m, e=0,30 m, cota −1,80 m; TikZ acotado + tabla resumen |
+
+### Anexos (✅ 100% completados)
+
+| Archivo | Estado |
+|---|---|
+| `anexos/A_sondeo.tex` | ✅ Columna estratigráfica TikZ (4 estratos, NF, parámetros) |
+| `anexos/B_calculos_manuales.tex` | ✅ Tanteos manuales muro + arqueta (FS, armadura, asientos) |
 
 ---
 
