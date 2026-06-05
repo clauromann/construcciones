@@ -16,26 +16,30 @@ del proceso constructivo (sección~\ref{sec:muro_proceso}):
 \begin{align*}
   V_{\mathrm{exc}}    &= (B + 2 \times 0{,}60) \times (h_z + e_{\mathrm{HM}} + D_f)
                           \times L
-                       = 5{,}60 \times 1{,}90 \times 150
-                       = \mathbf{1\,596~\text{m}^3} \\
+                       = 6{,}80 \times 1{,}90 \times 150
+                       = \mathbf{1\,938~\text{m}^3} \\
   V_{\mathrm{HM-15}}  &= B \times e_{\mathrm{HM}} \times L
-                       = 4{,}40 \times 0{,}10 \times 150
-                       = \mathbf{66~\text{m}^3} \\
-  V_{\mathrm{HA-30}}  &= \underbrace{4{,}40 \times 0{,}80}_{V_{\mathrm{zapata}}}
+                       = 5{,}60 \times 0{,}10 \times 150
+                       = \mathbf{84~\text{m}^3} \\
+  V_{\mathrm{HA-30}}  &= \underbrace{5{,}60 \times 0{,}80}_{V_{\mathrm{zapata}}}
                          \times 150
                        + \underbrace{\tfrac{0{,}60+0{,}75}{2} \times 6{,}50}
                                     _{V_{\mathrm{fuste}}} \times 150
-                       = 528 + 659 = \mathbf{1\,187~\text{m}^3} \\
-  P_{\mathrm{acero}}  &= 288{,}3~\text{kg/ml} \times 150~\text{ml}
-                       = \mathbf{43\,245~\text{kg}} \\
+                       = 672 + 659 = \mathbf{1\,331~\text{m}^3} \\
+  P_{\mathrm{acero}}  &= 207~\text{kg/ml} \times 150~\text{ml}
+                       = \mathbf{31\,050~\text{kg}} \\
   S_{\mathrm{enc,fuste}} &= 2 \times 6{,}50 \times 150
                           = \mathbf{1\,950~\text{m}^2} \\
   S_{\mathrm{enc,zap}}   &= 2 \times 0{,}80 \times 150
                           = \mathbf{240~\text{m}^2} \\
   S_{\mathrm{imp}}    &= 6{,}50 \times 150 = \mathbf{975~\text{m}^2} \\
   V_{\mathrm{rell}}   &= B_{\mathrm{talón}} \times H_f \times L
-                       = 2{,}85 \times 6{,}50 \times 150
-                       = \mathbf{2\,779~\text{m}^3}
+                       = 4{,}05 \times 6{,}50 \times 150
+                       = \mathbf{3\,949~\text{m}^3} \\
+  L_{\mathrm{pil}}    &= N_\text{pil} \times L_\text{pil}
+                       = 150 \times 8{,}0
+                       = \mathbf{1\,200~\text{m}}
+                       \quad \text{(1 pilote/ml, $D=0{,}45$~m, hasta arcillas margosas)}
 \end{align*}
 
 % -----------------------------------------------------------
@@ -60,6 +64,7 @@ del proceso constructivo (sección~\ref{sec:muro_proceso}):
     Lámina drenante nodular + geotextil        & 8{,}00   & \euro/m² \\
     Tubo dren flexible Ø~100~mm + grava        & 8{,}00   & \euro/ml \\
     Relleno y compactación trasdós (zahorra)   & 2{,}50   & \euro/m³ \\
+    Pilotes CPI $D=0{,}45$~m (perf.\ + arm.\ + horm.) & 85{,}00 & \euro/m \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -79,41 +84,45 @@ del proceso constructivo (sección~\ref{sec:muro_proceso}):
     \textbf{N.º} & \textbf{Descripción} & \textbf{Ud.}
     & \textbf{Medición} & \textbf{P.U. (\euro)} & \textbf{Total (\euro)} \\
     \midrule
-    1 & Excavación a máquina                & m³ & 1\,596  &   3{,}00  &    4\,788 \\
-    2 & Hormigón de limpieza HM-15          & m³ &    66   &  80{,}00  &    5\,280 \\
-    3 & Hormigón HA-30 (zapata + fuste)     & m³ & 1\,187  & 105{,}00  &  124\,635 \\
-    4 & Acero B~500~SD en armaduras         & kg & 43\,245 &   1{,}40  &   60\,543 \\
+    1 & Excavación a máquina                & m³ & 1\,938  &   3{,}00  &    5\,814 \\
+    2 & Hormigón de limpieza HM-15          & m³ &    84   &  80{,}00  &    6\,720 \\
+    3 & Hormigón HA-30 (zapata + fuste)     & m³ & 1\,331  & 105{,}00  &  139\,755 \\
+    4 & Acero B~500~SD en armaduras         & kg & 31\,050 &   1{,}40  &   43\,470 \\
     5 & Encofrado fuste (doble cara)        & m² & 1\,950  &  65{,}00  &  126\,750 \\
     6 & Encofrado zapata (caras laterales)  & m² &   240   &  65{,}00  &   15\,600 \\
     7 & Impermeabilización HDPE trasdós     & m² &   975   &  18{,}00  &   17\,550 \\
     8 & Lámina drenante + geotextil         & m² &   975   &   8{,}00  &    7\,800 \\
     9 & Tubo dren Ø~100~mm                  & ml &   150   &   8{,}00  &    1\,200 \\
-   10 & Relleno y compact.\ trasdós         & m³ & 2\,779  &   2{,}50  &    6\,948 \\
+   10 & Relleno y compact.\ trasdós         & m³ & 3\,949  &   2{,}50  &    9\,873 \\
+   11 & Pilotes CPI $D=0{,}45$~m, $L=8$~m  & m  & 1\,200  &  85{,}00  &  102\,000 \\
     \midrule
     \multicolumn{5}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN MATERIAL (PEM)}}
-      & \textbf{371\,094} \\
+      & \textbf{476\,532} \\
     \multicolumn{5}{r}{Gastos generales (13\,\%)}
-      & 48\,242 \\
+      & 61\,949 \\
     \multicolumn{5}{r}{Beneficio industrial (6\,\%)}
-      & 22\,266 \\
+      & 28\,592 \\
     \midrule
     \multicolumn{5}{r}{\textbf{Subtotal sin IVA}}
-      & \textbf{441\,602} \\
+      & \textbf{567\,073} \\
     \multicolumn{5}{r}{IVA (21\,\%)}
-      & 92\,736 \\
+      & 119\,085 \\
     \midrule
     \multicolumn{5}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN POR CONTRATA (PEC)}}
-      & \textbf{534\,338} \\
+      & \textbf{686\,158} \\
     \bottomrule
   \end{tabular}}
 \end{table}
 
 \begin{notabox}[Coste unitario por ml de muro]
-  PEM por metro lineal de muro:
-  $371\,094 \div 150 = \mathbf{2\,474~\text{\euro/ml}}$.
-  La partida más significativa es el \textbf{encofrado del fuste} (34\,\% del PEM),
-  seguida del \textbf{hormigón HA-30} (34\,\%) y el
-  \textbf{acero} (16\,\%).
-  Este desglose es coherente con los ratios habituales para muros de contención de
-  hormigón armado de altura $H > 5$~m.
+  PEM por metro lineal de muro (incluyendo pilotes):
+  $476\,532 \div 150 = \mathbf{3\,177~\text{\euro/ml}}$.
+  Las partidas más significativas son el \textbf{hormigón HA-30} (29\,\% del PEM),
+  el \textbf{encofrado del fuste} (27\,\%), los \textbf{pilotes CPI} (21\,\%) y el
+  \textbf{acero} (9\,\%).
+  La partida de pilotaje supone el \textbf{21\,\%} del coste total, justificada
+  por la necesidad de reducir el asiento de $s = 7{,}51$~cm a valores admisibles
+  (sección~\ref{subsec:asientos_muro}). Aun así, el coste total del muro con pilotes
+  es significativamente inferior al de la solución de muro pantalla
+  (sección~\ref{sec:muro_opciones}).
 \end{notabox}

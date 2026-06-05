@@ -47,7 +47,7 @@ la elección del hormigón.
           $r_{\min} = 35$~mm para clase IIb+Qa.
     \item Tolerancia de ejecución: $\Delta r = 10$~mm.
     \item \textbf{Recubrimiento nominal adoptado:}
-          $r_{\text{nom}} = 35 + 10 = \resultado{45~\text{mm}}$.
+          $r_{\text{nom}} = \resultado{50~\text{mm}}$.
     \item Hormigón de limpieza: \textbf{HM-15}, $e = 10$~cm,
           sin función estructural.
     \item Acero pasivo: \textbf{B~500~SD} ($f_{yk} = 500$~MPa).
@@ -63,82 +63,12 @@ la elección del hormigón.
     \textbf{Elemento} & \textbf{Hormigón} & \textbf{Cemento}
     & \textbf{Recub. nominal} \\
     \midrule
-    Fuste + zapata      & HA-30/B/20/IIb+Qa & SR (CEM I 42{,}5 SR) & 45~mm \\
+    Fuste + zapata      & HA-30/B/20/IIb+Qa & SR (CEM I 42{,}5 SR) & 50~mm \\
     Hormigón de limpieza & HM-15             & —                     & —     \\
     Acero pasivo         & B~500~SD          & —                     & —     \\
     \bottomrule
   \end{tabular}
 \end{table}
-
-% -----------------------------------------------------------
-\subsection{Reglas empíricas de predimensionamiento}
-\label{subsec:reglas_empiricas}
-% -----------------------------------------------------------
-
-Para un muro de contención en ménsula de altura total $H = \alturaDesnivelMuro$~m
-se aplican las reglas empíricas habituales para obtener una primera estimación
-de las dimensiones:
-
-\subsubsection{Espesor del fuste}
-
-La sección del fuste varía linealmente desde la coronación hasta la base:
-
-\begin{align}
-  e_1 &= \frac{H}{12} = \frac{7{,}3}{12} = 0{,}61~\text{m}
-        \quad\longrightarrow\quad \textit{adoptar } \resultado{e_1 = 0{,}60~\text{m}}
-        \label{eq:e1} \\[4pt]
-  e_2 &= \frac{H}{10} = \frac{7{,}3}{10} = 0{,}73~\text{m}
-        \quad\longrightarrow\quad \textit{adoptar } \resultado{e_2 = 0{,}75~\text{m}}
-        \label{eq:e2}
-\end{align}
-
-El trasdós (cara en contacto con el terreno) se proyecta \textbf{vertical}.
-El intradós presenta la variación de espesor indicada.
-
-\subsubsection{Dimensiones de la zapata}
-
-\paragraph{Canto de la zapata:}
-\begin{equation}
-  h_z = \frac{H}{10} \approx 0{,}73~\text{m}
-  \quad\longrightarrow\quad \resultado{h_z = 0{,}80~\text{m}}
-  \label{eq:hz}
-\end{equation}
-
-\paragraph{Ancho total de la zapata:}
-La primera estimación por regla empírica es:
-\begin{equation}
-  B_{\text{estimado}} = (0{,}50 \div 0{,}70)\cdot H
-    = (0{,}50 \div 0{,}70) \times 7{,}3 = 3{,}65 \div 5{,}11~\text{m}
-  \label{eq:B_est}
-\end{equation}
-
-Se adopta inicialmente $B = 4{,}00$~m, pero tras la \textbf{comprobación de
-estabilidad} (apartado~\ref{subsec:estabilidad}) se ajusta a
-$\resultado{B = 4{,}40~\text{m}}$ para satisfacer el coeficiente de seguridad
-al vuelco.
-
-\begin{supuestobox}[Distribución puntera / talón]
-  En un muro en ménsula, el \textbf{talón} (vuelo hacia el lado del terreno
-  retenido) proporciona la carga vertical que equilibra el momento volcador.
-  El \textbf{puntera} (vuelo libre hacia el exterior) limita las tensiones
-  sobre el terreno de cimentación.
-
-  Se adopta:
-  \begin{itemize}
-    \item Puntera: $B_{\text{punta}} = 0{,}80$~m
-          (longitud mínima estructuralmente necesaria).
-    \item Talón: $B_{\text{talón}} = B - e_2 - B_{\text{punta}}
-          = 4{,}40 - 0{,}75 - 0{,}80 = \resultado{2{,}85~\text{m}}$.
-  \end{itemize}
-\end{supuestobox}
-
-\subsubsection{Altura libre del fuste}
-
-La altura del fuste medida sobre la cara superior de la zapata es:
-\begin{equation}
-  H_f = H - h_z = 7{,}30 - 0{,}80 = \resultado{6{,}50~\text{m}}
-  \label{eq:Hf}
-\end{equation}
 
 % -----------------------------------------------------------
 \subsection{Geometría adoptada — resumen}
@@ -153,14 +83,14 @@ La altura del fuste medida sobre la cara superior de la zapata es:
     \toprule
     \textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor} & \textbf{Criterio} \\
     \midrule
-    Altura total retenida  & $H$               & 7{,}30~m & Enunciado \\
-    Altura libre del fuste & $H_f$             & 6{,}50~m & $H - h_z$ \\
+    Altura total retenida  & $H$               & 8{,}10~m & Enunciado \\
+    Altura libre del fuste & $H_f$             & 7{,}30~m & $H - h_z$ \\
     Espesor en coronación  & $e_1$             & 0{,}60~m & $H/12$ \\
     Espesor en la base     & $e_2$             & 0{,}75~m & $H/10$ \\
     Canto de la zapata     & $h_z$             & 0{,}80~m & $H/10$ \\
-    Ancho total zapata     & $B$               & 4{,}40~m & Estabilidad \\
+    Ancho total zapata     & $B$               & 5{,}60~m & Estabilidad \\
     Puntera                & $B_{\text{punta}}$ & 0{,}80~m & Estructural \\
-    Talón                  & $B_{\text{talón}}$ & 2{,}85~m & $B-e_2-B_p$ \\
+    Talón                  & $B_{\text{talón}}$ & 4{,}05~m & $B-e_2-B_p$ \\
     Empotramiento          & $D_f$             & 1{,}00~m & Geotecnia \\
     \bottomrule
   \end{tabular}
@@ -176,152 +106,164 @@ todas las dimensiones acotadas, el perfil del terreno y el nivel freático.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.75, >=Stealth,
-    dim/.style={<->, thin, gray!70},
-    cotatxt/.style={font=\footnotesize, fill=white, inner sep=1pt}]
+\begin{tikzpicture}[scale=0.90, >=Stealth,
+    dimarrow/.style={<->, >=Stealth, thin, NavyBlue!80},
+    dimlabel/.style={font=\footnotesize, fill=white, inner sep=1.2pt,
+                     text=NavyBlue!80},
+    soil/.style={pattern=dots, pattern color=BurntOrange!50,
+                 fill=BurntOrange!15},
+    soilsat/.style={pattern=dots, pattern color=BurntOrange!60,
+                    fill=BurntOrange!30},
+    concrete/.style={fill=gray!45},
+  ]
 
-  % ---- Hormigón de limpieza ----
-  \fill[gray!15] (0,-0.10) rectangle (4.40, 0);
-  \draw[dashed, gray] (0,-0.10) rectangle (4.40, 0);
-  \node[font=\tiny, gray] at (2.20,-0.05) {HM-15 ($e=10$~cm)};
+  % Origen: base zapata en (0,0). H_total = 7.30, hz=0.80,
+  % B=5.00, B_tal=3.45, e2=0.75, e1=0.60, B_p=0.80
+  % NF desde rasante trasdós = -2.50 m  →  y_NF = 7.30 - 2.50 = 4.80
+  % Df = 1.00  →  rasante intradós en y = 1.00
 
-  % ---- Zapata ----
-  \fill[gray!35] (0,0) rectangle (4.40, 0.80);
-  \draw[thick] (0,0) rectangle (4.40, 0.80);
+  % ============================================================
+  % TERRENO RETENIDO (izquierda del fuste / sobre talón)
+  % ============================================================
+  % Seco  (NF .. rasante trasdós)
+  \fill[soil]    (-1.8, 4.80) rectangle (3.45, 7.30);
+  % Saturado (base zapata .. NF)
+  \fill[soilsat] (-1.8, 0.80) rectangle (3.45, 4.80);
+  % Rasante trasdós
+  \draw[thick, BurntOrange!70] (-1.8, 7.30) -- (3.45, 7.30);
+  \fill[pattern=north east lines, pattern color=gray!60]
+      (-1.8, 7.30) rectangle (3.45, 7.50);
 
-  % ---- Fuste ----
-  % Trasdós vertical en x=2.85; intradós va de x=3.60 (base) a x=3.45 (top)
-  \fill[gray!35]
-    (2.85, 0.80) -- (3.60, 0.80) -- (3.45, 7.30) -- (2.85, 7.30) -- cycle;
+  % ============================================================
+  % TERRENO LIBRE (derecha, sobre puntera e intradós)
+  % ============================================================
+  \fill[soil] (4.20, 0.80) -- (5.00, 0.80) -- (5.00, 1.00)
+              -- (6.80, 1.00) -- (6.80,  0.00)
+              -- (5.00, 0.00) -- (4.20, 0.00) -- cycle;
+  \draw[thick, BurntOrange!70] (5.00, 1.00) -- (6.80, 1.00);
+  \fill[pattern=north east lines, pattern color=gray!60]
+      (5.00, 1.00) rectangle (6.80, 1.15);
+
+  % ============================================================
+  % HORMIGÓN DE LIMPIEZA + ZAPATA + FUSTE
+  % ============================================================
+  \fill[gray!20] (-0.05,-0.12) rectangle (5.05, 0);
+  \node[font=\tiny, gray!70] at (2.50,-0.06) {HM-15 ($e=10$~cm)};
+
+  \fill[concrete] (0, 0) rectangle (5.00, 0.80);
+  \draw[thick]   (0, 0) rectangle (5.00, 0.80);
+
+  % Fuste trapezoidal: trasdós vertical x=3.45, intradós de (4.20,0.80) a (4.05,7.30)
+  \fill[concrete]
+    (3.45, 0.80) -- (4.20, 0.80) -- (4.05, 7.30) -- (3.45, 7.30) -- cycle;
   \draw[thick]
-    (2.85, 0.80) -- (3.60, 0.80) -- (3.45, 7.30) -- (2.85, 7.30) -- cycle;
+    (3.45, 0.80) -- (4.20, 0.80) -- (4.05, 7.30) -- (3.45, 7.30) -- cycle;
 
-  % ---- Terreno retenido (izquierda / trasdós) ----
-  \fill[brown!25, opacity=0.6]
-    (-0.80, 0.80) -- (2.85, 0.80) -- (2.85, 7.30) -- (-0.80, 7.30) -- cycle;
-  % Relleno bajo talón
-  \fill[brown!25, opacity=0.4] (-0.80, 0) rectangle (2.85, 0.80);
-  % Borde terreno retenido
-  \draw[thick, brown!60] (-0.80, 7.30) -- (2.85, 7.30);
+  % ============================================================
+  % NIVEL FREÁTICO (símbolo estándar triángulo + rayado)
+  % ============================================================
+  \draw[NavyBlue!80, thick, dashed] (-1.8, 4.80) -- (3.45, 4.80);
+  \node[NavyBlue!80] at (-1.5, 4.80) {$\blacktriangledown$};
+  \node[NavyBlue!80, font=\scriptsize, below] at (-1.5, 4.70) {N.F.};
+  \foreach \x in {-1.1, -0.7, -0.3, 0.1, 0.5, 0.9, 1.3, 1.7, 2.1, 2.5, 2.9}
+    \draw[NavyBlue!60, thin] (\x, 4.80) -- (\x+0.15, 4.65);
+  \node[NavyBlue!80, font=\scriptsize, right]
+       at (3.50, 4.80) {$-2{,}50$~m};
 
-  % ---- Terreno libre (derecha / intradós) ----
-  % Suelo desde y=-0.10 hasta y=1.0 en el lado libre
-  \fill[brown!25, opacity=0.4]
-    (3.60, 0) -- (4.40, 0) -- (4.40, 1.00) -- (5.20, 1.00)
-    -- (5.20, -0.10) -- (3.60, -0.10) -- cycle;
-  \draw[thick, brown!60] (3.45, 1.00) -- (5.20, 1.00);
-  \node[font=\tiny, brown!80, right] at (5.20, 1.00) {Cota terreno libre};
-
-  % ---- Nivel freático ----
-  % NF a -2.50m desde trasdós superficie → y = 7.30 - 2.50 = 4.80
-  \draw[blue!60, thick, dashed]
-    (-0.80, 4.80) -- (2.85, 4.80);
-  \node[font=\footnotesize, blue!70, left] at (-0.80, 4.80)
-    {N.F. $(-2{,}50$~m$)$};
-  % Símbolo nivel freático
-  \foreach \x in {-0.50, -0.20, 0.10}
-    \draw[blue!60] (\x, 4.80) -- (\x+0.15, 4.65);
+  % ============================================================
+  % DIAGRAMA TRIANGULAR DE EMPUJE ACTIVO (E_T)
+  % ============================================================
+  \fill[NavyBlue!15, opacity=0.7]
+      (3.45, 0) -- (3.45, 7.30) -- (2.05, 0) -- cycle;
+  \draw[NavyBlue!80, thick]
+      (3.45, 7.30) -- (2.05, 0);
+  % Flechas proporcionales al diagrama triangular
+  \foreach \y/\len in {0.30/1.33, 1.00/1.24, 2.00/1.09, 3.00/0.94,
+                       4.00/0.79, 5.00/0.64, 6.00/0.49, 7.00/0.34}
+    \draw[->, NavyBlue!80, thick] (3.45-\len, \y) -- (3.45, \y);
+  \node[NavyBlue!80, font=\small\bfseries] at (1.90, 4.10) {$E_T$};
+  \node[NavyBlue!80, font=\tiny]           at (1.90, 3.70) {25,78 Tn/ml};
 
   % ============================================================
   % COTAS VERTICALES (izquierda)
   % ============================================================
+  % H (total muro, desde base zapata)
+  \draw[dimarrow] (-2.50, 0) -- (-2.50, 7.30);
+  \node[dimlabel, rotate=90] at (-2.70, 3.65) {$H = 7{,}30$~m};
 
-  % Cota H total
-  \draw[dim] (-1.30, 0) -- (-1.30, 7.30);
-  \node[cotatxt, rotate=90] at (-1.55, 3.65) {$H = 7{,}30$~m};
-
-  % Cota hz
-  \draw[dim] (-0.50, 0) -- (-0.50, 0.80);
-  \node[cotatxt, left] at (-0.50, 0.40) {$h_z=0{,}80$};
-
-  % Cota Hf
-  \draw[dim] (-0.50, 0.80) -- (-0.50, 7.30);
-  \node[cotatxt, left] at (-0.50, 4.05) {$H_f=6{,}50$~m};
+  % Hf y hz en línea intermedia
+  \draw[dimarrow] (-1.95, 0.80) -- (-1.95, 7.30);
+  \node[dimlabel, rotate=90] at (-2.12, 4.05) {$H_f = 6{,}50$~m};
+  \draw[dimarrow] (-1.95, 0) -- (-1.95, 0.80);
+  \node[dimlabel, left] at (-1.95, 0.40) {$h_z = 0{,}80$};
 
   % ============================================================
-  % COTAS HORIZONTALES (abajo)
+  % COTAS VERTICALES (derecha)
   % ============================================================
+  \draw[dimarrow] (6.20, 0) -- (6.20, 1.00);
+  \node[dimlabel, right] at (6.20, 0.50) {$D_f = 1{,}00$~m};
 
-  % Cota B total
-  \draw[dim] (0, -0.70) -- (4.40, -0.70);
-  \node[cotatxt] at (2.20, -0.70) {$B = 4{,}40$~m};
+  % ============================================================
+  % COTAS HORIZONTALES (abajo): tres niveles
+  % ============================================================
+  % Marcas verticales de referencia
+  \foreach \x in {0, 3.45, 4.20, 5.00}
+    \draw[thin, NavyBlue!40] (\x, -0.15) -- (\x, -1.00);
 
-  % Cota Btalón
-  \draw[dim] (0, -0.38) -- (2.85, -0.38);
-  \node[cotatxt] at (1.42, -0.38) {$B_{\text{tal}}=2{,}85$};
+  % Nivel 1 (más bajo): B
+  \draw[dimarrow] (0, -0.95) -- (5.00, -0.95);
+  \node[dimlabel] at (2.50, -0.95) {$B = 5{,}00$~m};
 
-  % Cota e2
-  \draw[dim] (2.85, -0.38) -- (3.60, -0.38);
-  \node[cotatxt] at (3.22, -0.38) {$e_2$};
-  \node[font=\tiny] at (3.22, -0.55) {$0{,}75$};
-
-  % Cota Bpunta
-  \draw[dim] (3.60, -0.38) -- (4.40, -0.38);
-  \node[cotatxt] at (4.00, -0.38) {$B_p$};
-  \node[font=\tiny] at (4.00, -0.55) {$0{,}80$};
+  % Nivel 2: B_tal | e2 | Bp
+  \draw[dimarrow] (0, -0.45) -- (3.45, -0.45);
+  \node[dimlabel] at (1.72, -0.45) {$B_{\text{tal}} = 3{,}45$~m};
+  \draw[dimarrow] (3.45, -0.45) -- (4.20, -0.45);
+  \node[dimlabel, font=\scriptsize] at (3.82, -0.45) {$e_2{=}0{,}75$};
+  \draw[dimarrow] (4.20, -0.45) -- (5.00, -0.45);
+  \node[dimlabel, font=\scriptsize] at (4.60, -0.45) {$B_p{=}0{,}80$};
 
   % ============================================================
   % COTAS FUSTE (arriba)
   % ============================================================
-
-  % Cota e1 (coronación) — acotada arriba del fuste
-  \draw[dim] (2.85, 7.60) -- (3.45, 7.60);
-  \node[cotatxt] at (3.15, 7.60) {$e_1 = 0{,}60$~m};
-
-  % ============================================================
-  % EMPOTRAMIENTO Df (derecha)
-  % ============================================================
-  \draw[dim] (5.00, 0) -- (5.00, 1.00);
-  \node[cotatxt, right] at (5.00, 0.50) {$D_f=1{,}00$~m};
+  \draw[thin, NavyBlue!40] (3.45, 7.30) -- (3.45, 7.80);
+  \draw[thin, NavyBlue!40] (4.05, 7.30) -- (4.05, 7.80);
+  \draw[dimarrow] (3.45, 7.75) -- (4.05, 7.75);
+  \node[dimlabel, above] at (3.75, 7.75) {$e_1 = 0{,}60$~m};
 
   % ============================================================
-  % ETIQUETAS
+  % ETIQUETAS ESTRUCTURA
   % ============================================================
-  \node[font=\small\bfseries, rotate=90] at (2.20, 0.40) {ZAPATA};
-  \node[font=\small\bfseries, rotate=90] at (3.15, 3.65) {FUSTE};
-  \node[font=\small, brown!80, rotate=90] at (-0.35, 4.00) {Terreno retenido};
+  \node[font=\bfseries\small] at (2.50, 0.40) {ZAPATA};
+  \node[font=\bfseries\scriptsize, rotate=90] at (3.75, 4.10) {FUSTE};
 
-  % Flecha empuje activo
-  \foreach \y in {1.5, 2.5, 3.5, 5.0, 6.5}
-    \draw[->, blue!50, thick] (1.50, \y) -- (2.75, \y);
-  \node[font=\footnotesize, blue!60] at (1.00, 4.00) {$E_a$};
+  % Etiquetas trasdós/intradós
+  \node[font=\itshape\scriptsize, NavyBlue!80, anchor=east]
+       at (3.40, 2.30) {trasdós};
+  \node[font=\itshape\scriptsize, BurntOrange!80, anchor=west]
+       at (4.15, 2.30) {intradós};
+
+  % Etiquetas terreno
+  \node[font=\small\bfseries, BurntOrange!80]
+       at (1.00, 6.15) {Terreno retenido};
+  \node[font=\scriptsize, BurntOrange!80]
+       at (1.00, 5.75) {(no saturado)};
+  \node[font=\scriptsize\itshape, BurntOrange!80]
+       at (1.00, 3.00) {(saturado)};
+  \node[font=\scriptsize\itshape, BurntOrange!80]
+       at (5.90, 0.50) {terreno libre};
+
+  % Indicador de desnivel retenido (sólo informativo)
+  \draw[<->, >=Stealth, thin, gray!60]
+       (-0.9, 1.00) -- (-0.9, 7.30);
+  \node[font=\scriptsize, gray!70, fill=white, inner sep=1pt, rotate=90]
+       at (-1.05, 4.15) {Desnivel retenido: 6,30 m};
 
 \end{tikzpicture}
-\caption{Sección transversal tipo del muro en ménsula (sin escala exacta)}
+\caption{Sección transversal tipo del muro en ménsula
+         (dimensiones en m; N.F.\ a $-2{,}50$~m desde rasante trasdós;
+         empuje activo total $E_T = 25{,}78$~Tn/ml)}
 \label{fig:muro_seccion}
 \end{figure}
-
-% -----------------------------------------------------------
-\subsection{Verificación de estabilidad global}
-\label{subsec:estabilidad}
-% -----------------------------------------------------------
-
-Con la geometría adoptada se verifican los tres modos de fallo, con los
-resultados obtenidos en el apartado~\ref{sec:muro_geotecnia}:
-
-\begin{table}[H]
-  \centering
-  \caption{Verificación de estabilidad — muro en ménsula}
-  \label{tab:estabilidad_muro}
-  \begin{tabular}{@{}lcccc@{}}
-    \toprule
-    \textbf{Comprobación} & \textbf{FS calculado}
-    & \textbf{FS mínimo} & \textbf{Estado} \\
-    \midrule
-    Vuelco       & 1{,}97 & $\geq 1{,}50$ & \textbf{OK} \\
-    Deslizamiento & 2{,}26 & $\geq 1{,}50$ & \textbf{OK} \\
-    Hundimiento  & 10{,}9 & $\geq 3{,}00$ & \textbf{OK} \\
-    Excentricidad & $e < B/6$ & $e < B/6 = 0{,}73$~m & \textbf{OK} \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{resultadobox}[Geometría definitiva verificada]
-  El muro en ménsula con $B = 4{,}40$~m, $h_z = 0{,}80$~m,
-  $e_1 = 0{,}60$~m y $e_2 = 0{,}75$~m cumple todos los requisitos de
-  estabilidad geotécnica. La cimentación es \textbf{superficial} (zapata
-  corrida) con $D_f = 1{,}00$~m de empotramiento.
-\end{resultadobox}
 
 % -----------------------------------------------------------
 \subsection{Detalles constructivos}
@@ -347,12 +289,18 @@ previstas en el diseño. Se dispondrá:
 
 \subsubsection{Juntas de dilatación}
 
-Dado que la longitud del muro es $L = 150$~ml, se dispondrán \textbf{juntas
-de dilatación} cada $15$~m, selladas con perfil de caucho EPDM y
-mastique de poliuretano elástico. Esto supone \textbf{10~tramos} de~15~m.
+Dado que el muro presenta una longitud total de $L = 150$~ml, se proyectan 
+juntas de dilatación cada $15$~m con objeto de permitir los movimientos de 
+expansión y contracción del hormigón producidos por las variaciones térmicas, 
+reduciendo así los esfuerzos internos y el riesgo de fisuración de la estructura.
 
-En cada junta se interrumpirá la armadura longitudinal de distribución y se
-colocará un perfil de chapa galvanizada de transmisión de cortante.
+De este modo, el muro queda dividido en \textbf{10~tramos} de $15$~m de longitud.
+
+Las juntas se ejecutarán mediante material compresible y sellado elástico para 
+garantizar la estanqueidad y permitir la deformación relativa entre tramos. Asimismo, 
+en las juntas se interrumpirá la continuidad de determinadas armaduras longitudinales, 
+disponiendo elementos adecuados para asegurar la transmisión de esfuerzos cortantes 
+entre paños.
 
 \subsubsection{Hormigón de limpieza}
 
@@ -366,33 +314,4 @@ El hormigonado del fuste se realizará por \textbf{tongadas de 50~cm de
 altura máxima}, mediante encofrado metálico a dos caras, con vibrado
 interno de cada tongada antes de verter la siguiente.
 
-% -----------------------------------------------------------
-\subsection{Despiece de acero — resumen de kg}
-\label{subsec:despiece_acero}
-% -----------------------------------------------------------
 
-El despiece detallado se desarrolla en el apartado~\ref{sec:muro_estructural}.
-Se recoge aquí el resumen para facilitar la consulta y presupuesto.
-
-\begin{table}[H]
-  \centering
-  \caption{Resumen de acero por ml de muro — valores del cálculo estructural}
-  \label{tab:acero_muro}
-  \begin{tabular}{@{}llcccc@{}}
-    \toprule
-    \textbf{Elemento} & \textbf{Armadura}
-    & \textbf{Esp. (cm)} & $A_s$ \textbf{(cm²/m)}
-    & \textbf{Long. (m)} & \textbf{kg/ml} \\
-    \midrule
-    Fuste — trasdós (principal)   & $\phi 16$ & 12{,}5 & 16{,}08 & 7{,}50 & 95{,}2 \\
-    Fuste — intradós (montaje)    & $\phi 12$ & 20{,}0 &  5{,}65 & 7{,}50 & 31{,}7 \\
-    Fuste — distribución horiz.   & $\phi 10$ & 10{,}0 &  7{,}85 & 1{,}00 & 38{,}5 \\
-    Zapata — sup.\ talón          & $\phi 20$ & 17{,}0 & 18{,}49 & 3{,}85 & 55{,}9 \\
-    Zapata — inf.\ solera         & $\phi 16$ & 13{,}0 & 15{,}47 & 4{,}60 & 55{,}7 \\
-    Zapata — distribución transv. & $\phi 12$ & 20{,}0 &  5{,}65 & 1{,}00 & 11{,}3 \\
-    \midrule
-    \textbf{TOTAL por ml de muro} & & & & & \textbf{288{,}3~kg/ml} \\
-    \textbf{TOTAL muro 150~ml}    & & & & & \textbf{43\,245~kg} \\
-    \bottomrule
-  \end{tabular}
-\end{table}

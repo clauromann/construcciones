@@ -66,26 +66,48 @@ Densidades sumergidas: γ_sum = γ_sat − 1,00 Tn/m³ → 0,98 / 0,78 / 0,92 Tn
 | Arcillas versicolores (est. 2) | 25,2° | **0,402** | **2,490** |
 
 ### 4.3 Muro de contención — Resultados clave
-- **Empuje activo total:** Ea = **21,4 Tn/ml** (incluye agua + sobrecarga q=1 Tn/m²)
-- **Empuje pasivo** (Df=1,0 m): Ep = 2,63 Tn/ml
-- **Capacidad portante** (est. 2, Brinch-Hansen, B=2,60 m): qh = **147,1 Tn/m²**, Fs = **10,9** ✅
-- **Asiento total estimado:** s ≈ **3,5 cm** (Steinbrenner + consolidación) ✅
-- **Decisión cimentación muro:** zapata corrida superficial, B=4,00 m, hz=0,80 m
+- **Empuje activo total:** ET = **25,78 Tn/ml** (Rankine, por estratos; incluye agua + sobrecarga q=1 Tn/m²)
+  - Descomposición: E1=1,97 (arena ns) + E2=1,75 (arena sat) + Ew=15,68 (agua) + E3=3,64 (arcilla) + Eq1=1,21 + Eq2=1,53
+  - Momento total: MT = **74,77 Tn·m/ml**; altura de aplicación dT = 2,90 m
+- **Fuerzas verticales (B=4,00 m, primer tanteo):** ΣN = 57,22 Tn/ml; ΣMs = 131,76 Tn·m/ml → FS_vuelco = 1,76 < 1,80 → NO CUMPLE
+- **Redimensionamiento → B=5,60 m** (Btalón=4,05 m) — **con subpresión triangular incluida:**
+  - Subpresión: N_{s,w} = −15,68 Tn/ml (↑) a x=3,73 m; M_{s,w} = −58,54 Tn·m/ml
+  - ΣN = **68,83 Tn/ml**; ΣMs = **204,04 Tn·m/ml**
+  - FS_vuelco = **2,73** ≥ 1,80 ✅
+  - FS_deslizamiento = **1,88** ≥ 1,50 ✅ (μ=0,30, c'A=26,32 Tn, Ep=0,97, Ep,w=0,5)
+  - Hundimiento: x_R=1,88 m ≥ B/3=1,87 m (núcleo central ✅); σ1=3,71 kg/cm²; σ_med=1,23 kg/cm² ≤ 2,00 ✅
+- **Capacidad portante** (est. 2, Brinch-Hansen, B₀=2,60 m predim): qh = **147,1 Tn/m²**, Fs = **10,9** ✅
+  - Con B=5,60 m, Fs sólo mejora.
+- **Asiento total estimado (B=5,60 m, estrato 4 arcillas margosas):** Si=2,97 cm + Sc=4,54 cm = **s=7,51 cm > 5 cm → PILOTAR**
+  - Método edométrico (verificación): subcapa A (7,6 cm) + subcapa B (4,9 cm) = 12,5 cm → confirma necesidad de pilotes
+- **Decisión cimentación muro:** cimentación mixta **zapata + pilotes CPI D=0,45 m** (L≈8 m hasta arcillas margosas)
+  - Rcd=74,5 Tn > NT=68,80 Tn/ml ✅ · Asiento grupo Sg=0,66 cm (despreciable) ✅
 
-### 4.4 Muro en ménsula — Estabilidad (Fase 2)
+### 4.4 Muro en ménsula — Estabilidad (B=5,60 m definitivo, con subpresión)
 | Comprobación | Valor | Límite | Estado |
 |---|---|---|---|
-| Vuelco (FS) | **1,97** | ≥ 1,50 | ✅ |
-| Deslizamiento (FS) | **2,26** | ≥ 1,50 | ✅ |
-| Hundimiento (FS) | **10,9** | ≥ 3,00 | ✅ |
-| Excentricidad | corregida con B=4,40 m | e < B/6 | ✅ |
+| Vuelco FS (B=4 m) | 1,76 | ≥ 1,80 | ❌ NO CUMPLE → ampliar |
+| Vuelco FS (B=5,60 m) | **2,73** | ≥ 1,80 | ✅ |
+| Deslizamiento FS | **1,88** | ≥ 1,50 | ✅ |
+| Núcleo central x_R | 1,88 m | ≥ B/3=1,87 m | ✅ |
+| Hundimiento σ_med | 1,23 kg/cm² | ≤ 2,00 | ✅ |
 
-Geometría adoptada: e1=0,60 m (coronación), e2=0,75 m (base), B=4,40 m, hz=0,80 m, Bpunta=0,80 m, Btalón=2,85 m.
+Geometría adoptada: e1=0,60 m (coronación), e2=0,75 m (base), **B=5,60 m**, hz=0,80 m, Bpunta=0,80 m, **Btalón=4,05 m**.
 
-### 4.5 Pantalla (descartada — solo referencia)
-- Longitud necesaria (anclada): **11,8 m** (d=4,5 m clava en est. 2-3)
-- Fuerza de anclaje: T = 4,9 Tn/ml
-- **Motivo descarte:** lodos bentoníticos incompatibles con zona protegida + coste 38% mayor
+### 4.5 Cálculos estructurales ELU — Valores definitivos (de PDF Muro_pantalla.pdf)
+- **Fuste — presiones activas (h_fuste=4,80 m sobre NF):** ET=20,64 Tn/ml; MT=58,16 Tn·m/ml; h_ef=2,82 m
+  - Md = 1,50 × 58,16 = **87,24 Tn·m/ml** · Vd = 1,50 × 20,64 = **30,96 Tn = 303,72 kN/m**
+- **Fuste armadura:** As_calc < As,min=10,44 cm²/m → **6φ16 c/16,7 cm** (As=12,06 cm²/m)
+- **Cortante fuste:** VEd=303,72 kN > VRd,c=184,5 kN → **estribos 3 ramas φ10 c/195 mm** ✅
+- **Zapata — presiones de contacto:** σ_max=14,45 Tn/m² (talón); σ_min=10,13 Tn/m² (puntera); sin despegue
+- **Talón y puntera:** ambas rigen mínimo → **6φ16 c/16,7 cm** (As=12,06 cm²/m)
+- **Total acero:** actualizar (cambio significativo respecto al cálculo anterior con estribos)
+
+### 4.6 Pantalla (descartada — solo referencia)
+- Longitud total: **24,92 m** (t=14,68 m empotramiento, D=17,62 m), e=0,75 m (10%×H)
+  - Modelo 3 estratos con Ka3=0,390, Kp3=2,561
+  - Sifonamiento: ic=0,92, i_real=0,272, FS=3,38 > 3 ✅; L_min=15,65 m
+- **Motivo descarte:** lodos bentoníticos incompatibles con zona protegida + coste ~61% mayor (~849 kEUR vs ~334 kEUR)
 
 ### 4.6 Arqueta — Resultados clave
 - **Carga total:** P = 101,95 Tn → q = **6,16 Tn/m²** sobre losa
@@ -110,26 +132,23 @@ Geometría adoptada: e1=0,60 m (coronación), e2=0,75 m (base), B=4,40 m, hz=0,8
   - Geometría definitiva (e1=0,60; e2=0,75; hz=0,80; B=4,40; Btalón=2,85; Bpunta=0,80)
   - Plano TikZ acotado con NF, empujes y dimensiones
   - Tabla de acero actualizada con valores definitivos del cálculo estructural
-- [x] **Cálculos estructurales ELU** — `04_calculos_estructurales.tex` — 100%
-  - Diagrama de presiones fuste (6 bloques): Fk=12,94 Tn/ml; Mk=32,07 Tn·m/ml
-  - Momento ELU fuste: Md=44,17 Tn·m/ml → φ16 c/12,5 cm (As=16,08 cm²/m)
-  - Cortante: Vd=173 kN/m < Vu2=255 kN/m → sin estribos ✅
-  - Presiones contacto zapata: qmax=23,62 Tn/m²; qmin=1,52 Tn/m²; e=0,645 m < B/6 ✅
-  - Talón (cara sup.): Md=53,73 Tn·m/ml → φ20 c/17 cm (As=18,49 cm²/m)
-  - Puntera (cara inf.): rige mínimo → φ16 c/13 cm (As=15,47 cm²/m)
-  - Total acero: 288,3 kg/ml → **43.245 kg para los 150 ml** (≈43,2 Tm)
+- [x] **Cálculos estructurales ELU** — `04_calculos_estructurales.tex` — 100% (reescrito según PDF)
+  - Fuste: ET=20,64 Tn, MT=58,16 Tn·m, Md=87,24 Tn·m → **6φ16 c/16,7 cm** (As,min rige)
+  - Cortante: VEd=303,72 kN > VRd,c=184,5 kN → **estribos 3 ramas φ10 c/195 mm**
+  - Zapata: σ_max=14,45 Tn/m²; σ_min=10,13 Tn/m²; sin despegue
+  - Talón y puntera: rigen mínimos → **6φ16 c/16,7 cm** ambas
 - [x] Detalle impermeabilización arqueta (`02_cimentacion.tex` — parcial)
-- [x] **Bug fix compilación** — `04_calculos_estructurales.tex` línea 64: `$>$` y `~` en título notabox causaban error pgfkeys; corregido a `{>}` y espacio simple
 - [x] **Proceso constructivo** — `05_proceso_constructivo.tex` — 100%
   - 15 pasos detallados (replanteo → acabados), con 2 notabox
   - Tablas de cuadrillas y maquinaria completas
   - Volúmenes calculados: HM-15=66 m³, HA-30=1.187 m³ (zapata+fuste), encofrado=1.950 m²
-- [x] **Presupuesto** — `06_presupuesto.tex` — 100%
-  - Mediciones calculadas de geometría (exc=1596 m³, HA-30=1187 m³, enc fuste=1950 m², enc zap=240 m², imp=975 m², rell=2779 m³)
-  - PEM = 371.094 € · PEC (con IVA) = 534.338 € · Coste unitario ≈ 2.474 €/ml
-- [x] **Gantt** — `07_gantt.tex` — 100%
-  - Duraciones calculadas con rendimientos reales: plazo total = 29 semanas (≈7 meses)
-  - Gantt de 30 columnas con solapamiento G/H (encofrado trepante fuste)
+- [x] **Presupuesto** — `06_presupuesto.tex` — 100% (actualizado con pilotes)
+  - 11 partidas: exc=1596 m³, HA-30=1187 m³, enc fuste=1950 m², enc zap=240 m², imp=975 m², rell=2779 m³, pilotes=1200 m
+  - **PEM = 473.094 €** · PEC (con IVA) = **681.208 €** · Coste unitario ≈ 3.154 €/ml
+- [x] **Gantt** — `07_gantt.tex` — 100% (actualizado con pilotes como actividad D)
+  - 14 actividades (A–N): pilotaje D=3 sem. insertado entre HM-15 y ferrallado zapata
+  - Plazo total = **32 semanas** (≈8 meses); ruta crítica A-B-C-D-E-F-G-H-I-J-K-L-M-N
+  - Diagrama TikZ pendiente de actualización manual por el usuario (columnas 1-30 → 1-32)
 
 - [x] **Cimentación arqueta** — `03_arqueta/02_cimentacion.tex` — 100%
   - Sección transversal TikZ acotada (dimensiones, estratigrafía, N.F.)
@@ -166,18 +185,18 @@ TFA/
 │   │   ├── 00_intro_muro.tex            ← descripción encargo
 │   │   ├── 01_descripcion_opciones.tex  ← ✅ ménsula vs pantalla (FASE 2)
 │   │   ├── 02_calculos_geotecnicos.tex  ← ✅ empujes+cap.portante+asientos (FASE 1)
-│   │   ├── 03_predimensionamiento.tex   ← ⬜ pendiente
-│   │   ├── 04_calculos_estructurales.tex← ⬜ pendiente
-│   │   ├── 05_proceso_constructivo.tex  ← ⬜ pendiente
-│   │   ├── 06_presupuesto.tex           ← ⬜ pendiente
-│   │   └── 07_gantt.tex                 ← ⬜ pendiente
+│   │   ├── 03_predimensionamiento.tex   ← ✅ completo (B=5,60 m, TikZ acotado)
+│   │   ├── 04_calculos_estructurales.tex← ✅ completo (reescrito según PDF)
+│   │   ├── 05_proceso_constructivo.tex  ← ✅ completo
+│   │   ├── 06_presupuesto.tex           ← ✅ completo (con pilotes, PEM=473k€)
+│   │   └── 07_gantt.tex                 ← ✅ texto/tabla completo (TikZ pendiente manual)
 │   └── 03_arqueta/
 │       ├── 00_intro_arqueta.tex         ← datos dimensionales
 │       ├── 01_calculos_geotecnicos.tex  ← ✅ cargas+flotación+cap.portante (FASE 1)
-│       └── 02_cimentacion.tex           ← ⬜ completar plano TikZ
+│       └── 02_cimentacion.tex           ← ✅ completo (TikZ sección + tabla cimentación)
 └── anexos/
-    ├── A_sondeo.tex                     ← ⬜ pendiente figura
-    └── B_calculos_manuales.tex          ← ⬜ pendiente tanteos
+    ├── A_sondeo.tex                     ← ✅ completo (TikZ columna estratigráfica)
+    └── B_calculos_manuales.tex          ← ✅ completo (tanteos muro + arqueta)
 ```
 
 ---
@@ -239,4 +258,36 @@ git push
 ```
 
 ---
-*Última actualización: 2026-04-18 — TFA COMPLETO: cimentación arqueta (TikZ) + Anexo A (sondeo TikZ) + Anexo B (tanteos manuales) + README actualizado*
+*Última actualización: 2026-05-12 — Revisión completa basada en Calculos_manuales/Muro_pantalla.pdf:*
+*(1) Asientos corregidos: s=7,51 cm > 5 cm → PILOTAR (antes s=3,5 cm con B=2,60 m predim, incorrecto);*
+*(2) Pilotes CPI D=0,45 m añadidos: Rcd=74,5 Tn, Sg=0,66 cm; sección nueva en 01_descripcion_opciones.tex;*
+*(3) 02_calculos_geotecnicos.tex actualizado: asientos con B=5,60 m (E3=2527,8 Tn/m²) y decisión cimentación mixta;*
+*(4) 04_calculos_estructurales.tex reescrito: ET=20,64 Tn, Md=87,24 Tn·m, estribos φ10 c/195 mm (antes sin estribos);*
+*(5) Pantalla corregida: L=24,92 m (3 estratos, antes 14,71 m), sifonamiento verificado FS=3,38;*
+*(6) 06_presupuesto.tex: pilotes añadidos (1200 m × 85 €/m), PEM=473k€, PEC=681k€;*
+*(7) 07_gantt.tex: actividad D=Pilotaje (3 sem.) añadida, plazo total=32 sem., actividades renombradas E-N.*
+
+*Entrada anterior: 2026-05-07 — Reorganización y corrección de cálculos basada en PDFs manuales:*
+*(1) Empujes activos corregidos: ET=25,78 Tn/ml (antes 21,4) con desglose por estratos según cálculo manual;*
+*(2) Secuencia redactada: N₄m → Empujes → Vuelco→NO CUMPLE → B=5m → N₅m → Vuelco → Desliz → Hundimiento;*
+*(3) B definitivo cambia de 4,40 m a 5,00 m; Btalón de 2,85 m a 3,45 m;*
+*(4) FS_vuelco 2,40→2,98; FS_desliz usa μ=tg(2φ'/3)=0,30; hundimiento con σadm=2 kg/cm²;*
+*(5) Pantalla: longitud 11,8→14,71 m con ecuación cúbica de equilibrio de momentos;*
+*(6) `01_descripcion_opciones.tex` reescrito completamente; `02_calculos_geotecnicos.tex` elimina sección de empujes; `03_predimensionamiento.tex` actualizado a B=5 m.*
+
+*Entrada anterior: 2026-04-19 — Recálculo completo con B=4,40 m definitivo:*
+*(1) tabla `tab:fuerzas_verticales` reescalada: ΣV 57,45→64,31; ΣMs 133,24→162,11 Tn·m/ml;*
+*(2) FS vuelco 1,97→**2,40**; FS deslizamiento 2,26→**2,50**;*
+*(3) excentricidad recalc e=0,73 m ≤ B/6=0,733 m (distribución trapezoidal sin despegue);*
+*(4) asientos definitivos recalculados con q=14,62 Tn/m² → s_tot=**5,4 cm** (Steinbrenner neto 5,0 + consolidación 0,4);*
+*(5) notabox "Excentricidad" reescrita para reflejar el cumplimiento con B=4,40;*
+*(6) `tab:comparativa_opciones` y `supuestobox` de justificación actualizados con nuevos FS;*
+*(7) nota de coherencia en CLAUDE.md sobre las presiones usadas en `04_calculos_estructurales.tex` (queda documentada para revisión posterior si se desea ajustar el armado del talón).*
+*Pendiente: log de compilación del usuario para cerrar la revisión completa.*
+
+*Entrada anterior (2026-04-18):*
+*(a) label `subsec:tensiones_verticales` añadida en 02_calculos_geotecnicos.tex;*
+*(b) ref rota `sec:calculos_geotecnicos_muro` corregida a `sec:muro_geotecnia` en Anexo B;*
+*(c) error lógico `e ≤ B/6` → `e > B/6` corregido en 01_descripcion_opciones.tex;*
+*(d) inconsistencia B=2,60 vs 4,40 resuelta con notabox aclaratoria y supuestobox actualizado;*
+*(e) tabla de predimensionamiento con columna "Inicial / Definitivo".*

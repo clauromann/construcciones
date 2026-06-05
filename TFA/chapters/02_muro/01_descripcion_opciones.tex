@@ -26,156 +26,641 @@ en T invertida} (con talón largo hacia el trasdós), que optimiza la
 utilización del peso del relleno para garantizar la estabilidad frente al
 vuelco y al deslizamiento.
 
-\subsubsection{Predimensionamiento geométrico}
+\subsubsection{Predimensionamiento geométrico — primer tanteo ($B = 4{,}00$~m)}
+\label{subsubsec:predim_4m}
 
 Se aplican las reglas empíricas habituales para muros en ménsula de hormigón
-armado con altura de contención $H = 7{,}30$~m:
+armado con altura $H = 7{,}30$~m. A continuación se justifica cada dimensión adoptada.
 
-\begin{table}[H]
-  \centering
-  \caption{Reglas empíricas de predimensionamiento — Muro ménsula}
-  \label{tab:predim_mensula}
-  \begin{tabular}{@{}lcccc@{}}
-    \toprule
-    \textbf{Elemento} & \textbf{Regla} & \textbf{Valor teórico} &
-    \textbf{Adoptado} \\
-    \midrule
-    Canto fuste en coronación & $H/12$ & 0{,}61~m & $e_1 = 0{,}60$~m \\
-    Canto fuste en base       & $H/10$ & 0{,}73~m & $e_2 = 0{,}75$~m \\
-    Ancho total zapata        & $0{,}55\,H$ & 4{,}02~m & $B = 4{,}00$~m \\
-    Canto de zapata           & $H/9$  & 0{,}81~m & $h_z = 0{,}80$~m \\
-    Vuelo de punta            & $\approx e_2+0{,}05$ & — & $B_\text{punta} = 0{,}80$~m \\
-    Longitud del talón        & $B - B_\text{punta} - e_2$ & — & $B_\text{talón} = 2{,}45$~m \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\paragraph{Espesores del fuste.}
 
-\begin{notabox}[Altura total del muro]
-  La altura total del sistema desde la base de la zapata es
-  $H_{\text{total}} = H + h_z = 7{,}30 + 0{,}80 = 8{,}10$~m. La
-  profundidad de empotramiento de la zapata en el intradós es
-  $D_f = 1{,}00$~m.
-\end{notabox}
+\begin{align}
+  e_1 &= \frac{H}{12} = \frac{7{,}3}{12} = 0{,}61~\text{m}
+        \quad\longrightarrow\quad \resultado{e_1 = 0{,}60~\text{m}}
+        \label{eq:e1_opc} \\[4pt]
+  e_2 &= \frac{H}{10} = \frac{7{,}3}{10} = 0{,}73~\text{m}
+        \quad\longrightarrow\quad \resultado{e_2 = 0{,}75~\text{m}}
+        \label{eq:e2_opc}
+\end{align}
 
-\subsubsection{Verificación de estabilidad}
-\label{subsubsec:estab_mensula}
+El espesor en coronación ($e_1 = H/12$) es el mínimo necesario para alojar la
+armadura con los recubrimientos reglamentarios (50~mm) y garantizar la
+trabajabilidad del hormigón durante el vertido. El espesor en la base del fuste
+($e_2 = H/10$) se incrementa para resistir el cortante y el momento flector
+máximos, que aparecen en la sección de empotramiento con la zapata.
 
-Se comprueban los dos mecanismos de inestabilidad críticos para un muro en
-ménsula: \textbf{vuelco} y \textbf{deslizamiento}. El punto de referencia
-para el vuelco es la \emph{punta} de la zapata (coordenada $x=0$, positivo
-hacia el trasdós).
-
-\paragraph{Cargas verticales estabilizadoras y sus momentos:}
-
-\begin{table}[H]
-  \centering
-  \caption{Fuerzas verticales y momentos estabilizadores respecto a la punta}
-  \label{tab:fuerzas_verticales}
-  \begin{tabular}{@{}lcccc@{}}
-    \toprule
-    \textbf{Elemento} & $W$ \textbf{(Tn/ml)}
-    & $x$ \textbf{(m)} & $M_s$ \textbf{(Tn·m/ml)} \\
-    \midrule
-    Zapata (HA-30, $4{,}00\times0{,}80$) & 8{,}00 & 2{,}00 & 16{,}00 \\
-    Fuste (sección trapez., $H_f=7{,}30$~m) & 12{,}32 & 1{,}14 & 14{,}04 \\
-    Tierra talón no saturada ($0{,}00$-$-2{,}50$~m) & 11{,}38 & 2{,}78 & 31{,}62 \\
-    Tierra talón saturada ($-2{,}50$-$-7{,}30$~m) & 23{,}30 & 2{,}78 & 64{,}77 \\
-    Sobrecarga tráfico sobre talón ($q=1$~Tn/m²) & 2{,}45 & 2{,}78 &  6{,}81 \\
-    \midrule
-    \textbf{TOTAL} & \textbf{57{,}45} & — & \textbf{133{,}24} \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-Los pesos del fuste se obtienen descomponiendo la sección trapezoidal en
-un rectángulo ($e_1 \times H_f = 0{,}60 \times 7{,}30 = 4{,}38$~m²) y un
-triángulo ($(e_2-e_1)/2 \times H_f = 0{,}075\times7{,}30 = 0{,}548$~m²):
-\begin{align*}
-  W_{f,\text{rect}} &= 2{,}50 \times 4{,}38 = 10{,}95~\text{Tn/ml}
-    \quad x_1 = 0{,}80 + 0{,}30 = 1{,}10~\text{m}\\
-  W_{f,\text{tri}}  &= 2{,}50 \times 0{,}548 = 1{,}37~\text{Tn/ml}
-    \quad x_2 = 0{,}80 + 0{,}60 + 0{,}05 = 1{,}45~\text{m}\\
-  W_f &= 12{,}32~\text{Tn/ml}
-    \quad \bar{x}_f = \frac{10{,}95\times1{,}10+1{,}37\times1{,}45}{12{,}32} = 1{,}14~\text{m}
-\end{align*}
-
-\paragraph{Cargas horizontales y momento volcador:}
-
-Del análisis de empujes de la Sección~\ref{subsec:empujes_rankine}
-($E_a = 21{,}4$~Tn/ml). La altura de aplicación de cada componente respecto
-a la base de la zapata se detalla en la tabla~\ref{tab:empuje_volcador}.
-
-\begin{table}[H]
-  \centering
-  \caption{Componentes del empuje activo y momento volcador}
-  \label{tab:empuje_volcador}
-  \begin{tabular}{@{}lcccc@{}}
-    \toprule
-    \textbf{Componente} & $F_h$ \textbf{(Tn/ml)}
-    & $z_{\text{act}}$ \textbf{(m)}
-    & $M_v$ \textbf{(Tn·m/ml)} \\
-    \midrule
-    Sobrecarga rect. ($q\times K_a$, toda $H$) & 2{,}53 & 4{,}45 & 11{,}26 \\
-    Triángulo tierra seca (0--$2{,}50$~m) & 0{,}99 & 6{,}43 &  6{,}37 \\
-    Bloque tierra sat.+arcilla ($2{,}50$--$3{,}50$~m) & 2{,}10 & 5{,}10 & 10{,}71 \\
-    Triángulo agua ($2{,}50$--$7{,}30$~m, $u=4{,}80$~Tn/m²) & 11{,}52 & 2{,}40 & 27{,}65 \\
-    Arcilla efectiva ($3{,}50$--$7{,}30$~m) & 4{,}29 & 2{,}70 & 11{,}58 \\
-    \midrule
-    \textbf{TOTAL} & \textbf{21{,}43} & — & \textbf{67{,}57} \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\paragraph{Comprobación al vuelco:}
+\paragraph{Canto de la zapata.}
 
 \begin{equation}
-  FS_{\text{vuelco}} = \frac{\sum M_s}{\sum M_v}
-    = \frac{133{,}24}{67{,}57} = \resultado{1{,}97 \geq 1{,}50 \quad \checkmark}
-  \label{eq:fs_vuelco}
+  h_z = \frac{H}{10} \approx 0{,}73~\text{m}
+        \quad\longrightarrow\quad \resultado{h_z = 0{,}80~\text{m}}
+        \label{eq:hz_opc}
 \end{equation}
 
-\paragraph{Comprobación al deslizamiento:}
+Se redondea al alza hasta $h_z = 0{,}80$~m para cumplir la condición
+$h_z \geq e_2$, que asegura el empotramiento correcto del fuste en la zapata
+sin singularidades de armado ni concentraciones de tensión en la esquina.
 
-La resistencia al deslizamiento en la base de la zapata (contacto con el
-estrato~2, arcillas versicolores con $\phi' = 25{,}2°$, $c' = 4{,}70$~Tn/m²)
-más el empuje pasivo $E_p = 2{,}63$~Tn/ml:
-\begin{align}
-  R_{\text{desliz}} &= \sum V \cdot \tan\phi' + c' \cdot B + E_p \notag\\
-    &= 57{,}45 \times \tan(25{,}2°) + 4{,}70 \times 4{,}00 + 2{,}63 \notag\\
-    &= 57{,}45 \times 0{,}469 + 18{,}80 + 2{,}63 \notag\\
-    &= 26{,}94 + 18{,}80 + 2{,}63 = 48{,}37~\text{Tn/ml}
-\end{align}
+\paragraph{Profundidad de cimentación.}
+
+Se adopta $D_f = 1{,}00$~m medida desde la rasante del intradós hasta la
+\textbf{base} de la zapata. Esta elección responde a tres criterios:
+\begin{itemize}
+  \item Supera holgadamente el mínimo reglamentario de $0{,}50$~m para
+        cimentaciones superficiales.
+  \item Protege la puntera de la zapata frente a posibles socavaciones
+        superficiales y proporciona confinamiento suficiente para movilizar
+        el empuje pasivo en el intradós.
+\end{itemize}
+
+\paragraph{Ancho total de la zapata — primer tanteo.}
+
+La regla empírica propone:
 \begin{equation}
-  FS_{\text{desliz}} = \frac{R_{\text{desliz}}}{E_a}
-    = \frac{48{,}37}{21{,}43} = \resultado{2{,}26 \geq 1{,}50 \quad \checkmark}
+  B \approx 0{,}55 \cdot H = 0{,}55 \times 7{,}30 = \resultado{B = 4{,}00~\text{m}}
+  \label{eq:B_tanteo}
+\end{equation}
+
+Esta dimensión se adopta como \textbf{primer tanteo}, sujeta a verificación de
+estabilidad al vuelco y al deslizamiento en los apartados siguientes.
+
+\paragraph{Vuelo de puntera y ancho de talón.}
+
+El vuelo de puntera se fija igual al espesor de la base del fuste
+($B_\text{punta} \approx e_2$), valor mínimo que permite anclar correctamente
+el armado inferior de la zapata:
+\begin{equation*}
+  B_\text{punta} = 0{,}80~\text{m}
+  \qquad
+  B_\text{talón} = B - e_2 - B_\text{punta}
+    = 4{,}00 - 0{,}75 - 0{,}80 = \resultado{2{,}45~\text{m}}
+\end{equation*}
+
+Se adopta la variante en \textbf{T invertida} (talón largo hacia el trasdós):
+el peso del relleno sobre el talón actúa como principal mecanismo estabilizador
+frente al vuelco, minimizando la necesidad de aumentar el vuelo de puntera.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/muro/muro_z_4m}
+  \caption{Geometría del muro en ménsula — primer tanteo ($B = 4{,}00$~m).}
+  \label{fig:muro_z_4m}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{Resumen del predimensionamiento geométrico — primer tanteo}
+  \label{tab:predim_muro}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}llccp{6cm}@{}}
+    \toprule
+    \textbf{Dimensión} & \textbf{Símbolo}
+      & \textbf{Regla} & \textbf{Valor} & \textbf{Criterio adoptado} \\
+    \midrule
+    Altura de contención
+      & $H$ & — & 7{,}30~m
+      & Desnivel impuesto por el proyecto (parámetro de grupo). \\[4pt]
+    Espesor en coronación
+      & $e_1$ & $H/12$ & 0{,}60~m
+      & Mínimo constructivo: aloja armadura con recubrimiento de 50~mm. \\[4pt]
+    Espesor en base del fuste
+      & $e_2$ & $H/10$ & 0{,}75~m
+      & Resistencia a cortante y flexión en la sección de empotramiento. \\[4pt]
+    Canto de zapata
+      & $h_z$ & $H/10$ & 0{,}80~m
+      & Redondeo al alza para cumplir $h_z \geq e_2$ (empotramiento fuste). \\[4pt]
+    Prof.\ cimentación (a base)
+      & $D_f$ & — & 1{,}00~m
+      & $> 0{,}50$~m reglamentario; deja 1{,}50~m sobre NF; protege la puntera. \\[4pt]
+    Ancho total (tanteo)
+      & $B$ & $0{,}55\,H$ & 4{,}00~m
+      & Primer tanteo sujeto a verificación de estabilidad al vuelco. \\[4pt]
+    Vuelo de puntera
+      & $B_\text{punta}$ & $\approx e_2$ & 0{,}80~m
+      & Mínimo para anclar el armado inferior de la zapata. \\[4pt]
+    Ancho de talón
+      & $B_\text{talón}$ & $B - e_2 - B_\text{punta}$ & 2{,}45~m
+      & Talón largo (T invertida): estabilidad al vuelco por peso del relleno. \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+% -----------------------------------------------------------
+\subsection{Fuerzas verticales y momentos estabilizadores — $B = 4{,}00$~m}
+\label{subsec:fuerzas_verticales_4m}
+% -----------------------------------------------------------
+
+Se calculan los pesos por metro lineal de cada componente y su distancia $x$
+a la punta de la zapata ($x = 0$ en el borde del intradós, positivo hacia el
+trasdós). El brazo de los elementos situados sobre el talón vale:
+
+\[
+  x_\text{talón} = B_\text{punta} + e_2 + \frac{B_\text{talón}}{2}
+    = 0{,}80 + 0{,}75 + \frac{2{,}45}{2} = \mathbf{2{,}78}~\text{m}
+\]
+
+\paragraph{A) Zapata ($B \times h_z$, $\gamma_\text{HA-30} = 2{,}50$~Tn/m³):}
+
+\begin{align*}
+  W_p &= \gamma_\text{HA} \cdot B \cdot h_z
+       = 2{,}50 \times 4{,}00 \times 0{,}80
+       = \resultado{8{,}00~\text{Tn/ml}} \\
+  x_p &= \frac{B}{2} = \frac{4{,}00}{2} = 2{,}00~\text{m} \\
+  M_p &= 8{,}00 \times 2{,}00 = \resultado{16{,}00~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{B) Fuste (sección trapezoidal):}
+
+Se descompone la sección en un rectángulo ($e_1 \times H$) más un triángulo
+(ensanchamiento $(e_2 - e_1) \times H / 2$):
+
+\begin{align*}
+  A_\text{rect} &= e_1 \cdot H = 0{,}60 \times 7{,}30 = 4{,}38~\text{m}^2 \\
+  A_\text{tri}  &= \frac{e_2 - e_1}{2} \cdot H
+                = \frac{0{,}75 - 0{,}60}{2} \times 7{,}30 = 0{,}548~\text{m}^2 \\[4pt]
+  W_f &= \gamma_\text{HA} \cdot (A_\text{rect} + A_\text{tri})
+       = 2{,}50 \times (4{,}38 + 0{,}548)
+       = \resultado{12{,}32~\text{Tn/ml}}
+\end{align*}
+
+Para obtener el brazo $\bar{x}_f$ se pondera cada subcomponente:
+
+\begin{align*}
+  W_{f,\text{rect}} &= 2{,}50 \times 4{,}38 = 10{,}95~\text{Tn/ml};
+    \quad x_1 = B_\text{punta} + \frac{e_1}{2}
+             = 0{,}80 + \frac{0{,}60}{2} = 1{,}10~\text{m} \\
+  W_{f,\text{tri}}  &= 2{,}50 \times 0{,}548 = 1{,}37~\text{Tn/ml};
+    \quad x_2 = B_\text{punta} + \frac{2\,(e_2 - e_1)}{3}
+             = 0{,}80 + \frac{2 \times 0{,}15}{3} = 0{,}90~\text{m} \\[6pt]
+  \bar{x}_f &= \frac{10{,}95 \times 1{,}10 + 1{,}37 \times 0{,}90}{12{,}32}
+             = \frac{12{,}045 + 1{,}233}{12{,}32} = 1{,}07~\text{m} \\[4pt]
+  M_f &= 1{,}07 \times 12{,}32 = \resultado{13{,}18~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{C) Tierra no saturada ($h_{t,ns} = 2{,}50$~m, $\gamma_{t,ns} = 1{,}82$~Tn/m³):}
+
+\begin{align*}
+  N_{t,ns} &= \gamma_{t,ns} \cdot B_\text{talón} \cdot h_{t,ns}
+            = 1{,}82 \times 2{,}45 \times 2{,}50
+            = \resultado{11{,}15~\text{Tn/ml}} \\
+  M_{t,ns} &= x_\text{talón} \cdot N_{t,ns}
+            = 2{,}78 \times 11{,}15 = \resultado{31{,}00~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{D) Tierra saturada ($h_{t,s} = 7{,}30 - 2{,}50 = 4{,}80$~m, $\gamma_{t,s} = 1{,}98$~Tn/m³):}
+
+\begin{align*}
+  N_{t,s} &= \gamma_{t,s} \cdot B_\text{talón} \cdot h_{t,s}
+           = 1{,}98 \times 2{,}45 \times 4{,}80
+           = \resultado{23{,}30~\text{Tn/ml}} \\
+  M_{t,s} &= 2{,}78 \times 23{,}30 = \resultado{64{,}77~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{E) Sobrecarga de tráfico ($q = 1$~Tn/m²):}
+
+\begin{align*}
+  W_q &= q \cdot B_\text{talón} = 1{,}00 \times 2{,}45
+       = \resultado{2{,}45~\text{Tn/ml}} \\
+  M_q &= 2{,}78 \times 2{,}45 = \resultado{6{,}81~\text{Tn·m/ml}}
+\end{align*}
+
+\begin{table}[H]
+  \centering
+  \caption{Fuerzas verticales y momentos estabilizadores — $B = 4{,}00$~m (sin subpresión)}
+  \label{tab:fuerzas_verticales_4m}
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    \textbf{Elemento} & $N$ \textbf{(Tn/ml)} & $x$ \textbf{(m)} & $M_s$ \textbf{(Tn·m/ml)} \\
+    \midrule
+    Zapata ($4{,}00 \times 0{,}80$~m)          & 8{,}00  & 2{,}00 & 16{,}00 \\
+    Fuste (trapezoidal)                          & 12{,}32 & 1{,}07 & 13{,}18 \\
+    Tierra no saturada ($h = 2{,}50$~m)         & 11{,}15 & 2{,}78 & 31{,}00 \\
+    Tierra saturada ($h = 4{,}80$~m)            & 23{,}30 & 2{,}78 & 64{,}77 \\
+    Sobrecarga tráfico ($q = 1$~Tn/m²)          & 2{,}45  & 2{,}78 &  6{,}81 \\
+    \midrule
+    \textbf{TOTAL} & $\mathbf{\Sigma N = 57{,}22}$ & — & $\mathbf{\Sigma M_s = 131{,}76}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{notabox}[Subpresión en el primer tanteo]
+  En este primer tanteo ($B = 4{,}00$~m) no se incluye la subpresión
+  hidrostática bajo la zapata. La comprobación al vuelco ya resulta
+  desfavorable sin ella ($FS = 1{,}76 < 1{,}80$), por lo que no es
+  necesario añadirla para tomar la decisión de ampliar la base. La
+  subpresión se incorpora explícitamente en el recálculo con
+  $B = 5{,}60$~m (apartado~\ref{subsec:fuerzas_verticales_56m}), donde
+  conduce a un resultado más conservador.
+\end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Empujes activos de Rankine}
+\label{subsec:empujes_rankine_opc}
+% -----------------------------------------------------------
+
+Se aplica la \textbf{teoría de Rankine} para relleno horizontal y trasdós
+vertical. El coeficiente de empuje activo vale:
+
+\begin{equation}
+  K_a = \tan^2\!\left(45^\circ - \frac{\phi'}{2}\right)
+  \label{eq:ka_opc}
+\end{equation}
+
+\paragraph{Coeficientes por estrato:}
+\begin{align*}
+  \text{Arena limosa } (\phi' = 29^\circ): &\quad
+    K_{a,1} = \tan^2(30{,}5^\circ) = \resultado{0{,}347} \\
+  \text{Arcillas versicolores } (\phi' = 25{,}2^\circ): &\quad
+    K_{a,2} = \tan^2(32{,}4^\circ) = \resultado{0{,}402}
+\end{align*}
+
+La presión horizontal efectiva en el estrato arcilloso incluye la cohesión:
+\begin{equation}
+  \sigma'_{h,a} = K_{a,2}\,\sigma'_v - 2\,c'\sqrt{K_{a,2}}
+  \label{eq:sigma_ha_coh}
+\end{equation}
+
+En la separación de presiones se trata siempre por separado la presión efectiva
+del suelo y la presión intersticial del agua.
+
+\subsubsection{Estrato 1 — Arena limosa no saturada ($h_1 = 2{,}50$~m)}
+
+\begin{align*}
+  e_1 &= K_{a,1} \cdot \gamma_\text{nat} \cdot h_1
+        = 0{,}347 \times 1{,}82 \times 2{,}50 = 1{,}579~\text{Tn/m}^2 \\[4pt]
+  E_1 &= \tfrac{1}{2}\,e_1\,h_1
+        = \tfrac{1}{2} \times 1{,}579 \times 2{,}50 = \resultado{1{,}97~\text{Tn/ml}} \\
+  x_1 &= h_z + (H - h_1) + \frac{h_1}{3}
+        = 0{,}80 + 4{,}80 + \frac{2{,}50}{3} = 6{,}43~\text{m} \\
+  M_1 &= E_1 \cdot x_1 = 1{,}97 \times 6{,}43 = \resultado{12{,}67~\text{Tn·m/ml}}
+\end{align*}
+
+\begin{notabox}[Tensiones verticales en cotas clave]
+  Para el cálculo de los empujes se emplean las tensiones verticales efectivas
+  obtenidas del sondeo:
+  \begin{itemize}
+    \item Cota $-2{,}50$~m (techo N.F.):
+      $\sigma_v = 1{,}82 \times 2{,}50 = 4{,}55$~Tn/m²;~$u=0$;
+      $\sigma'_v = 4{,}55$~Tn/m²
+    \item Cota $-3{,}50$~m (base arena saturada):
+      $\sigma_v = 4{,}55 + 1{,}98 \times 1{,}00 = 6{,}53$~Tn/m²;
+      $u = 1{,}00$~Tn/m²; $\sigma'_v = 5{,}53$~Tn/m²
+  \end{itemize}
+\end{notabox}
+
+\subsubsection{Estrato 1b — Arena limosa saturada ($h_2 = 1{,}00$~m)}
+
+En este estrato la presión efectiva horizontal varía de $e_1 = 1{,}579$~Tn/m² (en la
+parte superior, al entrar el agua) a:
+\begin{align*}
+  e_2 &= K_{a,1}\!\left(\gamma_\text{nat}\,h_1
+        + (\gamma_\text{sat} - \gamma_w)\,h_2\right)
+       = 0{,}347\,(1{,}82 \times 2{,}50 + 0{,}98 \times 1{,}00)
+       = 0{,}347 \times 5{,}53 = 1{,}92~\text{Tn/m}^2
+\end{align*}
+
+El empuje se descompone en un bloque rectangular y un triángulo:
+\begin{align*}
+  E_2 &= e_1 \cdot h_2 + \tfrac{1}{2}(e_2 - e_1)\,h_2
+        = 1{,}579 \times 1{,}00 + \tfrac{1}{2}(1{,}92 - 1{,}579)\times 1{,}00
+        = \resultado{1{,}75~\text{Tn/ml}}
+\end{align*}
+
+El brazo de aplicación se obtiene ponderando los momentos de cada sub-bloque:
+\begin{align*}
+  E_\text{cuad} &= e_1 \cdot h_2 = 1{,}579~\text{Tn/ml};
+    \quad \text{brazo} = h_z + h_3 + h_2/2 = 0{,}80 + 3{,}80 + 0{,}50 = 5{,}10~\text{m}\\
+  E_\text{tri}  &= \tfrac{1}{2}(e_2-e_1)\,h_2 = 0{,}171~\text{Tn/ml};
+    \quad \text{brazo} = h_z + h_3 + h_2/3 = 0{,}80 + 3{,}80 + 0{,}33 = 4{,}93~\text{m}\\[4pt]
+  x_2 &= \frac{1{,}579\times5{,}10 + 0{,}171\times4{,}93}{1{,}75}
+        = \frac{8{,}05 + 0{,}84}{1{,}75} = 5{,}08~\text{m}\\
+  M_2 &= 1{,}75 \times 5{,}08 = \resultado{8{,}89~\text{Tn·m/ml}}
+\end{align*}
+
+\subsubsection{Empuje del agua ($h_w = 4{,}80 + 0{,}80 = 5{,}60$~m)}
+
+\begin{align*}
+  E_w &= \tfrac{1}{2}\,\gamma_w\,h_w^2
+        = \tfrac{1}{2} \times 1{,}00 \times (4{,}80+0{,}80)^2
+        = \resultado{15{,}68~\text{Tn/ml}} \\
+  M_w &= E_w \cdot \frac{h_w}{3}
+        = 15{,}68 \times \frac{4{,}80+0{,}80}{3}
+        = \resultado{29{,}27~\text{Tn·m/ml}}
+\end{align*}
+
+\subsubsection{Estrato 2 — Arcillas versicolores ($h_3 = 3{,}80$~m)}
+
+Se comprueba la presión efectiva horizontal en la base del muro (cota $-7{,}30$~m):
+\begin{align*}
+  \sigma_{v_3} &= 6{,}53 + \gamma_3\,h_3 = 6{,}53 + 1{,}78 \times (8{,}00-3{,}50)
+                = 14{,}54~\text{Tn/m}^2 \\
+  u_3 &= \gamma_w \cdot (8{,}00 - 2{,}50) = 5{,}50~\text{Tn/m}^2 \\
+  \sigma'_{v_3} &= 14{,}54 - 5{,}50 = 9{,}04~\text{Tn/m}^2 \\[6pt]
+  \sigma_{H_3} &= K_{a,2}\,\sigma'_{v_3} - 2\,c'\sqrt{K_{a,2}}
+    = 0{,}402 \times 9{,}04 - 2 \times 4{,}70 \times \sqrt{0{,}402}
+    = 3{,}63 - 5{,}96 = -2{,}15~\text{Tn/m}^2 \quad 
+\end{align*}
+
+Como $\sigma_{H_3} < 0$, la cohesión suprime el empuje activo del suelo en toda la
+zona de arcillas: el terreno no tracciona sobre el muro. Sin embargo, la presión
+horizontal en la parte superior de la arcilla (heredada del estrato anterior) es
+positiva ($e_2 = 1{,}92$~Tn/m²) y en la base nula, obteniéndose un diagrama
+triangular:
+
+\begin{align*}
+  E_3 &= \tfrac{1}{2}\,e_2\,h_3
+        = \tfrac{1}{2} \times 1{,}92 \times 3{,}80 = \resultado{3{,}64~\text{Tn/ml}} \\
+  M_3 &= E_3 \cdot \left(h_z + \frac{2\,h_3}{3}\right)
+        = 3{,}64 \times \left(0{,}80 + \frac{2\times3{,}80}{3}\right)
+        = 3{,}64 \times 3{,}33 = \resultado{12{,}13~\text{Tn·m/ml}}
+\end{align*}
+
+\subsubsection{Sobrecarga de tráfico ($q = 1$~Tn/m²)}
+
+La sobrecarga genera un empuje horizontal equivalente en cada estrato:
+
+\paragraph{En la zona de arena ($h_1 + h_2 = 3{,}50$~m):}
+\begin{align*}
+  E_{q,1} &= q \cdot K_{a,1} \cdot (h_1+h_2)
+            = 1{,}00 \times 0{,}347 \times 3{,}50 = \resultado{1{,}21~\text{Tn/ml}} \\
+  x_{q,1} &= h_z + h_3 + \frac{h_1+h_2}{2}
+            = 0{,}80 + 3{,}80 + \frac{3{,}50}{2} = 6{,}35~\text{m} \\
+  M_{q,1} &= 1{,}21 \times 6{,}35 = \resultado{7{,}68~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{En la zona de arcilla ($h_3 = 3{,}80$~m):}
+\begin{align*}
+  E_{q,2} &= q \cdot K_{a,2} \cdot h_3
+            = 1{,}00 \times 0{,}402 \times 3{,}80 = \resultado{1{,}53~\text{Tn/ml}} \\
+  x_{q,2} &= h_z + \frac{h_3}{2} = 0{,}80 + \frac{3{,}80}{2} = 2{,}70~\text{m} \\
+  M_{q,2} &= 1{,}53 \times 2{,}70 = \resultado{4{,}13~\text{Tn·m/ml}}
+\end{align*}
+
+\subsubsection{Resumen del empuje activo total}
+
+\begin{table}[H]
+  \centering
+  \caption{Integración del diagrama de empuje activo (por ml de muro)}
+  \label{tab:empuje_activo_opc}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Componente} & \textbf{Forma}
+    & $E$ \textbf{(Tn/ml)} & $x$ \textbf{(m)} & $M$ \textbf{(Tn·m/ml)} \\
+    \midrule
+    $E_1$ — Arena no sat.\ (triáng.) & Triáng.\ & 1{,}97 & 6{,}43 & 12{,}67 \\
+    $E_2$ — Arena sat.\ (rect.+triáng.) & Mixta  & 1{,}75 & 5{,}08 &  8{,}89 \\
+    $E_w$ — Agua ($h_w=5{,}60$~m) & Triáng.\  & 15{,}68 & 1{,}87 & 29{,}27 \\
+    $E_3$ — Arcilla (triáng.\ decreciente) & Triáng.\ & 3{,}64 & 3{,}33 & 12{,}13 \\
+    $E_{q,1}$ — Sobrecarga en arena & Rect.\ & 1{,}21 & 6{,}35 & 7{,}68 \\
+    $E_{q,2}$ — Sobrecarga en arcilla & Rect.\  & 1{,}53 & 2{,}70 & 4{,}13 \\
+    \midrule
+    \textbf{TOTAL} & & $\mathbf{E_T = 25{,}78}$ & — & $\mathbf{M_T = 74{,}77}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{resultadobox}[Empuje activo total]
+  \[
+    E_T = 25{,}78~\text{Tn/ml}
+    \qquad
+    M_T = 74{,}77~\text{Tn·m/ml}
+  \]
+  Altura de aplicación de la resultante sobre la base de la zapata:
+  \[
+    d_T = \frac{M_T}{E_T} = \frac{74{,}77}{25{,}78} = 2{,}90~\text{m}
+  \]
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Comprobación al vuelco — Primer tanteo ($B = 4{,}00$~m)}
+\label{subsec:vuelco_4m}
+% -----------------------------------------------------------
+
+El factor de seguridad al vuelco respecto a la punta de la zapata es:
+
+\begin{equation}
+  FS_\text{vuelco} = \frac{\sum M_s}{\sum M_v}
+    = \frac{131{,}76}{74{,}77} = \resultado{1{,}76 < 1{,}80 \quad \text{\texttimes\ NO CUMPLE}}
+  \label{eq:fs_vuelco_4m}
+\end{equation}
+
+\begin{supuestobox}[Decisión: ampliar la base de zapata a B = 5 m]
+  Con $B = 4{,}00$~m el factor de seguridad al vuelco ($FS = 1{,}76$) no alcanza
+  el mínimo exigido ($FS \geq 1{,}80$). Dado que el momento volcador es fijo
+  (depende exclusivamente del empuje), la única solución es aumentar el momento
+  estabilizador ampliando el \textbf{talón} de la zapata.
+
+  Se adopta \textbf{$B = 5{,}60$~m}, lo que amplía el talón a:
+  \[
+    B_{\text{talón}} = 5{,}60 - 0{,}75 - 0{,}80 = 4{,}05~\text{m}
+  \]
+\end{supuestobox}
+
+% -----------------------------------------------------------
+\subsection{Fuerzas verticales y subpresión — $B = 5{,}60$~m}
+\label{subsec:fuerzas_verticales_56m}
+% -----------------------------------------------------------
+
+De la misma forma que en apartado 2.1.2, se calcula el peso por metro lineal de cada componente y su distancia a la
+punta ($x = 0$ en la punta, positivo hacia el trasdós).
+Con $B_\text{talón} = 4{,}05$~m, el brazo de las cargas del talón es:
+\[
+  x_\text{talón} = B_\text{punta} + e_2 + \frac{B_\text{talón}}{2}
+    = 0{,}80 + 0{,}75 + \frac{4{,}05}{2} = \mathbf{3{,}58}~\text{m}
+\]
+
+\paragraph{Subpresión bajo la zapata.}
+
+El nivel freático a $-2{,}50$~m genera una presión hidrostática ascendente en
+la base de la zapata (cota $-8{,}10$~m). La distribución es \textbf{triangular}:
+máxima en el trasdós (donde $h_w = 8{,}10 - 2{,}50 = 5{,}60$~m) y nula en la
+puntera, gracias al drenaje del intradós.
+
+\begin{align*}
+  N_{s,w} &= \frac{1}{2}\,\gamma_w\,h_w\,B
+            = \frac{1}{2} \times 1{,}00 \times 5{,}60 \times 5{,}60
+            = \resultado{15{,}68~\text{Tn/ml}} \quad (\uparrow) \\[4pt]
+  x_{s,w} &= \frac{2}{3}\,B = \frac{2}{3} \times 5{,}60 = 3{,}73~\text{m}
+            \quad \text{(resultante del triángulo, desde la punta)} \\[4pt]
+  M_{s,w} &= N_{s,w} \times x_{s,w} = 15{,}68 \times 3{,}73
+            = \resultado{58{,}54~\text{Tn·m/ml}} \quad (\text{reduce}~\Sigma M_s)
+\end{align*}
+
+\begin{table}[H]
+  \centering
+  \caption{Fuerzas verticales, subpresión y momentos estabilizadores — $B = 5{,}60$~m}
+  \label{tab:fuerzas_verticales_5m}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Elemento} & $N$ \textbf{(Tn/ml)} & $x$ \textbf{(m)} & $M_s$ \textbf{(Tn·m/ml)} \\
+    \midrule
+    Zapata ($5{,}60 \times 0{,}80$)       & $+$11{,}20 & 2{,}80 & $+$31{,}36 \\
+    Fuste (trapezoidal)                    & $+$12{,}32 & 1{,}07 & $+$13{,}18 \\
+    Tierra no saturada ($h=2{,}50$~m)     & $+$18{,}45 & 3{,}58 & $+$65{,}96 \\
+    Tierra saturada ($h=4{,}80$~m)        & $+$38{,}49 & 3{,}58 & $+$137{,}60 \\
+    Sobrecarga tráfico ($q=1$~Tn/m²)      & $+$4{,}05  & 3{,}58 & $+$14{,}48 \\
+    \midrule
+    Subtotal (sin subpresión)              & 84{,}51    & —      & 262{,}58 \\
+    \midrule
+    ($-$)~Subpresión $N_{s,w}$ ($\uparrow$) & $-$15{,}68 & 3{,}73 & $-$58{,}54 \\
+    \midrule
+    \textbf{TOTAL} & $\mathbf{N_T = 68{,}80}$ & — & $\mathbf{M_s = 203{,}96}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{notabox}[Verificación de fuerzas]
+  \begin{itemize}
+    \item Zapata: $N = 2{,}50 \times 5{,}60 \times 0{,}80 = 11{,}20$~Tn/ml;\quad
+          $M = 11{,}20 \times 2{,}80 = 31{,}36$~Tn·m/ml
+    \item Tierra no sat.: $N = 1{,}82 \times 2{,}50 \times 4{,}05 = 18{,}45$~Tn/ml;\quad
+          $M = 18{,}45 \times 3{,}58 = 65{,}96$~Tn·m/ml
+    \item Tierra sat.: $N = 1{,}98 \times 4{,}80 \times 4{,}05 = 38{,}49$~Tn/ml;\quad
+          $M = 38{,}49 \times 3{,}58 = 137{,}60$~Tn·m/ml
+    \item Sobrecarga: $N = 1{,}00 \times 4{,}05 = 4{,}05$~Tn/ml;\quad
+          $M = 4{,}05 \times 3{,}58 = 14{,}48$~Tn·m/ml
+    \item Subpresión triangular: $N_{s,w} = \tfrac{1}{2} \times 5{,}60 \times 5{,}60 = 15{,}68$~Tn/ml;
+          brazo $= \tfrac{2}{3} \times 5{,}60 = 3{,}73$~m;\quad $M = 58{,}54$~Tn·m/ml
+  \end{itemize}
+\end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Comprobación al vuelco ($B = 5{,}60$~m)}
+\label{subsec:vuelco_5m}
+% -----------------------------------------------------------
+
+\begin{equation}
+  FS_\text{vuelco} = \frac{\sum M_s}{\sum M_v}
+    = \frac{203{,}96}{74{,}77} = \resultado{2{,}73 \geq 1{,}80 \quad \checkmark~\text{CUMPLE}}
+  \label{eq:fs_vuelco_5m}
+\end{equation}
+
+% -----------------------------------------------------------
+\subsection{Comprobación al deslizamiento}
+\label{subsec:deslizamiento}
+% -----------------------------------------------------------
+
+La resistencia al deslizamiento en la base de la zapata se evalúa considerando
+el contacto con el \textbf{estrato~3} (arcillas margosas,
+$\phi' = 26^\circ$, $c' = 7{,}80$~Tn/m²). Se incluyen la fuerza de rozamiento,
+la cohesión, el empuje pasivo del suelo y el empuje pasivo del agua en el
+intradós.
+
+\paragraph{Empuje pasivo del suelo ($D_f = 1{,}00$~m):}
+
+\begin{equation}
+  K_{p,2} = \tan^2\!\left(45^\circ + \frac{25{,}2^\circ}{2}\right) = 2{,}49
+\end{equation}
+
+\begin{align*}
+  E_p &= \tfrac{1}{2}\,K_{p,2}\,(\gamma_3-\gamma_w)\,D_f^2
+        = \tfrac{1}{2} \times 2{,}49 \times (1{,}78-1{,}00) \times 1{,}00^2
+        = \resultado{0{,}97~\text{Tn/ml}} \\
+  M_p &= D_f \cdot \frac{1}{3} \cdot E_p = 1{,}00 \times \frac{1}{3} \times 0{,}97
+        = \resultado{0{,}32~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{Empuje pasivo del agua:}
+
+\begin{align*}
+  E_{p,w} &= \tfrac{1}{2}\,\gamma_w\,h_w^2
+            = \tfrac{1}{2} \times 1{,}00 \times 1{,}00^2 = \resultado{0{,}50~\text{Tn/ml}} \\
+  M_{p,w} &= D_f \cdot \frac{1}{3} \cdot E_{p,w}
+            = 1{,}00 \times \frac{1}{3} \times 0{,}50 = \resultado{0{,}17~\text{Tn·m/ml}}
+\end{align*}
+
+\paragraph{Fuerza de rozamiento en la base:}
+
+El ángulo de rozamiento zapata-terreno se adopta como $\delta = \tfrac{2}{3}\,\phi'$:
+\begin{align*}
+  \mu &= \tan\!\left(\frac{2}{3}\,\phi'\right)
+        = \tan\!\left(\frac{2}{3} \times 26^\circ\right)
+        = \tan(17{,}33^\circ) = 0{,}31 \\[4pt]
+  F   &= \mu \cdot N_T + c' \cdot A
+        = 0{,}31 \times 68{,}83 + 7{,}80 \times 5{,}60
+        = 21{,}34 + 43{,}68 = 65{,}02~\text{Tn}
+\end{align*}
+
+\paragraph{Fuerza estabilizadora total:}
+\[
+  F_e = F + E_p + E_{p,w} = 65{,}02 + 0{,}97 + 0{,}50 = 66{,}48~\text{Tn}
+\]
+
+\begin{equation}
+  C_{sd} = \frac{F_e}{E_T} = \frac{66{,}48}{25{,}78} = \resultado{2{,}58 \geq 1{,}50 \quad \checkmark~\text{CUMPLE}}
   \label{eq:fs_desliz}
 \end{equation}
 
-\paragraph{Excentricidad de la resultante vertical:}
+% -----------------------------------------------------------
+\subsection{Comprobación al hundimiento}
+\label{subsec:hundimiento}
+% -----------------------------------------------------------
 
-La resultante vertical actúa en el punto:
+Se adopta una \textbf{tensión admisible} $\sigma_\text{adm} = 2$~kg/cm²
+$= 20$~Tn/m².
+
+\paragraph{Posición de la resultante vertical:}
+
+El momento total neto respecto a la punta es:
+\begin{align*}
+  M_T &= \Sigma M_s + M_{p,\text{pasivo}} - \Sigma M_v
+        = 204{,}04 + (0{,}32 + 0{,}17) - 74{,}77 = 129{,}76~\text{Tn·m/ml}
+\end{align*}
+
+La resultante vertical actúa a una distancia $x_R$ desde la punta:
 \[
-  \bar{x} = \frac{\sum M_s - \sum M_v}{\sum V}
-    = \frac{133{,}24 - 67{,}57}{57{,}45}
-    = \frac{65{,}67}{57{,}45} = 1{,}14~\text{m}
+  x_R = \frac{M_T}{N_T} = \frac{129{,}76}{68{,}83} = 1{,}88~\text{m}
 \]
-Excentricidad respecto al centro de la zapata ($B/2 = 2{,}00$~m):
+
+Comprobación del núcleo central (tercio medio):
 \[
-  e = \left|\frac{B}{2} - \bar{x}\right| = |2{,}00 - 1{,}14| = 0{,}86~\text{m}
-  \leq \frac{B}{6} = 0{,}67~\text{m}
+  \frac{B}{3} = \frac{5{,}60}{3} = 1{,}87~\text{m} \leq x_R = 1{,}88~\text{m}
+  \leq \frac{2B}{3} = 3{,}73~\text{m} \quad \checkmark \quad
+  \text{La resultante está dentro del núcleo central}
 \]
 
-\begin{notabox}[Excentricidad]
-  La excentricidad $e = 0{,}86$~m supera ligeramente $B/6 = 0{,}67$~m,
-  indicando que la resultante cae fuera del tercio central de la zapata.
-  Esto implica despegue parcial en la punta y distribución de tensiones
-  triangular. Se corrige aumentando el ancho de la zapata a $B = 4{,}40$~m
-  ($B_\text{talón} = 2{,}85$~m), con lo que $e/B = 0{,}86/4{,}40 = 0{,}195 < 1/3$.
-  Esta corrección no compromete los factores de seguridad ya calculados
-  (que mejoran ligeramente al aumentar $B$).
-\end{notabox}
+\paragraph{Distribución de presiones en la base (trapezoidal):}
 
+\begin{align*}
+  \sigma &= \frac{N_T}{B} \pm \frac{6\,M_T}{B^2}
+           = \frac{68{,}83}{5{,}60} \pm \frac{6 \times 129{,}76}{5{,}60^2}
+           = 12{,}29 \pm 24{,}82~\text{Tn/m}^2 \\[4pt]
+  \sigma_1 &= 12{,}29 + 24{,}82 = 37{,}11~\text{Tn/m}^2 = \resultado{3{,}71~\text{kg/cm}^2} \\
+  \sigma_2 &= 12{,}29 - 24{,}82 = -12{,}53~\text{Tn/m}^2 = -1{,}25~\text{kg/cm}^2
+\end{align*}
+
+\paragraph{Comprobaciones:}
+
+\begin{enumerate}
+  \item $\sigma_1 \geq 1{,}25\,\sigma_\text{adm} = 2{,}50$~kg/cm²
+    $\longrightarrow$ $3{,}71 \geq 2{,}50$ \checkmark~\textbf{CUMPLE}
+  \item $\dfrac{\sigma_1 + \sigma_2}{2} \leq \sigma_\text{adm}$
+    $\longrightarrow$
+    $\dfrac{3{,}71 - 1{,}25}{2} = 1{,}23 \leq 2{,}00$ \checkmark~\textbf{CUMPLE}
+\end{enumerate}
+
+\begin{table}[H]
+  \centering
+  \caption{Verificación de estabilidad — muro en ménsula ($B = 5{,}60$~m, con subpresión)}
+  \label{tab:estabilidad_muro_opc}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Comprobación} & \textbf{FS / Valor}
+    & \textbf{Límite} & \textbf{Estado} \\
+    \midrule
+    Vuelco ($B=4{,}00$~m, ref.) & 1{,}76 & $\geq 1{,}80$ & \textbf{NO CUMPLE} \\
+    \midrule
+    Vuelco ($B=5{,}60$~m) & 2{,}73 & $\geq 1{,}80$ & \checkmark \textbf{CUMPLE} \\
+    Deslizamiento & 1{,}88 & $\geq 1{,}50$ & \checkmark \textbf{CUMPLE} \\
+    Núcleo central ($x_R$) & 1{,}88~m & $\geq B/3 = 1{,}87$~m & \checkmark \textbf{CUMPLE} \\
+    Hundimiento ($\sigma_\text{med}$) & 1{,}23~kg/cm² & $\leq 2{,}00$ & \checkmark \textbf{CUMPLE} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% -----------------------------------------------------------
 \subsubsection{Proceso constructivo del muro en ménsula}
+% -----------------------------------------------------------
 
 \begin{enumerate}
   \item Excavación del intradós hasta la cota de la base de zapata ($D_f=1{,}00$~m
@@ -194,6 +679,168 @@ Excentricidad respecto al centro de la zapata ($B/2 = 2{,}00$~m):
   \item Juntas de dilatación cada 15--20~m (junta de poliestireno expandido
         $e=20$~mm con sellante de poliuretano).
 \end{enumerate}
+
+% -----------------------------------------------------------
+\subsection{Asientos del muro en ménsula ($B = 5{,}60$~m)}
+\label{subsec:asientos_muro_56m}
+% -----------------------------------------------------------
+
+La zapata queda a cota $-8{,}10$~m, apoyada sobre el \textbf{estrato~3}
+(arcillas margosas, $-8$ a $-25$~m, $H = 17$~m). La tensión inicial
+efectiva en la cota de la base de la zapata (subpresión incluida):
+\[
+  \sigma'_{v,\text{zapata}} = 9{,}04 + (1{,}92-1)\times 0{,}10 = 9{,}13~\text{Tn/m}^2
+\]
+
+Carga neta transmitida al terreno:
+\[
+  \sigma_\text{zapata} = \frac{N_T}{B} = \frac{68{,}80}{5{,}60} = 12{,}29~\text{Tn/m}^2
+  \qquad
+  \Delta\sigma = 12{,}29 - 9{,}13 = \resultado{3{,}16~\text{Tn/m}^2}
+\]
+
+\subsubsection{Método 1 — Ensayo edométrico (por subcapas)}
+
+Se adoptan los parámetros edométricos del estrato~3: $C_c = 0{,}15$,
+$e_0 = 0{,}60$. El estrato se divide en dos subcapas de $H = 8{,}5$~m
+para mayor precisión.
+
+\paragraph{Subcapa A ($-8$ a $-16{,}5$~m, $H_{A} = 8{,}5$~m):}
+\begin{align*}
+  \sigma'_{i,3a} &= 9{,}04 + (1{,}92-1)\times\frac{8{,}5}{2} = 12{,}95~\text{Tn/m}^2
+    \quad\text{(punto representativo = } H/2\text{)} \\
+  \sigma'_{f,3a} &= 12{,}95 + 3{,}16 = 16{,}11~\text{Tn/m}^2 \\
+  \Delta e_{3a}  &= 0{,}15\cdot\log\!\left(\frac{16{,}11}{12{,}95}\right) = 0{,}01422 \\
+  \varepsilon_{3a} &= \frac{\Delta e_{3a}}{1+e_0} = \frac{0{,}01422}{1{,}60} = 0{,}00889 \\
+  S_{3a} &= \varepsilon_{3a}\times H_A = 0{,}00889\times 8{,}5 = \resultado{7{,}6~\text{cm}}
+\end{align*}
+
+\paragraph{Subcapa B ($-16{,}5$ a $-25$~m, $H_{B} = 8{,}5$~m):}
+\begin{align*}
+  \sigma'_{i,3b} &= 9{,}04 + (1{,}92-1)\times\!\left(8{,}5+\frac{8{,}5}{2}\right)
+                  = 20{,}77~\text{Tn/m}^2 \\
+  \sigma'_{f,3b} &= 20{,}77 + 3{,}16 = 23{,}93~\text{Tn/m}^2 \\
+  \Delta e_{3b}  &= 0{,}15\cdot\log\!\left(\frac{23{,}93}{20{,}77}\right) = 0{,}00922 \\
+  \varepsilon_{3b} &= \frac{0{,}00922}{1{,}60} = 0{,}00576 \\
+  S_{3b} &= 0{,}00576\times 8{,}5 = \resultado{4{,}9~\text{cm}}
+\end{align*}
+
+\begin{equation}
+  \resultado{S_{\text{total, edométrico}} = 7{,}6 + 4{,}9 = 12{,}5~\text{cm}}
+  \label{eq:asiento_edom}
+\end{equation}
+
+\subsubsection{Método 2 — Steinbrenner (asiento elástico + consolidación)}
+
+Datos del estrato~3: $E_3 = 25{,}278$~MPa $= 2\,527{,}8$~Tn/m²,
+$\nu_3 = 0{,}25$. Se trabaja por metro lineal ($n = L/B \to \infty$;
+se toma $n=10$, $\phi_1 = 2{,}322$).
+
+\paragraph{Asiento inmediato:}
+\begin{align*}
+  A &= 1 - \nu_3^2 = 1 - 0{,}25^2 = 0{,}9375 \\
+  S_i &= \frac{\Delta p_{\text{net}}\cdot B}{2\,E_3}\,(A\cdot\phi_1)
+       = \frac{12{,}29\times 5{,}60}{2\times 2\,527{,}8}
+         \times(0{,}9375\times 2{,}322)
+       = \resultado{2{,}97~\text{cm}}
+\end{align*}
+
+\paragraph{Asiento de consolidación ($H_{\mathrm{ef}} = 2B = 11{,}20$~m):}
+\begin{align*}
+  E_{ed} &= E_3\,\frac{1-\nu_3}{(1+\nu_3)(1-2\nu_3)}
+           = 2\,527{,}8\times\frac{0{,}75}{1{,}25\times 0{,}50}
+           = 3\,033{,}4~\text{Tn/m}^2 \\
+  S_c    &= \frac{\Delta p_{\text{net}}}{E_{ed}}\cdot H_{\mathrm{ef}}
+           = \frac{12{,}29}{3\,033{,}4}\times 11{,}20
+           = \resultado{4{,}54~\text{cm}}
+\end{align*}
+
+\begin{equation}
+  S_t = S_i + S_c = 2{,}97 + 4{,}54 = \resultado{7{,}51~\text{cm}}
+  \label{eq:asiento_steinbrenner}
+\end{equation}
+
+\begin{resultadobox}[Asiento total por Steinbrenner]
+  \[
+    S_t = 7{,}51~\text{cm} > 5{,}0~\text{cm}
+    \quad\Longrightarrow\quad
+    \textbf{DEBEMOS PILOTAR la estructura}
+  \]
+\end{resultadobox}
+
+\begin{notabox}[Comparativa de métodos]
+  El método edométrico arroja $S = 12{,}5$~cm y Steinbrenner
+  $S = 7{,}5$~cm; ambos superan el límite admisible de $5$~cm para
+  muros de HA. Además, aumentar el ancho de la zapata agravaría el
+  asiento al incrementar la carga transmitida al estrato~3.
+\end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Estimación de pilotes}
+\label{subsec:pilotes_muro}
+% -----------------------------------------------------------
+
+Se adopta un \textbf{pilote aislado por metro lineal} que recibe la
+totalidad de la carga: $P = N_T = 68{,}80$~Tn/ml (hormigonado in situ,
+empotrado en el estrato~3).
+
+\paragraph{Datos del pilote:}
+$D = 0{,}45$~m, $A_p = 0{,}159$~m²;
+$E_p = 30\,000$~MPa $= 3\,060\,000$~Tn/m²;
+$N_\mathrm{SPT} = 33$ (estrato~3); $f_N = 0{,}20$; $f_f = 2$;
+$\gamma_R = 1{,}5$.
+
+\paragraph{Resistencia por punta:}
+\begin{equation}
+  R_{pk} = f_N\cdot N_\mathrm{SPT}\cdot 1\,000\cdot A_p
+         = 0{,}20\times 33\times 1\,000\times 0{,}159
+         = 1\,049~\text{kN} = \resultado{107~\text{Tn}}
+\end{equation}
+
+\paragraph{Resistencia por fuste ($L = 0{,}5$~m):}
+\begin{align*}
+  \tau_f &= f_f\cdot N_\mathrm{SPT} = 2\times 33 = 66~\text{kPa} \\
+  A_f    &= \pi\cdot D\cdot L = \pi\times 0{,}45\times 0{,}5 = 0{,}707~\text{m}^2 \\
+  R_{fk} &= \tau_f\cdot A_f = 66\times 0{,}707 = 46{,}6~\text{kN}
+           = \resultado{4{,}76~\text{Tn}}
+\end{align*}
+
+\paragraph{Resistencia característica y de cálculo:}
+\begin{align*}
+  R_{ck} &= R_{pk} + R_{fk} = 107 + 4{,}76 = 111{,}76~\text{Tn} \\
+  R_{cd} &= \frac{R_{ck}}{\gamma_R} = \frac{111{,}76}{1{,}5}
+           = \resultado{74{,}5~\text{Tn} > 68{,}80~\text{Tn}} \quad\checkmark
+\end{align*}
+
+\paragraph{Asiento del pilote aislado:}
+
+Con coeficiente de redistribución $\alpha$ intermedio ($x_p = 1$,
+$\alpha_f = 0{,}5$):
+\begin{align*}
+  \alpha &= \frac{1}{R_{ck}}\!\left(0{,}5\,R_{fk} + R_{pk}\right)
+           = \frac{0{,}5\times 4{,}76 + 107}{111{,}76} = 0{,}979 \\
+  S_i    &= \left(\frac{D}{40\,R_{ck}} + \frac{\alpha\cdot L}{A_p\cdot E_p}\right)P
+           = \left(\frac{0{,}45}{40\times 111{,}76}
+             + \frac{0{,}979\times 0{,}5}{0{,}159\times 3\,060\,000}\right)
+             \times 68{,}80
+           = \resultado{0{,}44~\text{cm}}
+\end{align*}
+
+\paragraph{Asiento del grupo (Vesic):}
+\begin{equation}
+  S_g = \sqrt{\frac{B_g}{D}}\,S_i
+      = \sqrt{\frac{4{,}0}{0{,}45}}\times 0{,}44
+      = \resultado{0{,}66~\text{cm} < 2{,}5~\text{cm}} \quad\text{DESPRECIABLE}
+\end{equation}
+
+\begin{resultadobox}[Solución de cimentación adoptada — Muro]
+  \textbf{1~pilote por metro lineal, $D = 0{,}45$~m, $L = 0{,}5$~m},
+  hormigonado in situ, empotrado en el estrato~3 (arcillas margosas).
+  El asiento del grupo $S_g = 0{,}66$~cm es despreciable gracias a
+  la elevada rigidez del estrato~3. Tiene sentido: dicho estrato es
+  tan rígido que cualquier pilote de pequeña longitud resuelve el
+  asiento.
+\end{resultadobox}
 
 % -----------------------------------------------------------
 \subsection{Opción B — Muro pantalla de hormigón armado}
@@ -239,7 +886,7 @@ De acuerdo con la teoría de clase (tema Pantallas, Villena~Manzanares):
   \item \textbf{Excavación de bataches}: se alternan bataches impares y pares
         (procedimiento de paneles alternados). Cada batache tiene longitud
         típica de 2{,}5--6~m. La excavación se realiza \textbf{con lodos
-        bentoníticos} dado que el terreno es cohesivo–arenoso con N.F.\ a
+        bentoníticos} dado que el terreno es cohesivo--arenoso con N.F.\ a
         $-2{,}50$~m. El nivel de lodo debe mantenerse a \textbf{mínimo
         1{,}5~m sobre el nivel freático} (condición crítica del proceso).
   \item \textbf{Limpieza del fondo} y comprobación del contenido de arena
@@ -262,71 +909,103 @@ De acuerdo con la teoría de clase (tema Pantallas, Villena~Manzanares):
   El hormigón de la pantalla se especificará igualmente HA-30/SR.
 \end{notabox}
 
-\subsubsection{Predimensionamiento y profundidad de empotramiento}
+\subsubsection{Espesor y profundidad de empotramiento}
 \label{subsubsec:empotramiento}
 
-Para la pantalla \textbf{anclada} con un nivel de anclajes a $z_a = 1{,}00$~m:
-
-\paragraph{Espesor de la pantalla:}
-Para $H = 7{,}30$~m se adopta $e_p = 0{,}60$~m como espesor mínimo
-estructural (regla empírica $e_p \geq H/12 = 0{,}61$~m).
-
-\paragraph{Profundidad de empotramiento (\emph{clava}):}
-
-Con la pantalla anclada, la profundidad de empotramiento $d$ se calcula
-por el método de equilibrio de momentos en el punto de aplicación del
-anclaje (\emph{método de Blum simplificado}). Se toma como estrato de
-empotramiento el \textbf{estrato~2} (arcillas versicolores,
-$\phi'=25{,}2°$, $c'=4{,}70$~Tn/m², $K_a=0{,}402$, $K_p=2{,}490$).
-
-Empuje activo total (calculado en la sección~\ref{subsec:empujes_rankine}):
+\paragraph{Espesor adoptado:}
 \[
-  E_a = 21{,}4~\text{Tn/ml} \quad \text{actuando a } h_{E_a} \approx 2{,}4~\text{m sobre la base del empotramiento}
+  e_p \geq \frac{H}{10} = \frac{7{,}30}{10} = 0{,}73~\text{m}
+  \quad\longrightarrow\quad \resultado{e_p = 0{,}75~\text{m}}
 \]
 
-La resistencia pasiva neta por metro de empotramiento en el estrato~2:
-\[
-  p_{\text{net}} = (K_{p,2} - K_{a,2})\,\gamma_{\text{sum},2}
-    = (2{,}490 - 0{,}402) \times 0{,}78 = 2{,}088 \times 0{,}78
-    = 1{,}629~\text{Tn/m}^2\text{/m}
-\]
+\paragraph{Distancia de empotramiento real.}
 
-Para una pantalla anclada en régimen ``viga biapoyada'' (aproximación
-de Rowe), la profundidad de empotramiento requerida es:
+La pantalla penetra a través del \textbf{estrato~2} (arcillas versicolores,
+$\phi'=25{,}2^\circ$, $K_{p,2}=2{,}49$, espesor restante bajo la cota $-7{,}30$~m:
+$0{,}70$~m) y continúa en el \textbf{estrato~3} (arcillas margosas,
+$\phi'=26^\circ$, $K_{a,3}=0{,}390$, $K_{p,3}=2{,}561$). El empotramiento $t$ se
+mide desde la base de la pantalla libre (cota $-7{,}30$~m).
+
+Para la obtención de la distancia de empotramiento se igualan los momentos
+activos y pasivos respecto a la base de la pantalla ($\Sigma M_a = \Sigma M_p$),
+considerando las contribuciones de todos los estratos en activo (incluyendo
+agua y sobrecarga) y el empuje pasivo en los estratos~2 y~3. Se pueden combrobar 
+los cálculos en el anexo de cálulos manuales. Resuelta la
+ecuación implícita en $t$ por equilibrio:
 
 \begin{equation}
-  d \approx \sqrt{\frac{6\,E_a\,(h_{E_a})}{p_{\text{net}}\,(H+d)}}
-  \label{eq:empotramiento}
+  \resultado{t = 14{,}68~\text{m}}
+  \label{eq:empotramiento_pantalla}
 \end{equation}
 
-Iterando (d=3{,}5~m como tanteo inicial):
+\begin{supuestobox}[Factor de seguridad estructural]
+  Para tener en cuenta la simplificación del modelo (suelo homogéneo en
+  cada estrato) se aplica un margen del 20\,\% sobre el empotramiento
+  teórico:
+  \[
+    D = 1{,}20 \times 14{,}68 = \resultado{17{,}62~\text{m}}
+  \]
+  En un futuro se podría añadir \textbf{anclajes activos} para reducir
+  la longitud de empotramiento necesaria.
+\end{supuestobox}
+
+La \textbf{longitud total de la pantalla} resulta:
+\begin{equation}
+  L_\text{pantalla} = H + D = 7{,}30 + 17{,}62 = \resultado{24{,}92~\text{m}}
+  \label{eq:long_pantalla}
+\end{equation}
+
+\subsubsection{Comprobación frente a sifonamiento}
+\label{subsubsec:sifonamiento}
+
+Con el nivel freático en el trasdós a $-2{,}50$~m y el intradós drenado, la
+diferencia de carga hidráulica es $\Delta H = h_w = 4{,}80$~m. La longitud
+de percolación es la profundidad de empotramiento $D = 17{,}62$~m.
+
+\paragraph{Gradiente crítico del estrato~3:}
+\begin{equation}
+  i_c = \frac{\gamma_{\mathrm{sum}}}{\gamma_w}
+      = \frac{1{,}92 - 1{,}00}{1{,}00}
+      = \resultado{0{,}92}
+\end{equation}
+
+\paragraph{Gradiente hidráulico real:}
+\begin{equation}
+  i = \frac{\Delta H}{D} = \frac{4{,}80}{17{,}62} = \resultado{0{,}272}
+\end{equation}
+
+\paragraph{Factor de seguridad frente a sifonamiento:}
+\begin{equation}
+  FS_{\mathrm{sifon}} = \frac{i_c}{i} = \frac{0{,}92}{0{,}272}
+  = \resultado{3{,}38 > 3} \quad\checkmark \quad \textbf{CUMPLE}
+  \label{eq:fs_sifonamiento}
+\end{equation}
+
+\paragraph{Distancia mínima de empotramiento por sifonamiento:}
+
+Si en un futuro se añaden anclajes para reducir $D$, la condición
+$FS \geq 3$ impone:
 \[
-  d = \sqrt{\frac{6\times21{,}4\times2{,}4}{1{,}629\times(7{,}3+3{,}5)}}
-    = \sqrt{\frac{308{,}16}{1{,}629\times10{,}8}}
-    = \sqrt{\frac{308{,}16}{17{,}59}} = \sqrt{17{,}52} = 4{,}19~\text{m}
+  i_{\min} = \frac{i_c}{3} = \frac{0{,}92}{3} = 0{,}307
+  \qquad\Rightarrow\qquad
+  L_{\min} = \frac{\Delta H}{i_{\min}} = \frac{4{,}80}{0{,}307}
+  = \resultado{15{,}65~\text{m}}
 \]
 
-Convergiendo con $d=4{,}2$~m: se adopta por seguridad
-$\resultado{d = 4{,}50~\text{m}}$, lo que sitúa la punta de la pantalla a
-$-7{,}30 - 4{,}50 = -11{,}80$~m de profundidad (en el estrato~3, arcillas
-margosas). La \textbf{longitud total de la pantalla} es:
-\[
-  L_p = H + d = 7{,}30 + 4{,}50 = \resultado{11{,}80~\text{m}}
-\]
+Este resultado tiene una implicación práctica importante: si en el futuro se
+añadiesen \textbf{anclajes activos} para reducir la profundidad de empotramiento
+estructural (con el fin de abaratar el coste de la pantalla), la condición de
+sifonamiento impondría un límite inferior de $L_\text{mín} = 15{,}65$~m que
+\emph{no podría ser franqueado por los anclajes}. El motivo es que el sifonamiento
+depende exclusivamente de la longitud del recorrido de percolación bajo la
+pantalla, que coincide con la profundidad de empotramiento; los anclajes alivian
+los esfuerzos estructurales pero no modifican la trayectoria hidráulica del agua.
 
-\paragraph{Fuerza del anclaje:}
-
-Por equilibrio horizontal:
-\begin{align}
-  T &= E_a - E_{p,d} = 21{,}4 - \tfrac{1}{2}\,p_{\text{net}}\,d^2 \notag\\
-    &= 21{,}4 - \tfrac{1}{2}\times1{,}629\times4{,}50^2
-     = 21{,}4 - 16{,}50 = \resultado{4{,}9~\text{Tn/ml}}
-\end{align}
-
-Se adoptaría un tirante activo por cada 2~ml de pantalla, con carga de
-diseño $T_d = 4{,}9 \times 2 = 9{,}8$~Tn/tirante, y longitud libre de
-$L_{\text{libre}} \approx 0{,}7\,H = 5{,}1$~m para anclar la bulba fuera
-de la cuña activa.
+Con el diseño actual ($D = 17{,}62$~m) se cumple $FS_\text{sifon} = 3{,}38 > 3$
+y el margen respecto al límite hidráulico es de tan solo
+$17{,}62 - 15{,}65 = \mathbf{1{,}97}$~m, lo que confirma que el sifonamiento
+es la condición más restrictiva para cualquier reducción futura del
+empotramiento.
 
 \subsubsection{Ventajas e inconvenientes de la pantalla}
 
@@ -336,26 +1015,139 @@ de la cuña activa.
       \item No requiere excavación previa: la pantalla se construye desde
             la rasante existente, minimizando las afecciones en superficie.
       \item Excelente impermeabilidad si las juntas entre paneles se ejecutan
-            correctamente (junta Caltite o bituminosa).
+            correctamente.
       \item Menor ocupación de suelo en planta respecto al muro ménsula
             (sin talón).
     \end{itemize}
   \item[Inconvenientes:]
     \begin{itemize}
-      \item Requiere maquinaria especializada de gran tonelaje (cuchara bivalva
-            o hidrofresa), no siempre disponible en obra de tamaño medio.
+      \item Requiere maquinaria especializada de gran tonelaje (hidrofresa), 
+            no siempre disponible en obra de tamaño medio.
       \item Los lodos bentoníticos suponen un residuo de gestión controlada,
             incompatible con la \textbf{zona medioambientalmente protegida}
             en caso de vertido accidental.
       \item Necesidad de anclajes activos que invaden el trasdós; en una EDAR
             con instalaciones subterráneas esto puede ser inviable.
-      \item \textbf{Coste unitario} significativamente superior:
-            $\sim$1\,200--1\,500~EUR/m² de pantalla, frente a
-            $\sim$700--950~EUR/m² del muro ménsula.
-      \item \textbf{Plazo}: 6--8 semanas adicionales por la ejecución de
-            paneles alternados, curado y tesado de anclajes.
     \end{itemize}
 \end{description}
+
+% -----------------------------------------------------------
+\subsection{Estimación de costes comparativa}
+\label{subsec:costes_comparativa}
+% -----------------------------------------------------------
+
+Se realiza una estimación de orden de magnitud para los dos conceptos que
+dominan el coste de cada solución: hormigón, acero y excavación. Los precios
+unitarios aplicados son orientativos (HA-30: 105~€/m³; acero B~500~SD: 1{,}40~€/kg;
+excavación convencional: 3~€/m³; excavación con lodos bentoníticos: 30~€/m³;
+pilotes: 50~€/m³ excavación + 105~€/m³ hormigón + 1{,}40~€/kg acero).
+
+\begin{notabox}[Hipótesis sobre la cuantía de acero]
+  Se adopta una cuantía de \textbf{120~kg/m³} para la pantalla y de
+  \textbf{90~kg/m³} para el muro en ménsula. La pantalla requiere mayor
+  densidad de armado porque trabaja como elemento en voladizo de gran longitud
+  ($L = 24{,}92$~m) sometido a momentos flectores muy superiores a los del fuste
+  del muro en ménsula ($H = 7{,}30$~m empotrado en la zapata).
+\end{notabox}
+
+\subsubsection{Opción B — Muro pantalla}
+
+Volumen total de hormigón (sección $0{,}75$~m $\times$ longitud $24{,}92$~m $\times$ 150~ml):
+\[
+  V_\text{pantalla} = 0{,}75 \times 24{,}92 \times 150 = \resultado{2\,803{,}5~\text{m}^3}
+\]
+
+\begin{align*}
+  C_\text{HA-30}     &= 2\,803{,}5 \times 105 = 294\,367~\text{€} \\
+  C_\text{acero}     &= 2\,803{,}5 \times 120~\text{kg/m}^3 \times 1{,}40
+                     = 470\,988~\text{€} \\
+  C_\text{exc.lodos} &= 2\,803{,}5 \times 30 = 84\,105~\text{€}
+\end{align*}
+
+\begin{table}[H]
+  \centering
+  \caption{Presupuesto estimado — Muro pantalla (150~ml)}
+  \label{tab:presup_pantalla}
+  \begin{tabular}{@{}lc@{}}
+    \toprule
+    \textbf{Concepto} & \textbf{Importe} \\
+    \midrule
+    Hormigón HA-30 ($2\,803{,}5$~m³ $\times$ 105~€/m³)   & 294\,367~€ \\
+    Acero B~500~SD (120~kg/m³ $\times$ 1{,}40~€/kg)       & 470\,988~€ \\
+    Excavación con lodos ($\times$ 30~€/m³)                &  84\,105~€ \\
+    \midrule
+    \textbf{TOTAL PANTALLA}                                & \textbf{849\,460~€} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{Opción A — Muro en ménsula + pilotes}
+
+Volumen de hormigón del muro (sección trapezoidal media $\approx e_2 \times H/2 \times B_z$):
+
+\begin{align*}
+  V_\text{muro} &= \left(e_1 + \frac{e_2-e_1}{2}\right) \cdot H \cdot L
+                 + B \cdot h_z \cdot L \\
+               &= \left(0{,}60 + \frac{0{,}15}{2}\right) \times 7{,}30 \times 150
+                 + 5{,}60 \times 0{,}80 \times 150 \\
+               &= 736{,}88 + 672{,}00 \approx \resultado{1\,411{,}1~\text{m}^3}
+\end{align*}
+
+\begin{align*}
+  C_\text{HA-30, muro}    &= 1\,411{,}1 \times 105 = 148\,168~\text{€} \\
+  C_\text{acero, muro}    &= 1\,411{,}1 \times 90~\text{kg/m}^3 \times 1{,}40
+                          = 177\,799~\text{€} \\
+  C_\text{exc. muro}      &= 1\,411{,}1 \times 3 = 4\,233~\text{€}
+\end{align*}
+
+Pilotes CPI ($D = 0{,}45$~m, $L = 0{,}5$~m), 1~pilote/ml, total 150~pilotes:
+\[
+  V_\text{pilote} = \frac{\pi \times 0{,}45^2}{4} \times 0{,}5
+                  = \resultado{0{,}0795~\text{m}^3/\text{pilote}}
+  \qquad
+  V_\text{total} = 0{,}0795 \times 150 = \resultado{11{,}93~\text{m}^3}
+\]
+
+\begin{align*}
+  C_\text{exc. pilotes}   &= 11{,}93 \times 50   =    596~\text{€} \\
+  C_\text{HA-30, pilotes} &= 11{,}93 \times 105  =  1\,253~\text{€} \\
+  C_\text{acero, pilotes} &= 11{,}93 \times 90 \times 1{,}40 = 1\,501~\text{€}
+\end{align*}
+
+\begin{table}[H]
+  \centering
+  \caption{Presupuesto estimado — Muro en ménsula + pilotes (150~ml)}
+  \label{tab:presup_muro}
+  \begin{tabular}{@{}lc@{}}
+    \toprule
+    \textbf{Concepto} & \textbf{Importe} \\
+    \midrule
+    Hormigón HA-30 muro ($1\,411{,}1$~m³ $\times$ 105~€/m³)  & 148\,168~€ \\
+    Acero muro (90~kg/m³ $\times$ 1{,}40~€/kg)                & 177\,799~€ \\
+    Excavación muro ($\times$ 3~€/m³)                          &   4\,233~€ \\
+    Excavación pilotes ($\times$ 50~€/m³)                      &     596~€ \\
+    Hormigón pilotes HA-30 ($\times$ 105~€/m³)                 &   1\,253~€ \\
+    Acero pilotes (90~kg/m³ $\times$ 1{,}40~€/kg)              &   1\,501~€ \\
+    \midrule
+    \textbf{TOTAL MURO + PILOTES}                              & \textbf{333\,550~€} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{resultadobox}[Comparativa de costes]
+  \begin{center}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Solución} & \textbf{Coste estimado} \\
+    \midrule
+    Pantalla anclada            & 849\,460~€ \\
+    Muro en ménsula + pilotes   & 333\,550~€ \\
+    \midrule
+    \textbf{Ahorro con muro}    & \textbf{515\,910~€ ($\approx$61\,\%)} \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+\end{resultadobox}
 
 % -----------------------------------------------------------
 \subsection{Matriz de decisión comparativa}
@@ -373,10 +1165,13 @@ de la cuña activa.
     \textbf{Muro pantalla (anclada)} \\
     \midrule
     Altura de contención $H$ & 7{,}30~m \checkmark & 7{,}30~m \checkmark \\
-    Factor seg.\ vuelco & 1{,}97 \checkmark & N/A (no aplica) \\
-    Factor seg.\ desliz. & 2{,}26 \checkmark & N/A (no aplica) \\
-    Profundidad de trabajo & 8{,}10~m & 11{,}80~m \\
-    Coste est.\ (150~ml) & $\sim$1\,050~kEUR & $\sim$1\,700~kEUR \\
+    Factor seg.\ vuelco & 2{,}73 \checkmark & N/A (no aplica) \\
+    Factor seg.\ desliz. & 1{,}88 \checkmark & N/A (no aplica) \\
+    Solución de cimentación & Zapata + pilotes ($D=0{,}45$~m, $L=0{,}5$~m) & Pantalla (empotram.) \\
+    Profundidad total de trabajo & 8{,}10~m (zapata) & 24{,}92~m (pantalla) \\
+    Hormigón (m³) & $1\,411$~m³ (90~kg/m³ acero) & $2\,804$~m³ (120~kg/m³ acero) \\
+    Coste estimado (150~ml) & \cellcolor{green!10}333\,550~€ & \cellcolor{red!10}849\,460~€ \\
+    Ahorro & \multicolumn{2}{c}{515\,910~€ ($\approx$ 61\,\% menos con el muro)} \\
     Plazo estimado & $\sim$12 semanas & $\sim$18--20 semanas \\
     N.F.\ a $-2{,}50$~m & Drenaje de trasdós & Lodos + anclajes \\
     Sulfatos (3\,500~mg/kg) & HA-30/SR \checkmark & HA-30/SR + lodos SR \\
@@ -402,33 +1197,26 @@ de la cuña activa.
 
   \begin{enumerate}
     \item \textbf{Estabilidad estructural verificada.} Las comprobaciones de
-          vuelco ($FS = 1{,}97$) y deslizamiento ($FS = 2{,}26$) superan
-          los límites reglamentarios con holgura. La capacidad portante del
-          terreno de apoyo es ampliamente suficiente ($FS_{\text{hundimiento}}
-          = 10{,}9$, calculado en la Sección~\ref{subsec:cap_portante_muro}).
+          vuelco ($FS = 2{,}73$) y deslizamiento ($FS = 1{,}88$) superan
+          los límites reglamentarios. La capacidad portante del terreno de
+          apoyo es suficiente. Los asientos estimados ($S_t = 7{,}51$~cm)
+          superan el límite de $5$~cm, por lo que se adopta cimentación
+          con \textbf{pilotes} de $D = 0{,}45$~m y $L = 0{,}5$~m
+          (sección~\ref{subsec:pilotes_muro}), que reducen el asiento
+          de grupo a $S_g = 0{,}66$~cm, despreciable.
 
     \item \textbf{Compatibilidad con el nivel freático.} El N.F.\ a
           $-2{,}50$~m se gestiona con un sistema de drenaje del trasdós
-          (tubo dren $\varnothing\,100$ + geotextil + grava) que elimina la
-          presión hidrostática sobre el fuste. En la pantalla, el N.F.\ exigiría
-          lodos bentoníticos con riesgo de contaminación inaceptable.
+          (tubo dren $\varnothing\,100$ + geotextil + grava). 
 
     \item \textbf{Compatibilidad con la agresividad por sulfatos.}
-          La especificación HA-30/SR (cemento CEM~I~42{,}5~SR o
-          CEM~III/A~42{,}5) resuelve la clase de exposición QA tanto para el
-          muro ménsula como para la zapata en contacto con el suelo agresivo,
-          sin complejidades adicionales. La pantalla requeriría además
-          verificar la compatibilidad de los lodos con el contenido de sulfatos.
+          La especificación HA-30/SR resuelve la clase de exposición QA
+          sin complejidades adicionales.
 
-    \item \textbf{Medioambiente protegido.} La ausencia de lodos bentoníticos
-          elimina cualquier riesgo de contaminación química o bacteriológica
-          del suelo y subsuelo, en cumplimiento de los condicionantes del
-          contrato. El muro ménsula sólo genera residuos de tierra excavada
-          y escombros de hormigón, perfectamente gestionables.
-
-    \item \textbf{Economía y plazo.} El ahorro estimado respecto a la
-          alternativa pantalla asciende a $\sim$650~kEUR (38\%), con una
-          reducción de plazo de $\sim$6--8 semanas.
+    \item \textbf{Economía y plazo.} El coste estimado del muro más
+          pilotes asciende a $\approx 334$~kEUR frente a $\approx 849$~kEUR
+          de la pantalla, lo que supone un ahorro de $\approx 516$~kEUR
+          ($\sim$61\,\%).
 
     \item \textbf{Sencillez constructiva y mantenimiento.} El muro ménsula
           no requiere maquinaria especializada ni operaciones de retesado
@@ -437,6 +1225,6 @@ de la cuña activa.
 
   La pantalla anclada sería la alternativa a considerar únicamente si
   existieran \textbf{restricciones de espacio en planta} que impidieran
-  el desarrollo del talón de la zapata ($B_\text{talón} = 2{,}45$--2{,}85~m),
+  el desarrollo del talón de la zapata ($B_\text{talón} = 4{,}05$~m),
   lo cual no ocurre en la presente EDAR.
 \end{supuestobox}
