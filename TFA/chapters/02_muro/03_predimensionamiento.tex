@@ -32,22 +32,40 @@ carácter medioambientalmente protegido de la zona condicionan directamente
 la elección del hormigón.
 
 \begin{notabox}[Clase de exposición — sulfatos]
-  Según la Tabla~6.2 del Código Estructural, una concentración de
-  $3\,500$~mg~SO$_4^{2-}$/kg corresponde a la clase química
-  \textbf{Qa} (media agresividad). Combinada con la exposición a
-  humedad y ciclos de hielo-deshielo en elementos enterrados, la clase
-  de exposición resultante es \textbf{IIb+Qa}.
+  Según la Tabla~8.2.3.b de la EHE-08, las clases de agresividad
+  química por sulfatos en suelo son:
 
-  Se adoptará:
+  \begin{center}
+  \small
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Clase} & \textbf{SO$_4^{2-}$ en suelo (mg/kg)}
+    & \textbf{Agresividad} \\
+    \midrule
+    Qa & 200 – 600   & Débil \\
+    Qb & 600 – 3\,000 & Moderada \\
+    \textbf{Qc} & \textbf{3\,000 – 12\,000} & \textbf{Fuerte} \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+
+  Con $3\,500$~mg~SO$_4^{2-}$/kg, el suelo queda en el intervalo
+  3\,000–12\,000~mg/kg, lo que corresponde a la clase
+  \textbf{Qc (agresividad fuerte)}. Combinada con la exposición
+  a humedad en elementos enterrados (clase IIb), la clase de
+  exposición resultante es \textbf{IIb+Qc}.
+
+  La EHE-08 (Tabla~37.3.2) exige para la clase Qc cemento de tipo SR
+  o SRC. Se adoptará:
   \begin{itemize}
-    \item Hormigón: \textbf{HA-30/B/20/IIb+Qa}, con cemento
+    \item Hormigón: \textbf{HA-30/B/20/IIb+Qc}, con cemento
           \textbf{SR} (CEM~I~42{,}5~SR o CEM~III/A~42{,}5),
           resistente a sulfatos.
-    \item Recubrimiento mínimo nominal (Tabla~37.2.4 CE):
-          $r_{\min} = 35$~mm para clase IIb+Qa.
+    \item Recubrimiento mínimo (Tabla~37.2.4 EHE-08, clase IIb):
+          $r_{\min} = 30$~mm.
     \item Tolerancia de ejecución: $\Delta r = 10$~mm.
     \item \textbf{Recubrimiento nominal adoptado:}
-          $r_{\text{nom}} = \resultado{50~\text{mm}}$.
+          $r_{\text{nom}} = \resultado{50~\text{mm}}$ (conservador).
     \item Hormigón de limpieza: \textbf{HM-15}, $e = 10$~cm,
           sin función estructural.
     \item Acero pasivo: \textbf{B~500~SD} ($f_{yk} = 500$~MPa).
@@ -63,7 +81,7 @@ la elección del hormigón.
     \textbf{Elemento} & \textbf{Hormigón} & \textbf{Cemento}
     & \textbf{Recub. nominal} \\
     \midrule
-    Fuste + zapata      & HA-30/B/20/IIb+Qa & SR (CEM I 42{,}5 SR) & 50~mm \\
+    Alzado + zapata     & HA-30/B/20/IIb+Qc & SR (CEM I 42{,}5 SR) & 50~mm \\
     Hormigón de limpieza & HM-15             & —                     & —     \\
     Acero pasivo         & B~500~SD          & —                     & —     \\
     \bottomrule
@@ -84,7 +102,7 @@ la elección del hormigón.
     \textbf{Parámetro} & \textbf{Símbolo} & \textbf{Valor} & \textbf{Criterio} \\
     \midrule
     Altura total retenida  & $H$               & 8{,}10~m & Enunciado \\
-    Altura libre del fuste & $H_f$             & 7{,}30~m & $H - h_z$ \\
+    Altura libre del alzado & $H_f$            & 7{,}30~m & $H - h_z$ \\
     Espesor en coronación  & $e_1$             & 0{,}60~m & $H/12$ \\
     Espesor en la base     & $e_2$             & 0{,}75~m & $H/10$ \\
     Canto de la zapata     & $h_z$             & 0{,}80~m & $H/10$ \\
@@ -106,7 +124,7 @@ todas las dimensiones acotadas, el perfil del terreno y el nivel freático.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.90, >=Stealth,
+\begin{tikzpicture}[scale=0.88, >=Stealth,
     dimarrow/.style={<->, >=Stealth, thin, NavyBlue!80},
     dimlabel/.style={font=\footnotesize, fill=white, inner sep=1.2pt,
                      text=NavyBlue!80},
@@ -117,151 +135,119 @@ todas las dimensiones acotadas, el perfil del terreno y el nivel freático.
     concrete/.style={fill=gray!45},
   ]
 
-  % Origen: base zapata en (0,0). H_total = 7.30, hz=0.80,
-  % B=5.00, B_tal=3.45, e2=0.75, e1=0.60, B_p=0.80
-  % NF desde rasante trasdós = -2.50 m  →  y_NF = 7.30 - 2.50 = 4.80
-  % Df = 1.00  →  rasante intradós en y = 1.00
+  % Origen: base zapata en (0,0).
+  % H_total=8.10 (=hz 0.80 + altura libre 7.30), B=5.60
+  % x: talón izq=0, alzado izq=4.05, alzado der base=4.80 (e2=0.75),
+  %    alzado der top=4.65 (e1=0.60), punta der=5.60 (Bp=0.80)
+  % y: NF = 8.10-2.50 = 5.60; rasante intradós = 1.00 (Df=1.00)
 
-  % ============================================================
-  % TERRENO RETENIDO (izquierda del fuste / sobre talón)
-  % ============================================================
-  % Seco  (NF .. rasante trasdós)
-  \fill[soil]    (-1.8, 4.80) rectangle (3.45, 7.30);
-  % Saturado (base zapata .. NF)
-  \fill[soilsat] (-1.8, 0.80) rectangle (3.45, 4.80);
-  % Rasante trasdós
-  \draw[thick, BurntOrange!70] (-1.8, 7.30) -- (3.45, 7.30);
+  % ── TERRENO RETENIDO (trasdós) ──────────────────────────────
+  \fill[soil]    (-1.8, 5.60) rectangle (4.05, 8.10);  % seco
+  \fill[soilsat] (-1.8, 0.80) rectangle (4.05, 5.60);  % saturado
+  \draw[thick, BurntOrange!70] (-1.8, 8.10) -- (4.05, 8.10);
   \fill[pattern=north east lines, pattern color=gray!60]
-      (-1.8, 7.30) rectangle (3.45, 7.50);
+      (-1.8, 8.10) rectangle (4.05, 8.30);
 
-  % ============================================================
-  % TERRENO LIBRE (derecha, sobre puntera e intradós)
-  % ============================================================
-  \fill[soil] (4.20, 0.80) -- (5.00, 0.80) -- (5.00, 1.00)
-              -- (6.80, 1.00) -- (6.80,  0.00)
-              -- (5.00, 0.00) -- (4.20, 0.00) -- cycle;
-  \draw[thick, BurntOrange!70] (5.00, 1.00) -- (6.80, 1.00);
+  % ── TERRENO LIBRE (intradós) ─────────────────────────────────
+  \fill[soil] (4.80, 1.00) -- (4.80, 0.80) -- (5.60, 0.80)
+              -- (5.60, 0.00) -- (7.00, 0.00) -- (7.00, 1.00) -- cycle;
+  \draw[thick, BurntOrange!70] (5.60, 1.00) -- (7.00, 1.00);
   \fill[pattern=north east lines, pattern color=gray!60]
-      (5.00, 1.00) rectangle (6.80, 1.15);
+      (5.60, 1.00) rectangle (7.00, 1.15);
 
-  % ============================================================
-  % HORMIGÓN DE LIMPIEZA + ZAPATA + FUSTE
-  % ============================================================
-  \fill[gray!20] (-0.05,-0.12) rectangle (5.05, 0);
-  \node[font=\tiny, gray!70] at (2.50,-0.06) {HM-15 ($e=10$~cm)};
+  % ── HORMIGÓN LIMPIEZA + ZAPATA + ALZADO ─────────────────────
+  \fill[gray!20] (-0.05,-0.12) rectangle (5.65, 0);
+  \node[font=\tiny, gray!70] at (2.80,-0.06) {HM-15 ($e=10$~cm)};
 
-  \fill[concrete] (0, 0) rectangle (5.00, 0.80);
-  \draw[thick]   (0, 0) rectangle (5.00, 0.80);
+  \fill[concrete] (0, 0) rectangle (5.60, 0.80);
+  \draw[thick]    (0, 0) rectangle (5.60, 0.80);
 
-  % Fuste trapezoidal: trasdós vertical x=3.45, intradós de (4.20,0.80) a (4.05,7.30)
+  % Alzado trapezoidal: trasdós vertical x=4.05
   \fill[concrete]
-    (3.45, 0.80) -- (4.20, 0.80) -- (4.05, 7.30) -- (3.45, 7.30) -- cycle;
+    (4.05, 0.80) -- (4.80, 0.80) -- (4.65, 8.10) -- (4.05, 8.10) -- cycle;
   \draw[thick]
-    (3.45, 0.80) -- (4.20, 0.80) -- (4.05, 7.30) -- (3.45, 7.30) -- cycle;
+    (4.05, 0.80) -- (4.80, 0.80) -- (4.65, 8.10) -- (4.05, 8.10) -- cycle;
 
-  % ============================================================
-  % NIVEL FREÁTICO (símbolo estándar triángulo + rayado)
-  % ============================================================
-  \draw[NavyBlue!80, thick, dashed] (-1.8, 4.80) -- (3.45, 4.80);
-  \node[NavyBlue!80] at (-1.5, 4.80) {$\blacktriangledown$};
-  \node[NavyBlue!80, font=\scriptsize, below] at (-1.5, 4.70) {N.F.};
-  \foreach \x in {-1.1, -0.7, -0.3, 0.1, 0.5, 0.9, 1.3, 1.7, 2.1, 2.5, 2.9}
-    \draw[NavyBlue!60, thin] (\x, 4.80) -- (\x+0.15, 4.65);
-  \node[NavyBlue!80, font=\scriptsize, right]
-       at (3.50, 4.80) {$-2{,}50$~m};
+  % ── NIVEL FREÁTICO ───────────────────────────────────────────
+  \draw[NavyBlue!80, thick, dashed] (-1.8, 5.60) -- (4.05, 5.60);
+  \node[NavyBlue!80] at (-1.5, 5.60) {$\blacktriangledown$};
+  \node[NavyBlue!80, font=\scriptsize, below] at (-1.5, 5.50) {N.F.};
+  \foreach \x in {-1.1,-0.7,-0.3,0.1,0.5,0.9,1.3,1.7,2.1,2.5,2.9,3.3}
+    \draw[NavyBlue!60, thin] (\x, 5.60) -- (\x+0.15, 5.45);
+  \node[NavyBlue!80, font=\scriptsize, right] at (4.10, 5.60) {$-2{,}50$~m};
 
-  % ============================================================
-  % DIAGRAMA TRIANGULAR DE EMPUJE ACTIVO (E_T)
-  % ============================================================
-  \fill[NavyBlue!15, opacity=0.7]
-      (3.45, 0) -- (3.45, 7.30) -- (2.05, 0) -- cycle;
-  \draw[NavyBlue!80, thick]
-      (3.45, 7.30) -- (2.05, 0);
-  % Flechas proporcionales al diagrama triangular
-  \foreach \y/\len in {0.30/1.33, 1.00/1.24, 2.00/1.09, 3.00/0.94,
-                       4.00/0.79, 5.00/0.64, 6.00/0.49, 7.00/0.34}
-    \draw[->, NavyBlue!80, thick] (3.45-\len, \y) -- (3.45, \y);
-  \node[NavyBlue!80, font=\small\bfseries] at (1.90, 4.10) {$E_T$};
-  \node[NavyBlue!80, font=\tiny]           at (1.90, 3.70) {25,78 Tn/ml};
+  % ── DIAGRAMA DE EMPUJE ACTIVO (trasdós — altura total incl. zapata) ───
+  % Borde vertical en x=4.05 desde base zapata (y=0) hasta coronación (y=8.10)
+  % Hipotenusa: presión nula en coronación, máxima en base zapata
+  \fill[NavyBlue!30, opacity=0.75]
+      (4.05, 8.10) -- (4.05, 0.00) -- (2.50, 0.00) -- cycle;
+  \draw[NavyBlue!80, thick] (4.05, 8.10) -- (2.50, 0.00);  % hipotenusa
+  \draw[NavyBlue!80, thick] (4.05, 0.00) -- (4.05, 8.10);  % borde vertical
+  % Flechas (→ hacia el alzado/zapata): len ∝ (8.10−y)/7.30 × 1.40
+  \foreach \y/\len in {0.4/1.48, 1.0/1.36, 2.0/1.17, 3.0/0.98,
+                       4.0/0.79, 5.0/0.59, 6.0/0.40, 7.0/0.21}
+    \draw[->, NavyBlue!80, thin] (4.05-\len, \y) -- (4.05, \y);
+  \node[NavyBlue!80, font=\small\bfseries, fill=white, inner sep=1.2pt]
+       at (3.35, 3.60) {$E_T$};
+  \node[NavyBlue!80, font=\tiny, fill=white, inner sep=1.2pt]
+       at (3.35, 3.20) {25{,}78~Tn/ml};
 
-  % ============================================================
-  % COTAS VERTICALES (izquierda)
-  % ============================================================
-  % H (total muro, desde base zapata)
-  \draw[dimarrow] (-2.50, 0) -- (-2.50, 7.30);
-  \node[dimlabel, rotate=90] at (-2.70, 3.65) {$H = 7{,}30$~m};
+  % ── COTAS VERTICALES (izquierda) ─────────────────────────────
+  \draw[dimarrow] (-2.55, 0) -- (-2.55, 8.10);
+  \node[dimlabel, rotate=90] at (-2.75, 4.05)
+        {$H_{\text{total}} = 8{,}10$~m};
 
-  % Hf y hz en línea intermedia
-  \draw[dimarrow] (-1.95, 0.80) -- (-1.95, 7.30);
-  \node[dimlabel, rotate=90] at (-2.12, 4.05) {$H_f = 6{,}50$~m};
+  \draw[dimarrow] (-1.95, 0.80) -- (-1.95, 8.10);
+  \node[dimlabel, rotate=90] at (-2.13, 4.45)
+        {Altura libre $= 7{,}30$~m};
+
   \draw[dimarrow] (-1.95, 0) -- (-1.95, 0.80);
-  \node[dimlabel, left] at (-1.95, 0.40) {$h_z = 0{,}80$};
+  \node[dimlabel, left] at (-1.95, 0.40) {$h_z{=}0{,}80$};
 
-  % ============================================================
-  % COTAS VERTICALES (derecha)
-  % ============================================================
-  \draw[dimarrow] (6.20, 0) -- (6.20, 1.00);
-  \node[dimlabel, right] at (6.20, 0.50) {$D_f = 1{,}00$~m};
+  % ── COTAS VERTICALES (derecha) ───────────────────────────────
+  \draw[dimarrow] (6.30, 0) -- (6.30, 1.00);
+  \node[dimlabel, right] at (6.30, 0.50) {$D_f = 1{,}00$~m};
 
-  % ============================================================
-  % COTAS HORIZONTALES (abajo): tres niveles
-  % ============================================================
-  % Marcas verticales de referencia
-  \foreach \x in {0, 3.45, 4.20, 5.00}
+  % ── COTAS HORIZONTALES (abajo) ───────────────────────────────
+  \foreach \x in {0, 4.05, 4.80, 5.60}
     \draw[thin, NavyBlue!40] (\x, -0.15) -- (\x, -1.00);
 
-  % Nivel 1 (más bajo): B
-  \draw[dimarrow] (0, -0.95) -- (5.00, -0.95);
-  \node[dimlabel] at (2.50, -0.95) {$B = 5{,}00$~m};
+  \draw[dimarrow] (0, -0.95) -- (5.60, -0.95);
+  \node[dimlabel] at (2.80, -0.95) {$B = 5{,}60$~m};
 
-  % Nivel 2: B_tal | e2 | Bp
-  \draw[dimarrow] (0, -0.45) -- (3.45, -0.45);
-  \node[dimlabel] at (1.72, -0.45) {$B_{\text{tal}} = 3{,}45$~m};
-  \draw[dimarrow] (3.45, -0.45) -- (4.20, -0.45);
-  \node[dimlabel, font=\scriptsize] at (3.82, -0.45) {$e_2{=}0{,}75$};
-  \draw[dimarrow] (4.20, -0.45) -- (5.00, -0.45);
-  \node[dimlabel, font=\scriptsize] at (4.60, -0.45) {$B_p{=}0{,}80$};
+  \draw[dimarrow] (0, -0.45) -- (4.05, -0.45);
+  \node[dimlabel] at (2.02, -0.45) {$B_{\text{tal}} = 4{,}05$~m};
+  \draw[dimarrow] (4.05, -0.45) -- (4.80, -0.45);
+  \node[dimlabel, font=\scriptsize] at (4.42, -0.45) {$e_2{=}0{,}75$};
+  \draw[dimarrow] (4.80, -0.45) -- (5.60, -0.45);
+  \node[dimlabel, font=\scriptsize] at (5.20, -0.45) {$B_p{=}0{,}80$};
 
-  % ============================================================
-  % COTAS FUSTE (arriba)
-  % ============================================================
-  \draw[thin, NavyBlue!40] (3.45, 7.30) -- (3.45, 7.80);
-  \draw[thin, NavyBlue!40] (4.05, 7.30) -- (4.05, 7.80);
-  \draw[dimarrow] (3.45, 7.75) -- (4.05, 7.75);
-  \node[dimlabel, above] at (3.75, 7.75) {$e_1 = 0{,}60$~m};
+  % ── COTA e1 (coronación alzado) ───────────────────────────────
+  \draw[thin, NavyBlue!40] (4.05, 8.10) -- (4.05, 8.60);
+  \draw[thin, NavyBlue!40] (4.65, 8.10) -- (4.65, 8.60);
+  \draw[dimarrow] (4.05, 8.55) -- (4.65, 8.55);
+  \node[dimlabel, above] at (4.35, 8.55) {$e_1 = 0{,}60$~m};
 
-  % ============================================================
-  % ETIQUETAS ESTRUCTURA
-  % ============================================================
-  \node[font=\bfseries\small] at (2.50, 0.40) {ZAPATA};
-  \node[font=\bfseries\scriptsize, rotate=90] at (3.75, 4.10) {FUSTE};
+  % ── ETIQUETAS ESTRUCTURA ─────────────────────────────────────
+  \node[font=\bfseries\small] at (2.80, 0.40) {ZAPATA};
+  \node[font=\bfseries\scriptsize, rotate=90] at (4.35, 4.45) {ALZADO};
 
-  % Etiquetas trasdós/intradós
   \node[font=\itshape\scriptsize, NavyBlue!80, anchor=east]
-       at (3.40, 2.30) {trasdós};
+       at (4.00, 2.50) {trasdós};
   \node[font=\itshape\scriptsize, BurntOrange!80, anchor=west]
-       at (4.15, 2.30) {intradós};
+       at (4.70, 2.50) {intradós};
 
-  % Etiquetas terreno
-  \node[font=\small\bfseries, BurntOrange!80]
-       at (1.00, 6.15) {Terreno retenido};
-  \node[font=\scriptsize, BurntOrange!80]
-       at (1.00, 5.75) {(no saturado)};
-  \node[font=\scriptsize\itshape, BurntOrange!80]
-       at (1.00, 3.00) {(saturado)};
-  \node[font=\scriptsize\itshape, BurntOrange!80]
-       at (5.90, 0.50) {terreno libre};
-
-  % Indicador de desnivel retenido (sólo informativo)
-  \draw[<->, >=Stealth, thin, gray!60]
-       (-0.9, 1.00) -- (-0.9, 7.30);
-  \node[font=\scriptsize, gray!70, fill=white, inner sep=1pt, rotate=90]
-       at (-1.05, 4.15) {Desnivel retenido: 6,30 m};
+  % ── ETIQUETAS TERRENO ────────────────────────────────────────
+  \node[font=\small\bfseries, BurntOrange!80] at (1.00, 7.00) {Terreno retenido};
+  \node[font=\scriptsize, BurntOrange!80]      at (1.00, 6.60) {(no saturado)};
+  \node[font=\scriptsize\itshape, BurntOrange!80] at (1.00, 3.20) {(saturado)};
+  \node[font=\scriptsize\itshape, BurntOrange!80] at (6.20, 0.50) {terreno libre};
 
 \end{tikzpicture}
 \caption{Sección transversal tipo del muro en ménsula
-         (dimensiones en m; N.F.\ a $-2{,}50$~m desde rasante trasdós;
-         empuje activo total $E_T = 25{,}78$~Tn/ml)}
+         ($B = 5{,}60$~m; altura libre $= 7{,}30$~m; $h_z = 0{,}80$~m;
+          N.F.\ a $-2{,}50$~m desde rasante trasdós;
+          $E_T = 25{,}78$~Tn/ml)}
 \label{fig:muro_seccion}
 \end{figure}
 
@@ -284,7 +270,7 @@ previstas en el diseño. Se dispondrá:
   \item \textbf{Geotextil} de separación entre la grava y el relleno, para
         evitar la colmatación.
   \item \textbf{Lámina impermeabilizante} (HDPE, $e \geq 1{,}5$~mm) sobre el
-        trasdós del fuste, adherida con imprimación bituminosa.
+        trasdós del alzado, adherida con imprimación bituminosa.
 \end{enumerate}
 
 \subsubsection{Juntas de dilatación}
@@ -310,7 +296,7 @@ nivelada. El HM-15 no se incluye en los cálculos estructurales.
 
 \subsubsection{Ejecución por tongadas}
 
-El hormigonado del fuste se realizará por \textbf{tongadas de 50~cm de
+El hormigonado del alzado se realizará por \textbf{tongadas de 50~cm de
 altura máxima}, mediante encofrado metálico a dos caras, con vibrado
 interno de cada tongada antes de verter la siguiente.
 

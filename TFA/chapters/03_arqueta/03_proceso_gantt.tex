@@ -1,0 +1,196 @@
+% ============================================================
+%  SECCIÓN — PROCESO CONSTRUCTIVO Y DIAGRAMA DE GANTT (ARQUETA)
+% ============================================================
+\section{Proceso constructivo y programación de obras}
+\label{sec:arqueta_proceso}
+
+% -----------------------------------------------------------
+\subsection{Descripción del proceso}
+% -----------------------------------------------------------
+
+La arqueta de fangos mezcla ($4{,}60 \times 3{,}60$~m en planta,
+$H_\text{ext}=4{,}10$~m) se ejecuta como una
+\textbf{estructura de hormigón armado in situ} en desmonte abierto,
+sin entibación ni contención provisional, dado el reducido volumen de
+excavación ($V_\text{exc}\approx 60$~m³) y la buena cohesión del
+estrato~E-1a (arena limosa).
+La cimentación es una losa superficial HA-30 a $D_f = 1{,}80$~m.
+
+No se requiere pilotaje: el asiento total estimado
+($s_\text{tot}=2{,}51$~cm $<$ 5~cm admisible) y la capacidad portante
+(FS$=15{,}2$) cumplen holgadamente con criterio de cimentación directa.
+
+Las etapas principales son:
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{Replanteo y trabajos previos.}
+    Marcado del perímetro de excavación con holgura de 0,70~m por lado,
+    señalización de obra y accesos para maquinaria.
+  \item \textbf{Excavación y hormigón de limpieza.}
+    Excavación a cielo abierto con retroexcavadora hasta la cota
+    $-(D_f + 0{,}10)~\text{m} = -1{,}90$~m.
+    Vertido de HM-15 ($e=0{,}10$~m) sobre el fondo saneado.
+  \item \textbf{Losa de cimentación.}
+    Ferrallado con B~500~SD (recubrimiento nominal 45~mm) y encofrado
+    perimetral. Hormigonado con HA-30/B/20/IIb+Qc.
+    Curado mínimo de \textbf{7~días} antes de alzar las paredes.
+  \item \textbf{Paredes perimetrales.}
+    Ferrallado de las cuatro paredes. Encofrado a dos caras (interior
+    y exterior). Hormigonado con HA-30 y curado mínimo de
+    \textbf{14~días} para garantizar resistencia suficiente antes
+    de cargar la tapa.
+  \item \textbf{Tapa superior.}
+    Montaje de cimbra y encofrado inferior. Ferrallado y hormigonado
+    de la tapa ($e=0{,}30$~m). Curado mínimo de 7~días.
+  \item \textbf{Desencofrado e impermeabilización.}
+    Retirada del encofrado interior y exterior. Aplicación del sistema
+    de impermeabilización en extradós: lámina HDPE $\geq 2$~mm
+    + geotextil 150~g/m² en todas las superficies enterradas
+    ($\approx 41$~m²).
+  \item \textbf{Relleno, compactación y prueba de estanqueidad.}
+    Relleno del trasdós con material seleccionado en tongadas de
+    30~cm, compactadas al 95\,\% Proctor modificado.
+    Prueba hidráulica de estanqueidad conforme a normativa
+    antes de la puesta en servicio.
+\end{enumerate}
+
+\begin{notabox}[Comparativa de plazos: arqueta vs.\ muro]
+  La arqueta ($4{,}60 \times 3{,}60$~m en planta,
+  $\approx 26$~m³ de HA-30 estructural)
+  requiere un plazo total de \textbf{12~semanas} frente a las
+  \textbf{31~semanas} del muro de contención
+  ($L = 150$~ml, $\approx 1\,190$~m³ de HA-30).
+  Los rendimientos adoptados son los mismos en ambas obras; la
+  diferencia de plazo refleja la diferencia de volumen de trabajo:
+  el muro tiene $\approx 45\times$ más hormigón estructural.
+  Contribuyen además a reducir el plazo de la arqueta la ausencia
+  de pilotaje (cimentación superficial) y el encofrado convencional
+  sin sistema trepante.
+\end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Cálculo de duraciones}
+\label{subsec:duraciones_arqueta}
+% -----------------------------------------------------------
+
+Las duraciones se obtienen dividiendo la medición de cada actividad
+entre el rendimiento de la cuadrilla correspondiente y redondeando
+al número entero de semanas por exceso.
+Se aplican los mismos rendimientos de referencia que en el muro
+(tabla~\ref{tab:actividades_arqueta}).
+
+\begin{table}[H]
+  \centering
+  \caption{Cálculo de duraciones por actividad --- arqueta de fangos mezcla}
+  \label{tab:actividades_arqueta}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}clccccc@{}}
+    \toprule
+    \textbf{ID} & \textbf{Actividad}
+      & \textbf{Medición} & \textbf{Rendimiento}
+      & \textbf{Días} & \textbf{Semanas} & \textbf{Pred.} \\
+    \midrule
+    A & Replanteo y trabajos previos
+      & ---
+      & ---
+      & 3 & 1 & --- \\
+    B & Excavación + HM-15 de limpieza
+      & 60~m³ / 1,7~m³
+      & 300 / 30~m³/día
+      & 1 & 1 & A \\
+    C & Ferrallado y encofrado de losa
+      & 400~kg / 5~m²
+      & 1\,000~kg/día\ /\ 40~m²/día
+      & 1 & 1 & B \\
+    D & Hormigonado y curado de losa
+      & 5,0~m³
+      & 30~m³/h $+$ 7~d~cur.
+      & 8 & 2 & C \\
+    E & Ferrallado y encofrado de paredes
+      & 1\,280~kg / 106~m²
+      & 1\,000~kg/día\ /\ 40~m²/día
+      & 4 & 2 & D* \\
+    F & Hormigonado y curado de paredes
+      & 16,0~m³
+      & 30~m³/h $+$ 14~d~cur.
+      & 15 & 2 & E \\
+    G & Ferrallado y encofrado de tapa
+      & 400~kg / 17~m²
+      & 1\,000~kg/día\ /\ 40~m²/día
+      & 1 & 1 & F \\
+    H & Hormigonado y curado de tapa
+      & 5,0~m³
+      & 30~m³/h $+$ 7~d~cur.
+      & 8 & 2 & G \\
+    I & Desencofrado e impermeabilización
+      & 106~m² / 41~m²
+      & 40 / 200~m²/día
+      & 3 & 1 & H \\
+    J & Relleno, compactación y prueba
+      & 47~m³
+      & 150~m³/día
+      & 2 & 1 & I\dag \\
+    \midrule
+    \multicolumn{5}{@{}l}{\textbf{PLAZO TOTAL (ruta crítica: A-B-C-D-E-F-G-H-I-J)}}
+      & \textbf{12} & \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\begin{notabox}[Notas sobre predecesoras y solapamientos]
+  \begin{itemize}[leftmargin=1.2em, itemsep=2pt]
+    \item[*] \textbf{E inicia con 1~semana de solape sobre D.}
+      El ferrallado de paredes puede comenzar durante la
+      última semana de curado de la losa (la resistencia
+      para recibir las cargas de montaje del encofrado de
+      paredes se alcanza antes de los 7~días completos).
+    \item[\dag] \textbf{J se solapa totalmente con el final de I.}
+      El relleno de trasdós y la prueba de estanqueidad
+      se ejecutan en paralelo con el desencofrado de la cara
+      exterior, dado el reducido volumen de trabajo de ambas
+      actividades ($< 2$~días cada una).
+  \end{itemize}
+\end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Diagrama de Gantt}
+\label{subsec:gantt_arqueta}
+% -----------------------------------------------------------
+
+La figura~\ref{fig:gantt_arqueta} recoge la programación sobre un
+horizonte de \textbf{12~semanas} ($\approx 3$~meses), con inicio en
+la semana~1 y finalización en la semana~12.
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{ganttchart}[
+    hgrid,
+    vgrid={*{1}{dotted}},
+    x unit=1.10cm,
+    y unit title=0.60cm,
+    y unit chart=0.55cm,
+    title label font=\bfseries\footnotesize,
+    bar label font=\footnotesize,
+    bar/.style={fill=BurntOrange!45, rounded corners=2pt},
+    bar label node/.append style={text width=4.4cm}
+  ]{1}{12}
+  \gantttitle{Programación de obras --- arqueta de fangos mezcla (semanas)}{12} \\
+  \gantttitlelist{1,...,12}{1} \\
+  \ganttbar{A -- Replanteo}{1}{1} \\
+  \ganttbar{B -- Excavaci\'{o}n + HM-15}{2}{2} \\
+  \ganttbar{C -- Ferr.\ + enc.\ losa}{3}{3} \\
+  \ganttbar{D -- Horm.\ + curado losa}{4}{5} \\
+  \ganttbar{E -- Ferr.\ + enc.\ paredes}{5}{6} \\
+  \ganttbar{F -- Horm.\ + curado paredes}{7}{8} \\
+  \ganttbar{G -- Ferr.\ + enc.\ tapa}{9}{9} \\
+  \ganttbar{H -- Horm.\ + curado tapa}{10}{11} \\
+  \ganttbar{I -- Desencof.\ + impermeab.}{12}{12} \\
+  \ganttbar{J -- Relleno + acabados}{12}{12}
+\end{ganttchart}%
+}
+\caption{Diagrama de Gantt del proceso constructivo de la arqueta de fangos mezcla
+         (plazo total: 12~semanas $\approx$ 3~meses).
+         Actividades I y J se ejecutan en paralelo en la semana~12.}
+\label{fig:gantt_arqueta}
+\end{figure}

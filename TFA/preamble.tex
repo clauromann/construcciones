@@ -13,7 +13,7 @@
 \usepackage[
   a4paper,
   top=2.5cm, bottom=2.5cm,
-  left=3cm,  right=2.5cm,
+  left=2.5cm, right=2.5cm,
   headheight=15pt
 ]{geometry}
 
@@ -75,6 +75,13 @@
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
+% --- Evitar que LaTeX estire espacios para igualar altura de páginas ---
+\raggedbottom
+
+% --- Profundidad del índice (incluye hasta \subsubsection) ---
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
 % --- Índice con hiperlinks ---
 \usepackage[
   colorlinks=true,
@@ -110,6 +117,9 @@
 \usepackage{csquotes}   % requerido por biblatex con babel
 \usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
 \addbibresource{referencias.bib}
+
+% --- Inclusión de PDFs externos (cálculos manuales escaneados) ---
+\usepackage{pdfpages}
 
 % --- Código fuente (por si se incluyen scripts de cálculo) ---
 \usepackage{listings}

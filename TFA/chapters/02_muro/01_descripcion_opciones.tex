@@ -18,8 +18,8 @@ posibles para la contención.
 \subsubsection{Descripción de la tipología}
 
 El \textbf{muro de contención en ménsula} es una estructura de hormigón
-armado compuesta por un \emph{fuste} en voladizo y una \emph{zapata corrida}
-enterrada. El fuste actúa como ménsula empotrada en la zapata; el peso propio
+armado compuesta por un \emph{alzado} en voladizo y una \emph{zapata corrida}
+enterrada. El alzado actúa como ménsula empotrada en la zapata; el peso propio
 del muro y el de las tierras situadas sobre el talón de la zapata son los
 principales mecanismos estabilizadores. Se adopta la variante de \textbf{muro
 en T invertida} (con talón largo hacia el trasdós), que optimiza la
@@ -32,7 +32,7 @@ vuelco y al deslizamiento.
 Se aplican las reglas empíricas habituales para muros en ménsula de hormigón
 armado con altura $H = 7{,}30$~m. A continuación se justifica cada dimensión adoptada.
 
-\paragraph{Espesores del fuste.}
+\paragraph{Espesores del alzado.}
 
 \begin{align}
   e_1 &= \frac{H}{12} = \frac{7{,}3}{12} = 0{,}61~\text{m}
@@ -45,7 +45,7 @@ armado con altura $H = 7{,}30$~m. A continuación se justifica cada dimensión a
 
 El espesor en coronación ($e_1 = H/12$) es el mínimo necesario para alojar la
 armadura con los recubrimientos reglamentarios (50~mm) y garantizar la
-trabajabilidad del hormigón durante el vertido. El espesor en la base del fuste
+trabajabilidad del hormigón durante el vertido. El espesor en la base del alzado
 ($e_2 = H/10$) se incrementa para resistir el cortante y el momento flector
 máximos, que aparecen en la sección de empotramiento con la zapata.
 
@@ -58,7 +58,7 @@ máximos, que aparecen en la sección de empotramiento con la zapata.
 \end{equation}
 
 Se redondea al alza hasta $h_z = 0{,}80$~m para cumplir la condición
-$h_z \geq e_2$, que asegura el empotramiento correcto del fuste en la zapata
+$h_z \geq e_2$, que asegura el empotramiento correcto del alzado en la zapata
 sin singularidades de armado ni concentraciones de tensión en la esquina.
 
 \paragraph{Profundidad de cimentación.}
@@ -86,7 +86,7 @@ estabilidad al vuelco y al deslizamiento en los apartados siguientes.
 
 \paragraph{Vuelo de puntera y ancho de talón.}
 
-El vuelo de puntera se fija igual al espesor de la base del fuste
+El vuelo de puntera se fija igual al espesor de la base del alzado
 ($B_\text{punta} \approx e_2$), valor mínimo que permite anclar correctamente
 el armado inferior de la zapata:
 \begin{equation*}
@@ -123,12 +123,12 @@ frente al vuelco, minimizando la necesidad de aumentar el vuelo de puntera.
     Espesor en coronación
       & $e_1$ & $H/12$ & 0{,}60~m
       & Mínimo constructivo: aloja armadura con recubrimiento de 50~mm. \\[4pt]
-    Espesor en base del fuste
+    Espesor en base del alzado
       & $e_2$ & $H/10$ & 0{,}75~m
       & Resistencia a cortante y flexión en la sección de empotramiento. \\[4pt]
     Canto de zapata
       & $h_z$ & $H/10$ & 0{,}80~m
-      & Redondeo al alza para cumplir $h_z \geq e_2$ (empotramiento fuste). \\[4pt]
+      & Redondeo al alza para cumplir $h_z \geq e_2$ (empotramiento alzado). \\[4pt]
     Prof.\ cimentación (a base)
       & $D_f$ & — & 1{,}00~m
       & $> 0{,}50$~m reglamentario; deja 1{,}50~m sobre NF; protege la puntera. \\[4pt]
@@ -169,7 +169,7 @@ trasdós). El brazo de los elementos situados sobre el talón vale:
   M_p &= 8{,}00 \times 2{,}00 = \resultado{16{,}00~\text{Tn·m/ml}}
 \end{align*}
 
-\paragraph{B) Fuste (sección trapezoidal):}
+\paragraph{B) Alzado (sección trapezoidal):}
 
 Se descompone la sección en un rectángulo ($e_1 \times H$) más un triángulo
 (ensanchamiento $(e_2 - e_1) \times H / 2$):
@@ -233,7 +233,7 @@ Para obtener el brazo $\bar{x}_f$ se pondera cada subcomponente:
     \textbf{Elemento} & $N$ \textbf{(Tn/ml)} & $x$ \textbf{(m)} & $M_s$ \textbf{(Tn·m/ml)} \\
     \midrule
     Zapata ($4{,}00 \times 0{,}80$~m)          & 8{,}00  & 2{,}00 & 16{,}00 \\
-    Fuste (trapezoidal)                          & 12{,}32 & 1{,}07 & 13{,}18 \\
+    Alzado (trapezoidal)                          & 12{,}32 & 1{,}07 & 13{,}18 \\
     Tierra no saturada ($h = 2{,}50$~m)         & 11{,}15 & 2{,}78 & 31{,}00 \\
     Tierra saturada ($h = 4{,}80$~m)            & 23{,}30 & 2{,}78 & 64{,}77 \\
     Sobrecarga tráfico ($q = 1$~Tn/m²)          & 2{,}45  & 2{,}78 &  6{,}81 \\
@@ -495,16 +495,16 @@ puntera, gracias al drenaje del intradós.
     \textbf{Elemento} & $N$ \textbf{(Tn/ml)} & $x$ \textbf{(m)} & $M_s$ \textbf{(Tn·m/ml)} \\
     \midrule
     Zapata ($5{,}60 \times 0{,}80$)       & $+$11{,}20 & 2{,}80 & $+$31{,}36 \\
-    Fuste (trapezoidal)                    & $+$12{,}32 & 1{,}07 & $+$13{,}18 \\
+    Alzado (trapezoidal)                   & $+$12{,}32 & 1{,}07 & $+$13{,}18 \\
     Tierra no saturada ($h=2{,}50$~m)     & $+$18{,}45 & 3{,}58 & $+$65{,}96 \\
     Tierra saturada ($h=4{,}80$~m)        & $+$38{,}49 & 3{,}58 & $+$137{,}60 \\
     Sobrecarga tráfico ($q=1$~Tn/m²)      & $+$4{,}05  & 3{,}58 & $+$14{,}48 \\
     \midrule
     Subtotal (sin subpresión)              & 84{,}51    & —      & 262{,}58 \\
     \midrule
-    ($-$)~Subpresión $N_{s,w}$ ($\uparrow$) & $-$15{,}68 & 3{,}73 & $-$58{,}54 \\
+    ($-$)~Subpresión $N_{s,w}$ ($\uparrow$) & $-$15{,}68 & 3{,}73 & $+$58{,}54 \\
     \midrule
-    \textbf{TOTAL} & $\mathbf{N_T = 68{,}80}$ & — & $\mathbf{M_s = 203{,}96}$ \\
+    \textbf{TOTAL} & $\mathbf{N_T = 68{,}80}$ & — & $\mathbf{M_s = 262{,}50}$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -531,7 +531,7 @@ puntera, gracias al drenaje del intradós.
 
 \begin{equation}
   FS_\text{vuelco} = \frac{\sum M_s}{\sum M_v}
-    = \frac{203{,}96}{74{,}77} = \resultado{2{,}73 \geq 1{,}80 \quad \checkmark~\text{CUMPLE}}
+    = \frac{262{,}50}{74{,}77+58{,}54} = \resultado{1{,}97 \geq 1{,}80 \quad \checkmark~\text{CUMPLE}}
   \label{eq:fs_vuelco_5m}
 \end{equation}
 
@@ -650,7 +650,7 @@ Comprobación del núcleo central (tercio medio):
     \midrule
     Vuelco ($B=4{,}00$~m, ref.) & 1{,}76 & $\geq 1{,}80$ & \textbf{NO CUMPLE} \\
     \midrule
-    Vuelco ($B=5{,}60$~m) & 2{,}73 & $\geq 1{,}80$ & \checkmark \textbf{CUMPLE} \\
+    Vuelco ($B=5{,}60$~m) & 1{,}97 & $\geq 1{,}80$ & \checkmark \textbf{CUMPLE} \\
     Deslizamiento & 1{,}88 & $\geq 1{,}50$ & \checkmark \textbf{CUMPLE} \\
     Núcleo central ($x_R$) & 1{,}88~m & $\geq B/3 = 1{,}87$~m & \checkmark \textbf{CUMPLE} \\
     Hundimiento ($\sigma_\text{med}$) & 1{,}23~kg/cm² & $\leq 2{,}00$ & \checkmark \textbf{CUMPLE} \\
@@ -659,7 +659,296 @@ Comprobación del núcleo central (tercio medio):
 \end{table}
 
 % -----------------------------------------------------------
+\subsection{Capacidad portante según Brinch-Hansen — corto plazo}
+\label{subsec:hundimiento_brinch}
+% -----------------------------------------------------------
+
+La comprobación anterior mediante $\sigma_\text{adm}$ es un criterio simplificado.
+A continuación se realiza la verificación rigurosa de la \textbf{capacidad portante
+al hundimiento} aplicando la fórmula general de Brinch-Hansen recogida en el
+\textbf{CTE DB SE-C, Anejo F}:
+
+\begin{equation}
+  q_h = c_k\,N_c\,d_c\,s_c\,i_c\,t_c
+       + q_{0k}\,N_q\,d_q\,s_q\,i_q\,t_q
+       + \tfrac{1}{2}\,B^*\,\gamma_k\,N_\gamma\,d_\gamma\,s_\gamma\,i_\gamma\,t_\gamma
+  \label{eq:brinch_hansen}
+\end{equation}
+
+\subsubsection{Estrato de apoyo y parámetros resistentes}
+
+La base de la zapata se sitúa a $D = 1{,}00$~m bajo la rasante del intradós
+(véase sección~\ref{subsubsec:proceso_constructivo_mensula}).
+Medido desde la rasante del \textbf{trasdós} (cota de referencia del sondeo),
+la cota de apoyo es:
+\[
+  z_\text{cim} = H + h_z + D = 7{,}30 + 0{,}80 + 1{,}00 = 9{,}10~\text{m}
+\]
+
+Esta cota queda $0{,}30$~m dentro del \textbf{estrato~3 (arcillas margosas)},
+que comienza a $-8{,}00$~m. Se adoptan los parámetros de dicho estrato, más
+resistente que las arcillas versicolores superiores:
+
+\begin{supuestobox}[Parámetros de resistencia — arcillas margosas (estrato~3)]
+  \begin{itemize}
+    \item Carga rápida / corto plazo: análisis en términos de \textbf{tensión total}
+          ($\varphi_u = 0$)
+    \item $c_k = c_u = 1{,}52$~kg/cm² $= \mathbf{15{,}2}$~Tn/m²
+    \item $\gamma_\text{sat} = 1{,}92$~Tn/m³
+  \end{itemize}
+\end{supuestobox}
+
+\subsubsection{Factores de capacidad portante ($\varphi_u = 0$)}
+
+En el análisis no drenado se cumple $\varphi_u = 0$, con lo que los factores de
+capacidad portante quedan fijados por el formulario (Anejo F, tabla F.1):
+
+\begin{equation*}
+  N_c = 5{,}14 \qquad N_q = 1 \qquad N_\gamma = 0
+\end{equation*}
+
+El tercer término de la ecuación~\eqref{eq:brinch_hansen} \textbf{desaparece} al
+ser $N_\gamma = 0$.
+
+\subsubsection{Dimensiones equivalentes — excentricidad}
+
+La resultante de fuerzas verticales no actúa en el centro geométrico de la zapata
+debido a los momentos desequilibrados. Se calculan las \textbf{dimensiones
+equivalentes} $B^*$ y $L^*$ que caracterizan el área efectiva de contacto.
+
+La posición de la resultante respecto a la punta se obtiene del balance de
+momentos (con subpresión incluida):
+\begin{align*}
+  x_R &= \frac{\Sigma M_s - M_\text{subp} - M_T}{\Sigma N}
+       = \frac{262{,}50 - 58{,}54 - 74{,}77}{68{,}83}
+       = \frac{129{,}19}{68{,}83} = 1{,}88~\text{m}
+\end{align*}
+
+La excentricidad respecto al centro de la zapata es:
+\begin{equation}
+  e = \frac{B}{2} - x_R = \frac{5{,}60}{2} - 1{,}88 = 2{,}80 - 1{,}88
+    = \resultado{0{,}92~\text{m}}
+  \label{eq:excentricidad_mensula}
+\end{equation}
+
+No existe excentricidad longitudinal ($e_L = 0$) al tratarse de una estructura
+uniforme de $L = 150$~ml. Las dimensiones equivalentes resultan:
+\begin{align}
+  B^* &= B - 2\,e = 5{,}60 - 2 \times 0{,}92 = \resultado{3{,}76~\text{m}}
+        \label{eq:B_estrella} \\
+  L^* &= L - 2\,e_L = 150 - 0 = 150~\text{m}
+        \label{eq:L_estrella}
+\end{align}
+
+\subsubsection{Justificación de factores correctores}
+
+\paragraph{Factores de profundidad ($d_c,\, d_q,\, d_\gamma$):}
+El CTE establece que \emph{«no se deben emplear los factores de corrección~$d$
+para profundidades $D$ menores de 2~m»}. Dado que $D = 1{,}00$~m $< 2$~m:
+\[
+  d_c = d_q = d_\gamma = 1
+\]
+
+\paragraph{Factores de forma ($s_c,\, s_q,\, s_\gamma$):}
+El muro tiene longitud $L^* = 150$~m $\gg B^* = 3{,}76$~m (cimentación en
+franja/zapata corrida). Aplicando la expresión del formulario:
+\[
+  s_c = 1 + 0{,}2\,\frac{B^*}{L^*}
+      = 1 + 0{,}2 \times \frac{3{,}76}{150} = 1{,}005 \approx 1
+  \qquad \Rightarrow \quad s_c = s_q = s_\gamma = 1
+\]
+
+\paragraph{Factores de inclinación de carga ($i_c,\, i_q,\, i_\gamma$):}
+La comprobación al deslizamiento se realiza de forma independiente
+(sección~\ref{subsec:deslizamiento}). En el cálculo de la capacidad portante se
+considera carga vertical pura:
+\[
+  i_c = i_q = i_\gamma = 1
+\]
+
+\paragraph{Factores de inclinación del terreno ($t_c,\, t_q,\, t_\gamma$):}
+La superficie de apoyo es horizontal ($\beta = 0°$):
+\[
+  t_c = t_q = t_\gamma = 1
+\]
+
+\subsubsection{Sobrecarga al nivel de cimentación ($q_{0k}$)}
+
+Se considera la presión vertical \textbf{total} del suelo en el lado del intradós
+(D = 1,00 m), donde la carga de confinamiento es mínima. El tramo de 1,00 m
+atraviesa parcialmente el estrato~2 (arcillas versicolores, $0{,}70$~m) y el
+estrato~3 (arcillas margosas, $0{,}30$~m), ambos saturados:
+\begin{align*}
+  q_{0k} &= \gamma_{\text{sat},2}\,\times\,0{,}70
+           + \gamma_{\text{sat},3}\,\times\,0{,}30 \\
+         &= 1{,}78 \times 0{,}70 + 1{,}92 \times 0{,}30
+          = 1{,}25 + 0{,}58 = \resultado{1{,}82~\text{Tn/m}^2}
+\end{align*}
+
+\begin{notabox}
+  El suelo sobre el talón (trasdós) ya está contabilizado en la fuerza vertical
+  $\Sigma N = 68{,}83$~Tn/ml. Usarlo también en $q_{0k}$ implicaría doble
+  contabilidad, por lo que se adopta únicamente la presión del intradós.
+\end{notabox}
+
+\subsubsection{Cálculo de la capacidad portante}
+
+Sustituyendo en la ecuación~\eqref{eq:brinch_hansen} con todos los factores
+correctores igual a la unidad y el tercer término nulo ($N_\gamma = 0$):
+
+\begin{align}
+  q_h &= c_u \cdot N_c \cdot 1 \cdot 1 \cdot 1 \cdot 1
+        + q_{0k} \cdot N_q \cdot 1 \cdot 1 \cdot 1 \cdot 1
+        + 0 \nonumber \\
+      &= 15{,}2 \times 5{,}14 + 1{,}82 \times 1 \nonumber \\
+      &= 78{,}1 + 1{,}8
+       = \resultado{79{,}9~\text{Tn/m}^2}
+  \label{eq:qh_CP}
+\end{align}
+
+La presión de contacto equivalente aplicada (carga vertical entre área efectiva):
+\begin{equation}
+  q_{0,\text{ap}} = \frac{\Sigma N}{B^*}
+                  = \frac{68{,}83}{3{,}76}
+                  = \resultado{18{,}30~\text{Tn/m}^2}
+  \label{eq:q_aplicada}
+\end{equation}
+
+\subsubsection{Factor de seguridad}
+
+\begin{equation}
+  FS_\text{CP} = \frac{q_h}{q_{0,\text{ap}}}
+               = \frac{79{,}9}{18{,}30}
+               = \resultado{4{,}37 \geq 3{,}0 \quad \checkmark~\textbf{CUMPLE}}
+  \label{eq:fs_hundimiento_CP}
+\end{equation}
+
+La capacidad portante a corto plazo queda verificada con amplio margen de
+seguridad, lo que es coherente con las elevadas cohesiones no drenadas de las
+arcillas margosas del estrato~3.
+
+% -----------------------------------------------------------
+\subsection{Capacidad portante según Brinch-Hansen — largo plazo}
+\label{subsec:hundimiento_brinch_LP}
+% -----------------------------------------------------------
+
+El análisis a \textbf{largo plazo} se realiza en términos de \textbf{tensiones
+efectivas} ($\varphi',\,c'$), una vez disipadas las presiones intersticiales de
+construcción. Se emplea la misma expresión general~\eqref{eq:brinch_hansen}.
+
+\subsubsection{Parámetros resistentes drenados — estrato~3}
+
+\begin{supuestobox}[Parámetros drenados — arcillas margosas (estrato~3)]
+  \begin{itemize}
+    \item $\varphi' = 26°$
+    \item $c' = 0{,}78$~kg/cm² $= \mathbf{7{,}8}$~Tn/m²
+    \item $\gamma_{\text{sat}} = 1{,}92$~Tn/m³;
+          $\gamma' = \gamma_{\text{sat}} - \gamma_w = 1{,}92 - 1{,}00
+          = 0{,}92$~Tn/m³
+  \end{itemize}
+\end{supuestobox}
+
+\subsubsection{Factores de capacidad portante ($\varphi' = 26°$)}
+
+\begin{align}
+  N_q &= e^{\pi\tan\varphi'}\cdot\tan^2\!\left(45+\tfrac{\varphi'}{2}\right)
+       = e^{\pi\times 0{,}488}\cdot\tan^2(58°)
+       = 4{,}63 \times 2{,}561 = \resultado{11{,}85}
+       \label{eq:Nq_LP} \\[4pt]
+  N_c &= (N_q - 1)\cot\varphi'
+       = \frac{10{,}85}{0{,}488} = \resultado{22{,}25}
+       \label{eq:Nc_LP} \\[4pt]
+  N_\gamma &= 1{,}5\,(N_q - 1)\,\tan\varphi'
+            = 1{,}5 \times 10{,}85 \times 0{,}488
+            = \resultado{7{,}94}
+       \label{eq:Ng_LP}
+\end{align}
+
+En este caso el tercer término \textbf{no es nulo} al ser $N_\gamma \neq 0$.
+
+\subsubsection{Factores correctores}
+
+Los factores correctores se justifican de forma idéntica al análisis a corto
+plazo (apartado~\ref{subsec:hundimiento_brinch}): $D = 1$~m $< 2$~m,
+$L^* \gg B^*$, carga vertical, base horizontal.
+
+\[
+  d_c = d_q = d_\gamma = 1 \qquad
+  s_c = s_q = s_\gamma = 1 \qquad
+  i_c = i_q = i_\gamma = 1 \qquad
+  t_c = t_q = t_\gamma = 1
+\]
+
+Las dimensiones equivalentes son las mismas: $B^* = 3{,}76$~m,
+$L^* = 150$~m (la excentricidad no varía con el tipo de análisis).
+
+\subsubsection{Sobrecarga efectiva al nivel de cimentación ($q'_{0k}$)}
+
+En el análisis drenado se emplea la \textbf{tensión vertical efectiva} en el
+intradós. El tramo de 1,00~m se encuentra íntegramente por debajo del nivel
+freático ($\text{NF} = -2{,}50$~m desde rasante trasdós, muy por encima de la
+cota de cimentación), por lo que se usan pesos sumergidos:
+
+\begin{align*}
+  q'_{0k} &= \gamma'_2 \times 0{,}70 + \gamma'_3 \times 0{,}30 \\
+           &= 0{,}78 \times 0{,}70 + 0{,}92 \times 0{,}30
+            = 0{,}55 + 0{,}28 = \resultado{0{,}82~\text{Tn/m}^2}
+\end{align*}
+
+El peso unitario $\gamma_k$ que interviene en el término de $N_\gamma$ es
+igualmente el sumergido: $\gamma_k = \gamma'_3 = 0{,}92$~Tn/m³.
+
+\subsubsection{Cálculo de la capacidad portante}
+
+\begin{align}
+  q_h &= c'\cdot N_c + q'_{0k}\cdot N_q
+        + \tfrac{1}{2}\,B^*\,\gamma'_3\,N_\gamma \nonumber \\
+      &= 7{,}8 \times 22{,}25
+       + 0{,}82 \times 11{,}85
+       + 0{,}5 \times 3{,}76 \times 0{,}92 \times 7{,}94 \nonumber \\
+      &= 173{,}6 + 9{,}7 + 13{,}7
+       = \resultado{197{,}0~\text{Tn/m}^2}
+  \label{eq:qh_LP}
+\end{align}
+
+La presión aplicada es la misma que en el análisis a corto plazo
+(ec.~\eqref{eq:q_aplicada}): $q_{0,\text{ap}} = 18{,}30$~Tn/m².
+
+\subsubsection{Factor de seguridad}
+
+\begin{equation}
+  FS_\text{LP} = \frac{q_h}{q_{0,\text{ap}}}
+               = \frac{197{,}0}{18{,}30}
+               = \resultado{10{,}77 \geq 3{,}0 \quad \checkmark~\textbf{CUMPLE}}
+  \label{eq:fs_hundimiento_LP}
+\end{equation}
+
+El factor de seguridad a largo plazo es muy superior al mínimo exigido. Los
+elevados valores de cohesión efectiva ($c' = 7{,}8$~Tn/m²) y ángulo de
+rozamiento ($\varphi' = 26°$) de las arcillas margosas confieren al terreno una
+capacidad portante muy holgada frente a la carga transmitida por el muro.
+
+\begin{table}[H]
+  \centering
+  \caption{Resumen de capacidad portante — Brinch-Hansen (muro ménsula, $B=5{,}60$~m)}
+  \label{tab:brinch_resumen}
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Análisis} & $q_h$ \textbf{(Tn/m²)}
+    & $q_{0,\text{ap}}$ \textbf{(Tn/m²)}
+    & \textbf{FS} & \textbf{Estado} \\
+    \midrule
+    Corto plazo ($\varphi_u = 0$, $c_u = 15{,}2$~Tn/m²)
+      & 79{,}9 & 18{,}3 & 4{,}37 & \checkmark \textbf{CUMPLE} \\
+    Largo plazo ($\varphi' = 26°$, $c' = 7{,}8$~Tn/m²)
+      & 197{,}0 & 18{,}3 & 10{,}77 & \checkmark \textbf{CUMPLE} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% -----------------------------------------------------------
 \subsubsection{Proceso constructivo del muro en ménsula}
+\label{subsubsec:proceso_constructivo_mensula}
 % -----------------------------------------------------------
 
 \begin{enumerate}
@@ -667,9 +956,9 @@ Comprobación del núcleo central (tercio medio):
         bajo rasante intradós), con entibación ligera si procede.
   \item Ejecución del \textbf{hormigón de limpieza} HM-15 ($e=10$~cm) sobre el
         fondo de excavación.
-  \item Colocación de la \textbf{armadura} de la zapata y del arranque del fuste.
-  \item Hormigonado de la zapata con HA-30/B/20/IIb+QA con cemento SR.
-  \item Encofrado y hormigonado del \textbf{fuste} por tongadas de \mbox{$\sim$3~m},
+  \item Colocación de la \textbf{armadura} de la zapata y del arranque del alzado.
+  \item Hormigonado de la zapata con HA-30/B/20/IIb+Qc con cemento SR.
+  \item Encofrado y hormigonado del \textbf{alzado} por tongadas de \mbox{$\sim$3~m},
         con vibrado y curado.
   \item Instalación del sistema de \textbf{drenaje} del trasdós: lámina
         geotextil filtrante + capa de grava ($\varnothing$~20--40~mm) + tubo
@@ -1028,6 +1317,13 @@ empotramiento.
             en caso de vertido accidental.
       \item Necesidad de anclajes activos que invaden el trasdós; en una EDAR
             con instalaciones subterráneas esto puede ser inviable.
+      \item \textbf{Distancia de empotramiento excesiva.} El equilibrio de
+            momentos exige $t = 14{,}68$~m de empotramiento, lo que resulta
+            en una longitud total de pantalla de $L = 24{,}92$~m. Esta
+            profundidad obliga a penetrar profundamente en las arcillas
+            margosas (estrato~3), encarece notablemente la excavación con
+            lodos e incrementa el riesgo geotécnico asociado a la
+            perforación de estratos cohesivos de baja permeabilidad.
     \end{itemize}
 \end{description}
 
@@ -1046,7 +1342,7 @@ pilotes: 50~€/m³ excavación + 105~€/m³ hormigón + 1{,}40~€/kg acero).
   Se adopta una cuantía de \textbf{120~kg/m³} para la pantalla y de
   \textbf{90~kg/m³} para el muro en ménsula. La pantalla requiere mayor
   densidad de armado porque trabaja como elemento en voladizo de gran longitud
-  ($L = 24{,}92$~m) sometido a momentos flectores muy superiores a los del fuste
+  ($L = 24{,}92$~m) sometido a momentos flectores muy superiores a los del alzado
   del muro en ménsula ($H = 7{,}30$~m empotrado en la zapata).
 \end{notabox}
 
@@ -1210,7 +1506,7 @@ Pilotes CPI ($D = 0{,}45$~m, $L = 0{,}5$~m), 1~pilote/ml, total 150~pilotes:
           (tubo dren $\varnothing\,100$ + geotextil + grava). 
 
     \item \textbf{Compatibilidad con la agresividad por sulfatos.}
-          La especificación HA-30/SR resuelve la clase de exposición QA
+          La especificación HA-30/SR resuelve la clase de exposición Qc
           sin complejidades adicionales.
 
     \item \textbf{Economía y plazo.} El coste estimado del muro más

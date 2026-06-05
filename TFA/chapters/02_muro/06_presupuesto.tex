@@ -39,8 +39,8 @@ del proceso constructivo (sección~\ref{sec:muro_proceso}):
   L_{\mathrm{pil}}    &= N_\text{pil} \times L_\text{pil}
                        = 150 \times 8{,}0
                        = \mathbf{1\,200~\text{m}}
-                       \quad \text{(1 pilote/ml, $D=0{,}45$~m, hasta arcillas margosas)}
 \end{align*}
+\noindent\small(1~pilote/ml, $D=0{,}45$~m, longitud hasta arcillas margosas)\normalsize
 
 % -----------------------------------------------------------
 \subsection{Precios unitarios de referencia}
@@ -70,13 +70,24 @@ del proceso constructivo (sección~\ref{sec:muro_proceso}):
 \end{table}
 
 % -----------------------------------------------------------
-\subsection{Cuadro de precios descompuesto}
+\subsection{Resumen de presupuesto por capítulos}
 \label{subsec:presupuesto}
 % -----------------------------------------------------------
 
+Conforme a la estructura de presupuesto establecida en obra civil, las
+unidades de obra se agrupan en \textbf{capítulos homogéneos}, cada uno valorado
+como la suma de sus unidades (medición~$\times$~precio unitario). El precio unitario
+recoge los costes directos (mano de obra, materiales y maquinaria imputables a
+la unidad) más un porcentaje de costes indirectos (personal de obra,
+instalaciones y consumos generales). El \textbf{Presupuesto de Ejecución
+Material (PEM)} resulta de la suma de todos los capítulos, incluido el de
+\emph{Seguridad y Salud} (aprox.\ $1$~\% s/PEM), que debe figurar expresamente
+como capítulo independiente.
+
 \begin{table}[H]
   \centering
-  \caption{Presupuesto de ejecución del muro de contención ($L = 150$~ml)}
+  \caption{Presupuesto de ejecución del muro de contención ($L = 150$~ml) —
+           resumen por capítulos}
   \label{tab:presupuesto_muro}
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{@{}clcccc@{}}
@@ -84,45 +95,64 @@ del proceso constructivo (sección~\ref{sec:muro_proceso}):
     \textbf{N.º} & \textbf{Descripción} & \textbf{Ud.}
     & \textbf{Medición} & \textbf{P.U. (\euro)} & \textbf{Total (\euro)} \\
     \midrule
-    1 & Excavación a máquina                & m³ & 1\,938  &   3{,}00  &    5\,814 \\
-    2 & Hormigón de limpieza HM-15          & m³ &    84   &  80{,}00  &    6\,720 \\
-    3 & Hormigón HA-30 (zapata + fuste)     & m³ & 1\,331  & 105{,}00  &  139\,755 \\
-    4 & Acero B~500~SD en armaduras         & kg & 31\,050 &   1{,}40  &   43\,470 \\
-    5 & Encofrado fuste (doble cara)        & m² & 1\,950  &  65{,}00  &  126\,750 \\
-    6 & Encofrado zapata (caras laterales)  & m² &   240   &  65{,}00  &   15\,600 \\
-    7 & Impermeabilización HDPE trasdós     & m² &   975   &  18{,}00  &   17\,550 \\
-    8 & Lámina drenante + geotextil         & m² &   975   &   8{,}00  &    7\,800 \\
-    9 & Tubo dren Ø~100~mm                  & ml &   150   &   8{,}00  &    1\,200 \\
-   10 & Relleno y compact.\ trasdós         & m³ & 3\,949  &   2{,}50  &    9\,873 \\
-   11 & Pilotes CPI $D=0{,}45$~m, $L=8$~m  & m  & 1\,200  &  85{,}00  &  102\,000 \\
+    \multicolumn{6}{@{}l}{\textbf{CAPÍTULO 1 — MOVIMIENTO DE TIERRAS}} \\
+    1.1 & Excavación a máquina en terreno cohesivo & m³ & 1\,938 &   3{,}00 &    5\,814 \\
+    \multicolumn{5}{r}{\textit{Subtotal cap.~1}} & \textit{5\,814} \\[4pt]
+
+    \multicolumn{6}{@{}l}{\textbf{CAPÍTULO 2 — CIMENTACIONES}} \\
+    2.1 & Hormigón de limpieza HM-15              & m³ &    84   &  80{,}00 &    6\,720 \\
+    2.2 & Pilotes CPI $D=0{,}45$~m, $L=8$~m      & m  & 1\,200  &  85{,}00 &  102\,000 \\
+    \multicolumn{5}{r}{\textit{Subtotal cap.~2}} & \textit{108\,720} \\[4pt]
+
+    \multicolumn{6}{@{}l}{\textbf{CAPÍTULO 3 — ESTRUCTURA (MURO EN MÉNSULA)}} \\
+    3.1 & Hormigón HA-30 (zapata + alzado)        & m³ & 1\,331  & 105{,}00 &  139\,755 \\
+    3.2 & Acero B~500~SD en armaduras             & kg & 31\,050 &   1{,}40 &   43\,470 \\
+    3.3 & Encofrado metálico alzado (doble cara)  & m² & 1\,950  &  65{,}00 &  126\,750 \\
+    3.4 & Encofrado metálico zapata               & m² &   240   &  65{,}00 &   15\,600 \\
+    \multicolumn{5}{r}{\textit{Subtotal cap.~3}} & \textit{325\,575} \\[4pt]
+
+    \multicolumn{6}{@{}l}{\textbf{CAPÍTULO 4 — IMPERMEABILIZACIÓN Y DRENAJE}} \\
+    4.1 & Impermeabilización HDPE trasdós $e \geq 2$~mm & m² &   975 &  18{,}00 &   17\,550 \\
+    4.2 & Lámina drenante nodular + geotextil     & m² &   975   &   8{,}00 &    7\,800 \\
+    4.3 & Tubo dren flexible Ø~100~mm + grava     & ml &   150   &   8{,}00 &    1\,200 \\
+    \multicolumn{5}{r}{\textit{Subtotal cap.~4}} & \textit{26\,550} \\[4pt]
+
+    \multicolumn{6}{@{}l}{\textbf{CAPÍTULO 5 — RELLENO DEL TRASDÓS}} \\
+    5.1 & Relleno y compactación trasdós (zahorra) & m³ & 3\,949 &   2{,}50 &    9\,873 \\
+    \multicolumn{5}{r}{\textit{Subtotal cap.~5}} & \textit{9\,873} \\[4pt]
+
+    \multicolumn{6}{@{}l}{\textbf{CAPÍTULO 6 — SEGURIDAD Y SALUD}} \\
+    6.1 & Estudio de Seguridad y Salud            & pa &     1   & 4\,765   &    4\,765 \\
+    \multicolumn{5}{r}{\textit{Subtotal cap.~6}} & \textit{4\,765} \\
+
     \midrule
     \multicolumn{5}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN MATERIAL (PEM)}}
-      & \textbf{476\,532} \\
+      & \textbf{481\,297} \\
     \multicolumn{5}{r}{Gastos generales (13\,\%)}
-      & 61\,949 \\
+      & 62\,569 \\
     \multicolumn{5}{r}{Beneficio industrial (6\,\%)}
-      & 28\,592 \\
+      & 28\,878 \\
     \midrule
-    \multicolumn{5}{r}{\textbf{Subtotal sin IVA}}
-      & \textbf{567\,073} \\
+    \multicolumn{5}{r}{\textbf{Subtotal sin IVA (PEC s/IVA)}}
+      & \textbf{572\,744} \\
     \multicolumn{5}{r}{IVA (21\,\%)}
-      & 119\,085 \\
+      & 120\,276 \\
     \midrule
     \multicolumn{5}{r}{\textbf{PRESUPUESTO DE EJECUCIÓN POR CONTRATA (PEC)}}
-      & \textbf{686\,158} \\
+      & \textbf{693\,020} \\
     \bottomrule
   \end{tabular}}
 \end{table}
 
-\begin{notabox}[Coste unitario por ml de muro]
-  PEM por metro lineal de muro (incluyendo pilotes):
-  $476\,532 \div 150 = \mathbf{3\,177~\text{\euro/ml}}$.
+\begin{notabox}[Coste unitario y partidas relevantes]
+  PEM por metro lineal de muro (incluyendo pilotes y Seguridad y Salud):
+  $481\,297 \div 150 = \mathbf{3\,209~\text{\euro/ml}}$.
   Las partidas más significativas son el \textbf{hormigón HA-30} (29\,\% del PEM),
-  el \textbf{encofrado del fuste} (27\,\%), los \textbf{pilotes CPI} (21\,\%) y el
+  el \textbf{encofrado del alzado} (26\,\%), los \textbf{pilotes CPI} (21\,\%) y el
   \textbf{acero} (9\,\%).
   La partida de pilotaje supone el \textbf{21\,\%} del coste total, justificada
   por la necesidad de reducir el asiento de $s = 7{,}51$~cm a valores admisibles
-  (sección~\ref{subsec:asientos_muro}). Aun así, el coste total del muro con pilotes
+  (sección~\ref{subsec:asientos_muro_56m}). Aun así, el coste total del muro con pilotes
   es significativamente inferior al de la solución de muro pantalla
   (sección~\ref{sec:muro_opciones}).
 \end{notabox}

@@ -109,12 +109,15 @@ Geometría adoptada: e1=0,60 m (coronación), e2=0,75 m (base), **B=5,60 m**, hz
   - Sifonamiento: ic=0,92, i_real=0,272, FS=3,38 > 3 ✅; L_min=15,65 m
 - **Motivo descarte:** lodos bentoníticos incompatibles con zona protegida + coste ~61% mayor (~849 kEUR vs ~334 kEUR)
 
-### 4.6 Arqueta — Resultados clave
-- **Carga total:** P = 101,95 Tn → q = **6,16 Tn/m²** sobre losa
-- **Flotación** (NF en rasante, arqueta vacía): Fs_flot = **1,87 > 1,05** ✅
-- **Capacidad portante** (est. 1a, Brinch-Hansen): qh = **91,05 Tn/m²**, Fs = **14,8** ✅
-- **Asiento total:** s ≈ **7,7 cm** (algo alto → discusión en sección 3.1)
-- **Decisión cimentación arqueta:** losa de cimentación 4,60×3,60 m, e=0,30 m, cota −1,80 m
+### 4.6 Arqueta — Resultados clave (actualizados según main_arqueta.md)
+- **Carga total:** W_HA = 64,74 Tn (incluye tapadera) + W_fango = 46,20 Tn → **W_total = 110,94 Tn** → **σ_contacto = 6,70 Tn/m²**
+- **Flotación:** N.F. a −2,50 m queda 0,70 m BAJO el intradós (−1,80 m) → **sin subpresión, E_flot = 0** ✅. Hipótesis pésima (NF en rasante): Fs_flot = 2,17 > 1,05 ✅
+- **Cota cimentación:** **D_f = 1,80 m** (intradós, conv. CTE), trasdós a −1,50 m; coronación a +2,30 m
+- **Capacidad portante** (E-1a, Brinch-Hansen drenado): q_0=3,28, γ_k=1,038, **q_u = 101,77 Tn/m²**, **FS = 15,2** ✅
+- **Presión neta:** σ_neta = 6,70 − 3,28 = 3,42 Tn/m² (compensación 49%)
+- **Asientos:** Si = 2,07 cm + Sc = 0,44 cm → **S_total = 2,51 cm ≤ 5,0 cm** ✅
+- **Alternativa pilotes** (CPI-8, D=0,40 m, L=10 m): Rck=61,50 Tn, Rcd=20,50 Tn/pilote; n=6; FS_grupo=3,33; Sg=8,7 mm. **DESCARTADA** (sobrecoste 2,5–4×, sin insuficiencia superficial)
+- **Decisión cimentación arqueta:** losa superficial HA-30/B/20/IIb+QA, 4,60×3,60 m, e=0,30 m, **D_f = 1,80 m**
 
 ---
 
@@ -137,7 +140,11 @@ Geometría adoptada: e1=0,60 m (coronación), e2=0,75 m (base), **B=5,60 m**, hz
   - Cortante: VEd=303,72 kN > VRd,c=184,5 kN → **estribos 3 ramas φ10 c/195 mm**
   - Zapata: σ_max=14,45 Tn/m²; σ_min=10,13 Tn/m²; sin despegue
   - Talón y puntera: rigen mínimos → **6φ16 c/16,7 cm** ambas
-- [x] Detalle impermeabilización arqueta (`02_cimentacion.tex` — parcial)
+- [x] **Geotecnia arqueta completa** — `03_arqueta/01_calculos_geotecnicos.tex` — 100% (reescrito según main_arqueta.md)
+  - W_HA=64,74 Tn (con tapa), W_total=110,94 Tn, σ=6,70 Tn/m²; D_f=1,80 m; qu=101,77; FS=15,2; S_total=2,51 cm ✅; sin flotación real
+  - Sección nueva: alternativa pilotes CPI-8 (descartada) + síntesis final
+- [x] **Cimentación arqueta** — `03_arqueta/02_cimentacion.tex` — 100% (actualizado)
+  - TikZ con tapadera, Df=1,80 m, coronación +2,30 m; tabla resumen con valores correctos; QA (antes Qc)
 - [x] **Proceso constructivo** — `05_proceso_constructivo.tex` — 100%
   - 15 pasos detallados (replanteo → acabados), con 2 notabox
   - Tablas de cuadrillas y maquinaria completas
@@ -224,7 +231,7 @@ TFA/
 |---|---|---|---|
 | Muro fuste + zapata | HA-30/B/20/IIb+QA | SR (CEM I 42,5 SR) | 45 mm |
 | Hormigón limpieza | HM-15 | — | — |
-| Losa arqueta + paredes | HA-30/B/20/IIb+QA | SR | 45 mm |
+| Losa arqueta + paredes | HA-30/B/20/IIb+Qc | SR | 45 mm |
 | Acero pasivo | B 500 SD | — | — |
 
 ---

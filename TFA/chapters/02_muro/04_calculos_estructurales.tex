@@ -8,7 +8,7 @@
 El dimensionamiento estructural tiene como objetivo verificar que la sección
 transversal del muro soporta las acciones de cálculo bajo Estado Límite Último
 (ELU) de acuerdo con el Código Estructural (CE, RD~470/2021). Se estudian tres
-secciones críticas: la \textbf{base del fuste} (máximo momento flector y
+secciones críticas: la \textbf{base del alzado} (máximo momento flector y
 cortante), el \textbf{talón de la zapata} (ménsula cargada por las tierras) y
 la \textbf{puntera de la zapata} (ménsula ascendente por la presión de
 contacto).
@@ -52,21 +52,21 @@ de contención.
 \end{table}
 
 % -----------------------------------------------------------
-\subsection{Acciones sobre el fuste}
+\subsection{Acciones sobre el alzado}
 \label{subsec:acciones_fuste}
 % -----------------------------------------------------------
 
-El fuste actúa como \textbf{ménsula vertical} empotrada en la zapata
+El alzado actúa como \textbf{ménsula vertical} empotrada en la zapata
 (altura $H = 7{,}30$~m). Las acciones horizontales se calculan de forma
 análoga al análisis global de estabilidad
 (sección~\ref{subsec:empujes_rankine_opc}), pero adaptadas a la
-altura del fuste (sin la zapata), se puede comprobar en el anexo de cálculos manuales. 
-El empuje del agua actúa desde el N.F.\ ($-2{,}50$~m) hasta la base del 
-fuste ($h_w = 7{,}30 - 2{,}50 = 4{,}80$~m).
+altura del alzado (sin la zapata), se puede comprobar en el anexo de cálculos manuales.
+El empuje del agua actúa desde el N.F.\ ($-2{,}50$~m) hasta la base del
+alzado ($h_w = 7{,}30 - 2{,}50 = 4{,}80$~m).
 
 \begin{table}[H]
   \centering
-  \caption{Componentes del empuje horizontal sobre el fuste (por ml)}
+  \caption{Componentes del empuje horizontal sobre el alzado (por ml)}
   \label{tab:empuje_fuste}
   \begin{tabular}{@{}lcccc@{}}
     \toprule
@@ -85,13 +85,13 @@ fuste ($h_w = 7{,}30 - 2{,}50 = 4{,}80$~m).
   \end{tabular}
 \end{table}
 
-Altura de aplicación de la resultante sobre la base del fuste:
+Altura de aplicación de la resultante sobre la base del alzado:
 \[
   h_{ef} = \frac{M_T}{E_T} = \frac{58{,}16}{20{,}64} = 2{,}82~\text{m}
 \]
 
 % -----------------------------------------------------------
-\subsection{Combinación de carga ELU — fuste}
+\subsection{Combinación de carga ELU — alzado}
 \label{subsec:elu_fuste}
 % -----------------------------------------------------------
 
@@ -107,20 +107,20 @@ Aplicando el coeficiente $\gamma_f = 1{,}50$ a todas las acciones:
 \end{align}
 
 % -----------------------------------------------------------
-\subsection{Armado del fuste}
+\subsection{Armado del alzado}
 \label{subsec:armado_fuste}
 % -----------------------------------------------------------
 
 \subsubsection{Altura útil en la sección de empotramiento}
 
-La sección más solicitada es la \textbf{base del fuste}
+La sección más solicitada es la \textbf{base del alzado}
 ($e_2 = 0{,}75$~m). Con $r_{\mathrm{nom}} = 50$~mm:
 \[
   d = e_2 - r_{\mathrm{nom}} - \frac{\phi_{\mathrm{main}}}{2}
     = 750 - 50 = \resultado{d = 0{,}70~\text{m}}
 \]
 
-\subsubsection{Armadura principal — trasdós del fuste}
+\subsubsection{Armadura principal — trasdós del alzado}
 
 \paragraph{Comprobación de momento límite (sección rectangular):}
 \begin{align}
@@ -153,7 +153,7 @@ Se aplica la cuantía mínima de flexión para muros:
 Como $A_{s,\mathrm{req}} = 3{,}37~\text{cm}^2/\text{m} < A_{s,\min} = 10{,}44~\text{cm}^2/\text{m}$,
 \textbf{rigen las cuantías mínimas del CE}.
 
-\paragraph{Elección de barras — fuste:}
+\paragraph{Elección de barras — alzado:}
 
 Se selecciona $\phi 16$ ($A_{\phi 16} = 2{,}01~\text{cm}^2$):
 \[
@@ -168,7 +168,7 @@ $s_{\min} = \max(20~\text{mm};\,\phi;\,\mathrm{TMA}+5) = \max(20;16;25) = 25$~mm
 $= 2{,}5~\text{cm} \ll 16{,}7~\text{cm}$\checkmark;
 $s \leq 35~\text{cm}$\checkmark.
 
-\begin{resultadobox}[Armadura principal fuste — trasdós]
+\begin{resultadobox}[Armadura principal alzado — trasdós]
   \[
     6\,\phi 16 \;\text{c}/16{,}7~\text{cm}
     \quad\Rightarrow\quad
@@ -178,11 +178,11 @@ $s \leq 35~\text{cm}$\checkmark.
 \end{resultadobox}
 
 % -----------------------------------------------------------
-\subsection{Comprobación a cortante — fuste}
+\subsection{Comprobación a cortante — alzado}
 \label{subsec:cortante_fuste}
 % -----------------------------------------------------------
 
-El cortante de cálculo en la base del fuste es:
+El cortante de cálculo en la base del alzado es:
 \[
   V_{Ed} = 30{,}96~\text{Tn/ml} \times 9{,}81~\text{kN/Tn}
          = \resultado{303{,}72~\text{kN/m}}
@@ -210,7 +210,7 @@ Valor mínimo:
     = \resultado{191{,}6~\text{kN/m}}
 \]
 
-\begin{resultadobox}[Comprobación a cortante — fuste]
+\begin{resultadobox}[Comprobación a cortante — alzado]
   \[
     V_{Ed} = 303{,}72~\text{kN/m} \;>\; V_{Rd,c} = 184{,}5~\text{kN/m}
   \]
@@ -265,7 +265,7 @@ Separación transversal entre ramas:
   \leq s_{t,\max} = 0{,}75\,d = 525~\text{mm} \quad\checkmark
 \]
 
-\begin{resultadobox}[Armadura de cortante fuste]
+\begin{resultadobox}[Armadura de cortante alzado]
   \[
     3~\text{ramas}\;\phi 10 \;\text{c}/195~\text{mm}
   \]
@@ -316,7 +316,7 @@ Ambas positivas: no hay despegue del cimiento\checkmark.
 \label{subsubsec:armado_talon}
 
 El talón ($B_{\mathrm{talón}} = 4{,}05$~m) trabaja como ménsula
-empotrada en la cara del fuste. La presión en la sección de empotramiento
+empotrada en la cara del alzado. La presión en la sección de empotramiento
 (interpolando a distancia $4{,}05$~m del extremo del talón):
 
 \begin{equation}
@@ -424,11 +424,11 @@ Rige la cuantía mínima. Se adopta la misma solución que en el talón:
   \]
 \end{resultadobox}
 
-\subsubsection{Armadura en espera (arranque del fuste)}
+\subsubsection{Armadura en espera (arranque del alzado)}
 \label{subsubsec:armado_espera}
 
 La armadura en espera debe ser capaz de transmitir el mismo esfuerzo
-que la armadura del fuste:
+que la armadura del alzado:
 \[
   A_{s,\mathrm{espera}} = A_{s,\mathrm{fuste}}
   = 6\,\phi 16~\text{c}/16{,}7~\text{cm}
@@ -469,7 +469,7 @@ armadura en espera en forma de patilla en la base de la zapata}:
     & $A_s$ \textbf{(cm²/m)}
     & \textbf{Long. barra (m)} & \textbf{kg/ml} \\
     \midrule
-    \multirow{3}{*}{Fuste}
+    \multirow{3}{*}{Alzado}
       & Trasdós (principal)      & $\phi 16$ & 16{,}7 & 12{,}06 & 7{,}50 &  71{,}5 \\
       & Cortante (estribos)      & $\phi 10$ & 19{,}5 & — (12{,}08\,mm²/mm) & — & 30{,}4 \\
       & Dist.\ horiz.\ (cara)   & $\phi 10$ & 15{,}0 &  5{,}24 & 1{,}00 & 32{,}5 \\
@@ -496,11 +496,11 @@ armadura en espera en forma de patilla en la base de la zapata}:
     \textbf{Sección} & $M_d$ \textbf{(Tn·m/ml)} & $A_{s,\mathrm{req}}$
     \textbf{(cm²/m)} & $A_{s,\mathrm{prov}}$ \textbf{(cm²/m)} & \textbf{Estado} \\
     \midrule
-    Fuste — base (trasdós)   & 87{,}2 &  3{,}37 (mín: 10{,}44) & 12{,}06 & \checkmark\,(mín.) \\
+    Alzado — base (trasdós)  & 87{,}2 &  3{,}37 (mín: 10{,}44) & 12{,}06 & \checkmark\,(mín.) \\
     Zapata — talón (sup.)    & 165{,}0 & 5{,}96 (mín: 11{,}13) & 12{,}06 & \checkmark\,(mín.) \\
     Zapata — puntera (inf.)  & 5{,}4  & 0{,}19 (mín: 11{,}13) & 12{,}06 & \checkmark\,(mín.) \\
     \midrule
-    \multicolumn{2}{l}{Cortante fuste} & $V_{Ed}=303{,}7$~kN/m &
+    \multicolumn{2}{l}{Cortante alzado} & $V_{Ed}=303{,}7$~kN/m &
     $V_{Rd,c}=184{,}5$~kN/m & 3$\phi$10\,c/195\,mm \\
     \bottomrule
   \end{tabular}}

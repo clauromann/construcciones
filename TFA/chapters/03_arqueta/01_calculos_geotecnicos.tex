@@ -4,394 +4,546 @@
 \section{Informe de cálculos geotécnicos}
 \label{sec:arqueta_geotecnia}
 
-La arqueta de fangos mezcla tiene las dimensiones interiores
-$L \times B \times H = 4{,}0 \times 3{,}0 \times 3{,}5$~m.
-Se adopta un espesor de pared y losa de fondo de $e = 0{,}30$~m
-(HA-30/SR), por lo que las dimensiones exteriores son
-$4{,}60 \times 3{,}60 \times 3{,}80$~m (incluyendo losa de fondo).
-Se propone una cota de cimentación de la losa de fondo a $-1{,}50$~m
-(trasdós superior de la losa de cimentación), lo que sitúa el fondo de
-excavación a $\sim -1{,}80$~m y la losa de fondo entre cotas
-$-1{,}80$ y $-1{,}50$~m.
-
-\begin{supuestobox}[Cota de cimentación adoptada]
-  Se elige $D_f = 1{,}50$~m para situar la losa en suelo firme dentro
-  del estrato~1a (arena limosa no saturada, $\phi' = 29°$, $c'=0$).
-  Esta cota mantiene la base de cimentación \textbf{por encima} del
-  nivel freático ($-2{,}50$~m), evitando así la necesidad de
-  rebajamiento permanente del freático durante la vida útil.
-\end{supuestobox}
+La arqueta de fangos mezcla tiene dimensiones interiores
+$L\times B\times H = 4{,}00\times3{,}00\times3{,}50$~m,
+con paredes, losa de fondo y tapadera de espesor uniforme $e = 0{,}30$~m
+(HA-30/B/20/IIb+Qc). Las dimensiones exteriores resultan:
+\[
+  L_\text{ext} = 4{,}60~\text{m},\quad
+  B_\text{ext} = 3{,}60~\text{m},\quad
+  A_\text{cim} = 4{,}60\times3{,}60 = 16{,}56~\text{m}^2
+\]
 
 % -----------------------------------------------------------
-\subsection{Cargas transmitidas al terreno}
+\subsection{Datos de partida y cargas sobre la cimentación}
 \label{subsec:cargas_arqueta}
 % -----------------------------------------------------------
 
-\subsubsection{Peso propio de la estructura}
+\subsubsection{Volúmenes y pesos de hormigón}
 
-Volumen de hormigón de la arqueta (paredes + losa de fondo, sin tapa):
+Las paredes frontales ($\times2$) tienen longitud $L_\text{ext}=4{,}60$~m;
+las laterales encajan entre ellas con longitud
+$B_\text{ext}-2e = 3{,}00$~m. La altura de las paredes es $H=3{,}50$~m (interior),
+pues la losa y la tapadera se contabilizan por separado:
+
 \begin{align*}
-  V_{\text{paredes}} &= 2\,(L_{\text{ext}}+B_{\text{ext}})\,e\,H_{\text{ext}}
-    - \text{solapos esquinas} \\
-    &\approx \left[2\,(4{,}60+3{,}60) - 4\times0{,}30\right]
-      \times 0{,}30 \times 3{,}80
-    = (16{,}40 - 1{,}20)\times 1{,}14 = 17{,}33~\text{m}^3 \\
-  V_{\text{losa}} &= 4{,}60 \times 3{,}60 \times 0{,}30 = 4{,}97~\text{m}^3
+  V_\text{pared frente/fondo} &= 4{,}60\times3{,}50\times0{,}30 = 4{,}830~\text{m}^3
+    \quad(\times2)\\
+  V_\text{pared lat.}         &= 3{,}00\times3{,}50\times0{,}30 = 3{,}150~\text{m}^3
+    \quad(\times2)\\
+  V_\text{losa} = V_\text{tapa} &= 4{,}60\times3{,}60\times0{,}30 = 4{,}968~\text{m}^3
+    \quad(\times2)\\
+  V_{HA} &= 2\times4{,}830 + 2\times3{,}150 + 2\times4{,}968
+          = \mathbf{25{,}896}~\text{m}^3
+\end{align*}
+\[
+  W_{HA} = V_{HA}\times\gamma_{HA} = 25{,}896\times2{,}50
+         = \resultado{64{,}74~\text{Tn}}
+\]
+
+\subsubsection{Peso del fango (depósito lleno)}
+
+\[
+  W_\text{fango} = \gamma_f\times L\times B\times H
+    = 1{,}10\times4{,}00\times3{,}00\times3{,}50
+    = \resultado{46{,}20~\text{Tn}}
+\]
+
+\subsubsection{Carga total y presión de contacto}
+
+\begin{align*}
+  W_\text{total} &= W_{HA} + W_\text{fango}
+    = 64{,}74 + 46{,}20 = \resultado{110{,}94~\text{Tn}}\\[4pt]
+  \sigma_\text{contacto} &= \frac{W_\text{total}}{A_\text{cim}}
+    = \frac{110{,}94}{16{,}56} = \resultado{6{,}70~\text{Tn/m}^2}
 \end{align*}
 
-\[
-  P_{\text{HA}} = (17{,}33 + 4{,}97) \times 2{,}50 = 22{,}30 \times 2{,}50
-               = \mathbf{55{,}75~\text{Tn}}
-\]
+\begin{table}[H]
+  \centering
+  \caption{Resumen de cargas transmitidas al terreno --- Arqueta de fangos mezcla}
+  \label{tab:cargas_arqueta}
+  \begin{tabular}{@{}lrcc@{}}
+    \toprule
+    \textbf{Componente} & \textbf{V (m³)} & $\boldsymbol{\gamma}$ \textbf{(Tn/m³)} & \textbf{Peso (Tn)}\\
+    \midrule
+    Pared de frente ($4{,}60\times3{,}50\times0{,}30$) & 4,830 & 2,50 & 12,08\\
+    Pared de fondo  ($4{,}60\times3{,}50\times0{,}30$) & 4,830 & 2,50 & 12,08\\
+    Pared lat.\ izq.\ ($3{,}00\times3{,}50\times0{,}30$) & 3,150 & 2,50 & 7,88\\
+    Pared lat.\ der.\ ($3{,}00\times3{,}50\times0{,}30$) & 3,150 & 2,50 & 7,88\\
+    Losa de fondo ($4{,}60\times3{,}60\times0{,}30$)   & 4,968 & 2,50 & 12,42\\
+    Tapadera ($4{,}60\times3{,}60\times0{,}30$)        & 4,968 & 2,50 & 12,42\\
+    \midrule
+    \textbf{Total hormigón} & \textbf{25,896} & 2,50 & \textbf{64,74}\\
+    Fango interior ($4{,}00\times3{,}00\times3{,}50$)  & 42,000 & 1,10 & 46,20\\
+    \midrule
+    \textbf{TOTAL} & --- & --- & \textbf{110,94}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\subsubsection{Peso del fango (arqueta llena)}
+% -----------------------------------------------------------
+\subsection{Selección de la cota de cimentación}
+\label{subsec:seleccion_cota_arqueta}
+% -----------------------------------------------------------
 
-\[
-  V_{\text{interior}} = L \times B \times H
-    = 4{,}00 \times 3{,}00 \times 3{,}50 = 42{,}00~\text{m}^3
-\]
-\[
-  P_{\text{fango}} = \gamma_f \times V_{\text{interior}}
-    = 1{,}10 \times 42{,}00 = \mathbf{46{,}20~\text{Tn}}
-\]
+\subsubsection*{Análisis del perfil estratigráfico}
 
-\subsubsection{Carga total sobre la cimentación}
+Se evalúa la aptitud de cada estrato como plano de apoyo:
 
-\[
-  P_{\text{total}} = P_{\text{HA}} + P_{\text{fango}}
-    = 55{,}75 + 46{,}20 = \resultado{101{,}95~\text{Tn}}
-\]
+\begin{itemize}
+  \item \textbf{E-1a (0 a $-2{,}50$~m) — Arena limosa no saturada, $N_\text{SPT}=9$,
+    $c'=0$, $\phi'=29°$, $E=6{,}894$~MPa.}
+    Para $\sigma_\text{contacto}=6{,}70$~Tn/m², el estrato es \textbf{admisible}:
+    capacidad portante drenada holgada, asientos cuantificables y excavación en seco
+    (por encima del N.F.\ a $-2{,}50$~m).
+  \item \textbf{E-1b ($-2{,}50$ a $-3{,}50$~m) — Arena limosa saturada.}
+    Bajo el N.F. Cimentar aquí exigiría agotamiento continuo con riesgo de
+    sifonamiento y arrastres.
+  \item \textbf{E-2 ($-3{,}50$ a $-8{,}00$~m) — Arcillas versicolores, $C_u=1{,}00$~kg/cm².}
+    Alta capacidad portante no drenada, pero exige $D_f\geq4{,}0$~m y atravesar la
+    capa saturada E-1b, con entibación y agotamiento.
+  \item \textbf{E-3 ($-8{,}00$ a $-25{,}00$~m) — Arcillas margosas firmes.}
+    Solo accesible mediante pilotes.
+\end{itemize}
 
-Área de cimentación (superficie exterior de la losa):
-\[
-  A_{\text{cim}} = L_{\text{ext}} \times B_{\text{ext}}
-    = 4{,}60 \times 3{,}60 = 16{,}56~\text{m}^2
-\]
+\subsubsection*{Hipótesis $D_f=4{,}0$~m (apoyo en E-2) — descartada}
 
-Tensión media sobre el terreno:
-\[
-  q = \frac{P_{\text{total}}}{A_{\text{cim}}}
-    = \frac{101{,}95}{16{,}56} = \resultado{6{,}16~\text{Tn/m}^2}
-\]
+El empotramiento mínimo recomendado por CTE DB SE-C ($\geq 0{,}5$–$1{,}0$~m
+dentro del estrato) lleva a $D_f\geq4{,}0$~m. Inconvenientes detectados:
+\begin{itemize}
+  \item Excavación $1{,}8$~m bajo el N.F.: agotamiento continuo durante toda la fase.
+  \item Atravesar E-1b saturado: riesgo de sifonamiento, arrastres y desestabilización
+        de taludes; requiere entibación o tablestacas provisionales.
+  \item Sin beneficio técnico: cimentar en E-1a proporciona $FS_{CP}>15$ y
+        asientos $<3$~cm.
+\end{itemize}
+
+\begin{notabox}[Hipótesis Df = 4{,}0 m en E-2 --- descartada]
+  Cimentar en E-2 obliga a atravesar el N.F.\ en zona medioambientalmente
+  protegida, con entibación y agotamiento continuados, sin mejora significativa
+  de las verificaciones geotécnicas.
+\end{notabox}
+
+\subsubsection*{Cota adoptada: $D_f=1{,}80$~m (apoyo en E-1a)}
+
+Se sigue la convención del CTE DB SE-C: $D_f$ es la profundidad del
+\emph{intradós} (cara inferior) de la losa, medida desde rasante.
+Con $e_\text{losa}=0{,}30$~m, el trasdós superior queda a cota $-1{,}50$~m.
+
+\begin{supuestobox}[Cota de cimentación adoptada]
+  \begin{itemize}
+    \item Estrato de apoyo: \textbf{E-1a} (arena limosa no saturada).
+    \item Cota intradós / base de excavación: $-1{,}80$~m
+          $\Rightarrow$ \textbf{$D_f=1{,}80$~m}.
+    \item Cota trasdós superior de la losa: $-1{,}50$~m.
+    \item Excavación en \textbf{seco}: la base queda $0{,}70$~m por encima
+          del N.F.\ ($-2{,}50$~m).
+    \item Coronación de la arqueta:
+          $-1{,}50 + 3{,}50 + 0{,}30 = \mathbf{+2{,}30}$~m sobre rasante.
+  \end{itemize}
+\end{supuestobox}
+
+% -----------------------------------------------------------
+\subsection{Estados límite aplicables}
+\label{subsec:estados_limite_arqueta}
+% -----------------------------------------------------------
+
+\begin{itemize}
+  \item \textbf{Hundimiento} — SÍ aplica. Verificado en \S\ref{subsec:cap_portante_arqueta}
+        mediante Brinch-Hansen drenado.
+  \item \textbf{Asientos} — SÍ aplican. Calculados en \S\ref{subsec:asientos_arqueta}
+        mediante Steinbrenner y Boussinesq.
+  \item \textbf{Flotación} — SE VERIFICA en \S\ref{subsec:flotacion}.
+        El N.F.\ ($-2{,}50$~m) queda por debajo del intradós ($-1{,}80$~m);
+        en servicio normal no existe subpresión.
+  \item \textbf{Vuelco} — NO aplica. Caja simétrica; los empujes activos de
+        paredes opuestas se anulan dos a dos.
+  \item \textbf{Deslizamiento} — NO aplica. La resultante horizontal neta es nula.
+  \item \textbf{Sifonamiento} — NO aplica. La arqueta en servicio es impermeable;
+        no existe gradiente hidráulico.
+\end{itemize}
 
 % -----------------------------------------------------------
 \subsection{Empujes del terreno sobre las paredes}
 \label{subsec:empujes_arqueta}
 % -----------------------------------------------------------
 
-Las paredes de la arqueta están sometidas a empuje activo del terreno
-circundante. Con $D_f = 1{,}50$~m y altura de pared enterrada
-$H_{\text{ent}} = 1{,}50$~m (estrato~1a, no saturado):
+Las paredes están en contacto con E-1a ($\phi'=29°$, $c'=0$,
+$\gamma=1{,}82$~Tn/m³). La altura de pared enterrada es
+$H_\text{ent}=1{,}50$~m (de rasante al trasdós superior de la losa).
+Dado que el N.F.\ ($-2{,}50$~m) está por debajo del fondo de excavación
+($-1{,}80$~m), \textbf{no existe presión hidrostática lateral} sobre las paredes.
 
+\paragraph{Coeficiente de empuje activo:}
 \[
-  K_{a,1} = 0{,}347 \quad(\phi'=29°, \; c'=0)
+  K_a = \frac{1-\sin\phi'}{1+\sin\phi'}
+      = \frac{1-0{,}4848}{1+0{,}4848} = \frac{0{,}5152}{1{,}4848}
+      = \resultado{0{,}347}
 \]
 
-Presión activa en la base de la pared enterrada:
+\paragraph{Presión activa en la base de la pared enterrada:}
 \[
-  \sigma'_{h,a}(1{,}50) = K_{a,1}\,\gamma\,H_{\text{ent}}
-    = 0{,}347 \times 1{,}82 \times 1{,}50 = 0{,}948~\text{Tn/m}^2
+  \sigma'_{h,a} = K_a\,\gamma_{1a}\,H_\text{ent}
+    = 0{,}347\times1{,}82\times1{,}50 = \resultado{0{,}947~\text{Tn/m}^2}
 \]
 
-Empuje activo \emph{total} por metro lineal de pared:
+\paragraph{Empuje activo total por metro lineal de pared:}
 \[
-  E_{a,\text{pared}} = \frac{1}{2}\,K_{a,1}\,\gamma\,H_{\text{ent}}^2
-    = \frac{1}{2} \times 0{,}347 \times 1{,}82 \times 1{,}50^2
-    = \mathbf{0{,}711~\text{Tn/ml}}
+  E_a = \tfrac{1}{2}\,K_a\,\gamma_{1a}\,H_\text{ent}^2
+      = \tfrac{1}{2}\times0{,}347\times1{,}82\times1{,}50^2
+      = \resultado{0{,}710~\text{Tn/ml}}
 \]
-
-Dado que el N.F. se localiza a $-2{,}50$~m, por debajo del fondo de
-excavación ($-1{,}80$~m), \textbf{no existe presión hidrostática lateral}
-sobre las paredes en condiciones de servicio.
+aplicado a $H_\text{ent}/3=0{,}50$~m sobre la base de la pared.
+Dato de entrada para el dimensionamiento estructural de las paredes.
 
 % -----------------------------------------------------------
-\subsection{Comprobación de flotación (arqueta vacía)}
-\label{subsec:flotacion}
-% -----------------------------------------------------------
-
-La situación crítica se produce cuando la arqueta está \textbf{vacía} y
-el terreno circundante está saturado. En la hipótesis más desfavorable
-se considera que el N.F. asciende hasta la cota $-0{,}30$~m (rasante),
-lo que generaría un empuje hidrostático ascendente sobre la losa de fondo.
-
-\subsubsection{Empuje hidrostático ascendente}
-
-Profundidad de la losa de fondo respecto al N.F. supuesto en rasante
-($z_{\text{losa}} = 1{,}80$~m):
-\[
-  F_{\text{Arquímedes}} = \gamma_w \times V_{\text{ext,sumergido}}
-    = 1{,}00 \times (4{,}60 \times 3{,}60 \times 1{,}80)
-    = 1{,}00 \times 29{,}81 = \mathbf{29{,}81~\text{Tn}}
-\]
-
-\subsubsection{Peso estabilizador (arqueta vacía)}
-
-\[
-  P_{\text{estab}} = P_{\text{HA}} = 55{,}75~\text{Tn}
-\]
-
-\subsubsection{Factor de seguridad a la flotación}
-
-\begin{equation}
-  F_{s,\text{flot}} = \frac{P_{\text{estab}}}{F_{\text{Arquímedes}}}
-    = \frac{55{,}75}{29{,}81} = \resultado{1{,}87 > 1{,}05 \quad \checkmark}
-\end{equation}
-
-\begin{resultadobox}[Comprobación de flotación]
-  El peso propio de la estructura ($55{,}75$~Tn) supera ampliamente el
-  empuje hidrostático ascendente ($29{,}81$~Tn) incluso en la hipótesis
-  más desfavorable de N.F. en rasante y arqueta completamente vacía.
-  $F_s = 1{,}87 > 1{,}05$ \checkmark.
-  No se requieren anclajes adicionales contra flotación.
-\end{resultadobox}
-
-\begin{notabox}[Hipótesis conservadora adoptada]
-  Se ha supuesto N.F. en rasante, que es el escenario más desfavorable.
-  En condiciones normales el N.F. se sitúa a $-2{,}50$~m, por lo que
-  la comprobación real sería aún más holgada. No obstante, dado el
-  carácter medioambientalmente protegido de la zona, se mantiene la
-  hipótesis conservadora como criterio de diseño.
-\end{notabox}
-
-% -----------------------------------------------------------
-\subsection{Capacidad portante de la cimentación}
+\subsection{Capacidad portante --- Brinch-Hansen (drenado)}
 \label{subsec:cap_portante_arqueta}
 % -----------------------------------------------------------
 
-La arqueta se cimenta sobre el \textbf{estrato~1a} (arena limosa gris-verdosa,
-poco densa, $\phi'=29°$, $c'=0$, $\gamma_{\text{ap}}=1{,}82$~Tn/m³) a una
-profundidad $D_f = 1{,}50$~m, que se encuentra por encima del N.F.
-
 Se aplica la fórmula de Brinch-Hansen en condiciones \textbf{drenadas}
-(largo plazo) para losa rectangular $4{,}60 \times 3{,}60$~m:
+(largo plazo) sobre la losa $B^*\times L^*=3{,}60\times4{,}60$~m.
+Con $c'=0$, el término cohesivo se anula: $q_u = T_2 + T_3$.
 
-\paragraph{Factores de capacidad ($\phi'=29°$):}
+\paragraph{Factores de capacidad de carga ($\phi'=29°$):}
 \begin{align*}
-  N_q &= \frac{1+\sin29°}{1-\sin29°}\,e^{\pi\tan29°}
-       = \frac{1{,}485}{0{,}515}\,e^{\pi\times0{,}554}
-       = 2{,}883 \times e^{1{,}740}
-       = 2{,}883 \times 5{,}697 = \mathbf{16{,}42} \\
-  N_c &= (N_q-1)\cot\phi'
-       = 15{,}42 \times \frac{1}{\tan29°}
-       = 15{,}42 \times 1{,}804 = \mathbf{27{,}82} \\
-  N_\gamma &= 1{,}5\,(N_q-1)\tan\phi'
-            = 1{,}5 \times 15{,}42 \times 0{,}554 = \mathbf{12{,}82}
+  N_q &= e^{\pi\tan\phi'}\cdot\tan^2\!\left(45°+\tfrac{\phi'}{2}\right)
+       = 5{,}704\times2{,}882 = \resultado{16{,}44}\\
+  N_c &= \frac{N_q-1}{\tan\phi'} = \frac{15{,}44}{0{,}5543} = 27{,}86\\
+  N_\gamma &= 1{,}5\,(N_q-1)\tan\phi' = 1{,}5\times15{,}44\times0{,}5543
+           = \resultado{12{,}84}
 \end{align*}
 
-\paragraph{Factores de forma (losa rectangular $B^*=3{,}60$~m, $L^*=4{,}60$~m):}
+\paragraph{Factores de forma ($B^*/L^*=3{,}60/4{,}60=0{,}7826$):}
 \begin{align*}
-  s_q &= 1 + \frac{B^*}{L^*}\sin\phi'
-       = 1 + \frac{3{,}60}{4{,}60}\times\sin29°
-       = 1 + 0{,}783\times0{,}485 = 1{,}380 \\
-  s_c &= \frac{s_q\,N_q - 1}{N_q - 1}
-       = \frac{1{,}380\times16{,}42 - 1}{16{,}42 - 1}
-       = \frac{22{,}66 - 1}{15{,}42} = \frac{21{,}66}{15{,}42} = 1{,}405 \\
-  s_\gamma &= 1 - 0{,}3\,\frac{B^*}{L^*}
-            = 1 - 0{,}3\times\frac{3{,}60}{4{,}60}
-            = 1 - 0{,}235 = 0{,}765
+  s_q      &= 1+\frac{B^*}{L^*}\sin\phi'
+            = 1+0{,}7826\times0{,}4848 = \resultado{1{,}379}\\
+  s_\gamma &= 1-0{,}4\,\frac{B^*}{L^*}
+            = 1-0{,}4\times0{,}7826 = \resultado{0{,}687}
 \end{align*}
 
-\paragraph{Factor de profundidad:}
+\paragraph{Factores de profundidad ($D_f/B^*=1{,}80/3{,}60=0{,}500$):}
 \begin{align*}
-  d_q &= 1 + 0{,}35\,\frac{D_f}{B^*}
-       = 1 + 0{,}35\times\frac{1{,}50}{3{,}60} = 1 + 0{,}146 = 1{,}146 \\
-  d_c &= d_q = 1{,}146 \qquad d_\gamma = 1
+  d_q      &= 1+2\tan\phi'(1-\sin\phi')^2\,\frac{D_f}{B^*}
+            = 1+2\times0{,}5543\times0{,}2654\times0{,}500
+            = \resultado{1{,}147}\\
+  d_\gamma &= 1{,}0
 \end{align*}
 
-Carga vertical e inclinación nula: $i_c = i_q = i_\gamma = 1$;
-sin talud: $t_c = t_q = t_\gamma = 1$.
-
-\paragraph{Sobrecarga a nivel de cimentación:}
+\paragraph{Sobrecarga al nivel del intradós de la losa:}
 \[
-  q_{0k} = \gamma_{\text{ap}}\times D_f = 1{,}82\times1{,}50 = 2{,}73~\text{Tn/m}^2
+  q_0 = \gamma_{1a}\times D_f = 1{,}82\times1{,}80 = \resultado{3{,}28~\text{Tn/m}^2}
 \]
 
-\paragraph{Peso específico del terreno bajo la losa:}
-El N.F. está a $-2{,}50$~m, la base de la losa a $-1{,}80$~m.
-Distancia losa–N.F.: $d_w = 0{,}70$~m $< B^* = 3{,}60$~m
-(Caso~II, peso ponderado):
+\paragraph{Peso específico ponderado $\gamma_k$ bajo el intradós (zona $B^*=3{,}60$~m):}
+
+El N.F.\ se sitúa a $0{,}70$~m del intradós, por lo que la zona de influencia
+abarca tres tramos con densidades distintas:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{@{}lcccc@{}}
+    \toprule
+    \textbf{Tramo bajo intradós} & \textbf{Cotas} & \textbf{e (m)} & \textbf{Estrato} & $\boldsymbol{\gamma}$ (Tn/m³)\\
+    \midrule
+    0,00–0,70~m & $-1{,}80$ a $-2{,}50$ & 0,70 & E-1a (no sat.) & 1,82\\
+    0,70–1,70~m & $-2{,}50$ a $-3{,}50$ & 1,00 & E-1b ($\gamma'=0{,}98$) & 0,98\\
+    1,70–3,60~m & $-3{,}50$ a $-5{,}40$ & 1,90 & E-2 ($\gamma'=0{,}78$)  & 0,78\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \[
-  \gamma_k = \frac{d_w}{B^*}\,(\gamma_{\text{ap}}-\gamma_{\text{sum}})
-             + \gamma_{\text{sum}}
-           = \frac{0{,}70}{3{,}60}\times(1{,}82-0{,}98)+0{,}98
-           = 0{,}194\times0{,}84+0{,}98 = 0{,}163+0{,}98
-           = 1{,}143~\text{Tn/m}^3
+  \gamma_k = \frac{0{,}70\times1{,}82 + 1{,}00\times0{,}98 + 1{,}90\times0{,}78}{3{,}60}
+           = \frac{1{,}274+0{,}980+1{,}482}{3{,}60}
+           = \frac{3{,}736}{3{,}60} = \resultado{1{,}038~\text{Tn/m}^3}
 \]
 
-\paragraph{Capacidad de carga última (c'=0 → primer término nulo):}
+\paragraph{Carga de hundimiento:}
 \begin{align*}
-  q_h &= q_{0k}\,N_q\,d_q\,s_q
-         + \tfrac{1}{2}\,B^*\,\gamma_k\,N_\gamma\,d_\gamma\,s_\gamma \\
-      &= 2{,}73\times16{,}42\times1{,}146\times1{,}380
-         + \tfrac{1}{2}\times3{,}60\times1{,}143\times12{,}82\times1\times0{,}765 \\
-      &= 2{,}73\times16{,}42\times1{,}581
-         + 0{,}5\times3{,}60\times1{,}143\times12{,}82\times0{,}765 \\
-      &= 70{,}84 + 20{,}21 = \resultado{91{,}05~\text{Tn/m}^2}
+  T_1 &= 0 \quad (c'=0)\\
+  T_2 &= q_0\,N_q\,s_q\,d_q
+       = 3{,}28\times16{,}44\times1{,}379\times1{,}147
+       = \resultado{85{,}29~\text{Tn/m}^2}\\
+  T_3 &= \tfrac{1}{2}\,\gamma_k\,B^*\,N_\gamma\,s_\gamma\,d_\gamma
+       = 0{,}5\times1{,}038\times3{,}60\times12{,}84\times0{,}687\times1{,}0
+       = \resultado{16{,}48~\text{Tn/m}^2}\\[4pt]
+  q_u          &= T_2+T_3 = 85{,}29+16{,}48 = \resultado{101{,}77~\text{Tn/m}^2}\\
+  \sigma_\text{adm} &= q_u/3 = 101{,}77/3 = \resultado{33{,}92~\text{Tn/m}^2}
 \end{align*}
 
-\paragraph{Factor de seguridad y tensión admisible:}
+\paragraph{Verificación:}
 \begin{equation}
-  F_s = \frac{q_h}{q} = \frac{91{,}05}{6{,}16} = \resultado{14{,}8 > 3 \quad \checkmark}
+  FS_\text{real} = \frac{q_u}{\sigma_\text{contacto}}
+    = \frac{101{,}77}{6{,}70}
+    = \resultado{15{,}2 \gg 3{,}0 \quad \checkmark}
+  \label{eq:fs_cp_arqueta}
 \end{equation}
+
+\begin{resultadobox}[Capacidad portante --- Arqueta]
+  El estrato~E-1a ofrece $q_u=101{,}77$~Tn/m² y $\sigma_\text{adm}=33{,}92$~Tn/m².
+  Con $\sigma_\text{contacto}=6{,}70$~Tn/m² el factor de seguridad es $FS=15{,}2\gg3{,}0$.
+  No existe riesgo de hundimiento.
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Verificación de flotación}
+\label{subsec:flotacion}
+% -----------------------------------------------------------
+
+El N.F.\ del enunciado ($-2{,}50$~m) queda \textbf{$0{,}70$~m por debajo}
+del intradós de la losa ($-1{,}80$~m). \textbf{No existe columna de agua bajo
+la cimentación en condiciones de servicio normales.}
+
 \[
-  q_{\text{adm}} = \frac{q_h}{3} = \frac{91{,}05}{3} = 30{,}35~\text{Tn/m}^2
-  \gg 6{,}16~\text{Tn/m}^2 \quad \checkmark
+  V_\text{sumergido} = 0~\text{m}^3
+  \;\Rightarrow\;
+  E_\text{flot} = \gamma_w\times V_\text{sumergido} = \mathbf{0~\text{Tn}}
 \]
 
-\begin{resultadobox}[Capacidad portante — Arqueta]
-  El estrato~1a ofrece una capacidad portante de $q_h=91{,}05$~Tn/m².
-  Con una carga aplicada de $6{,}16$~Tn/m², el factor de seguridad es
-  $F_s = 14{,}8 \gg 3$. No existe riesgo de hundimiento.
+\begin{resultadobox}[Verificación de flotación]
+  $E_\text{flot}=0 < W_{HA}=64{,}74$~Tn $\;\Rightarrow\;$
+  \textbf{Sin riesgo de flotación} \checkmark.
+  No se requieren anclajes ni medidas adicionales.
 \end{resultadobox}
+
+\begin{notabox}[Hipótesis conservadora — N.F.\ en rasante]
+  Si el N.F.\ ascendiese eventualmente hasta rasante (hipótesis pésima), el
+  empuje de Arquímedes sería
+  $F_\text{Arq} = 1{,}00\times(4{,}60\times3{,}60\times1{,}80) = 29{,}81$~Tn,
+  frente a $W_{HA}=64{,}74$~Tn.
+  El factor de seguridad resultante sería
+  $FS_\text{flot}=64{,}74/29{,}81=\mathbf{2{,}17}>1{,}05$~\checkmark.
+  Con el drenaje perimetral proyectado y la clase medioambiental de la zona,
+  este escenario se considera improbable.
+\end{notabox}
+
+% -----------------------------------------------------------
+\subsection{Presión neta y efecto de compensación}
+\label{subsec:presion_neta}
+% -----------------------------------------------------------
+
+La presión neta es la diferencia entre la carga aplicada y la sobrecarga
+geostática previa en el plano de cimentación; es la magnitud que genera
+nuevos asientos respecto al estado natural del terreno:
+
+\[
+  \sigma_\text{neta} = \sigma_\text{contacto} - q_0
+    = 6{,}70 - 3{,}28 = \resultado{3{,}42~\text{Tn/m}^2}
+\]
+
+La compensación alcanza el $49$\,\%: la excavación libera casi la mitad del
+peso aportado por la estructura y el fango, reduciendo considerablemente
+los asientos.
 
 % -----------------------------------------------------------
 \subsection{Cálculo de asientos}
 \label{subsec:asientos_arqueta}
 % -----------------------------------------------------------
 
-\subsubsection{Asiento inmediato — método de Steinbrenner}
+Los asientos se calculan con la \textbf{presión neta}
+$\sigma_\text{neta}=3{,}42$~Tn/m², que representa el incremento real de carga
+sobre el estado geostático preexistente.
 
-Parámetros del estrato~1a: $E_1 = 6{,}894$~MPa $= 703{,}2$~Tn/m²,
-$\nu_1 = 0{,}25$, $B^* = 3{,}60$~m, $L^* = 4{,}60$~m,
-$p = 6{,}16$~Tn/m².
-
-Se calcula el asiento en esquina y se multiplica por 4 para obtener
-el asiento en el centro (simetría):
-
-Con $m=z/B=0$ (superficie), $n=L^*/B^*=4{,}60/3{,}60=1{,}278$:
 \[
-  t = \sqrt{1+1{,}278^2+0} = \sqrt{2{,}633} = 1{,}623
+  S_\text{total} = S_i + S_c
 \]
+
+\subsubsection{Asiento inmediato --- Steinbrenner (4 sub-rectángulos)}
+
+Se aplica el método de la esquina: la losa se divide en cuatro sub-rectángulos de
+$B'\times L'=1{,}80\times2{,}30$~m y el asiento en el centro se obtiene multiplicando
+por~4. Con $n=L'/B'=2{,}30/1{,}80=1{,}278$, $E_s=703{,}0$~Tn/m² y $\nu=0{,}25$:
+
+\paragraph{Factor de influencia $F_1$:}
 \begin{align*}
-  \phi_1 &= \frac{1}{\pi}\left[\ln\frac{1{,}623+1{,}278}{1{,}623-1{,}278}
-            + 1{,}278\ln\frac{2{,}623}{0{,}623}\right]
-          = \frac{1}{\pi}\left[\ln(8{,}41)+1{,}278\ln(4{,}21)\right]
-          = \frac{1}{\pi}\left[2{,}130+1{,}278\times1{,}437\right] \\
-         &= \frac{1}{\pi}\left[2{,}130+1{,}837\right]
-          = \frac{3{,}967}{\pi} = 1{,}263 \\
-  A      &= 1-0{,}25^2 = 0{,}9375
+  F_1 &= \frac{2}{\pi}\left[n\ln\!\left(\frac{\sqrt{n^2+1}+1}{n}\right)
+         + \ln\!\left(n+\sqrt{n^2+1}\right)\right]\\
+      &= \frac{2}{\pi}\left[1{,}278\times\ln(2{,}052) + \ln(2{,}900)\right]
+       = \frac{2}{\pi}\times1{,}984 = \resultado{1{,}263}
 \end{align*}
 
-Asiento en esquina:
+\paragraph{Asiento en esquina del sub-rectángulo:}
 \[
-  S_{\text{esq}} = \frac{6{,}16\times3{,}60}{2\times703{,}2}
-    \times(0{,}9375\times1{,}263)
-  = \frac{22{,}18}{1406{,}4}\times1{,}184
-  = 0{,}01578\times1{,}184 = 0{,}0187~\text{m}
+  S_\text{esq} = \frac{\sigma_\text{neta}\cdot B'}{2\,E_s}(1-\nu^2)\,F_1
+    = \frac{3{,}42\times1{,}80}{2\times703{,}0}\times0{,}9375\times1{,}263
+    = \resultado{0{,}518~\text{cm}}
 \]
 
-Asiento en el centro:
+\paragraph{Asiento en el centro:}
 \[
-  S_{\text{centro}} = 4\times S_{\text{esq}}
-    = 4\times0{,}0187 = \resultado{0{,}075~\text{m} = 7{,}5~\text{cm}}
+  S_i = 4\times S_\text{esq} = 4\times0{,}518 = \resultado{2{,}07~\text{cm}}
 \]
 
-\subsubsection{Profundidad de influencia}
+\subsubsection{Asiento de consolidación --- Estrato E-2}
 
-La carga se difunde a $30°$. El criterio
-$\Delta\sigma'_v/\sigma'_v \leq 0{,}10$--$0{,}20$ se verifica a una
-profundidad $z$ tal que el área cargada sea $(B+z)\times(L+z)$.
+La influencia se extiende hasta el Estrato~2 (arcillas versicolores).
+Profundidad al centro de E-2 desde el intradós de la losa:
+$z = 5{,}75 - 1{,}80 = 3{,}95$~m.
 
-\begin{align*}
-  \text{A }z=3{,}0~\text{m:}\quad
-    &\sigma'_v = \gamma_{\text{ap}}\times1{,}50 + \gamma_{\text{sum}}\times0{,}70
-               = 2{,}73 + 0{,}686 = 3{,}416~\text{Tn/m}^2 \\
-    &\Delta\sigma'_v = \frac{P}{(B+z)(L+z)}
-      = \frac{101{,}95}{(3{,}60+3{,}00)(4{,}60+3{,}00)}
-      = \frac{101{,}95}{6{,}60\times7{,}60} = \frac{101{,}95}{50{,}16}
-      = 2{,}03~\text{Tn/m}^2 \\
-    &\frac{\Delta\sigma'_v}{\sigma'_v} = \frac{2{,}03}{3{,}416} = 0{,}59
-      \quad \text{(aún significativo)}
-  \\[6pt]
-  \text{A }z=6{,}0~\text{m (est. 2):}\quad
-    &\sigma'_v \approx 4{,}55+0{,}98+0{,}78\times2{,}50 = 4{,}55+0{,}98+1{,}95
-      = 7{,}48~\text{Tn/m}^2 \\
-    &\Delta\sigma'_v = \frac{101{,}95}{(9{,}60)(10{,}60)}
-      = \frac{101{,}95}{101{,}76} = 1{,}00~\text{Tn/m}^2 \\
-    &\frac{\Delta\sigma'_v}{\sigma'_v} = \frac{1{,}00}{7{,}48} = 0{,}134
-      \quad \text{(en el límite)} \rightarrow z_{\inf} \approx 6~\text{m}
-\end{align*}
+Con $m=L'/z=2{,}30/3{,}95=0{,}582$ y $n=B'/z=1{,}80/3{,}95=0{,}456$
+se obtiene $I_B=0{,}0870$ (factor de Boussinesq):
 
-La influencia se extiende hasta $\sim$6~m, alcanzando ligeramente el
-estrato~2 (arcillas), que contribuye con un asiento de consolidación adicional.
-
-\subsubsection{Asiento de consolidación en arcillas (estrato~2)}
-
-El incremento de tensión a la profundidad media del estrato~2
-($z = 5{,}25$~m respecto a la cota de cimentación, cota absoluta
-$-6{,}75$~m) se estima:
 \[
-  \Delta\sigma'_v(z=5{,}25)
-    \approx \frac{101{,}95}{(3{,}60+5{,}25)(4{,}60+5{,}25)}
-    = \frac{101{,}95}{8{,}85\times9{,}85}
-    = \frac{101{,}95}{87{,}17} = 1{,}17~\text{Tn/m}^2
+  \Delta\sigma_z = \sigma_\text{neta}\times4\times I_B
+    = 3{,}42\times4\times0{,}0870 = 1{,}19~\text{Tn/m}^2
+\]
+\[
+  S_c = \frac{\Delta\sigma_z\cdot H_{E_2}}{E_{E_2}}
+      = \frac{1{,}19\times4{,}50}{1223{,}6} = \resultado{0{,}44~\text{cm}}
 \]
 
-Con $E_{ed,2} = 16\,154$~Tn/m² y $H_{\text{influencia}} \approx 2{,}0$~m del
-estrato~2 afectados:
-\[
-  s_{c,2} = \frac{\Delta\sigma'_v}{E_{ed,2}}\times H
-          = \frac{1{,}17}{16\,154}\times2{,}00 = 0{,}000145~\text{m}
-          \approx 0{,}15~\text{cm}
-\]
+donde $H_{E_2}=4{,}50$~m (de $-3{,}50$ a $-8{,}00$~m) y
+$E_{E_2}=12{,}000$~kPa~$=1223{,}6$~Tn/m².
 
-\subsubsection{Asiento total estimado}
+\subsubsection{Asiento total y verificación}
 
 \begin{equation}
-  s_{\text{total}} = s_i + s_{c,2}
-    = 7{,}5 + 0{,}15 \approx \resultado{7{,}7~\text{cm}}
+  S_\text{total} = S_i + S_c = 2{,}07 + 0{,}44
+    = \resultado{2{,}51~\text{cm} \leq 5{,}00~\text{cm} \quad \checkmark}
+  \label{eq:asiento_total_arqueta}
 \end{equation}
 
-\begin{notabox}[Valoración del asiento]
-  El asiento de $7{,}7$~cm supera el límite orientativo de $\approx 5$~cm
-  para estructuras de hormigón. Esto se debe a que el estrato~1a es una
-  arena limosa \emph{poco densa} con módulo reducido ($E=6{,}894$~MPa).
-  Para reducir el asiento existen dos opciones:
-  \begin{enumerate}
-    \item Profundizar la cimentación hasta el estrato~2
-          ($D_f \approx 3{,}50$~m, con $E_2=12$~MPa),
-          lo que implica atravesar el nivel freático y requiere
-          entibación y agotamiento.
-    \item Mantener $D_f=1{,}50$~m e incrementar la rigidez de la
-          losa para redistribuir tensiones, combinado con
-          seguimiento topográfico durante la puesta en carga.
-  \end{enumerate}
-  Se decide estudiar ambas opciones en la sección de cimentación
-  (\S\ref{sec:arqueta_cimentacion}).
+\begin{resultadobox}[Asientos --- Arqueta]
+  El asiento total estimado ($2{,}51$~cm) cumple holgadamente el límite
+  orientativo de $5{,}0$~cm para estructuras de hormigón.
+  La compensación del $49$\,\% sobre la carga bruta reduce a la mitad los
+  asientos respecto de un análisis sin descuento geostático.
+\end{resultadobox}
+
+% -----------------------------------------------------------
+\subsection{Alternativa de cimentación profunda --- Pilotes}
+\label{subsec:pilotes_arqueta}
+% -----------------------------------------------------------
+
+Aunque la cimentación superficial satisface todas las verificaciones, se
+analiza como alternativa la \textbf{cimentación por pilotes hormigonados
+in situ con lodos bentoníticos} (CPI-8, CTE DB SE-C sección~5.1.2), con punta
+empotrada en el Estrato~E-3.
+
+\subsubsection{Geometría del pilote adoptado}
+
+$D=0{,}40$~m, $L=10{,}0$~m, cabeza a rasante, punta a $-10{,}0$~m
+(empotramiento $2{,}0$~m en E-3, $>2D=0{,}80$~m \checkmark):
+\[
+  A_p = \pi D^2/4 = 0{,}1257~\text{m}^2;\quad
+  p   = \pi D = 1{,}257~\text{m}
+\]
+
+Tramos activos: E-2 ($-3{,}50$ a $-8{,}00$~m), $L_2=4{,}50$~m,
+$C_u=10$~Tn/m²; E-3 ($-8{,}00$ a $-10{,}00$~m), $L_3=2{,}00$~m,
+$C_u=15{,}2$~Tn/m². Se desprecia fuste en E-1 (arena).
+
+\subsubsection{Resistencia a corto plazo — no drenado}
+
+\paragraph{Punta:}
+\[
+  q_p = N_p\,C_{u,\text{punta}} = 9\times15{,}2 = 136{,}8~\text{Tn/m}^2
+\]
+
+\paragraph{Fuste} ($\tau_f = 100\,C_u/(100+C_u)$~kPa):
+\begin{align*}
+  \tau_{f,E_2} &= 50{,}0~\text{kPa} = 5{,}10~\text{Tn/m}^2\\
+  \tau_{f,E_3} &= 60{,}3~\text{kPa} = 6{,}15~\text{Tn/m}^2
+\end{align*}
+
+\paragraph{Resistencias características y de cálculo:}
+\begin{align*}
+  R_{pk}  &= 136{,}8\times0{,}1257 = 17{,}19~\text{Tn}\\
+  R_{fk}  &= 5{,}10\times1{,}257\times4{,}50 + 6{,}15\times1{,}257\times2{,}00
+           = 28{,}85+15{,}46 = 44{,}30~\text{Tn}\\
+  R_{ck}  &= 17{,}19+44{,}30 = \resultado{61{,}50~\text{Tn/pilote}}\\
+  R_{cd}  &= R_{ck}/\gamma_R = 61{,}50/3{,}0 = \resultado{20{,}50~\text{Tn/pilote}}
+\end{align*}
+($\gamma_R=3{,}0$ para pilotes perforados con lodos, Anejo~F.2 CTE.)
+Gobierna sobre el análisis a largo plazo ($R_{cd,LP}=36{,}10$~Tn/pilote).
+
+\subsubsection{Número de pilotes y verificación del grupo}
+
+\[
+  n_\text{mín} = \frac{W_\text{total}}{R_{cd}}
+    = \frac{110{,}94}{20{,}50} = 5{,}41
+    \;\Rightarrow\; \textbf{n=6~pilotes} \quad(2\times3~\text{en planta})
+\]
+
+Separaciones en encepado $4{,}60\times3{,}60$~m con recubrimiento $1{,}5D=0{,}60$~m:
+\[
+  \text{sep}_B = (3{,}60-1{,}20)/1 = 2{,}40~\text{m} > 3D=1{,}20~\text{m}\;\checkmark;\quad
+  \text{sep}_L = (4{,}60-1{,}20)/2 = 1{,}70~\text{m} > 3D\;\checkmark
+\]
+
+Sin efecto de grupo ($\eta=1{,}0$):
+\begin{align*}
+  FS_\text{grupo}    &= \frac{\eta\,n\,R_{ck}}{W_\text{total}}
+    = \frac{1{,}0\times6\times61{,}50}{110{,}94}
+    = \resultado{3{,}33 \geq 3{,}0 \quad \checkmark}\\
+  N_\text{pilote} &= 110{,}94/6 = 18{,}49~\text{Tn}
+    \leq R_{cd}=20{,}50~\text{Tn}\;\checkmark
+\end{align*}
+
+Asiento estimado del grupo (Vesic, $B_g=\text{sep}_B+D=2{,}80$~m):
+\[
+  S_g = \sqrt{B_g/D}\times S_{i,\text{pilote}}
+      = \sqrt{2{,}80/0{,}40}\times3{,}3~\text{mm}
+      \approx \mathbf{8{,}7~\text{mm}} < 25~\text{mm}\;\checkmark
+\]
+
+\subsubsection{Comparativa y descarte de la solución profunda}
+
+\begin{table}[H]
+  \centering
+  \caption{Comparativa cimentación superficial vs.\ profunda --- Arqueta}
+  \label{tab:comp_cimentacion_arqueta}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Criterio} & \textbf{Superficial} & \textbf{Profunda (pilotes)}\\
+    \midrule
+    $FS$ hundimiento          & 15,2 (drenado)     & 3,33 (grupo, ND)\\
+    Asiento total             & $\approx$25~mm      & $\approx$9~mm\\
+    Flotación                 & Sin riesgo          & Sin riesgo (anclaje)\\
+    Profundidad excavación    & 1,80~m              & 10,0~m (perforación)\\
+    Zona saturada atravesada  & No                  & Sí ($-2{,}50$ a $-10{,}0$~m)\\
+    Complejidad ejecución     & Baja                & Alta (lodos bentoníticos)\\
+    Afección al N.F.           & Nula                & Reducida\\
+    Coste relativo            & $1\times$ (ref.)    & $2{,}5$–$4\times$\\
+    Plazo de ejecución        & 2–3 semanas         & 4–6 semanas\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{notabox}[Decisión: cimentación superficial adoptada]
+  La alternativa de pilotes cumple técnicamente ($FS_\text{grupo}=3{,}33$,
+  $S_g=8{,}7$~mm), pero supone un sobrecoste de $2{,}5$–$4\times$ y mayor
+  plazo y complejidad sin que exista ninguna insuficiencia en la solución
+  superficial. Se descarta la cimentación profunda.
 \end{notabox}
 
 % -----------------------------------------------------------
-\subsection{Tipo de cimentación adoptado}
-\label{subsec:tipo_cim_arqueta}
+\subsection{Síntesis de verificaciones geotécnicas}
+\label{subsec:sintesis_geotecnia_arqueta}
 % -----------------------------------------------------------
 
-Del análisis anterior se concluye:
+\begin{table}[H]
+  \centering
+  \caption{Síntesis final de verificaciones geotécnicas --- Arqueta de fangos mezcla}
+  \label{tab:sintesis_geotecnia_arqueta}
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    \textbf{Verificación} & \textbf{Valor calculado} & \textbf{Límite} & \textbf{Resultado}\\
+    \midrule
+    $\sigma_\text{contacto}$ bruta & 6,70~Tn/m² & $<\sigma_\text{adm}$ & ---\\
+    $\sigma_\text{adm}$ drenada    & 33,92~Tn/m² & — & ---\\
+    \textbf{$FS$ hundimiento (drenado)} & \textbf{15,2} & $\geq3{,}0$ & \textbf{OK \checkmark}\\
+    $\sigma_\text{neta}$ & 3,42~Tn/m² & compensación 49\% & ---\\
+    \textbf{Asiento total estimado} & \textbf{25,1~mm} & $\leq50$~mm & \textbf{OK \checkmark}\\
+    \textbf{Flotación} (N.F.\ a $-2{,}50$~m) & \textbf{Sin subpresión} & — & \textbf{OK \checkmark}\\
+    Empuje activo por m.l. & 0,710~Tn/ml & — & dato estructural\\
+    Tipo de cimentación & Losa superficial & $D_f=1{,}80$~m, E-1a & ---\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-\begin{itemize}
-  \item La capacidad portante es adecuada en el estrato~1a
-        ($F_s = 14{,}8$) y excelente en el estrato~2 ($F_s \gg 3$).
-  \item El asiento en el estrato~1a ($7{,}7$~cm) supera ligeramente
-        el umbral admisible, pero puede ser aceptado si se adoptan
-        medidas constructivas.
-  \item La comprobación de flotación es satisfactoria en todos los
-        escenarios ($F_{s,\text{flot}} = 1{,}87$).
-\end{itemize}
-
-\begin{supuestobox}[Cimentación adoptada — Arqueta]
-  Se adopta \textbf{losa de cimentación} de hormigón armado HA-30/SR,
-  con las siguientes características:
-  \begin{itemize}
-    \item Dimensiones exteriores de la losa:
-          $4{,}60~\text{m} \times 3{,}60~\text{m}$
-    \item Canto de losa: $e = 0{,}30$~m
-    \item Cota de apoyo: $-1{,}80$~m (base de la losa en estrato~1a)
-    \item Impermeabilización: lámina HDPE de $e \geq 2$~mm bajo la
-          losa y en todo el perímetro exterior enterrado.
-  \end{itemize}
-  La losa de cimentación es la solución idónea dado que:
-  (1)~la carga es distribuida sobre toda la planta,
-  (2)~actúa también como elemento estructural de fondo contra la
-  presión hidrostática interior del fango, y
-  (3)~garantiza la estanqueidad frente a la zona medioambientalmente
-  protegida.
-\end{supuestobox}
+La cimentación superficial mediante losa HA-30/B/20/IIb+Qc, apoyada en
+E-1a a $D_f=1{,}80$~m, satisface holgadamente todas las verificaciones
+del CTE DB SE-C. Se descarta la alternativa de cimentación profunda por
+suponer un sobrecoste y sobreplazo no justificados técnicamente.
